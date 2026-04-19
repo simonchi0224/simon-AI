@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文章｜季祥 Simon · AI 實戰顧問</title>
+<meta name="description" content="季祥 Simon 的 AI 應用實戰文章，涵蓋業務、醫療、教育、小編等產業的真實案例與可直接使用的方法。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article-style.css">
+<style>
+.articles-hero { padding: 100px 5% 48px; background: var(--dark); }
+.articles-hero-inner { max-width: 1200px; margin: 0 auto; }
+.articles-hero .label { font-size: 0.72rem; font-weight: 800; color: rgba(34,211,238,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.articles-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
+.articles-hero p { font-size: 0.95rem; color: rgba(255,255,255,0.55); }
+.articles-main { max-width: 1200px; margin: 0 auto; padding: 48px 5% 80px; }
+.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.article-card {
+  border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex; flex-direction: column;
+}
+.article-card:hover { border-color: var(--cyan-dark); box-shadow: 0 4px 20px rgba(8,145,178,0.1); transform: translateY(-3px); }
+.card-tag { font-size: 0.7rem; font-weight: 800; color: var(--cyan-dark); background: rgba(8,145,178,0.08); padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 12px; }
+.article-card h2 { font-size: 1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin-bottom: 10px; flex: 1; }
+.card-excerpt { font-size: 0.83rem; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
+.card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.card-date { font-size: 0.75rem; color: #94a3b8; }
+.card-link { font-size: 0.82rem; font-weight: 700; color: var(--cyan-dark); transition: color 0.2s; }
+.card-link:hover { color: var(--cyan); }
+@media (max-width: 1024px) { .articles-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .articles-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services">服務</a></li>
+      <li><a href="../index.html#topics">主題</a></li>
+      <li><a href="index.html" style="color:var(--cyan)">文章</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">預約諮詢 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="articles-hero">
+  <div class="articles-hero-inner">
+    <div class="label">ARTICLES</div>
+    <h1>AI 實戰文章</h1>
+    <p>不談趨勢，只談方法。每篇都有可以今天就試的東西。</p>
+  </div>
+</div>
+
+<div class="articles-main">
+  <div class="articles-grid">
+
+    <a href="article-1.html" class="article-card">
+      <span class="card-tag">業務 / 金融 / 保險</span>
+      <h2>拜訪客戶前 10 分鐘：業務員用 AI 做準備的實戰方法</h2>
+      <p class="card-excerpt">成交率的差距，往往不在見面那一刻，而在見面之前。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月10日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-2.html" class="article-card">
+      <span class="card-tag">醫療 / 護理 / 行政</span>
+      <h2>病患進診間前已問過 AI：醫護人員該怎麼辦？</h2>
+      <p class="card-excerpt">這不是挑戰醫師的權威，是新的溝通現實。懂得應對，反而建立更強的信任。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年3月28日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-3.html" class="article-card">
+      <span class="card-tag">教育 / 中小學</span>
+      <h2>把出版社電子檔丟給 AI：老師 30 分鐘產出一週延伸教案</h2>
+      <p class="card-excerpt">老師的時間應該花在學生身上，不是花在複製貼上。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年3月14日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-4.html" class="article-card">
+      <span class="card-tag">教育 / 命題評量</span>
+      <h2>用 AI 出考卷不是偷懶，是把你的命題邏輯放大十倍</h2>
+      <p class="card-excerpt">如果一道題目學生可以直接請 AI 回答，那這道題本來就沒有測到有價值的能力。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年2月21日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-5.html" class="article-card">
+      <span class="card-tag">品牌 / 社群 / 文化局</span>
+      <h2>品牌小編的 AI 工作法：每篇都像你寫的，只是快十倍</h2>
+      <p class="card-excerpt">用 AI 寫出來都一個味，是因為你沒有給 AI 你的個性。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年2月7日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-6.html" class="article-card">
+      <span class="card-tag">AI 導入 / 企業管理</span>
+      <h2>AI 導入失敗的三個真實原因（不是技術問題）</h2>
+      <p class="card-excerpt">預算充足、工具也選對了，但最後沒人用。差別不在技術，在人和流程。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年1月17日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer class="article-footer">
+  <div class="footer-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <p>© 2026 季祥 Simon · AI 實戰顧問</p>
+  </div>
+</footer>
+</body></html>
