@@ -166,14 +166,13 @@ img { max-width: 100%; }
 .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .topic-card {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius); padding: 28px;
+  border-radius: var(--radius); padding: 36px 32px;
   transition: border-color 0.2s, background 0.2s;
 }
 .topic-card:hover { border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.05); }
-.topic-icon { font-size: 1.8rem; margin-bottom: 14px; }
-.topic-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
-.topic-card p { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 14px; }
-.topic-tag { font-size: 0.72rem; font-weight: 700; color: var(--cyan); background: rgba(34,211,238,0.1); padding: 3px 10px; border-radius: 4px; display: inline-block; }
+.topic-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.topic-card p { font-size: 0.93rem; color: rgba(255,255,255,0.72); line-height: 1.75; margin-bottom: 18px; }
+.topic-tag { font-size: 0.75rem; font-weight: 700; color: var(--cyan); background: rgba(34,211,238,0.1); padding: 4px 12px; border-radius: 4px; display: inline-block; }
 
 /* ===== CLIENTS ===== */
 .clients-section { background: #f8fafc; }
