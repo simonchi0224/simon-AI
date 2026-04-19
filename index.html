@@ -304,7 +304,7 @@
           通常在 <strong>2 個工作天</strong>內回覆。<br>來信請附上活動日期與預計人數，方便快速評估。
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/mvzdrnvk" method="POST">
         <div class="form-row">
           <input type="text" placeholder="您的姓名 *" required>
           <input type="text" placeholder="公司 / 單位名稱 *" required>
@@ -318,6 +318,8 @@
           <option>其他合作</option>
         </select>
         <textarea placeholder="活動說明、預計日期、人數等..." rows="4"></textarea>
+        <input type="hidden" name="_subject" value="【Simon AI 講師網站】新的諮詢詢問">
+        <input type="hidden" name="_language" value="zh">
         <button type="submit" class="btn-primary">送出詢問 →</button>
       </form>
     </div>
