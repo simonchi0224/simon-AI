@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simonchi0224.github.io/simon-AI/sitemap.xml
