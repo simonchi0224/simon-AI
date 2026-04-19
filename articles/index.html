@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文章｜季祥 Simon · AI 實戰顧問</title>
-<meta name="description" content="季祥 Simon 的 AI 應用實戰文章，涵蓋業務、醫療、教育、小編等產業的真實案例與可直接使用的方法。">
+<meta name="description" content="季祥 Simon 的 AI 應用實戰文章，涵蓋業務、醫療、教育、公部門等產業的真實案例與可直接使用的方法。">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../article-style.css">
 <style>
@@ -13,6 +13,15 @@
 .articles-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
 .articles-hero p { font-size: 0.95rem; color: rgba(255,255,255,0.55); }
 .articles-main { max-width: 1200px; margin: 0 auto; padding: 48px 5% 80px; }
+
+.ta-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+.ta-btn {
+  font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px;
+  border: 1.5px solid #e2e8f0; color: #64748b; cursor: pointer;
+  transition: all 0.2s; background: white;
+}
+.ta-btn:hover, .ta-btn.active { border-color: var(--cyan-dark); color: var(--cyan-dark); background: rgba(8,145,178,0.06); }
+
 .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .article-card {
   border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;
@@ -48,15 +57,37 @@
   <div class="articles-hero-inner">
     <div class="label">ARTICLES</div>
     <h1>AI 實戰文章</h1>
-    <p>不談趨勢，只談方法。每篇都有可以今天就試的東西。</p>
+    <p>不談趨勢，只談方法。每篇都針對一個具體的人，寫他們真正在面對的事。</p>
   </div>
 </div>
 
 <div class="articles-main">
+
+  <div class="ta-filter">
+    <span class="ta-btn">全部</span>
+    <span class="ta-btn">業務員</span>
+    <span class="ta-btn">醫療人員</span>
+    <span class="ta-btn">老師</span>
+    <span class="ta-btn">品牌小編</span>
+    <span class="ta-btn">公部門</span>
+    <span class="ta-btn">學生</span>
+    <span class="ta-btn">企業主</span>
+  </div>
+
   <div class="articles-grid">
 
+    <a href="article-7.html" class="article-card">
+      <span class="card-tag">公部門 / 承辦人</span>
+      <h2>公部門承辦人的 AI 省時術：計畫書、活動文案、公文摘要不用再從零開始</h2>
+      <p class="card-excerpt">手上同時壓著幾個計畫案，每件事都急、每件事都要格式正確。這幾個場景 AI 都能幫。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月3日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
     <a href="article-1.html" class="article-card">
-      <span class="card-tag">業務 / 金融 / 保險</span>
+      <span class="card-tag">業務員 / 金融 / 保險</span>
       <h2>拜訪客戶前 10 分鐘：業務員用 AI 做準備的實戰方法</h2>
       <p class="card-excerpt">成交率的差距，往往不在見面那一刻，而在見面之前。</p>
       <div class="card-meta">
@@ -66,7 +97,7 @@
     </a>
 
     <a href="article-2.html" class="article-card">
-      <span class="card-tag">醫療 / 護理 / 行政</span>
+      <span class="card-tag">醫療人員 / 護理 / 行政</span>
       <h2>病患進診間前已問過 AI：醫護人員該怎麼辦？</h2>
       <p class="card-excerpt">這不是挑戰醫師的權威，是新的溝通現實。懂得應對，反而建立更強的信任。</p>
       <div class="card-meta">
@@ -75,8 +106,18 @@
       </div>
     </a>
 
+    <a href="article-8.html" class="article-card">
+      <span class="card-tag">高中生 / 學習 / 升學</span>
+      <h2>高中生怎麼用 AI：不被老師說作弊，又真的讓你學得更好</h2>
+      <p class="card-excerpt">問題不是能不能用，是怎麼用。用對了是加速器，用錯了你什麼都沒學到。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年3月21日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
     <a href="article-3.html" class="article-card">
-      <span class="card-tag">教育 / 中小學</span>
+      <span class="card-tag">老師 / 教育 / 中小學</span>
       <h2>把出版社電子檔丟給 AI：老師 30 分鐘產出一週延伸教案</h2>
       <p class="card-excerpt">老師的時間應該花在學生身上，不是花在複製貼上。</p>
       <div class="card-meta">
@@ -86,9 +127,9 @@
     </a>
 
     <a href="article-4.html" class="article-card">
-      <span class="card-tag">教育 / 命題評量</span>
+      <span class="card-tag">老師 / 命題 / 評量</span>
       <h2>用 AI 出考卷不是偷懶，是把你的命題邏輯放大十倍</h2>
-      <p class="card-excerpt">如果一道題目學生可以直接請 AI 回答，那這道題本來就沒有測到有價值的能力。</p>
+      <p class="card-excerpt">如果一道題目學生可以直接讓 AI 回答，那這道題本來就沒有測到有價值的能力。</p>
       <div class="card-meta">
         <span class="card-date">2026年2月21日</span>
         <span class="card-link">閱讀 →</span>
@@ -96,7 +137,7 @@
     </a>
 
     <a href="article-5.html" class="article-card">
-      <span class="card-tag">品牌 / 社群 / 文化局</span>
+      <span class="card-tag">品牌小編 / 社群 / 文化局</span>
       <h2>品牌小編的 AI 工作法：每篇都像你寫的，只是快十倍</h2>
       <p class="card-excerpt">用 AI 寫出來都一個味，是因為你沒有給 AI 你的個性。</p>
       <div class="card-meta">
@@ -106,9 +147,9 @@
     </a>
 
     <a href="article-6.html" class="article-card">
-      <span class="card-tag">AI 導入 / 企業管理</span>
-      <h2>AI 導入失敗的三個真實原因（不是技術問題）</h2>
-      <p class="card-excerpt">預算充足、工具也選對了，但最後沒人用。差別不在技術，在人和流程。</p>
+      <span class="card-tag">企業主 / 中小企業</span>
+      <h2>老闆，你不需要 AI 策略報告，你需要一個今天下午就能試的東西</h2>
+      <p class="card-excerpt">參加完 AI 演講回來跟員工說「我們要導入 AI」，然後什麼都沒發生——這不是你的問題，是沒有人說清楚從哪裡開始。</p>
       <div class="card-meta">
         <span class="card-date">2026年1月17日</span>
         <span class="card-link">閱讀 →</span>
