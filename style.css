@@ -335,6 +335,7 @@ img { max-width: 100%; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--dark2); padding: 20px 5%; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .hamburger { display: flex; }
+  .hero { min-height: auto; padding: 88px 5% 48px; align-items: flex-start; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { display: none; }
   .stats-inner { justify-content: center; }
