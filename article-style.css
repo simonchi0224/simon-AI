@@ -26,7 +26,9 @@ a { text-decoration: none; color: inherit; }
 
 .article-wrap { max-width: 720px; margin: 0 auto; padding: 100px 5% 60px; }
 
-.article-header { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid #e2e8f0; }
+.article-header { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #e2e8f0; }
+.article-hero { margin-bottom: 40px; border-radius: 12px; overflow: hidden; }
+.article-hero img { width: 100%; display: block; aspect-ratio: 1200/630; object-fit: cover; }
 .article-tag {
   display: inline-block; font-size: 0.72rem; font-weight: 800;
   color: var(--cyan-dark); background: rgba(8,145,178,0.08);
