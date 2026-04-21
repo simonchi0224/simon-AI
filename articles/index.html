@@ -14,23 +14,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../article-style.css">
 <style>
+/* ── Hero ── */
 .articles-hero { padding: 100px 5% 48px; background: var(--dark); }
 .articles-hero-inner { max-width: 1200px; margin: 0 auto; }
 .articles-hero .label { font-size: 0.72rem; font-weight: 800; color: rgba(34,211,238,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
 .articles-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
 .articles-hero p { font-size: 0.95rem; color: rgba(255,255,255,0.55); }
+
 .articles-main { max-width: 1200px; margin: 0 auto; padding: 48px 5% 80px; }
 
-/* 編輯精選 */
+/* ── 編輯精選 ── */
 .editors-pick-section { margin-bottom: 56px; }
 .editors-pick-label {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 0.72rem; font-weight: 800; color: var(--cyan-dark);
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
 }
-.editors-pick-label::before {
-  content: '★'; font-size: 0.9rem; color: #f59e0b;
-}
+.editors-pick-label::before { content: '★'; font-size: 0.9rem; color: #f59e0b; }
 .editors-pick-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
 .pick-card-featured {
   border: 2px solid var(--cyan-dark); border-radius: 14px; padding: 32px;
@@ -40,21 +40,17 @@
 }
 .pick-card-featured::before {
   content: '編輯精選'; position: absolute; top: 16px; right: 16px;
-  font-size: 0.65rem; font-weight: 800; color: #ffffff;
-  background: var(--cyan-dark); padding: 3px 10px; border-radius: 999px;
-  letter-spacing: 1px;
+  font-size: 0.65rem; font-weight: 800; color: #fff;
+  background: var(--cyan-dark); padding: 3px 10px; border-radius: 999px; letter-spacing: 1px;
 }
 .pick-card-featured:hover { box-shadow: 0 8px 32px rgba(8,145,178,0.18); transform: translateY(-3px); }
 .pick-card-featured .card-tag { margin-bottom: 14px; }
 .pick-card-featured h2 { font-size: 1.22rem; font-weight: 900; color: #0f172a; line-height: 1.35; margin-bottom: 14px; flex: 1; }
 .pick-card-featured .card-excerpt { font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 20px; }
-
 .pick-card-side {
   border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 28px;
-  background: #fffbeb;
-  display: flex; flex-direction: column;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  position: relative;
+  background: #fffbeb; display: flex; flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; position: relative;
 }
 .pick-card-side::before {
   content: '精選'; position: absolute; top: 14px; right: 14px;
@@ -65,35 +61,74 @@
 .pick-card-side h2 { font-size: 1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin-bottom: 10px; flex: 1; }
 .pick-card-side .card-excerpt { font-size: 0.82rem; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
 
-.section-divider { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0 32px; }
-.section-title { font-size: 0.8rem; font-weight: 800; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.section-divider { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0 36px; }
 
-@media (max-width: 768px) { .editors-pick-grid { grid-template-columns: 1fr; } }
-
-.ta-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-.ta-btn {
-  font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px;
-  border: 1.5px solid #e2e8f0; color: #64748b; cursor: pointer;
-  transition: all 0.2s; background: white;
+/* ── 受眾選擇器 ── */
+.persona-section { margin-bottom: 40px; }
+.persona-heading {
+  font-size: 0.78rem; font-weight: 800; color: #94a3b8;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
 }
-.ta-btn:hover, .ta-btn.active { border-color: var(--cyan-dark); color: var(--cyan-dark); background: rgba(8,145,178,0.06); }
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.persona-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 18px 12px; border-radius: 14px;
+  border: 2px solid #e2e8f0; background: #fff;
+  cursor: pointer; transition: all 0.2s; text-align: center;
+}
+.persona-btn:hover {
+  border-color: var(--cyan-dark);
+  box-shadow: 0 4px 16px rgba(8,145,178,0.12);
+  transform: translateY(-2px);
+}
+.persona-btn.active {
+  border-color: var(--cyan-dark);
+  background: rgba(8,145,178,0.06);
+}
+.persona-icon { font-size: 1.8rem; line-height: 1; }
+.persona-label { font-size: 0.88rem; font-weight: 800; color: #0f172a; }
+.persona-count {
+  font-size: 0.7rem; font-weight: 700;
+  color: #94a3b8; background: #f1f5f9;
+  padding: 2px 8px; border-radius: 999px;
+}
+.persona-btn.active .persona-count {
+  background: rgba(8,145,178,0.12); color: var(--cyan-dark);
+}
 
-.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* ── 文章 Grid（2欄）── */
+.articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .article-card {
-  border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px;
+  border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; background: #fff;
 }
 .article-card:hover { border-color: var(--cyan-dark); box-shadow: 0 4px 20px rgba(8,145,178,0.1); transform: translateY(-3px); }
 .card-tag { font-size: 0.7rem; font-weight: 800; color: var(--cyan-dark); background: rgba(8,145,178,0.08); padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 12px; }
-.article-card h2 { font-size: 1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin-bottom: 10px; flex: 1; }
-.card-excerpt { font-size: 0.83rem; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
+.article-card h2 { font-size: 1.05rem; font-weight: 800; color: #0f172a; line-height: 1.45; margin-bottom: 10px; flex: 1; }
+.card-excerpt { font-size: 0.85rem; color: #64748b; line-height: 1.65; margin-bottom: 16px; }
 .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
 .card-date { font-size: 0.75rem; color: #94a3b8; }
 .card-link { font-size: 0.82rem; font-weight: 700; color: var(--cyan-dark); transition: color 0.2s; }
 .card-link:hover { color: var(--cyan); }
-@media (max-width: 1024px) { .articles-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 640px) { .articles-grid { grid-template-columns: 1fr; } }
+
+/* 空狀態 */
+.empty-state {
+  grid-column: 1 / -1; text-align: center; padding: 48px 0;
+  color: #94a3b8; font-size: 0.95rem; display: none;
+}
+
+/* RWD */
+@media (max-width: 900px) { .persona-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 640px) {
+  .persona-grid { grid-template-columns: repeat(2, 1fr); }
+  .articles-grid { grid-template-columns: 1fr; }
+  .editors-pick-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -123,7 +158,6 @@
   <div class="editors-pick-section">
     <div class="editors-pick-label">編輯精選 · Editor's Pick</div>
     <div class="editors-pick-grid">
-
       <a href="article-10.html" class="pick-card-featured" data-ta="企業主">
         <span class="card-tag">企業主 / AI 趨勢 / 研討會觀察</span>
         <h2>微軟、Google、IBM 都在講 AI Agent——我來翻譯他們沒說清楚的部分</h2>
@@ -133,7 +167,6 @@
           <span class="card-link">閱讀 →</span>
         </div>
       </a>
-
       <a href="article-9.html" class="pick-card-side" data-ta="企業主">
         <span class="card-tag">企業主 / AI Agent / 組織轉型</span>
         <h2>你的員工要開始管理 AI 同事了——這不是比喻</h2>
@@ -143,197 +176,191 @@
           <span class="card-link">閱讀 →</span>
         </div>
       </a>
-
     </div>
   </div>
 
   <hr class="section-divider">
-  <div class="section-title">所有文章</div>
 
-  <div class="ta-filter">
-    <span class="ta-btn active">全部</span>
-    <span class="ta-btn">業務員</span>
-    <span class="ta-btn">醫療人員</span>
-    <span class="ta-btn">老師</span>
-    <span class="ta-btn">品牌小編</span>
-    <span class="ta-btn">公部門</span>
-    <span class="ta-btn">學生</span>
-    <span class="ta-btn">企業主</span>
+  <!-- 受眾選擇器 -->
+  <div class="persona-section">
+    <div class="persona-heading">你是哪一種讀者？</div>
+    <div class="persona-grid">
+      <div class="persona-btn active" data-filter="全部">
+        <span class="persona-icon">📖</span>
+        <span class="persona-label">全部文章</span>
+        <span class="persona-count">15 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="企業主">
+        <span class="persona-icon">💼</span>
+        <span class="persona-label">企業主 / 老闆</span>
+        <span class="persona-count">8 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="老師">
+        <span class="persona-icon">📚</span>
+        <span class="persona-label">老師 / 教育者</span>
+        <span class="persona-count">2 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="業務員">
+        <span class="persona-icon">🤝</span>
+        <span class="persona-label">業務員</span>
+        <span class="persona-count">1 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="醫療人員">
+        <span class="persona-icon">🏥</span>
+        <span class="persona-label">醫療人員</span>
+        <span class="persona-count">1 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="品牌小編">
+        <span class="persona-icon">✏️</span>
+        <span class="persona-label">品牌小編</span>
+        <span class="persona-count">1 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="公部門">
+        <span class="persona-icon">🏛️</span>
+        <span class="persona-label">公部門</span>
+        <span class="persona-count">1 篇</span>
+      </div>
+      <div class="persona-btn" data-filter="學生">
+        <span class="persona-icon">🎓</span>
+        <span class="persona-label">學生</span>
+        <span class="persona-count">1 篇</span>
+      </div>
+    </div>
   </div>
 
-  <div class="articles-grid">
+  <!-- 文章列表 -->
+  <div class="articles-grid" id="articles-grid">
 
     <a href="article-10.html" class="article-card" data-ta="企業主">
       <span class="card-tag">企業主 / AI 趨勢 / 研討會觀察</span>
       <h2>微軟、Google、IBM 都在講 AI Agent——我來翻譯他們沒說清楚的部分</h2>
       <p class="card-excerpt">三大科技巨頭同台講 AI Agent，角度各不相同。一個 AI 顧問整場聽下來，覺得最重要的一件事其實沒人說清楚。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-9.html" class="article-card" data-ta="企業主">
       <span class="card-tag">企業主 / AI Agent / 組織轉型</span>
       <h2>你的員工要開始管理 AI 同事了——這不是比喻</h2>
       <p class="card-excerpt">從 Copilot 到 Agent，AI 不再只是助理。企業主要理解的不只是工具變了，而是你的員工角色也正在改變。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-7.html" class="article-card" data-ta="公部門">
-      <span class="card-tag">公部門 / 承辦人</span>
-      <h2>公部門承辦人的 AI 省時術：計畫書、活動文案、公文摘要不用再從零開始</h2>
-      <p class="card-excerpt">手上同時壓著幾個計畫案，每件事都急、每件事都要格式正確。這幾個場景 AI 都能幫。</p>
-      <div class="card-meta">
-        <span class="card-date">2025年11月12日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-1.html" class="article-card" data-ta="業務員">
-      <span class="card-tag">業務員 / 金融 / 保險</span>
-      <h2>拜訪客戶前 10 分鐘：業務員用 AI 做準備的實戰方法</h2>
-      <p class="card-excerpt">成交率的差距，往往不在見面那一刻，而在見面之前。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月15日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-2.html" class="article-card" data-ta="醫療人員">
-      <span class="card-tag">醫療人員 / 護理 / 行政</span>
-      <h2>病患進診間前已問過 AI：醫護人員該怎麼辦？</h2>
-      <p class="card-excerpt">這不是挑戰醫師的權威，是新的溝通現實。懂得應對，反而建立更強的信任。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年3月18日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-8.html" class="article-card" data-ta="學生">
-      <span class="card-tag">高中生 / 學習 / 升學</span>
-      <h2>高中生怎麼用 AI：不被老師說作弊，又真的讓你學得更好</h2>
-      <p class="card-excerpt">問題不是能不能用，是怎麼用。用對了是加速器，用錯了你什麼都沒學到。</p>
-      <div class="card-meta">
-        <span class="card-date">2025年9月17日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-3.html" class="article-card" data-ta="老師">
-      <span class="card-tag">老師 / 教育 / NotebookLM</span>
-      <h2>用 NotebookLM 備課：把出版社 PDF 變成你的私人教材助理</h2>
-      <p class="card-excerpt">上傳課本 PDF，直接問它出考題、做差異化補充——它只根據你的教材回答，不會亂發揮。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月1日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-4.html" class="article-card" data-ta="老師">
-      <span class="card-tag">老師 / 命題 / 評量</span>
-      <h2>用 AI 出考卷不是偷懶，是把你的命題邏輯放大十倍</h2>
-      <p class="card-excerpt">如果一道題目學生可以直接讓 AI 回答，那這道題本來就沒有測到有價值的能力。</p>
-      <div class="card-meta">
-        <span class="card-date">2025年8月6日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-5.html" class="article-card" data-ta="品牌小編">
-      <span class="card-tag">品牌小編 / 社群 / 文化局</span>
-      <h2>品牌小編的 AI 工作法：每篇都像你寫的，只是快十倍</h2>
-      <p class="card-excerpt">用 AI 寫出來都一個味，是因為你沒有給 AI 你的個性。</p>
-      <div class="card-meta">
-        <span class="card-date">2025年10月1日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
-    </a>
-
-    <a href="article-6.html" class="article-card" data-ta="企業主">
-      <span class="card-tag">企業主 / 中小企業</span>
-      <h2>老闆，你不需要 AI 策略報告，你需要一個今天下午就能試的東西</h2>
-      <p class="card-excerpt">參加完 AI 演講回來跟員工說「我們要導入 AI」，然後什麼都沒發生——這不是你的問題，是沒有人說清楚從哪裡開始。</p>
-      <div class="card-meta">
-        <span class="card-date">2025年7月9日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-11.html" class="article-card" data-ta="企業主">
       <span class="card-tag">企業主 / AI 導入 / 實戰觀察</span>
       <h2>為什麼你的 AI 試驗一直上不了線？</h2>
       <p class="card-excerpt">全球超過 90% 的 AI PoC 從未真正上線。卡關不是技術問題，是企業沒準備好的四件事。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-12.html" class="article-card" data-ta="企業主">
       <span class="card-tag">企業主 / 台灣 AI / 競爭力</span>
       <h2>台灣人做 AI 有一個外國公司複製不了的優勢</h2>
       <p class="card-excerpt">全球 AI 競賽裡，台灣的優勢不是算力也不是資金，而是在地語言與文化的深度理解。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-13.html" class="article-card" data-ta="企業主">
       <span class="card-tag">企業主 / AI 成本 / 趨勢分析</span>
       <h2>AI 成本正在崩潰——這對你的生意是好事</h2>
       <p class="card-excerpt">三年前用 AI 要花的錢，現在只要花 6%。這個趨勢對台灣中小企業意味著什麼？</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-14.html" class="article-card" data-ta="企業主">
       <span class="card-tag">AI 趨勢 / 台灣 / 政策觀察</span>
       <h2>台灣在建一件大事：你不知道但應該知道的國家級 AI 算力布局</h2>
       <p class="card-excerpt">晶片台灣做，AI 算力台灣自己用。Sovereign AI、國網中心——台灣的基礎建設正在改變遊戲規則。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
 
     <a href="article-15.html" class="article-card" data-ta="企業主">
       <span class="card-tag">AI 時代 / 工作意義 / 深度思考</span>
       <h2>AI 能幫你完成一切——除了真正重要的那件事</h2>
       <p class="card-excerpt">效率工具能讓你做更多，但做更多不等於活得更好。在 AI 時代，最稀缺的能力是知道自己要什麼。</p>
-      <div class="card-meta">
-        <span class="card-date">2026年4月20日</span>
-        <span class="card-link">閱讀 →</span>
-      </div>
+      <div class="card-meta"><span class="card-date">2026年4月20日</span><span class="card-link">閱讀 →</span></div>
     </a>
+
+    <a href="article-6.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / 中小企業</span>
+      <h2>老闆，你不需要 AI 策略報告，你需要一個今天下午就能試的東西</h2>
+      <p class="card-excerpt">參加完 AI 演講回來跟員工說「我們要導入 AI」，然後什麼都沒發生——這不是你的問題，是沒有人說清楚從哪裡開始。</p>
+      <div class="card-meta"><span class="card-date">2025年7月9日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-3.html" class="article-card" data-ta="老師">
+      <span class="card-tag">老師 / 教育 / NotebookLM</span>
+      <h2>用 NotebookLM 備課：把出版社 PDF 變成你的私人教材助理</h2>
+      <p class="card-excerpt">上傳課本 PDF，直接問它出考題、做差異化補充——它只根據你的教材回答，不會亂發揮。</p>
+      <div class="card-meta"><span class="card-date">2026年4月1日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-4.html" class="article-card" data-ta="老師">
+      <span class="card-tag">老師 / 命題 / 評量</span>
+      <h2>用 AI 出考卷不是偷懶，是把你的命題邏輯放大十倍</h2>
+      <p class="card-excerpt">如果一道題目學生可以直接讓 AI 回答，那這道題本來就沒有測到有價值的能力。</p>
+      <div class="card-meta"><span class="card-date">2025年8月6日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-1.html" class="article-card" data-ta="業務員">
+      <span class="card-tag">業務員 / 金融 / 保險</span>
+      <h2>拜訪客戶前 10 分鐘：業務員用 AI 做準備的實戰方法</h2>
+      <p class="card-excerpt">成交率的差距，往往不在見面那一刻，而在見面之前。</p>
+      <div class="card-meta"><span class="card-date">2026年4月15日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-2.html" class="article-card" data-ta="醫療人員">
+      <span class="card-tag">醫療人員 / 護理 / 行政</span>
+      <h2>病患進診間前已問過 AI：醫護人員該怎麼辦？</h2>
+      <p class="card-excerpt">這不是挑戰醫師的權威，是新的溝通現實。懂得應對，反而建立更強的信任。</p>
+      <div class="card-meta"><span class="card-date">2026年3月18日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-5.html" class="article-card" data-ta="品牌小編">
+      <span class="card-tag">品牌小編 / 社群 / 文化局</span>
+      <h2>品牌小編的 AI 工作法：每篇都像你寫的，只是快十倍</h2>
+      <p class="card-excerpt">用 AI 寫出來都一個味，是因為你沒有給 AI 你的個性。</p>
+      <div class="card-meta"><span class="card-date">2025年10月1日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-7.html" class="article-card" data-ta="公部門">
+      <span class="card-tag">公部門 / 承辦人</span>
+      <h2>公部門承辦人的 AI 省時術：計畫書、活動文案、公文摘要不用再從零開始</h2>
+      <p class="card-excerpt">手上同時壓著幾個計畫案，每件事都急、每件事都要格式正確。這幾個場景 AI 都能幫。</p>
+      <div class="card-meta"><span class="card-date">2025年11月12日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-8.html" class="article-card" data-ta="學生">
+      <span class="card-tag">高中生 / 學習 / 升學</span>
+      <h2>高中生怎麼用 AI：不被老師說作弊，又真的讓你學得更好</h2>
+      <p class="card-excerpt">問題不是能不能用，是怎麼用。用對了是加速器，用錯了你什麼都沒學到。</p>
+      <div class="card-meta"><span class="card-date">2025年9月17日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <div class="empty-state" id="empty-state">這個類別目前沒有文章，更多內容陸續新增中。</div>
 
   </div>
 </div>
 
 <script>
-const btns = document.querySelectorAll('.ta-btn');
+const personas = document.querySelectorAll('.persona-btn');
 const cards = document.querySelectorAll('.article-card');
+const emptyState = document.getElementById('empty-state');
 
-btns.forEach(btn => {
+personas.forEach(btn => {
   btn.addEventListener('click', function() {
-    btns.forEach(b => b.classList.remove('active'));
+    personas.forEach(b => b.classList.remove('active'));
     this.classList.add('active');
 
-    const filter = this.textContent.trim();
+    const filter = this.dataset.filter;
+    let visible = 0;
 
     cards.forEach(card => {
-      if (filter === '全部' || card.dataset.ta === filter) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+      const show = filter === '全部' || card.dataset.ta === filter;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
     });
+
+    emptyState.style.display = visible === 0 ? 'block' : 'none';
   });
 });
 </script>
