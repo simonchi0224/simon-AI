@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>為什麼你的 AI 試驗一直上不了線？｜季祥 Simon</title>
+<meta name="description" content="企業做 AI PoC 很容易，但真正上線的不到一成。一個 AI 顧問的觀察：卡關不是技術問題，是你沒準備好的四件事。">
+<link rel="canonical" href="https://simon-chi.com/articles/article-11.html">
+<meta property="og:title" content="為什麼你的 AI 試驗一直上不了線？｜季祥 Simon">
+<meta property="og:description" content="企業做 AI PoC 很容易，但真正上線的不到一成。一個 AI 顧問的觀察：卡關不是技術問題，是你沒準備好的四件事。">
+<meta property="og:url" content="https://simon-chi.com/articles/article-11.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"為什麼你的 AI 試驗一直上不了線？","description":"企業做 AI PoC 很容易，但真正上線的不到一成。卡關不是技術問題，是你沒準備好的四件事。","author":{"@type":"Person","name":"季祥 Simon Chi","url":"https://simon-chi.com/"},"datePublished":"2026-04-20","publisher":{"@type":"Person","name":"季祥 Simon Chi"},"url":"https://simon-chi.com/articles/article-11.html","inLanguage":"zh-TW","keywords":["AI導入","PoC","AI Agent","企業AI","數位轉型","中小企業"]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article-style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services">服務</a></li>
+      <li><a href="../index.html#topics">主題</a></li>
+      <li><a href="index.html">文章</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">預約諮詢 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-header">
+    <div class="article-tag">企業主 / AI 導入 / 實戰觀察</div>
+    <h1>為什麼你的 AI 試驗一直上不了線？</h1>
+    <div class="article-meta">
+      <span class="article-author">Simon Chi 季祥</span>
+      <span class="article-date">2026年4月20日</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p class="lead">有一個數字讓很多企業主聽了會很有感：全球超過 90% 的 AI 概念驗證（PoC）專案，從來沒有真正上線過。不是因為技術失敗，而是因為卡在中間某個環節，再也沒有推進。</p>
+
+    <p>我在輔導企業 AI 導入的過程裡，這個現象幾乎每個月都能看到。老闆興沖沖做了一個試驗，結果很好看，然後呢？然後就沒有然後了。</p>
+
+    <p>這篇文章想說清楚：那個「然後」為什麼沒有發生，以及你可以做什麼。</p>
+
+    <h2>PoC 和「上線」之間，隔著一道看不見的牆</h2>
+
+    <p>做 AI 試驗很簡單。給一個模型一些範例資料，讓它跑一跑，截圖給老闆看。準確率 85%，老闆說「不錯嘛！」會議室裡氣氛很好。</p>
+
+    <p>但從那個截圖到讓真正的員工在真正的業務流程裡每天用它，中間要過四道關：</p>
+
+    <ul>
+      <li><strong>資料整備</strong>：試驗時用的資料是精心挑選的，上線要處理的是雜、髒、缺欄位的真實資料。</li>
+      <li><strong>系統整合</strong>：AI 要接到你的 ERP、CRM、或任何現有系統，不是複製貼上，是要寫 API、打通流程。</li>
+      <li><strong>使用者接受度</strong>：員工不願意改變習慣，或者不信任 AI 的輸出，再好的系統也是空轉。</li>
+      <li><strong>維運與監控</strong>：上線之後 AI 說錯話怎麼辦？模型過期了誰負責更新？沒人想過這些。</li>
+    </ul>
+
+    <p>每一道關都是真實的障礙，而不是「之後再說」就會自動解決的問題。</p>
+
+    <h2>AI 成熟度：你的企業在哪個階段？</h2>
+
+    <p>我觀察到台灣企業導入 AI 大致可以分成四個層次，層次不同，卡關的地方也不同：</p>
+
+    <h3>追隨者（Follow）</h3>
+    <p>跟著市場走，看別人用什麼就用什麼。通常停在工具層——有訂 Copilot、有裝外掛，但沒有真正改變工作方式。卡關原因：沒有明確的使用場景，員工用了幾次就放棄。</p>
+
+    <h3>輔助者（Assist）</h3>
+    <p>開始用 AI 處理特定任務，有一兩個成功案例。這個階段的陷阱是「孤島化」——某個部門自己在用，但沒有擴散到整個組織。卡關原因：AI 的效益沒有被量化，老闆不知道要不要繼續投資。</p>
+
+    <h3>協作者（Collaborate）</h3>
+    <p>AI 真正融入工作流程，員工把 AI 當作工作夥伴而不是工具。這個階段需要流程重設計，不只是「把舊流程加上 AI」，而是重新思考流程應該長什麼樣子。</p>
+
+    <h3>先驅者（Pioneer）</h3>
+    <p>AI Agent 主動跑業務流程，人類負責設定方向和品質把關。台灣目前只有極少數大型企業在這個層次，但它正在快速靠近。</p>
+
+    <p>你的公司現在在哪裡？大多數台灣中小企業誠實說，還在追隨者和輔助者之間徘徊。</p>
+
+    <h2>Agent 上線，最難的不是技術</h2>
+
+    <p>近一年我看到最多企業卡關的地方，是在 AI Agent 的部署上。Agent 和一般 AI 工具不同，它要在真實環境裡自主行動——代你寄信、查資料、呼叫系統、做決策。</p>
+
+    <p>這帶來三個真實的挑戰：</p>
+
+    <p><strong>記憶問題</strong>：一個跑了三個月的 Agent，它記得三個月前那個客戶說過什麼嗎？大多數 Agent 沒有持久記憶，每次對話都從頭開始。這在企業場景裡是硬傷。</p>
+
+    <p><strong>觀測問題</strong>：Agent 做了什麼，你看得到嗎？它為什麼做出那個決定？如果出錯了，能不能回溯？現在大多數企業的 AI 系統是一個黑盒子。</p>
+
+    <p><strong>身份與授權問題</strong>：Agent 代表誰在行動？它有沒有被授權存取某個資料庫？這些都是技術問題，但本質上是管理問題。</p>
+
+    <p>解決這些問題需要的不是更厲害的模型，而是企業本身在流程和治理上的準備。</p>
+
+    <h2>從試驗到上線：最實用的一個心態轉換</h2>
+
+    <p>很多企業主把 AI 試驗當成「測試 AI 好不好用」，但這個問法本身就錯了。</p>
+
+    <p>正確的問法是：<strong>「這個業務流程，準備好被 AI 跑了嗎？」</strong></p>
+
+    <p>差別在哪裡？前者是在評估技術，後者是在評估你的組織。技術已經夠好了，問題幾乎從來不是 AI 不夠強，而是企業的資料、流程和文化沒有準備好讓 AI 進來。</p>
+
+    <div class="prompt-box">
+      <div class="prompt-label">✦ 自我評估：你的流程 AI-Ready 嗎？</div>
+      <p>問自己這四個問題：<br><br>
+      1. 這個流程的每個步驟，我能用文字完整描述嗎？<br>
+      2. 這個流程需要的資料，現在存在哪裡？格式一致嗎？<br>
+      3. 這個流程的「做對了」是什麼樣子？有明確的驗收標準嗎？<br>
+      4. 如果 AI 做錯了，誰負責發現？誰負責修正？<br><br>
+      四個問題都能回答的流程，才是你 AI Agent 的起點。</p>
+    </div>
+
+    <h2>給想推進但一直卡住的你</h2>
+
+    <p>如果你做了 PoC 但沒有繼續往前，我的建議不是「找更好的技術方案」，而是先做一件事：</p>
+
+    <p>找到那個流程裡第一個卡住的點，把它當成一個組織問題去解決，而不是技術問題。</p>
+
+    <p>是因為資料散落在各處？那要先建立資料整理的機制。是因為員工不信任 AI？那要先做一輪示範和培訓。是因為沒有人負責 AI 的維運？那要先指定一個人扛這件事。</p>
+
+    <p>AI 專案失敗的原因裡，技術只佔一小部分。剩下的，都是你今天就可以開始解決的組織問題。</p>
+
+    <div class="article-cta">
+      <p>想找出你的 AI 試驗卡在哪一關，然後真正推進上線？</p>
+      <a href="../index.html#contact">預約顧問諮詢 →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="article-footer">
+  <div class="footer-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <p>© 2026 季祥 Simon · AI 實戰顧問</p>
+  </div>
+</footer>
+</body></html>

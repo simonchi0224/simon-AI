@@ -21,6 +21,55 @@
 .articles-hero p { font-size: 0.95rem; color: rgba(255,255,255,0.55); }
 .articles-main { max-width: 1200px; margin: 0 auto; padding: 48px 5% 80px; }
 
+/* 編輯精選 */
+.editors-pick-section { margin-bottom: 56px; }
+.editors-pick-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 800; color: var(--cyan-dark);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+}
+.editors-pick-label::before {
+  content: '★'; font-size: 0.9rem; color: #f59e0b;
+}
+.editors-pick-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+.pick-card-featured {
+  border: 2px solid var(--cyan-dark); border-radius: 14px; padding: 32px;
+  background: linear-gradient(135deg, #f0f9ff, #ffffff);
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pick-card-featured::before {
+  content: '編輯精選'; position: absolute; top: 16px; right: 16px;
+  font-size: 0.65rem; font-weight: 800; color: #ffffff;
+  background: var(--cyan-dark); padding: 3px 10px; border-radius: 999px;
+  letter-spacing: 1px;
+}
+.pick-card-featured:hover { box-shadow: 0 8px 32px rgba(8,145,178,0.18); transform: translateY(-3px); }
+.pick-card-featured .card-tag { margin-bottom: 14px; }
+.pick-card-featured h2 { font-size: 1.22rem; font-weight: 900; color: #0f172a; line-height: 1.35; margin-bottom: 14px; flex: 1; }
+.pick-card-featured .card-excerpt { font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 20px; }
+
+.pick-card-side {
+  border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 28px;
+  background: #fffbeb;
+  display: flex; flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.pick-card-side::before {
+  content: '精選'; position: absolute; top: 14px; right: 14px;
+  font-size: 0.65rem; font-weight: 800; color: #92400e;
+  background: #fef3c7; padding: 2px 8px; border-radius: 999px;
+}
+.pick-card-side:hover { border-color: #f59e0b; box-shadow: 0 4px 20px rgba(245,158,11,0.15); transform: translateY(-3px); }
+.pick-card-side h2 { font-size: 1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin-bottom: 10px; flex: 1; }
+.pick-card-side .card-excerpt { font-size: 0.82rem; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
+
+.section-divider { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0 32px; }
+.section-title { font-size: 0.8rem; font-weight: 800; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+
+@media (max-width: 768px) { .editors-pick-grid { grid-template-columns: 1fr; } }
+
 .ta-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
 .ta-btn {
   font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px;
@@ -70,6 +119,37 @@
 
 <div class="articles-main">
 
+  <!-- 編輯精選 -->
+  <div class="editors-pick-section">
+    <div class="editors-pick-label">編輯精選 · Editor's Pick</div>
+    <div class="editors-pick-grid">
+
+      <a href="article-10.html" class="pick-card-featured" data-ta="企業主">
+        <span class="card-tag">企業主 / AI 趨勢 / 研討會觀察</span>
+        <h2>微軟、Google、IBM 都在講 AI Agent——我來翻譯他們沒說清楚的部分</h2>
+        <p class="card-excerpt">三大科技巨頭在同一個研討會場合講 AI Agent，說法角度各不相同。一個 AI 顧問的觀察：他們的共同前提，才是台灣企業主最需要先搞懂的事。</p>
+        <div class="card-meta">
+          <span class="card-date">2026年4月20日</span>
+          <span class="card-link">閱讀 →</span>
+        </div>
+      </a>
+
+      <a href="article-9.html" class="pick-card-side" data-ta="企業主">
+        <span class="card-tag">企業主 / AI Agent / 組織轉型</span>
+        <h2>你的員工要開始管理 AI 同事了——這不是比喻</h2>
+        <p class="card-excerpt">AI Agent 不是更聰明的工具，是一個真的能幫你跑流程、做決定的數位夥伴。82% 的企業領導者預計明年就要上。</p>
+        <div class="card-meta">
+          <span class="card-date">2026年4月20日</span>
+          <span class="card-link">閱讀 →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="section-divider">
+  <div class="section-title">所有文章</div>
+
   <div class="ta-filter">
     <span class="ta-btn active">全部</span>
     <span class="ta-btn">業務員</span>
@@ -82,6 +162,26 @@
   </div>
 
   <div class="articles-grid">
+
+    <a href="article-10.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / AI 趨勢 / 研討會觀察</span>
+      <h2>微軟、Google、IBM 都在講 AI Agent——我來翻譯他們沒說清楚的部分</h2>
+      <p class="card-excerpt">三大科技巨頭同台講 AI Agent，角度各不相同。一個 AI 顧問整場聽下來，覺得最重要的一件事其實沒人說清楚。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-9.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / AI Agent / 組織轉型</span>
+      <h2>你的員工要開始管理 AI 同事了——這不是比喻</h2>
+      <p class="card-excerpt">從 Copilot 到 Agent，AI 不再只是助理。企業主要理解的不只是工具變了，而是你的員工角色也正在改變。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
 
     <a href="article-7.html" class="article-card" data-ta="公部門">
       <span class="card-tag">公部門 / 承辦人</span>
@@ -159,6 +259,56 @@
       <p class="card-excerpt">參加完 AI 演講回來跟員工說「我們要導入 AI」，然後什麼都沒發生——這不是你的問題，是沒有人說清楚從哪裡開始。</p>
       <div class="card-meta">
         <span class="card-date">2025年7月9日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-11.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / AI 導入 / 實戰觀察</span>
+      <h2>為什麼你的 AI 試驗一直上不了線？</h2>
+      <p class="card-excerpt">全球超過 90% 的 AI PoC 從未真正上線。卡關不是技術問題，是企業沒準備好的四件事。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-12.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / 台灣 AI / 競爭力</span>
+      <h2>台灣人做 AI 有一個外國公司複製不了的優勢</h2>
+      <p class="card-excerpt">全球 AI 競賽裡，台灣的優勢不是算力也不是資金，而是在地語言與文化的深度理解。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-13.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">企業主 / AI 成本 / 趨勢分析</span>
+      <h2>AI 成本正在崩潰——這對你的生意是好事</h2>
+      <p class="card-excerpt">三年前用 AI 要花的錢，現在只要花 6%。這個趨勢對台灣中小企業意味著什麼？</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-14.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">AI 趨勢 / 台灣 / 政策觀察</span>
+      <h2>台灣在建一件大事：你不知道但應該知道的國家級 AI 算力布局</h2>
+      <p class="card-excerpt">晶片台灣做，AI 算力台灣自己用。Sovereign AI、國網中心——台灣的基礎建設正在改變遊戲規則。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
+        <span class="card-link">閱讀 →</span>
+      </div>
+    </a>
+
+    <a href="article-15.html" class="article-card" data-ta="企業主">
+      <span class="card-tag">AI 時代 / 工作意義 / 深度思考</span>
+      <h2>AI 能幫你完成一切——除了真正重要的那件事</h2>
+      <p class="card-excerpt">效率工具能讓你做更多，但做更多不等於活得更好。在 AI 時代，最稀缺的能力是知道自己要什麼。</p>
+      <div class="card-meta">
+        <span class="card-date">2026年4月20日</span>
         <span class="card-link">閱讀 →</span>
       </div>
     </a>
