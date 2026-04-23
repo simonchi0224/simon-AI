@@ -42,6 +42,7 @@ a { text-decoration: none; color: inherit; }
 .article-meta { display: flex; align-items: center; gap: 16px; }
 .article-author { font-size: 0.85rem; font-weight: 700; color: #475569; }
 .article-date { font-size: 0.82rem; color: #94a3b8; }
+.article-read-time { font-size: 0.78rem; color: #94a3b8; background: #f1f5f9; padding: 2px 8px; border-radius: 20px; }
 
 .article-body { font-size: 1rem; color: #334155; }
 .article-body p { margin-bottom: 20px; }
