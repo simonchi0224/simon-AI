@@ -68,6 +68,43 @@ a { text-decoration: none; color: inherit; }
 .prompt-label { font-size: 0.72rem; font-weight: 800; color: var(--cyan-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 .prompt-box p { font-size: 0.88rem; color: #475569; margin: 0; line-height: 1.7; }
 
+/* Claude UI Mockup */
+.claude-ui {
+  background: #1e1e2e; border-radius: 14px; overflow: hidden;
+  margin: 32px 0; box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border: 1px solid #2e2e42;
+}
+.claude-ui-bar {
+  background: #16162a; padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid #2e2e42;
+}
+.claude-ui-dots { display: flex; gap: 5px; }
+.claude-ui-dots span { width: 10px; height: 10px; border-radius: 50%; background: #3e3e5a; }
+.claude-ui-name { font-size: 0.72rem; color: #6e6e8a; margin-left: 8px; font-weight: 600; letter-spacing: 0.5px; }
+.claude-ui-body { padding: 20px 20px 16px; }
+.claude-ui-user {
+  display: flex; justify-content: flex-end; margin-bottom: 16px;
+}
+.claude-ui-user p {
+  background: #2d2d4e; color: #c8c8e8; border-radius: 16px 16px 4px 16px;
+  padding: 10px 16px; font-size: 0.85rem; line-height: 1.6; max-width: 85%; margin: 0;
+}
+.claude-ui-assistant { display: flex; gap: 10px; align-items: flex-start; }
+.claude-ui-avatar {
+  width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #c8956c, #e8a87c);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; margin-top: 2px;
+}
+.claude-ui-assistant p {
+  color: #d0d0e8; font-size: 0.85rem; line-height: 1.7; margin: 0;
+  background: #252538; border-radius: 4px 16px 16px 16px; padding: 10px 16px;
+}
+.claude-ui-assistant strong { color: #a8c8f8; }
+.claude-ui-caption {
+  text-align: center; font-size: 0.72rem; color: #4e4e6a;
+  padding: 8px 16px 12px; border-top: 1px solid #2e2e42;
+}
+
 .article-cta {
   background: linear-gradient(135deg, var(--dark), #0f172a);
   border-radius: var(--radius); padding: 28px 32px;
