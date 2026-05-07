@@ -2,11 +2,11 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>免費資源：10 個企業主立刻能用的 AI Prompt｜季祥 Simon</title>
-<meta name="description" content="不用技術背景，下載即用。10 個針對台灣企業主設計的 AI Prompt，涵蓋催款、客訴、面談、會議、招募等真實場景。">
+<title>免費資源：20 個企業主立刻能用的 AI Prompt｜季祥 Simon</title>
+<meta name="description" content="不用技術背景，複製即用。20 個針對台灣企業主設計的 AI Prompt，按場景分類：策略規劃、會議溝通、業務銷售、人資管理、行銷社群、財務法務、客戶服務。">
 <link rel="canonical" href="https://simon-chi.com/free-resource.html">
-<meta property="og:title" content="免費資源：10 個企業主立刻能用的 AI Prompt｜季祥 Simon">
-<meta property="og:description" content="不用技術背景，下載即用。10 個針對台灣企業主設計的 AI Prompt。">
+<meta property="og:title" content="免費資源：20 個企業主立刻能用的 AI Prompt｜季祥 Simon">
+<meta property="og:description" content="不用技術背景，複製即用。20 個針對台灣企業主設計的 AI Prompt，按場景分類。">
 <meta property="og:url" content="https://simon-chi.com/free-resource.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
@@ -55,7 +55,7 @@
   }
   .resource-hero .includes {
     display: flex;
-    gap: 24px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 36px;
@@ -63,10 +63,13 @@
   .resource-hero .includes span {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
+    gap: 5px;
+    font-size: 0.85rem;
     color: var(--ink-2, #6e6e73);
     font-weight: 600;
+    background: var(--bg-2, #f5f5f7);
+    padding: 5px 14px;
+    border-radius: 99px;
   }
   .resource-hero .includes span::before {
     content: "✓";
@@ -74,6 +77,7 @@
     font-weight: 900;
   }
 
+  /* ── Category filter ── */
   .prompts-section {
     max-width: 820px;
     margin: 0 auto;
@@ -85,47 +89,102 @@
     color: var(--ink-2, #6e6e73);
     text-transform: uppercase;
     letter-spacing: .1em;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     text-align: center;
   }
 
+  .cat-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .cat-btn {
+    padding: 7px 16px;
+    border-radius: 99px;
+    border: 1.5px solid var(--border, #e5e7eb);
+    background: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink-2, #6e6e73);
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .cat-btn:hover {
+    border-color: var(--orange, #F97316);
+    color: var(--orange, #F97316);
+  }
+  .cat-btn.active {
+    background: var(--orange, #F97316);
+    border-color: var(--orange, #F97316);
+    color: #fff;
+  }
+
+  /* ── Section label ── */
+  .cat-section-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--ink-3, #86868b);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 36px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cat-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border, #e5e7eb);
+  }
+  .cat-section-label.hidden { display: none; }
+
+  /* ── Prompt items ── */
   .prompt-item {
     border: 1px solid var(--border, #e5e7eb);
     border-radius: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     overflow: hidden;
     background: #fff;
+    transition: border-color .15s;
   }
+  .prompt-item:hover { border-color: #d1d5db; }
+  .prompt-item.hidden { display: none; }
+
   .prompt-header {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 20px 24px;
+    padding: 18px 22px;
     cursor: pointer;
     user-select: none;
   }
   .prompt-num {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: var(--orange, #F97316);
     color: white;
     font-weight: 900;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
   .prompt-header h3 {
-    font-size: 1rem;
+    font-size: 0.97rem;
     font-weight: 700;
     color: var(--ink, #1d1d1f);
     margin: 0;
     flex: 1;
+    line-height: 1.4;
   }
   .prompt-tag {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--ink-3, #86868b);
     background: var(--bg-2, #f5f5f7);
     padding: 3px 10px;
@@ -144,7 +203,7 @@
   .prompt-body {
     display: none;
     border-top: 1px solid var(--border, #e5e7eb);
-    padding: 20px 24px 24px;
+    padding: 18px 22px 22px;
   }
   .prompt-item.open .prompt-body { display: block; }
 
@@ -158,8 +217,8 @@
     background: var(--bg-2, #f5f5f7);
     border-radius: 10px;
     padding: 16px 18px;
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 0.88rem;
+    line-height: 1.8;
     color: var(--ink, #1d1d1f);
     white-space: pre-wrap;
     word-break: break-word;
@@ -173,7 +232,7 @@
     border: 1px solid var(--border, #e5e7eb);
     border-radius: 6px;
     padding: 4px 10px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--ink-2, #6e6e73);
     cursor: pointer;
@@ -196,9 +255,8 @@
     border-radius: 20px;
     padding: 48px 40px;
     text-align: center;
-    margin: 60px 5% 80px;
     max-width: 820px;
-    margin-inline: auto;
+    margin: 0 auto 80px;
   }
   .resource-cta h2 {
     color: white;
@@ -224,6 +282,11 @@
     transition: opacity .15s;
   }
   .resource-cta a:hover { opacity: .85; }
+
+  @media (max-width: 600px) {
+    .prompt-tag { display: none; }
+    .resource-cta { padding: 36px 24px; }
+  }
 </style>
 </head>
 <body>
@@ -242,96 +305,113 @@
 </nav>
 
 <div class="resource-hero">
-  <div class="badge">完全免費 · 立即使用</div>
-  <h1>10 個企業主<span>立刻能用</span>的 AI Prompt</h1>
-  <p>不用技術背景，不用買付費工具。複製貼上，今天就能用。每一個都針對台灣企業主的真實場景設計。</p>
+  <div class="badge">完全免費 · 複製即用</div>
+  <h1>20 個企業主<span>立刻能用</span>的 AI Prompt</h1>
+  <p>不用技術背景，不用付費工具。每一個都針對台灣企業主的真實場景設計，複製貼入 ChatGPT 或 Claude，填入 [ ] 就能用。</p>
   <div class="includes">
-    <span>催款信</span>
-    <span>客訴處理</span>
-    <span>員工面談</span>
-    <span>會議紀要</span>
-    <span>招募文案</span>
-    <span>更多 5 個</span>
+    <span>策略規劃</span>
+    <span>會議溝通</span>
+    <span>業務銷售</span>
+    <span>人資管理</span>
+    <span>行銷社群</span>
+    <span>財務法務</span>
+    <span>客戶服務</span>
   </div>
-  <a href="index.html#contact" class="btn-primary">想要更多？預約顧問諮詢 →</a>
+  <a href="index.html#contact" class="btn-primary">想要客製化版本？預約諮詢 →</a>
 </div>
 
 <div class="prompts-section">
-  <h2>10 個即用 Prompt — 點開複製</h2>
+  <h2>選擇你現在需要的場景</h2>
 
-  <!-- 1 -->
-  <div class="prompt-item open">
+  <div class="cat-filter">
+    <button class="cat-btn active" data-cat="全部">全部 20 個</button>
+    <button class="cat-btn" data-cat="策略規劃">🎯 策略規劃</button>
+    <button class="cat-btn" data-cat="會議溝通">💬 會議溝通</button>
+    <button class="cat-btn" data-cat="業務銷售">🤝 業務銷售</button>
+    <button class="cat-btn" data-cat="人資管理">👥 人資管理</button>
+    <button class="cat-btn" data-cat="行銷社群">📱 行銷社群</button>
+    <button class="cat-btn" data-cat="財務法務">📊 財務法務</button>
+    <button class="cat-btn" data-cat="客戶服務">🌟 客戶服務</button>
+  </div>
+
+  <!-- ══ 策略規劃 ══ -->
+  <div class="cat-section-label" data-section="策略規劃">策略規劃</div>
+
+  <div class="prompt-item" data-category="策略規劃">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">1</div>
-      <h3>催款信（符合台灣商業文化）</h3>
-      <span class="prompt-tag">財務 / 客戶關係</span>
+      <h3>商業計劃分析（找出最脆弱的那一段）</h3>
+      <span class="prompt-tag">策略 / 創業</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
-      <div class="prompt-context">款項逾期，但又不想搞壞關係。這是最難拿捏的情境之一。</div>
-      <div class="prompt-box-inner" id="p1">你是一位有經驗的台灣業務主管。請幫我寫一封催款信，對象是[公司名稱或稱謂]，合作金額[金額]，已逾期[天數]天。
+      <div class="prompt-context">有構想或計劃書，但不確定哪裡不夠 solid，或不知道別人會從哪裡質疑你。</div>
+      <div class="prompt-box-inner" id="p1">以下是我的商業計劃（或商業構想描述）：
 
-語氣要求：
-- 有禮貌，不讓對方失面子
-- 讓對方知道我們記得這件事
-- 留退路給對方主動說明原因
-- 符合台灣商業文化，不要西方式直白
+[貼入你的商業計劃書、提案、或一段描述]
 
-請同時提供一個較強硬版本（適合逾期超過60天使用）。<button class="copy-btn" onclick="copyPrompt('p1', this)">複製</button></div>
-      <div class="prompt-tip">貼入 ChatGPT 或 Claude 後，把 [ ] 換成實際資訊即可。</div>
+請幫我分析：
+1. 這個商業模式的核心假設是什麼（找出最需要驗證的3個）
+2. 收入來源和成本結構是否合理，哪裡最有風險
+3. 跟現有競爭者相比，差異化是否夠清楚
+4. 如果我要說服投資人或銀行，最薄弱的地方在哪裡
+5. 你建議我在執行前先確認哪3件事<button class="copy-btn" onclick="copyPrompt('p1', this)">複製</button></div>
+      <div class="prompt-tip">把你的計劃書直接貼進去，AI 的挑剔程度比大多數顧問都直接。</div>
     </div>
   </div>
 
-  <!-- 2 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="策略規劃">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">2</div>
-      <h3>客訴回覆（化解情緒、保住關係）</h3>
-      <span class="prompt-tag">客服 / 危機處理</span>
+      <h3>SWOT 快速分析</h3>
+      <span class="prompt-tag">策略 / 決策</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
-      <div class="prompt-context">收到客訴的第一封回信很關鍵——說錯一句可能讓事情變大。</div>
-      <div class="prompt-box-inner" id="p2">你是一位台灣中小企業的客服主管。客戶剛傳來一則投訴：「[貼上客戶的原始抱怨文字]」
+      <div class="prompt-context">做重要決策前先搞清楚自己的位置，不要靠直覺亂走。</div>
+      <div class="prompt-box-inner" id="p2">我的公司/業務：[描述你做什麼]
+產業：[產業別]
+規模：[員工人數、年營業額]
+目前面臨的決策或挑戰：[描述]
 
-請幫我寫一封回覆，要求：
-1. 先表達理解與歉意（不承認法律責任，只是同理）
-2. 說明我們會如何處理
-3. 給對方一個明確的後續聯繫管道
-4. 語氣誠懇，不過度道歉也不防禦性
+請幫我做一個 SWOT 分析：
+S（優勢）：我們比競爭者強在哪裡
+W（劣勢）：哪些地方是我們的短板
+O（機會）：外部環境有哪些可以利用的趨勢
+T（威脅）：哪些外部因素可能傷害我們
 
-字數控制在150字以內。<button class="copy-btn" onclick="copyPrompt('p2', this)">複製</button></div>
-      <div class="prompt-tip">把 [ ] 換成客戶的原始訊息，AI 就能寫出有針對性的回覆。</div>
+每項列3-5點，最後用一段話說明根據這個SWOT，我最應該優先做什麼。<button class="copy-btn" onclick="copyPrompt('p2', this)">複製</button></div>
+      <div class="prompt-tip">把公司的實際數字填進去，分析就會精準很多。</div>
     </div>
   </div>
 
-  <!-- 3 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="策略規劃">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">3</div>
-      <h3>員工績效面談準備</h3>
-      <span class="prompt-tag">人資 / 管理</span>
+      <h3>競爭對手分析（找到可以切入的缺口）</h3>
+      <span class="prompt-tag">策略 / 市場</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
-      <div class="prompt-context">很多主管在面談前沒有準備，結果說不清楚、員工也不服氣。</div>
-      <div class="prompt-box-inner" id="p3">我即將與一位員工進行績效面談。以下是背景資訊：
+      <div class="prompt-context">想快速搞清楚競爭對手在做什麼，以及自己應該往哪個方向走。</div>
+      <div class="prompt-box-inner" id="p3">我要分析的競爭對手：[公司名稱，或貼入他們的官網/社群內容]
+我的公司做的事：[一段話描述]
+我們目前的差異化定位：[如果有的話]
 
-員工職位：[職位]
-觀察到的問題：[列舉2-3個具體問題，例如：出勤不穩定、客訴率偏高]
-該員工的優點：[列舉1-2個]
-我希望達成的目標：[例如：下季改善、轉職、還是資遣評估]
-
-請幫我：
-1. 設計面談開場白（不讓員工立刻防禦）
-2. 列出3個關鍵問題（讓員工自己說出問題所在）
-3. 提醒我面談中要避免的3個常見錯誤<button class="copy-btn" onclick="copyPrompt('p3', this)">複製</button></div>
-      <div class="prompt-tip">填入具體資訊越詳細，AI 給的面談策略就越貼近你的實際情況。</div>
+請幫我分析競爭對手：
+1. 他們的主要目標客群是誰
+2. 他們的定價策略和市場定位
+3. 他們的行銷方式（從公開資料推測）
+4. 明顯優勢，以及可以利用的弱點
+5. 如果我要搶他們的客戶，最有效的切入點是什麼<button class="copy-btn" onclick="copyPrompt('p3', this)">複製</button></div>
+      <div class="prompt-tip">把競爭對手的官網「關於我們」頁面整段貼進去，分析會更準確。</div>
     </div>
   </div>
 
-  <!-- 4 -->
-  <div class="prompt-item">
+  <!-- ══ 會議溝通 ══ -->
+  <div class="cat-section-label" data-section="會議溝通">會議溝通</div>
+
+  <div class="prompt-item" data-category="會議溝通">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">4</div>
       <h3>會議紀要 → 行動清單</h3>
@@ -339,8 +419,8 @@
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
-      <div class="prompt-context">開完會沒人知道下一步是什麼，這是大多數組織最大的浪費。</div>
-      <div class="prompt-box-inner" id="p4">以下是我們剛開完的會議內容（逐字稿或筆記）：
+      <div class="prompt-context">開完會沒人知道下一步是什麼，是大多數組織最大的浪費。</div>
+      <div class="prompt-box-inner" id="p4">以下是剛開完的會議內容（逐字稿或筆記）：
 
 [貼入會議記錄或錄音轉寫文字]
 
@@ -351,68 +431,244 @@
 4. 下次會議建議討論的項目
 
 格式用表格呈現行動清單，其餘用條列式。<button class="copy-btn" onclick="copyPrompt('p4', this)">複製</button></div>
-      <div class="prompt-tip">可以直接把 Zoom 或 Teams 的錄音轉文字後貼入，效果非常好。</div>
+      <div class="prompt-tip">可以把 Zoom 或 Teams 的錄音轉文字後直接貼入，效果非常好。</div>
     </div>
   </div>
 
-  <!-- 5 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="會議溝通">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">5</div>
-      <h3>招募文案（吸引對的人）</h3>
-      <span class="prompt-tag">人資 / 品牌</span>
+      <h3>內部公告（重要決策的溝通）</h3>
+      <span class="prompt-tag">管理 / 內部溝通</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
-      <div class="prompt-context">千篇一律的 JD 只會吸引到千篇一律的應徵者。</div>
-      <div class="prompt-box-inner" id="p5">我要招募一位[職位名稱]，以下是這個職位的實際情況：
+      <div class="prompt-context">制度改變、人事異動、壞消息——說法不對，謠言就來了。</div>
+      <div class="prompt-box-inner" id="p5">我需要向員工宣達一個重要決定：[描述決定內容]
 
-公司規模：[人數、產業]
-這個人每天主要做什麼：[描述日常工作]
-理想人選的特質：[不是學歷，是特質，例如：不怕打電話、能自己找答案]
-我們給得到的好處：[薪資範圍、彈性、成長空間]
-我們給不了的：[誠實說，例如：沒有大公司光環、不適合想穩穩待著的人]
+背景：[為什麼做這個決定]
+可能引發的疑慮：[員工最可能擔心什麼]
+我希望員工做什麼：[例如：接受、配合、提問]
 
-請寫出一篇 104 風格的職缺說明，以及一篇適合 Facebook/Instagram 發文的招募貼文版本。<button class="copy-btn" onclick="copyPrompt('p5', this)">複製</button></div>
-      <div class="prompt-tip">誠實說出你給不了什麼，反而能篩掉不合適的人，省掉面試時間。</div>
+請幫我寫一封內部公告，要求：
+1. 開門見山說明決定（不要繞）
+2. 解釋原因（真實，不是企業話術）
+3. 預先回應最常見的3個疑慮
+4. 清楚說明下一步和時間表
+5. 留一個讓員工提問的管道<button class="copy-btn" onclick="copyPrompt('p5', this)">複製</button></div>
+      <div class="prompt-tip">主管最常犯的錯：把決定包裝得太好聽，反而讓員工覺得有事情沒說清楚。</div>
     </div>
   </div>
 
-  <!-- 6 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="會議溝通">
     <div class="prompt-header" onclick="togglePrompt(this)">
       <div class="prompt-num">6</div>
+      <h3>Email 專業回覆（難回的信）</h3>
+      <span class="prompt-tag">溝通 / 書信</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">收到措辭複雜或情緒化的信，不知道怎麼回才不會讓事情變大。</div>
+      <div class="prompt-box-inner" id="p6">我收到以下這封 Email：
+
+[貼入原始信件內容]
+
+我的立場是：[說明你的意圖，例如：我想拒絕但不想傷感情 / 我想要求延期但不想顯得沒效率 / 我想澄清誤會]
+
+請幫我寫一封回信：
+- 語氣專業，不冷漠也不過度道歉
+- 直接表達我的立場
+- 留下後續合作的空間
+- 繁體中文，符合台灣商業書信習慣
+- 100-150字以內<button class="copy-btn" onclick="copyPrompt('p6', this)">複製</button></div>
+      <div class="prompt-tip">把原始信件的全文貼入，AI 才能根據對方的語氣調整回應方式。</div>
+    </div>
+  </div>
+
+  <!-- ══ 業務銷售 ══ -->
+  <div class="cat-section-label" data-section="業務銷售">業務銷售</div>
+
+  <div class="prompt-item" data-category="業務銷售">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">7</div>
+      <h3>催款信（符合台灣商業文化）</h3>
+      <span class="prompt-tag">財務 / 客戶關係</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">款項逾期，但又不想搞壞關係。這是最難拿捏的情境之一。</div>
+      <div class="prompt-box-inner" id="p7">你是一位有經驗的台灣業務主管。請幫我寫一封催款信，對象是[公司名稱或稱謂]，合作金額[金額]，已逾期[天數]天。
+
+語氣要求：
+- 有禮貌，不讓對方失面子
+- 讓對方知道我們記得這件事
+- 留退路給對方主動說明原因
+- 符合台灣商業文化，不要西方式直白
+
+請同時提供一個較強硬版本（適合逾期超過60天使用）。<button class="copy-btn" onclick="copyPrompt('p7', this)">複製</button></div>
+      <div class="prompt-tip">貼入 ChatGPT 或 Claude 後，把 [ ] 換成實際資訊即可。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="業務銷售">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">8</div>
       <h3>業務拜訪前準備（10 分鐘研究）</h3>
       <span class="prompt-tag">業務 / 銷售</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
       <div class="prompt-context">成交率的差距，往往發生在見面之前。</div>
-      <div class="prompt-box-inner" id="p6">我明天要拜訪[公司名稱]，對方窗口是[職稱/姓名]。
+      <div class="prompt-box-inner" id="p8">我明天要拜訪[公司名稱]，對方窗口是[職稱/姓名]。
 
-我知道的背景資訊：[貼入你找到的任何資料：官網、新聞、LinkedIn 等]
+我知道的背景資訊：[貼入任何找到的資料：官網、新聞、LinkedIn 等]
 
 請幫我分析：
 1. 這家公司目前可能面對的2-3個業務痛點
 2. 他們近期的動態（如果有的話）
 3. 我應該主動問的3個開場問題（讓對方多說話）
-4. 我應該避免踩的地雷（例如：競爭對手、敏感話題）
-5. 一句話說明「為什麼我的服務對他們有用」<button class="copy-btn" onclick="copyPrompt('p6', this)">複製</button></div>
-      <div class="prompt-tip">把公司官網的「關於我們」頁面整段貼進去，效果會更精準。</div>
+4. 應該避免踩的地雷（例如：競爭對手、敏感話題）
+5. 一句話說明「為什麼我的服務對他們有用」<button class="copy-btn" onclick="copyPrompt('p8', this)">複製</button></div>
+      <div class="prompt-tip">把公司官網的「關於我們」頁面整段貼進去，效果更精準。</div>
     </div>
   </div>
 
-  <!-- 7 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="業務銷售">
     <div class="prompt-header" onclick="togglePrompt(this)">
-      <div class="prompt-num">7</div>
+      <div class="prompt-num">9</div>
+      <h3>提案書框架（說服力最大化）</h3>
+      <span class="prompt-tag">業務 / 提案</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">要向客戶提案，但不確定怎麼組織內容才最有說服力，或提案老是沒有下文。</div>
+      <div class="prompt-box-inner" id="p9">我要向[客戶類型/產業]提案，我們提供的服務/產品是：[描述]
+客戶的主要痛點（我猜測的）：[列舉]
+我的差異化優勢：[列舉]
+客戶預算範圍：[如果知道的話]
+
+請幫我設計一份提案書的結構框架，包含：
+1. 建議的章節順序和各章重點
+2. 每個章節應該回答的核心問題
+3. 開場最有說服力的切入方式（不要從「我們公司介紹」開始）
+4. 常見的提案錯誤，以及這個案子特別要注意的地方<button class="copy-btn" onclick="copyPrompt('p9', this)">複製</button></div>
+      <div class="prompt-tip">提案最大的錯誤是從自己出發，好的提案從客戶的問題出發。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="業務銷售">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">10</div>
+      <h3>陌生開發信（讓對方想回你）</h3>
+      <span class="prompt-tag">業務 / 開發</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">開發陌生客戶，第一封信不到10秒就決定對方要不要繼續讀。</div>
+      <div class="prompt-box-inner" id="p10">我要聯繫一個陌生潛在客戶，背景如下：
+目標客戶：[職稱/公司規模/產業]
+我提供的服務/產品：[一句話說清楚]
+對他們最可能有用的原因：[推測他們的痛點]
+聯繫管道：[Email / LinkedIn / 簡訊]
+
+請幫我寫一封開發信：
+- 不超過150字
+- 第一句話就要讓對方想繼續讀（不要從自我介紹開始）
+- 結尾有一個明確但低門檻的行動（例如：10分鐘通話，不是「合作意向」）
+- 語氣自然，不要像群發<button class="copy-btn" onclick="copyPrompt('p10', this)">複製</button></div>
+      <div class="prompt-tip">開發信越短越好。超過200字，對方通常看不完。</div>
+    </div>
+  </div>
+
+  <!-- ══ 人資管理 ══ -->
+  <div class="cat-section-label" data-section="人資管理">人資管理</div>
+
+  <div class="prompt-item" data-category="人資管理">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">11</div>
+      <h3>員工績效面談準備</h3>
+      <span class="prompt-tag">人資 / 管理</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">很多主管在面談前沒有準備，結果說不清楚、員工也不服氣。</div>
+      <div class="prompt-box-inner" id="p11">我即將與一位員工進行績效面談，背景如下：
+
+員工職位：[職位]
+觀察到的問題：[列舉2-3個具體問題，例如：出勤不穩定、客訴率偏高]
+該員工的優點：[列舉1-2個]
+我希望達成的目標：[例如：下季改善、轉職、還是資遣評估]
+
+請幫我：
+1. 設計面談開場白（不讓員工立刻防禦）
+2. 列出3個關鍵問題（讓員工自己說出問題所在）
+3. 提醒我面談中要避免的3個常見錯誤<button class="copy-btn" onclick="copyPrompt('p11', this)">複製</button></div>
+      <div class="prompt-tip">填入越具體的觀察，AI 給的面談策略就越貼近你的實際情況。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="人資管理">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">12</div>
+      <h3>招募文案（吸引對的人）</h3>
+      <span class="prompt-tag">人資 / 品牌</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">千篇一律的 JD 只會吸引到千篇一律的應徵者。</div>
+      <div class="prompt-box-inner" id="p12">我要招募一位[職位名稱]，以下是這個職位的實際情況：
+
+公司規模：[人數、產業]
+這個人每天主要做什麼：[描述日常工作，要具體]
+理想人選的特質：[不是學歷，是特質，例如：不怕打電話、能自己找答案]
+我們給得到的好處：[薪資範圍、彈性、成長空間]
+我們給不了的：[誠實說，例如：沒有大公司光環、不適合想穩穩待著的人]
+
+請寫出：
+1. 104 風格的職缺說明
+2. 適合 Facebook/Instagram 發文的招募貼文版本<button class="copy-btn" onclick="copyPrompt('p12', this)">複製</button></div>
+      <div class="prompt-tip">誠實說出你給不了什麼，反而能篩掉不合適的人，省掉面試時間。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="人資管理">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">13</div>
+      <h3>員工教育訓練計劃</h3>
+      <span class="prompt-tag">人資 / 培訓</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">新人到職或現有員工需要補強技能，但不知道怎麼設計有效的訓練流程。</div>
+      <div class="prompt-box-inner" id="p13">我要為以下對象設計教育訓練計劃：
+
+員工職位：[職位]
+訓練目的：[例如：新人快速上手 / 現有員工補強某技能 / 升遷前培訓]
+目前能力落差：[描述他們現在哪裡不足]
+可用時間：[幾週、每週幾小時]
+可用資源：[內部師傅、外部課程、自學]
+
+請幫我設計：
+1. 分階段的學習目標（第1週、第2-4週、第一個月後）
+2. 每個階段的具體訓練方式和評估方法
+3. 常見的訓練失敗原因，以及如何避免<button class="copy-btn" onclick="copyPrompt('p13', this)">複製</button></div>
+      <div class="prompt-tip">把「能力落差」描述得越具體，計劃就越實用。</div>
+    </div>
+  </div>
+
+  <!-- ══ 行銷社群 ══ -->
+  <div class="cat-section-label" data-section="行銷社群">行銷社群</div>
+
+  <div class="prompt-item" data-category="行銷社群">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">14</div>
       <h3>品牌社群貼文（有個性，不像 AI 寫的）</h3>
       <span class="prompt-tag">行銷 / 社群</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
       <div class="prompt-context">AI 寫的貼文都一個味，是因為沒有給它你的個性。</div>
-      <div class="prompt-box-inner" id="p7">以下是我的品牌風格設定：
+      <div class="prompt-box-inner" id="p14">以下是我的品牌風格設定：
 品牌名稱：[名稱]
 語氣風格：[例如：親切但專業、有點幽默、直接不廢話]
 不要出現的詞：[例如：卓越、賦能、創新]
@@ -423,22 +679,70 @@
 
 請寫出：
 1. Facebook 長文版（400-600字，有個人觀點）
-2. Instagram 短文版（150字以內 + 5個hashtag）<button class="copy-btn" onclick="copyPrompt('p7', this)">複製</button></div>
+2. Instagram 短文版（150字以內 + 5個hashtag）<button class="copy-btn" onclick="copyPrompt('p14', this)">複製</button></div>
       <div class="prompt-tip">把這個「風格設定」存起來，每次發文前貼入，AI 寫出來就會越來越像你。</div>
     </div>
   </div>
 
-  <!-- 8 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="行銷社群">
     <div class="prompt-header" onclick="togglePrompt(this)">
-      <div class="prompt-num">8</div>
-      <h3>供應商詢價比較（讓 AI 幫你分析報價）</h3>
+      <div class="prompt-num">15</div>
+      <h3>廣告文案（Facebook / Google）</h3>
+      <span class="prompt-tag">行銷 / 廣告</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">要下廣告但不會寫文案，或廣告跑了沒有點擊率。</div>
+      <div class="prompt-box-inner" id="p15">我要推廣：[產品/服務名稱及簡述]
+目標受眾：[年齡、職業、主要痛點]
+他們現在的替代方案：[競爭者或他們現在怎麼解決這個問題]
+我最想強調的差異：[一個重點就好]
+
+請幫我寫：
+1. Facebook 貼文廣告（標題 + 內文100字 + 行動呼籲）
+2. Google 搜尋廣告標題（三組，各不超過30字）
+3. Google 廣告描述（兩組，各不超過90字）
+4. 一個最有吸引力的廣告鉤子（讓人想停下來看的第一句話）<button class="copy-btn" onclick="copyPrompt('p15', this)">複製</button></div>
+      <div class="prompt-tip">廣告文案的核心：解決客戶的問題，不是介紹你的產品。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="行銷社群">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">16</div>
+      <h3>產品 / 服務說明文字（官網用）</h3>
+      <span class="prompt-tag">行銷 / 文案</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">網站上的服務描述寫得太平淡，沒有吸引力，訪客看一眼就走了。</div>
+      <div class="prompt-box-inner" id="p16">我的產品/服務：[描述]
+目標客戶：[誰在買]
+客戶購買前最大的疑慮：[他們為什麼猶豫]
+購買後最大的好處：[用結果描述，不是功能]
+
+請幫我寫：
+1. 首頁主標題（一句話，直接打到客戶的渴望）
+2. 副標題（一句話，解除最大疑慮）
+3. 服務說明段落（150字以內，以「你」為主詞）
+4. 三個適合放在網站上的客戶見證問題（問客戶這些問題，會得到真實有說服力的答案）<button class="copy-btn" onclick="copyPrompt('p16', this)">複製</button></div>
+      <div class="prompt-tip">好的官網文案以客戶為主角，不是以你的公司為主角。</div>
+    </div>
+  </div>
+
+  <!-- ══ 財務法務 ══ -->
+  <div class="cat-section-label" data-section="財務法務">財務法務</div>
+
+  <div class="prompt-item" data-category="財務法務">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">17</div>
+      <h3>供應商詢價比較（讓 AI 分析報價）</h3>
       <span class="prompt-tag">採購 / 財務</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
       <div class="prompt-context">拿到三家報價，但不知道怎麼比？讓 AI 幫你做結構化分析。</div>
-      <div class="prompt-box-inner" id="p8">我正在評估三家供應商，以下是各自的報價和條件：
+      <div class="prompt-box-inner" id="p17">我正在評估三家供應商，以下是各自的報價和條件：
 
 供應商 A：[貼入報價內容]
 供應商 B：[貼入報價內容]
@@ -450,48 +754,21 @@
 請幫我：
 1. 用表格比較三家的關鍵差異
 2. 根據我的優先條件推薦一家，並說明理由
-3. 列出在簽約前我應該再跟供應商確認的問題<button class="copy-btn" onclick="copyPrompt('p8', this)">複製</button></div>
-      <div class="prompt-tip">直接把報價單的文字複製貼入即可，AI 能整理出結構化比較表。</div>
+3. 列出在簽約前我應該再跟供應商確認的問題<button class="copy-btn" onclick="copyPrompt('p17', this)">複製</button></div>
+      <div class="prompt-tip">直接把報價單的文字複製貼入，AI 能整理出結構化比較表。</div>
     </div>
   </div>
 
-  <!-- 9 -->
-  <div class="prompt-item">
+  <div class="prompt-item" data-category="財務法務">
     <div class="prompt-header" onclick="togglePrompt(this)">
-      <div class="prompt-num">9</div>
-      <h3>內部公告（重要決策的溝通）</h3>
-      <span class="prompt-tag">管理 / 內部溝通</span>
-      <span class="prompt-chevron">▾</span>
-    </div>
-    <div class="prompt-body">
-      <div class="prompt-context">制度改變、人事異動、壞消息——說法不對，謠言就來了。</div>
-      <div class="prompt-box-inner" id="p9">我需要向員工宣達一個重要決定：[描述決定內容]
-
-背景：[為什麼做這個決定]
-可能引發的疑慮：[員工最可能擔心什麼]
-我希望員工做什麼：[例如：接受、配合、提問]
-
-請幫我寫一封內部公告，要求：
-1. 開門見山說明決定（不要繞）
-2. 解釋原因（真實，不是企業話術）
-3. 預先回應最常見的3個疑慮
-4. 清楚說明下一步和時間表
-5. 留一個讓員工提問的管道<button class="copy-btn" onclick="copyPrompt('p9', this)">複製</button></div>
-      <div class="prompt-tip">主管最常犯的錯：把決定包裝得太好聽，反而讓員工覺得有事情沒說清楚。</div>
-    </div>
-  </div>
-
-  <!-- 10 -->
-  <div class="prompt-item">
-    <div class="prompt-header" onclick="togglePrompt(this)">
-      <div class="prompt-num">10</div>
+      <div class="prompt-num">18</div>
       <h3>合約條款重點摘要（快速看懂合約）</h3>
       <span class="prompt-tag">法務 / 採購</span>
       <span class="prompt-chevron">▾</span>
     </div>
     <div class="prompt-body">
       <div class="prompt-context">合約看不完、看不懂——至少先知道哪些條款要注意。</div>
-      <div class="prompt-box-inner" id="p10">以下是一份合約的內容（全文或部分）：
+      <div class="prompt-box-inner" id="p18">以下是一份合約的內容（全文或部分）：
 
 [貼入合約文字]
 
@@ -499,18 +776,70 @@
 1. 用白話文摘要這份合約的核心義務（我方 vs 對方）
 2. 標出對我方不利或模糊的條款，並說明風險
 3. 列出我在簽約前應該要求修改或確認的3個重點
-4. 如果這是一份服務合約，提醒我有沒有遺漏的常見保護條款
+4. 如果這是服務合約，提醒我有沒有遺漏的常見保護條款
 
-注意：這只是初步整理，正式決策前仍建議諮詢律師。<button class="copy-btn" onclick="copyPrompt('p10', this)">複製</button></div>
+注意：這只是初步整理，正式決策前仍建議諮詢律師。<button class="copy-btn" onclick="copyPrompt('p18', this)">複製</button></div>
       <div class="prompt-tip">AI 不能取代律師，但能幫你在花律師費之前先做功課，省掉不必要的諮詢時間。</div>
+    </div>
+  </div>
+
+  <div class="prompt-item" data-category="財務法務">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">19</div>
+      <h3>財務報表重點解讀</h3>
+      <span class="prompt-tag">財務 / 管理</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">拿到財務報表看不懂，或不知道哪些數字值得重點關注。</div>
+      <div class="prompt-box-inner" id="p19">以下是財務資料：
+
+[貼入損益表、資產負債表、現金流量表，或任何財務數字]
+
+我的角色：[我是老闆 / 投資人 / 採購方]
+我最想知道的是：[例如：這家公司財務是否健康 / 這個月為什麼虧損 / 是否有資金風險]
+
+請幫我：
+1. 用白話文解釋這些數字代表什麼
+2. 找出最值得關注的3個異常或趨勢
+3. 如果我是老闆，下一步應該問財務的3個問題
+
+注意：僅供參考，正式財務決策請諮詢會計師。<button class="copy-btn" onclick="copyPrompt('p19', this)">複製</button></div>
+      <div class="prompt-tip">把試算表的數字複製貼入即可，AI 會自動找出關鍵指標。</div>
+    </div>
+  </div>
+
+  <!-- ══ 客戶服務 ══ -->
+  <div class="cat-section-label" data-section="客戶服務">客戶服務</div>
+
+  <div class="prompt-item" data-category="客戶服務">
+    <div class="prompt-header" onclick="togglePrompt(this)">
+      <div class="prompt-num">20</div>
+      <h3>客訴回覆（化解情緒、保住關係）</h3>
+      <span class="prompt-tag">客服 / 危機處理</span>
+      <span class="prompt-chevron">▾</span>
+    </div>
+    <div class="prompt-body">
+      <div class="prompt-context">收到客訴的第一封回信很關鍵——說錯一句可能讓事情變大。</div>
+      <div class="prompt-box-inner" id="p20">你是一位台灣中小企業的客服主管。客戶剛傳來一則投訴：
+
+「[貼上客戶的原始抱怨文字]」
+
+請幫我寫一封回覆，要求：
+1. 先表達理解與歉意（不承認法律責任，只是同理）
+2. 說明我們會如何處理
+3. 給對方一個明確的後續聯繫管道
+4. 語氣誠懇，不過度道歉也不防禦性
+5. 字數控制在150字以內<button class="copy-btn" onclick="copyPrompt('p20', this)">複製</button></div>
+      <div class="prompt-tip">把客戶的原始訊息直接貼入，AI 就能根據對方的語氣調整回應。</div>
     </div>
   </div>
 
 </div>
 
-<div class="resource-cta" style="max-width:820px;margin:0 auto 80px;border-radius:20px;">
-  <h2>這 10 個是起點，不是終點</h2>
-  <p>每家企業的語境不同，最有效的 Prompt 是根據你的產業、你的客戶、你的說話方式調整出來的。<br>如果你想要針對你的業務場景客製化，歡迎直接預約諮詢。</p>
+<div class="resource-cta" style="max-width:820px;margin:0 auto 80px;padding:48px 40px;">
+  <h2>這 20 個是起點，不是終點</h2>
+  <p>每家企業的語境不同，最有效的 Prompt 是根據你的產業、你的客戶、你的說話方式調整出來的。如果你想要針對你的業務場景客製化，歡迎直接預約諮詢。</p>
   <a href="index.html#contact">預約顧問諮詢 →</a>
 </div>
 
@@ -542,6 +871,7 @@ function togglePrompt(header) {
   const item = header.closest('.prompt-item');
   item.classList.toggle('open');
 }
+
 function copyPrompt(id, btn) {
   const box = document.getElementById(id);
   const text = box.innerText.replace('複製', '').trim();
@@ -554,6 +884,33 @@ function copyPrompt(id, btn) {
     }, 2000);
   });
 }
+
+// Category filter
+const catBtns = document.querySelectorAll('.cat-btn');
+const promptItems = document.querySelectorAll('.prompt-item[data-category]');
+const sectionLabels = document.querySelectorAll('.cat-section-label');
+
+catBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    catBtns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+
+    const cat = this.dataset.cat;
+
+    promptItems.forEach(item => {
+      const show = cat === '全部' || item.dataset.category === cat;
+      item.classList.toggle('hidden', !show);
+    });
+
+    sectionLabels.forEach(label => {
+      if (cat === '全部') {
+        label.classList.remove('hidden');
+      } else {
+        label.classList.toggle('hidden', label.dataset.section !== cat);
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>
