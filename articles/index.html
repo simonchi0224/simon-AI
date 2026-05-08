@@ -15,11 +15,11 @@
 <link rel="stylesheet" href="../article-style.css">
 <style>
 /* ── Hero ── */
-.articles-hero { padding: 100px 5% 48px; background: var(--dark); }
+.articles-hero { padding: 100px 5% 48px; background: var(--paper); border-bottom: 1px solid var(--line); }
 .articles-hero-inner { max-width: 1200px; margin: 0 auto; }
-.articles-hero .label { font-size: 0.72rem; font-weight: 800; color: rgba(34,211,238,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-.articles-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
-.articles-hero p { font-size: 0.95rem; color: rgba(255,255,255,0.55); }
+.articles-hero .label { font-size: 0.72rem; font-weight: 800; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.articles-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--ink); margin-bottom: 12px; }
+.articles-hero p { font-size: 0.95rem; color: var(--dim); }
 
 .articles-main { max-width: 1200px; margin: 0 auto; padding: 48px 5% 80px; }
 
@@ -27,46 +27,46 @@
 .editors-pick-section { margin-bottom: 56px; }
 .editors-pick-label {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.72rem; font-weight: 800; color: var(--cyan-dark);
+  font-size: 0.72rem; font-weight: 800; color: var(--orange);
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
 }
 .editors-pick-label::before { content: '★'; font-size: 0.9rem; color: #f59e0b; }
 .editors-pick-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
 .pick-card-featured {
-  border: 2px solid var(--cyan-dark); border-radius: 14px; padding: 32px;
-  background: linear-gradient(135deg, #f0f9ff, #ffffff);
+  border: 2px solid var(--orange); border-radius: 14px; padding: 32px;
+  background: #fff;
   display: flex; flex-direction: column; position: relative; overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: opacity 0.2s;
 }
 .pick-card-featured::before {
   content: '編輯精選'; position: absolute; top: 16px; right: 16px;
   font-size: 0.65rem; font-weight: 800; color: #fff;
-  background: var(--cyan-dark); padding: 3px 10px; border-radius: 999px; letter-spacing: 1px;
+  background: var(--orange); padding: 3px 10px; border-radius: 999px; letter-spacing: 1px;
 }
-.pick-card-featured:hover { box-shadow: 0 8px 32px rgba(8,145,178,0.18); transform: translateY(-3px); }
+.pick-card-featured:hover { opacity: 0.85; }
 .pick-card-featured .card-tag { margin-bottom: 14px; }
-.pick-card-featured h2 { font-size: 1.22rem; font-weight: 900; color: #0f172a; line-height: 1.35; margin-bottom: 14px; flex: 1; }
-.pick-card-featured .card-excerpt { font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 20px; }
+.pick-card-featured h2 { font-size: 1.22rem; font-weight: 900; color: var(--ink); line-height: 1.35; margin-bottom: 14px; flex: 1; }
+.pick-card-featured .card-excerpt { font-size: 0.88rem; color: var(--dim); line-height: 1.65; margin-bottom: 20px; }
 .pick-card-side {
-  border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 28px;
-  background: #fffbeb; display: flex; flex-direction: column;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; position: relative;
+  border: 1.5px solid var(--line); border-radius: 14px; padding: 28px;
+  background: var(--paper); display: flex; flex-direction: column;
+  transition: border-color 0.2s; position: relative;
 }
 .pick-card-side::before {
   content: '精選'; position: absolute; top: 14px; right: 14px;
   font-size: 0.65rem; font-weight: 800; color: #92400e;
   background: #fef3c7; padding: 2px 8px; border-radius: 999px;
 }
-.pick-card-side:hover { border-color: #f59e0b; box-shadow: 0 4px 20px rgba(245,158,11,0.15); transform: translateY(-3px); }
-.pick-card-side h2 { font-size: 1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin-bottom: 10px; flex: 1; }
-.pick-card-side .card-excerpt { font-size: 0.82rem; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
+.pick-card-side:hover { border-color: var(--orange); }
+.pick-card-side h2 { font-size: 1rem; font-weight: 800; color: var(--ink); line-height: 1.4; margin-bottom: 10px; flex: 1; }
+.pick-card-side .card-excerpt { font-size: 0.82rem; color: var(--dim); line-height: 1.6; margin-bottom: 16px; }
 
-.section-divider { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0 36px; }
+.section-divider { border: none; border-top: 1px solid var(--line); margin: 40px 0 36px; }
 
 /* ── 受眾選擇器 ── */
 .persona-section { margin-bottom: 40px; }
 .persona-heading {
-  font-size: 0.78rem; font-weight: 800; color: #94a3b8;
+  font-size: 0.78rem; font-weight: 800; color: var(--dim);
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
 }
 .persona-grid {
@@ -77,49 +77,45 @@
 .persona-btn {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
   padding: 18px 12px; border-radius: 14px;
-  border: 2px solid #e2e8f0; background: #fff;
-  cursor: pointer; transition: all 0.2s; text-align: center;
+  border: 2px solid var(--line); background: #fff;
+  cursor: pointer; transition: border-color 0.2s; text-align: center;
 }
-.persona-btn:hover {
-  border-color: var(--cyan-dark);
-  box-shadow: 0 4px 16px rgba(8,145,178,0.12);
-  transform: translateY(-2px);
-}
+.persona-btn:hover { border-color: var(--orange); }
 .persona-btn.active {
-  border-color: var(--cyan-dark);
-  background: rgba(8,145,178,0.06);
+  border-color: var(--orange);
+  background: rgba(232,84,30,0.04);
 }
 .persona-icon { font-size: 1.8rem; line-height: 1; }
-.persona-label { font-size: 0.88rem; font-weight: 800; color: #0f172a; }
+.persona-label { font-size: 0.88rem; font-weight: 800; color: var(--ink); }
 .persona-count {
   font-size: 0.7rem; font-weight: 700;
-  color: #94a3b8; background: #f1f5f9;
+  color: var(--dim); background: #f1f5f9;
   padding: 2px 8px; border-radius: 999px;
 }
 .persona-btn.active .persona-count {
-  background: rgba(8,145,178,0.12); color: var(--cyan-dark);
+  background: rgba(232,84,30,0.1); color: var(--orange);
 }
 
 /* ── 文章 Grid（2欄）── */
 .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .article-card {
-  border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border: 1px solid var(--line); border-radius: 14px; padding: 28px;
+  transition: border-color 0.2s;
   display: flex; flex-direction: column; background: #fff;
 }
-.article-card:hover { border-color: var(--cyan-dark); box-shadow: 0 4px 20px rgba(8,145,178,0.1); transform: translateY(-3px); }
-.card-tag { font-size: 0.7rem; font-weight: 800; color: var(--cyan-dark); background: rgba(8,145,178,0.08); padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 12px; }
-.article-card h2 { font-size: 1.05rem; font-weight: 800; color: #0f172a; line-height: 1.45; margin-bottom: 10px; flex: 1; }
-.card-excerpt { font-size: 0.85rem; color: #64748b; line-height: 1.65; margin-bottom: 16px; }
+.article-card:hover { border-color: var(--orange); }
+.card-tag { font-size: 0.7rem; font-weight: 800; color: var(--orange); background: rgba(232,84,30,0.08); padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 12px; }
+.article-card h2 { font-size: 1.05rem; font-weight: 800; color: var(--ink); line-height: 1.45; margin-bottom: 10px; flex: 1; }
+.card-excerpt { font-size: 0.85rem; color: var(--dim); line-height: 1.65; margin-bottom: 16px; }
 .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-.card-date { font-size: 0.75rem; color: #94a3b8; }
-.card-link { font-size: 0.82rem; font-weight: 700; color: var(--cyan-dark); transition: color 0.2s; }
-.card-link:hover { color: var(--cyan); }
+.card-date { font-size: 0.75rem; color: var(--dim); }
+.card-link { font-size: 0.82rem; font-weight: 700; color: var(--blue); transition: opacity 0.2s; }
+.card-link:hover { opacity: 0.7; }
 
 /* 空狀態 */
 .empty-state {
   grid-column: 1 / -1; text-align: center; padding: 48px 0;
-  color: #94a3b8; font-size: 0.95rem; display: none;
+  color: var(--dim); font-size: 0.95rem; display: none;
 }
 
 /* RWD */
@@ -146,7 +142,7 @@
     <ul class="nav-links">
       <li><a href="../index.html#services">服務</a></li>
       <li><a href="../index.html#topics">主題</a></li>
-      <li><a href="index.html" style="color:var(--cyan)">文章</a></li>
+      <li><a href="index.html" class="active">文章</a></li>
       <li><a href="../index.html#contact" class="nav-cta">預約諮詢 →</a></li>
     </ul>
   </div>
