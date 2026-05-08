@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企業 AI 成熟度評估｜季祥 Simon</title>
+<meta name="description" content="根據 Gartner、MITRE、MIT Sloan、McKinsey 等國際框架設計的企業 AI 成熟度自評量表，20 題、6 大維度，即時得出您的 AI 發展等級與改善建議。">
+<meta property="og:title" content="企業 AI 成熟度評估量表｜季祥 Simon">
+<meta property="og:description" content="20 題免費自評，找出您企業的 AI 成熟度等級與最優先的改善方向。">
+<meta property="og:url" content="https://simon-chi.com/ai-maturity.html">
+<link rel="canonical" href="https://simon-chi.com/ai-maturity.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEH2H2N5QG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EEH2H2N5QG');</script>
+<style>
+/* ── Page-specific styles ── */
+body { background: #f8fafc; }
+
+.maturity-hero {
+  background: linear-gradient(135deg, #030712 0%, #0a0f1e 40%, #0f172a 100%);
+  padding: 120px 5% 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.maturity-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.maturity-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.maturity-hero .hero-badge { margin-bottom: 20px; }
+.maturity-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #f8fafc; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px; }
+.maturity-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 32px; }
+.maturity-meta { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 20px; }
+.maturity-meta span { font-size: 0.82rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
+.maturity-meta span strong { color: var(--cyan); }
+.source-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.source-chip { font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; background: rgba(34,211,238,0.1); color: var(--cyan); border: 1px solid rgba(34,211,238,0.2); }
+
+/* Assessment layout */
+.assessment-wrap { max-width: 820px; margin: 0 auto; padding: 60px 5% 80px; }
+.progress-bar-wrap { position: sticky; top: 64px; z-index: 50; background: #f8fafc; padding: 12px 0 8px; border-bottom: 1px solid #e2e8f0; margin-bottom: 40px; }
+.progress-track { background: #e2e8f0; border-radius: 999px; height: 6px; overflow: hidden; }
+.progress-fill { background: linear-gradient(90deg, var(--cyan), #818cf8); height: 100%; border-radius: 999px; transition: width 0.4s ease; width: 0%; }
+.progress-label { font-size: 0.75rem; color: #64748b; margin-top: 6px; text-align: right; font-weight: 600; }
+
+/* Dimension section */
+.dim-section { margin-bottom: 48px; }
+.dim-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #e2e8f0; }
+.dim-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.dim-header h2 { font-size: 1.1rem; font-weight: 900; color: #0f172a; margin-bottom: 2px; }
+.dim-header p { font-size: 0.78rem; color: #64748b; }
+.dim-source { font-size: 0.68rem; color: #94a3b8; margin-top: 2px; font-style: italic; }
+
+/* Question card */
+.q-card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s, box-shadow 0.2s; }
+.q-card.answered { border-color: var(--cyan); box-shadow: 0 2px 12px rgba(34,211,238,0.1); }
+.q-num { font-size: 0.7rem; font-weight: 800; color: var(--cyan-dark); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.q-text { font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 16px; line-height: 1.5; }
+.q-options { display: flex; flex-direction: column; gap: 8px; }
+.q-option { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0; cursor: pointer; transition: all 0.15s; }
+.q-option:hover { border-color: #93c5fd; background: #f0f9ff; }
+.q-option.selected { border-color: var(--cyan); background: rgba(34,211,238,0.06); }
+.q-option input[type="radio"] { display: none; }
+.q-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cbd5e1; flex-shrink: 0; margin-top: 1px; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
+.q-option.selected .q-radio { border-color: var(--cyan); background: var(--cyan); }
+.q-option.selected .q-radio::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #0f172a; }
+.q-option-score { font-size: 0.68rem; font-weight: 800; color: #94a3b8; flex-shrink: 0; padding-top: 2px; }
+.q-option.selected .q-option-score { color: var(--cyan-dark); }
+.q-option-text { font-size: 0.85rem; color: #475569; line-height: 1.5; }
+.q-option.selected .q-option-text { color: #0f172a; font-weight: 600; }
+
+/* Submit area */
+.submit-area { text-align: center; margin-top: 48px; }
+.submit-btn {
+  background: var(--cyan); color: #0a0f1e;
+  padding: 18px 48px; border-radius: var(--radius);
+  font-size: 1.05rem; font-weight: 900; border: none; cursor: pointer;
+  transition: all 0.2s; font-family: inherit; letter-spacing: -0.3px;
+}
+.submit-btn:hover { background: var(--cyan-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,211,238,0.3); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.submit-hint { font-size: 0.82rem; color: #94a3b8; margin-top: 12px; }
+.unanswered-note { color: #ef4444; font-size: 0.82rem; margin-top: 10px; display: none; }
+
+/* Results section */
+#results { display: none; margin-top: 60px; }
+.results-hero {
+  background: linear-gradient(135deg, #030712, #0f172a);
+  border-radius: 20px; padding: 48px; text-align: center; margin-bottom: 40px; position: relative; overflow: hidden;
+}
+.results-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(34,211,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.results-hero-inner { position: relative; z-index: 1; }
+.level-badge {
+  display: inline-block; padding: 8px 20px; border-radius: 999px;
+  font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 16px;
+}
+.results-score { font-size: 4rem; font-weight: 900; color: #f8fafc; line-height: 1; margin-bottom: 8px; }
+.results-score span { font-size: 1.5rem; color: rgba(255,255,255,0.4); }
+.results-level-name { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+.results-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 500px; margin: 0 auto; }
+
+/* Radar chart */
+.radar-wrap { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; margin-bottom: 28px; text-align: center; }
+.radar-wrap h3 { font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 24px; }
+#radarChart { max-width: 360px; margin: 0 auto; display: block; }
+
+/* Dim scores */
+.dim-scores { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+@media (max-width: 600px) { .dim-scores { grid-template-columns: 1fr; } }
+.dim-score-card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; }
+.dsc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.dsc-name { font-size: 0.85rem; font-weight: 800; color: #0f172a; }
+.dsc-pct { font-size: 0.85rem; font-weight: 900; color: var(--cyan-dark); }
+.dsc-bar { background: #e2e8f0; border-radius: 999px; height: 8px; overflow: hidden; }
+.dsc-fill { height: 100%; border-radius: 999px; transition: width 1s ease; }
+
+/* Recommendations */
+.recs-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; margin-bottom: 28px; }
+.recs-card h3 { font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 20px; }
+.rec-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid #f1f5f9; }
+.rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+.rec-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.rec-text { flex: 1; }
+.rec-text strong { font-size: 0.9rem; font-weight: 800; color: #0f172a; display: block; margin-bottom: 4px; }
+.rec-text p { font-size: 0.82rem; color: #64748b; line-height: 1.6; }
+
+/* CTA */
+.results-cta { background: linear-gradient(135deg, #0891b2, #818cf8); border-radius: 16px; padding: 40px; text-align: center; }
+.results-cta h3 { font-size: 1.3rem; font-weight: 900; color: white; margin-bottom: 10px; }
+.results-cta p { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 24px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-primary { background: white; color: #0891b2; padding: 14px 28px; border-radius: var(--radius); font-weight: 800; font-size: 0.92rem; transition: all 0.2s; }
+.cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-secondary { background: rgba(255,255,255,0.15); color: white; padding: 14px 28px; border-radius: var(--radius); font-weight: 700; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.3); transition: all 0.2s; }
+.cta-secondary:hover { background: rgba(255,255,255,0.22); }
+
+/* References */
+.refs-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid #e2e8f0; }
+.refs-section h4 { font-size: 0.78rem; font-weight: 800; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+.refs-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.ref-link { font-size: 0.72rem; color: #64748b; padding: 4px 10px; background: #f1f5f9; border-radius: 6px; border: 1px solid #e2e8f0; transition: color 0.2s; text-decoration: none; }
+.ref-link:hover { color: var(--cyan-dark); border-color: var(--cyan); }
+
+/* Restart btn */
+.restart-btn { background: none; border: 1px solid #e2e8f0; color: #64748b; padding: 10px 24px; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; margin-top: 20px; }
+.restart-btn:hover { border-color: #94a3b8; color: #0f172a; }
+
+/* Level colors */
+.level-0 { background: rgba(148,163,184,0.15); color: #94a3b8; }
+.level-1 { background: rgba(249,115,22,0.12); color: #f97316; }
+.level-2 { background: rgba(234,179,8,0.12); color: #ca8a04; }
+.level-3 { background: rgba(34,197,94,0.12); color: #16a34a; }
+.level-4 { background: rgba(34,211,238,0.12); color: var(--cyan-dark); }
+.level-text-0 { color: #94a3b8; }
+.level-text-1 { color: #f97316; }
+.level-text-2 { color: #ca8a04; }
+.level-text-3 { color: #16a34a; }
+.level-text-4 { color: var(--cyan-dark); }
+
+@media (max-width: 640px) {
+  .maturity-meta { gap: 16px; }
+  .results-hero { padding: 32px 24px; }
+  .results-score { font-size: 3rem; }
+  .dim-scores { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">季祥 <span>Simon</span></a>
+    <ul class="nav-links">
+      <li><a href="/#services">服務</a></li>
+      <li><a href="/#topics">主題</a></li>
+      <li><a href="/#portfolio">實作案例</a></li>
+      <li><a href="articles/index.html">文章</a></li>
+      <li><a href="free-resource.html">免費資源</a></li>
+      <li><a href="/#contact" class="nav-cta">預約諮詢 →</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="maturity-hero">
+  <div class="maturity-hero-inner">
+    <div class="hero-badge">
+      <span>🧭</span> AI 成熟度評估量表
+    </div>
+    <h1>您的企業 AI<br><span class="gradient-text">準備好了嗎？</span></h1>
+    <p>根據 Gartner、MITRE、MIT Sloan、McKinsey、Stanford HAI 等六大國際框架設計，<br>20 題、6 大維度，即時得出您的 AI 發展等級與優先改善方向。</p>
+    <div class="maturity-meta">
+      <span>⏱ <strong>約 5 分鐘</strong> 完成</span>
+      <span>📊 <strong>20 題</strong> 評估</span>
+      <span>🏢 <strong>6 大維度</strong></span>
+      <span>🎯 <strong>即時出結果</strong></span>
+    </div>
+    <div class="source-chips">
+      <span class="source-chip">Gartner 2025</span>
+      <span class="source-chip">MITRE AI Model</span>
+      <span class="source-chip">MIT Sloan</span>
+      <span class="source-chip">McKinsey 2025</span>
+      <span class="source-chip">Google Cloud</span>
+      <span class="source-chip">Stanford HAI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<div class="assessment-wrap">
+
+  <!-- Progress -->
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">已完成 0 / 20 題</div>
+  </div>
+
+  <form id="assessmentForm" novalidate>
+
+    <!-- ── 維度 1：AI 策略與領導力 ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(34,211,238,0.1)">🎯</div>
+        <div>
+          <h2>維度 1｜AI 策略與領導力</h2>
+          <p>Strategy &amp; Leadership — 策略清晰度、高層支持、資源投入</p>
+          <div class="dim-source">參考框架：Gartner AI Maturity Model · McKinsey State of AI 2025</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-1">
+        <div class="q-num">Q1 · 策略方向</div>
+        <div class="q-text">貴公司目前有沒有明確的 AI 導入策略或計劃？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q1" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全沒有，AI 尚未被列入任何討論</span></label>
+          <label class="q-option"><input type="radio" name="q1" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">曾討論過，但沒有形成具體計劃</span></label>
+          <label class="q-option"><input type="radio" name="q1" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有初步的 AI 試點計劃，但尚未全面推動</span></label>
+          <label class="q-option"><input type="radio" name="q1" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有明確的 AI 策略文件，正在按計劃執行</span></label>
+          <label class="q-option"><input type="radio" name="q1" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">AI 策略已融入整體企業戰略，定期審查調整</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-2">
+        <div class="q-num">Q2 · 高層支持</div>
+        <div class="q-text">公司高層（CEO／董事長）對 AI 導入的實際支持程度為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q2" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">高層持保留或反對態度</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">允許員工自行嘗試，但未給予資源</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">偶爾參與討論，態度支持但尚未親自行動</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">積極支持，已明確撥款並指定負責人</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">高層帶頭使用 AI，成為組織文化的一部分</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-3">
+        <div class="q-num">Q3 · 專責人員</div>
+        <div class="q-text">貴公司是否有人專責負責 AI 推動或數位轉型？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q3" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-score">0</span><span class="q-option-text">完全沒有，也沒有計劃</span></label>
+          <label class="q-option"><input type="radio" name="q3" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">由 IT 部門兼任，非正式負責</span></label>
+          <label class="q-option"><input type="radio" name="q3" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有一位兼職的 AI/數位負責人</span></label>
+          <label class="q-option"><input type="radio" name="q3" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有專職的 AI 主管（如 CDO 或 AI Lead）</span></label>
+          <label class="q-option"><input type="radio" name="q3" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">有完整的 AI 跨部門團隊，含策略、技術、資料角色</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-4">
+        <div class="q-num">Q4 · 預算規劃</div>
+        <div class="q-text">公司對於 AI 工具、訓練、導入顧問的預算規劃為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q4" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">無任何相關預算</span></label>
+          <label class="q-option"><input type="radio" name="q4" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">遇到需求才臨時追加，無固定規劃</span></label>
+          <label class="q-option"><input type="radio" name="q4" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">年度預算中有少量編列（如訂閱工具費用）</span></label>
+          <label class="q-option"><input type="radio" name="q4" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有獨立的 AI 轉型預算，涵蓋工具、培訓、顧問</span></label>
+          <label class="q-option"><input type="radio" name="q4" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">AI 投資列為策略優先項目，預算逐年成長</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 維度 2：資料準備度 ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(129,140,248,0.1)">🗄️</div>
+        <div>
+          <h2>維度 2｜資料準備度</h2>
+          <p>Data Readiness — 數位化、資料品質、存取與合規</p>
+          <div class="dim-source">參考框架：Google Cloud AI Adoption Framework · MITRE AI Maturity Model</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-5">
+        <div class="q-num">Q5 · 資料數位化</div>
+        <div class="q-text">貴公司核心業務資料（客戶、訂單、財務）的數位化程度為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q5" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">大量紙本記錄或口頭傳遞，難以數位化查詢</span></label>
+          <label class="q-option"><input type="radio" name="q5" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">部分電子化，但資料分散在不同的 Excel 或系統中</span></label>
+          <label class="q-option"><input type="radio" name="q5" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">多數電子化，但格式不統一，整合困難</span></label>
+          <label class="q-option"><input type="radio" name="q5" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">統一格式、集中管理，可快速查詢調用</span></label>
+          <label class="q-option"><input type="radio" name="q5" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">即時資料流 + 自動化資料品質監控，AI 可直接存取</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-6">
+        <div class="q-num">Q6 · 資料共享</div>
+        <div class="q-text">跨部門之間的資料共享與存取便利性如何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q6" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">各部門資料各自為政，幾乎無法共享</span></label>
+          <label class="q-option"><input type="radio" name="q6" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">需透過 Email 或人工方式傳遞資料</span></label>
+          <label class="q-option"><input type="radio" name="q6" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有共享資料夾或雲端文件，但非即時</span></label>
+          <label class="q-option"><input type="radio" name="q6" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有統一的資料平台，跨部門可即時存取</span></label>
+          <label class="q-option"><input type="radio" name="q6" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">資料平台統一管理，AI 模型可自動調用業務資料</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-7">
+        <div class="q-num">Q7 · 資料品質</div>
+        <div class="q-text">公司是否有系統化的資料品質管理機制？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q7" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全沒有，資料錯誤靠人工發現</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">靠人工抽查，沒有固定規則</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有基本的輸入規則，但執行不完整</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有系統化的資料清理與驗證流程</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">自動化資料品質監控，異常時即時警示並修正</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-8">
+        <div class="q-num">Q8 · 資料合規</div>
+        <div class="q-text">對於個資法、資料安全合規要求的了解與落實程度？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q8" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">幾乎不了解相關法規</span></label>
+          <label class="q-option"><input type="radio" name="q8" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">大致知道但未正式落實</span></label>
+          <label class="q-option"><input type="radio" name="q8" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">部分合規，有基本的資安政策</span></label>
+          <label class="q-option"><input type="radio" name="q8" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">完整合規，有書面記錄並定期確認</span></label>
+          <label class="q-option"><input type="radio" name="q8" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">合規 + 定期稽核 + AI 使用的資料治理政策</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 維度 3：技術基礎設施 ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(249,115,22,0.1)">⚙️</div>
+        <div>
+          <h2>維度 3｜技術基礎設施</h2>
+          <p>Technology Infrastructure — AI 工具層級、雲端化、系統整合</p>
+          <div class="dim-source">參考框架：Google Cloud AI Adoption Framework · Gartner AI Maturity Toolkit</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-9">
+        <div class="q-num">Q9 · AI 工具層級</div>
+        <div class="q-text">目前貴公司在業務上使用 AI 工具的層級為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q9" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全未使用任何 AI 工具</span></label>
+          <label class="q-option"><input type="radio" name="q9" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">偶爾個人使用 ChatGPT 等消費型免費工具</span></label>
+          <label class="q-option"><input type="radio" name="q9" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">訂閱企業版 AI 工具（如 Microsoft Copilot、Claude Teams）</span></label>
+          <label class="q-option"><input type="radio" name="q9" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">透過 API 將 AI 整合進內部工作流程或系統</span></label>
+          <label class="q-option"><input type="radio" name="q9" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">自建或微調 AI 模型，深度嵌入業務流程</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-10">
+        <div class="q-num">Q10 · 雲端化程度</div>
+        <div class="q-text">公司的 IT 基礎設施雲端化程度為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q10" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">全部在地端伺服器或個人電腦，無雲端服務</span></label>
+          <label class="q-option"><input type="radio" name="q10" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">少部分使用雲端（如 Google Drive、Office 365）</span></label>
+          <label class="q-option"><input type="radio" name="q10" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">約一半服務雲端化，但仍有大量地端依賴</span></label>
+          <label class="q-option"><input type="radio" name="q10" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">多數核心業務系統已雲端化</span></label>
+          <label class="q-option"><input type="radio" name="q10" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">雲端原生架構，含 DevOps 自動化與 API 生態系</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-11">
+        <div class="q-num">Q11 · 系統整合</div>
+        <div class="q-text">公司各業務系統（ERP、CRM、財務）之間的整合能力如何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q11" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">各系統完全獨立，資料需手動轉移</span></label>
+          <label class="q-option"><input type="radio" name="q11" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">少部分人工整合，效率很低</span></label>
+          <label class="q-option"><input type="radio" name="q11" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有些 API 或自動化工具，但覆蓋有限</span></label>
+          <label class="q-option"><input type="radio" name="q11" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">多數系統有自動化資料流，人工介入少</span></label>
+          <label class="q-option"><input type="radio" name="q11" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">完整 API 生態系，AI 可自動觸發跨系統業務流程</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 維度 4：人才與技能 ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(34,197,94,0.1)">👥</div>
+        <div>
+          <h2>維度 4｜人才與技能</h2>
+          <p>Talent &amp; Skills — AI 使用率、培訓投入、資料分析能力</p>
+          <div class="dim-source">參考框架：McKinsey State of AI 2025 · MIT CISR · Stanford HAI AI Index 2025</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-12">
+        <div class="q-num">Q12 · 員工使用率</div>
+        <div class="q-text">目前公司員工中，實際在工作中使用 AI 工具的比例大約是？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q12" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">幾乎沒有（&lt;5%）</span></label>
+          <label class="q-option"><input type="radio" name="q12" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">少數先驅員工（5–15%），其他人不知道怎麼用</span></label>
+          <label class="q-option"><input type="radio" name="q12" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">部分員工（15–50%）在特定工作上使用</span></label>
+          <label class="q-option"><input type="radio" name="q12" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">多數員工（50–80%）已日常使用</span></label>
+          <label class="q-option"><input type="radio" name="q12" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">全員（&gt;80%）日常使用，已是工作標準流程</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-13">
+        <div class="q-num">Q13 · AI 培訓投入</div>
+        <div class="q-text">公司對員工提供的 AI 相關技能培訓情況？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q13" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">從未提供過 AI 相關培訓</span></label>
+          <label class="q-option"><input type="radio" name="q13" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">偶爾安排外部課程（每年不定期）</span></label>
+          <label class="q-option"><input type="radio" name="q13" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有年度培訓計劃，但缺乏系統性</span></label>
+          <label class="q-option"><input type="radio" name="q13" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">持續性學習計劃 + 內部 AI 使用標準</span></label>
+          <label class="q-option"><input type="radio" name="q13" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">完整的 AI 學習文化，有內部知識庫與認證制度</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-14">
+        <div class="q-num">Q14 · 資料分析能力</div>
+        <div class="q-text">公司團隊獨立分析業務資料並做出決策的能力如何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q14" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全依賴外部顧問或直覺決策</span></label>
+          <label class="q-option"><input type="radio" name="q14" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">能做基本 Excel 分析，但洞察有限</span></label>
+          <label class="q-option"><input type="radio" name="q14" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">使用 BI 工具（如 Tableau、Power BI）做視覺化</span></label>
+          <label class="q-option"><input type="radio" name="q14" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">能用 AI 工具輔助資料分析並解讀商業意涵</span></label>
+          <label class="q-option"><input type="radio" name="q14" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">自主建立預測模型，資料驅動決策已成常態</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-15">
+        <div class="q-num">Q15 · AI 人才招募</div>
+        <div class="q-text">公司在 AI 或數位相關人才的招募與留任情況？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q15" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">從未考慮招募 AI 相關人才</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">有想法但尚未採取行動</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">曾嘗試招募但遇到困難（費用、職缺定義不清）</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">已有 AI/資料相關人才且留任穩定</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">建立 AI 人才梯隊，是公司品牌吸引力之一</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 維度 5：治理與倫理 ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(168,85,247,0.1)">🛡️</div>
+        <div>
+          <h2>維度 5｜AI 治理與倫理</h2>
+          <p>Governance &amp; Ethics — 使用規範、準確性控管、透明度</p>
+          <div class="dim-source">參考框架：MITRE AI Maturity Model · McKinsey AI Trust &amp; Responsibility 2025</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-16">
+        <div class="q-num">Q16 · AI 使用規範</div>
+        <div class="q-text">公司是否有明確的 AI 使用政策或規範？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q16" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全沒有，員工自行決定如何使用</span></label>
+          <label class="q-option"><input type="radio" name="q16" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">口頭提醒「不要輸入機密資料」，無書面</span></label>
+          <label class="q-option"><input type="radio" name="q16" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">有書面資安政策，但未特別涵蓋 AI 使用</span></label>
+          <label class="q-option"><input type="radio" name="q16" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有明確的 AI 使用規範，已正式溝通給員工</span></label>
+          <label class="q-option"><input type="radio" name="q16" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">完整的 AI 治理框架，含風險分級、審查流程、定期更新</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-17">
+        <div class="q-num">Q17 · AI 輸出品質控管</div>
+        <div class="q-text">公司如何處理 AI 產出的錯誤或不準確資訊（幻覺問題）？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q17" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">不知道 AI 會產生錯誤，直接信任輸出</span></label>
+          <label class="q-option"><input type="radio" name="q17" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">知道風險，但沒有具體對策</span></label>
+          <label class="q-option"><input type="radio" name="q17" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">要求員工自行判斷，無標準流程</span></label>
+          <label class="q-option"><input type="radio" name="q17" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有驗證流程，重要內容須主管或專人審查</span></label>
+          <label class="q-option"><input type="radio" name="q17" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">系統化品質控管，含 AI 輸出的持續改善回饋機制</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-18">
+        <div class="q-num">Q18 · AI 透明度</div>
+        <div class="q-text">對客戶、供應商或員工揭露 AI 使用情況的透明度為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q18" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">從未對外討論 AI 使用</span></label>
+          <label class="q-option"><input type="radio" name="q18" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">內部有使用，但刻意不對外提及</span></label>
+          <label class="q-option"><input type="radio" name="q18" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">偶爾提及，未有正式政策</span></label>
+          <label class="q-option"><input type="radio" name="q18" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有明確的 AI 使用揭露政策，利害關係人知情</span></label>
+          <label class="q-option"><input type="radio" name="q18" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">AI 透明度成為公司信譽與競爭優勢的一部分</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 維度 6：商業價值與 ROI ── -->
+    <div class="dim-section">
+      <div class="dim-header">
+        <div class="dim-icon" style="background:rgba(234,179,8,0.1)">📈</div>
+        <div>
+          <h2>維度 6｜商業價值與 ROI</h2>
+          <p>Business Impact — 可量化效益、流程整合深度</p>
+          <div class="dim-source">參考框架：McKinsey State of AI 2025（74% 尚未實現 AI 商業價值）· BCG AI Adoption</div>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-19">
+        <div class="q-num">Q19 · 可量化效益</div>
+        <div class="q-text">AI 導入帶來的具體可量化效益（省時、降本、增收）目前的情況？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q19" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">完全沒有嘗試或沒有效益</span></label>
+          <label class="q-option"><input type="radio" name="q19" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">有嘗試，但從未衡量效益</span></label>
+          <label class="q-option"><input type="radio" name="q19" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">感覺有幫助（省時），但未正式量化</span></label>
+          <label class="q-option"><input type="radio" name="q19" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">有具體 KPI 數字顯示 AI 帶來的效益</span></label>
+          <label class="q-option"><input type="radio" name="q19" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">AI 投資 ROI 超過預期，效益持續優化中</span></label>
+        </div>
+      </div>
+
+      <div class="q-card" id="qcard-20">
+        <div class="q-num">Q20 · 流程整合深度</div>
+        <div class="q-text">AI 在公司核心業務流程中的整合深度為何？</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q20" value="0"><div class="q-radio"></div><span class="q-option-score">0</span><span class="q-option-text">AI 與業務流程完全分開</span></label>
+          <label class="q-option"><input type="radio" name="q20" value="1"><div class="q-radio"></div><span class="q-option-score">1</span><span class="q-option-text">AI 只是個人偶爾使用的輔助工具</span></label>
+          <label class="q-option"><input type="radio" name="q20" value="2"><div class="q-radio"></div><span class="q-option-score">2</span><span class="q-option-text">部分非核心流程（如文件撰寫）有 AI 輔助</span></label>
+          <label class="q-option"><input type="radio" name="q20" value="3"><div class="q-radio"></div><span class="q-option-score">3</span><span class="q-option-text">多個核心業務流程已有 AI 深度整合</span></label>
+          <label class="q-option"><input type="radio" name="q20" value="4"><div class="q-radio"></div><span class="q-option-score">4</span><span class="q-option-text">AI 是業務流程的核心驅動力，難以想像沒有 AI 的運作</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-area">
+      <button type="submit" class="submit-btn" id="submitBtn">查看我的 AI 成熟度結果 →</button>
+      <p class="submit-hint">請確認所有 20 題都已作答後送出</p>
+      <p class="unanswered-note" id="unansweredNote">⚠️ 還有未作答的題目，請往上查看並完成所有題目</p>
+    </div>
+
+  </form>
+
+  <!-- RESULTS (hidden) -->
+  <div id="results">
+    <div class="results-hero">
+      <div class="results-hero-inner">
+        <div class="level-badge" id="levelBadge"></div>
+        <div class="results-score" id="resultsScore"></div>
+        <div class="results-level-name" id="resultsLevelName"></div>
+        <p class="results-desc" id="resultsDesc"></p>
+      </div>
+    </div>
+
+    <!-- Radar chart -->
+    <div class="radar-wrap">
+      <h3>六大維度分析</h3>
+      <canvas id="radarChart" width="360" height="320"></canvas>
+    </div>
+
+    <!-- Dimension scores -->
+    <div class="dim-scores" id="dimScores"></div>
+
+    <!-- Recommendations -->
+    <div class="recs-card">
+      <h3>🎯 優先改善建議</h3>
+      <div id="recsList"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="results-cta">
+      <h3>想深入了解如何提升您的 AI 成熟度？</h3>
+      <p>季祥 Simon 提供企業 AI 成熟度診斷諮詢，協助您制定具體可行的 AI 導入路徑圖。</p>
+      <div class="cta-btns">
+        <a href="/#contact" class="cta-primary">預約免費諮詢 →</a>
+        <a href="/articles/index.html" class="cta-secondary">閱讀 AI 導入文章</a>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px;">
+      <button class="restart-btn" onclick="restartAssessment()">↺ 重新測驗</button>
+    </div>
+
+    <!-- References -->
+    <div class="refs-section">
+      <h4>量表設計參考來源</h4>
+      <div class="refs-list">
+        <a class="ref-link" href="https://www.gartner.com/en/chief-information-officer/research/ai-maturity-model-toolkit" target="_blank" rel="noopener">Gartner AI Maturity Model & Roadmap Toolkit</a>
+        <a class="ref-link" href="https://www.mitre.org/news-insights/publication/mitre-ai-maturity-model-and-organizational-assessment-tool-guide" target="_blank" rel="noopener">MITRE AI Maturity Model (2024)</a>
+        <a class="ref-link" href="https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level" target="_blank" rel="noopener">MIT Sloan CISR — AI Maturity Level</a>
+        <a class="ref-link" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey State of AI 2025</a>
+        <a class="ref-link" href="https://cloud.google.com/resources/cloud-ai-adoption-framework-whitepaper" target="_blank" rel="noopener">Google Cloud AI Adoption Framework</a>
+        <a class="ref-link" href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener">Stanford HAI AI Index 2025</a>
+        <a class="ref-link" href="https://english.ey.gov.tw/News3/9E5540D592A5FECD/1dec0902-e02a-49c6-870d-e77208481667" target="_blank" rel="noopener">台灣 AI 行動計劃 2.0（行政院）</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Manus banner injection point -->
+<footer id="main-footer" style="background:var(--dark);color:rgba(255,255,255,0.4);text-align:center;padding:32px 5%;font-size:0.8rem;">
+  <p style="margin-bottom:8px;">© 2025 季祥 Simon Chi · <a href="https://simon-chi.com" style="color:var(--cyan);">simon-chi.com</a></p>
+  <p>量表設計依據 Gartner · MITRE · MIT Sloan · McKinsey · Google Cloud · Stanford HAI 框架</p>
+</footer>
+
+<script src="main.js"></script>
+<script src="manus-banner.js"></script>
+<script>
+/* ── Assessment logic ── */
+
+const DIMS = [
+  { name: 'AI 策略', qs: ['q1','q2','q3','q4'], max: 16, color: '#22d3ee', icon: '🎯' },
+  { name: '資料準備', qs: ['q5','q6','q7','q8'], max: 16, color: '#818cf8', icon: '🗄️' },
+  { name: '技術基礎', qs: ['q9','q10','q11'], max: 12, color: '#f97316', icon: '⚙️' },
+  { name: '人才技能', qs: ['q12','q13','q14','q15'], max: 16, color: '#22c55e', icon: '👥' },
+  { name: '治理倫理', qs: ['q16','q17','q18'], max: 12, color: '#a855f7', icon: '🛡️' },
+  { name: '商業價值', qs: ['q19','q20'], max: 8, color: '#eab308', icon: '📈' },
+];
+
+const LEVELS = [
+  { name: '觀望期', en: 'Level 0 — Watching', desc: '企業尚未踏出 AI 的第一步。AI 導入仍停留在觀望階段，主要挑戰是缺乏認知與起步的勇氣。現在正是開始的最佳時機。', colorClass: 'level-0', textClass: 'level-text-0', min: 0 },
+  { name: '起步期', en: 'Level 1 — Starting', desc: '企業已有初步的 AI 嘗試，但尚未系統化。各自為政的摸索仍是常態。下一步是建立策略方向與統一的工具標準。', colorClass: 'level-1', textClass: 'level-text-1', min: 13 },
+  { name: '成長期', en: 'Level 2 — Growing', desc: '企業已有明確計劃並逐步落實，部分流程已有 AI 輔助。重點是深化人才培育與資料整合能力，讓 AI 效益更顯著。', colorClass: 'level-2', textClass: 'level-text-2', min: 28 },
+  { name: '成熟期', en: 'Level 3 — Maturing', desc: '企業已能系統化執行 AI 戰略，並有具體可量化的成效。治理機制與人才梯隊正在成形，是加速擴展的黃金期。', colorClass: 'level-3', textClass: 'level-text-3', min: 46 },
+  { name: '引領期', en: 'Level 4 — Leading', desc: 'AI 已深度融入企業核心競爭力。您的組織不僅在業界領先，更能持續創新。下一步是將 AI 優勢轉化為生態系影響力。', colorClass: 'level-4', textClass: 'level-text-4', min: 62 },
+];
+
+const RECS = {
+  'AI 策略': {
+    icon: '🎯', title: '制定明確的 AI 策略藍圖',
+    text: '從高層共識開始，設定 12 個月內的 AI 優先目標，並為 AI 推動指派專責人員與預算。參考：Gartner AI Roadmap Toolkit。'
+  },
+  '資料準備': {
+    icon: '🗄️', title: '建立資料治理基礎',
+    text: '先盤點現有資料資產，推動資料數位化與統一格式，並建立基本的個資保護機制。資料是 AI 的燃料，品質決定效益。'
+  },
+  '技術基礎': {
+    icon: '⚙️', title: '升級 AI 工具層級',
+    text: '從消費型 AI 升級至企業版工具（如 Microsoft Copilot、Claude Teams），再評估是否透過 API 整合至業務流程。'
+  },
+  '人才技能': {
+    icon: '👥', title: '啟動全員 AI 技能提升計劃',
+    text: '設計分級的 AI 培訓課程（基礎使用者 → 進階應用 → 內部推廣者），Stanford HAI 2025 研究指出人才是最大的 AI 採用障礙。'
+  },
+  '治理倫理': {
+    icon: '🛡️', title: '建立 AI 使用規範',
+    text: '制定一份簡明的 AI 使用政策，明確什麼可以輸入 AI、什麼不行，以及如何驗證 AI 的輸出品質。這是規模化 AI 應用的前提。'
+  },
+  '商業價值': {
+    icon: '📈', title: '建立 AI 效益量化機制',
+    text: 'McKinsey 2025 指出 74% 企業尚未將 AI 轉化為商業價值。建議選定 1-2 個核心流程，設定可量化的 KPI，系統追蹤 AI 導入效益。'
+  }
+};
+
+let answered = 0;
+
+// Track selections & update progress
+document.getElementById('assessmentForm').addEventListener('change', e => {
+  if (e.target.type === 'radio') {
+    const name = e.target.name;
+    const card = document.getElementById(`qcard-${name.replace('q','')}`);
+    // Mark card answered
+    card.classList.add('answered');
+    // Style options
+    card.querySelectorAll('.q-option').forEach(opt => opt.classList.remove('selected'));
+    e.target.closest('.q-option').classList.add('selected');
+    // Update progress
+    updateProgress();
+  }
+});
+
+function updateProgress() {
+  let count = 0;
+  for (let i = 1; i <= 20; i++) {
+    if (document.querySelector(`input[name="q${i}"]:checked`)) count++;
+  }
+  answered = count;
+  const pct = (count / 20) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `已完成 ${count} / 20 題`;
+}
+
+// Submit
+document.getElementById('assessmentForm').addEventListener('submit', e => {
+  e.preventDefault();
+
+  // Check all answered
+  let missing = [];
+  for (let i = 1; i <= 20; i++) {
+    if (!document.querySelector(`input[name="q${i}"]:checked`)) missing.push(i);
+  }
+  if (missing.length > 0) {
+    document.getElementById('unansweredNote').style.display = 'block';
+    // Scroll to first unanswered
+    document.getElementById(`qcard-${missing[0]}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  document.getElementById('unansweredNote').style.display = 'none';
+
+  // Calculate scores
+  let total = 0;
+  const dimScores = DIMS.map(dim => {
+    let score = 0;
+    dim.qs.forEach(q => {
+      const val = parseInt(document.querySelector(`input[name="${q}"]:checked`).value);
+      score += val;
+      total += val;
+    });
+    return { ...dim, score, pct: Math.round((score / dim.max) * 100) };
+  });
+
+  // Determine level
+  let level = LEVELS[0];
+  for (let i = LEVELS.length - 1; i >= 0; i--) {
+    if (total >= LEVELS[i].min) { level = LEVELS[i]; break; }
+  }
+
+  // Show results
+  showResults(total, dimScores, level);
+});
+
+function showResults(total, dimScores, level) {
+  // Hide form area
+  document.getElementById('assessmentForm').style.display = 'none';
+  document.querySelector('.progress-bar-wrap').style.display = 'none';
+
+  // Populate hero
+  document.getElementById('levelBadge').textContent = level.en;
+  document.getElementById('levelBadge').className = `level-badge ${level.colorClass}`;
+  document.getElementById('resultsScore').innerHTML = `${total} <span>/ 80</span>`;
+  document.getElementById('resultsLevelName').textContent = level.name;
+  document.getElementById('resultsLevelName').className = `results-level-name ${level.textClass}`;
+  document.getElementById('resultsDesc').textContent = level.desc;
+
+  // Dim score cards
+  const dimHtml = dimScores.map(d => `
+    <div class="dim-score-card">
+      <div class="dsc-header">
+        <span class="dsc-name">${d.icon} ${d.name}</span>
+        <span class="dsc-pct">${d.pct}%</span>
+      </div>
+      <div class="dsc-bar"><div class="dsc-fill" style="width:0%;background:${d.color}" data-w="${d.pct}"></div></div>
+    </div>
+  `).join('');
+  document.getElementById('dimScores').innerHTML = dimHtml;
+
+  // Animate bars after paint
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.dsc-fill').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+    });
+  }));
+
+  // Recommendations: pick 3 weakest dimensions
+  const sorted = [...dimScores].sort((a, b) => a.pct - b.pct);
+  const recsHtml = sorted.slice(0, 3).map(d => {
+    const rec = RECS[d.name];
+    return `<div class="rec-item">
+      <div class="rec-icon" style="background:rgba(34,211,238,0.08)">${rec.icon}</div>
+      <div class="rec-text">
+        <strong>${rec.title}</strong>
+        <p>${rec.text}</p>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('recsList').innerHTML = recsHtml;
+
+  // Show results
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+  // Draw radar chart
+  setTimeout(() => drawRadar(dimScores), 300);
+}
+
+function drawRadar(dimScores) {
+  const canvas = document.getElementById('radarChart');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2 + 10;
+  const R = Math.min(W, H) * 0.36;
+  const N = dimScores.length;
+  const labels = dimScores.map(d => d.icon + ' ' + d.name);
+  const vals = dimScores.map(d => d.pct / 100);
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid rings
+  for (let r = 1; r <= 4; r++) {
+    ctx.beginPath();
+    for (let i = 0; i <= N; i++) {
+      const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
+      const rr = R * r / 4;
+      const x = cx + rr * Math.cos(angle);
+      const y = cy + rr * Math.sin(angle);
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = r === 4 ? 'rgba(34,211,238,0.15)' : 'rgba(148,163,184,0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Spokes
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + R * Math.cos(angle), cy + R * Math.sin(angle));
+    ctx.strokeStyle = 'rgba(148,163,184,0.2)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Data polygon
+  ctx.beginPath();
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
+    const x = cx + R * vals[i] * Math.cos(angle);
+    const y = cy + R * vals[i] * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(34,211,238,0.12)';
+  ctx.fill();
+  ctx.strokeStyle = '#22d3ee';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Dots
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
+    const x = cx + R * vals[i] * Math.cos(angle);
+    const y = cy + R * vals[i] * Math.sin(angle);
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#22d3ee';
+    ctx.fill();
+  }
+
+  // Labels
+  ctx.font = '700 11px "Noto Sans TC", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
+    const labelR = R + 28;
+    const x = cx + labelR * Math.cos(angle);
+    const y = cy + labelR * Math.sin(angle);
+    ctx.fillStyle = '#475569';
+    ctx.fillText(labels[i], x, y);
+  }
+}
+
+function restartAssessment() {
+  document.getElementById('assessmentForm').reset();
+  document.getElementById('assessmentForm').style.display = 'block';
+  document.querySelector('.progress-bar-wrap').style.display = 'block';
+  document.getElementById('results').style.display = 'none';
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('answered'));
+  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressLabel').textContent = '已完成 0 / 20 題';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
