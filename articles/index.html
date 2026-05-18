@@ -112,6 +112,18 @@
 .card-link { font-size: 0.82rem; font-weight: 700; color: var(--blue); transition: opacity 0.2s; }
 .card-link:hover { opacity: 0.7; }
 
+/* 行銷專區 section label */
+.grid-section-label {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 0 4px;
+  font-size: 0.72rem; font-weight: 800; color: var(--orange);
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.grid-section-label::after {
+  content: ''; flex: 1; height: 1px; background: rgba(232,84,30,0.25);
+}
+
 /* 空狀態 */
 .empty-state {
   grid-column: 1 / -1; text-align: center; padding: 48px 0;
@@ -192,7 +204,7 @@
       <div class="persona-btn active" data-filter="全部">
         <span class="persona-icon">📖</span>
         <span class="persona-label">全部文章</span>
-        <span class="persona-count">19 篇</span>
+        <span class="persona-count">22 篇</span>
       </div>
       <div class="persona-btn" data-filter="企業主">
         <span class="persona-icon">💼</span>
@@ -234,11 +246,39 @@
         <span class="persona-label">AI 週報</span>
         <span class="persona-count">1 篇</span>
       </div>
+      <div class="persona-btn" data-filter="行銷人員">
+        <span class="persona-icon">📣</span>
+        <span class="persona-label">行銷人員</span>
+        <span class="persona-count">3 篇</span>
+      </div>
     </div>
   </div>
 
   <!-- 文章列表 -->
   <div class="articles-grid" id="articles-grid">
+
+    <div class="grid-section-label" data-section="行銷人員">📣 行銷專區</div>
+
+    <a href="article-20.html" class="article-card" data-ta="行銷人員">
+      <span class="card-tag">AI 趨勢 / 數位轉型 / 中小企業</span>
+      <h2>2026 年 AI 應用發展趨勢：你不能再等的六件事</h2>
+      <p class="card-excerpt">AI 成本崩潰、Agent 崛起、多模態爆發——2026 年的 AI 不再是未來，是現在。六個趨勢，決定你的競爭對手是否已經把你甩遠。</p>
+      <div class="card-meta"><span class="card-date">2026年5月18日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-21.html" class="article-card" data-ta="行銷人員">
+      <span class="card-tag">數位行銷 / 工具選擇 / 中小企業</span>
+      <h2>數位行銷工具大揭密：中小企業必懂的七大平台</h2>
+      <p class="card-excerpt">網站、Google 我的商家、Instagram、Facebook、LINE、Google Ads、Email——七個平台各有戰場，你不需要全做，但要知道哪個最重要。</p>
+      <div class="card-meta"><span class="card-date">2026年5月18日</span><span class="card-link">閱讀 →</span></div>
+    </a>
+
+    <a href="article-22.html" class="article-card" data-ta="行銷人員">
+      <span class="card-tag">AI 行銷 / 內容策略 / 實戰方法</span>
+      <h2>AI 賦能行銷：讓你的行銷效率翻倍的六個實戰方法</h2>
+      <p class="card-excerpt">品牌聲音建立、一份內容五版本、競品分析、廣告素材加速——AI 不是要取代你的創意，是幫你把創意執行速度提高十倍。</p>
+      <div class="card-meta"><span class="card-date">2026年5月18日</span><span class="card-link">閱讀 →</span></div>
+    </a>
 
     <a href="article-19.html" class="article-card" data-ta="企業主">
       <span class="card-tag">組織管理 / AI 導入 / 中小企業</span>
@@ -398,6 +438,11 @@ personas.forEach(btn => {
     });
 
     emptyState.style.display = visible === 0 ? 'block' : 'none';
+
+    document.querySelectorAll('.grid-section-label').forEach(label => {
+      const show = filter === '全部' || filter === label.dataset.section;
+      label.style.display = show ? '' : 'none';
+    });
   });
 });
 </script>
