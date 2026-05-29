@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工具速查手冊 | AI 創業加速器 雲林場</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:52px 28px 80px}
+.back{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:36px}
+.back:hover{color:var(--orange)}
+.page-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:12px}
+.page-sub{font-size:.95rem;color:var(--dim);margin-bottom:48px;line-height:1.65}
+/* section */
+.hd-section{margin-bottom:48px}
+.hd-section-title{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line);display:block}
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+.compare-card{background:white;border-radius:12px;padding:20px;border:1px solid var(--line)}
+.compare-card.o{border-top:3px solid var(--orange)}
+.compare-card.b{border-top:3px solid var(--blue)}
+.compare-type{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.compare-name{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.compare-meta{font-size:.84rem;color:var(--dim);margin-bottom:10px;font-style:italic}
+.compare-list{list-style:none}
+.compare-list li{font-size:.9rem;color:var(--ink);padding:4px 0 4px 18px;position:relative;border-bottom:1px solid var(--line)}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';position:absolute;left:0;color:var(--orange);font-weight:700}
+.hl{border-left:3px solid var(--orange);padding:11px 15px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:.95rem;color:var(--ink);line-height:1.65;margin:12px 0}
+/* tool row */
+.tool-row{background:white;border-radius:12px;padding:18px 20px;border:1px solid var(--line);margin-bottom:12px}
+.tool-header{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.tool-name{font-size:1.1rem;font-weight:700;color:var(--ink)}
+.tool-badge{font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(232,84,30,.1);color:var(--orange)}
+.tool-desc{font-size:.92rem;color:var(--dim);line-height:1.6;margin-bottom:10px}
+.tool-uses{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.tool-use{font-size:.78rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:3px 10px;border-radius:16px}
+/* feature grid */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{background:white;border-radius:10px;padding:14px 16px;border:1px solid var(--line)}
+.feat-num{font-size:1.3rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px}
+.feat-title{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.feat-desc{font-size:.82rem;color:var(--dim);line-height:1.5}
+/* tools table */
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:12px}
+.tbl th{background:var(--orange);color:white;padding:10px 12px;text-align:left;font-weight:600;font-size:.85rem}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:white}
+.tbl a{color:var(--blue);text-decoration:none}
+.tbl a:hover{text-decoration:underline}
+/* note box */
+.note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:11px 15px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin:12px 0}
+/* takeaway */
+.takeaway{background:#0f0d0c;border-radius:14px;padding:24px 26px;margin-top:48px}
+.takeaway-title{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:block}
+.takeaway-list{list-style:none}
+.takeaway-list li{font-size:1rem;color:rgba(255,255,255,.8);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
+.takeaway-list li:last-child{border-bottom:none}
+.takeaway-list li::before{content:'→';color:var(--orange);position:absolute;left:0;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">← 返回首頁</a>
+  <span class="page-tag">AI 工具速查手冊</span>
+  <h1>今天用到的 AI 工具</h1>
+  <p class="page-sub">整理自「得到AI學習圈 AI工具上手指南（2026）」· 繁體中文版 · 雲林進階班適用</p>
+
+  <!-- 一、兩種 AI -->
+  <div class="hd-section">
+    <span class="hd-section-title">一、先搞清楚：AI 工具分兩種</span>
+    <div class="compare">
+      <div class="compare-card o">
+        <div class="compare-type">Type 1</div>
+        <div class="compare-name">對話型 AI</div>
+        <div class="compare-meta">ChatGPT · Claude · Gemini</div>
+        <ul class="compare-list">
+          <li>你問 → 它答 → 你自己去執行</li>
+          <li>不會主動幫你搜網路</li>
+          <li>不會自己存檔整理</li>
+          <li>最適合：文案、腦力激盪、草稿生成</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--orange)">像圖書館：你走進去拿答案，轉身走人</div>
+      </div>
+      <div class="compare-card b">
+        <div class="compare-type">Type 2</div>
+        <div class="compare-name">代理型 AI（Agent）</div>
+        <div class="compare-meta">Manus · OpenClaw 等</div>
+        <ul class="compare-list">
+          <li>你下任務 → 它自己執行完整流程 → 交給你成果</li>
+          <li>自己開瀏覽器搜尋資料</li>
+          <li>自己整理報告並存檔</li>
+          <li>最適合：競品研究、資料整合、多步驟自動化</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--blue)">像管家：你在不在，它都在幫你幹活</div>
+      </div>
+    </div>
+    <div class="hl">核心差異只有一句話：<b>對話型 AI 幫你想，代理型 AI 幫你做。</b></div>
+  </div>
+
+  <!-- 二、GPT Image 2 -->
+  <div class="hd-section">
+    <span class="hd-section-title">二、GPT Image 2 生圖工具</span>
+    <div class="tool-row">
+      <div class="tool-header">
+        <span class="tool-name">GPT Image 2</span>
+        <span class="tool-badge">OpenAI · 2026.04 發布</span>
+      </div>
+      <div class="tool-desc">直接在 ChatGPT 對話框輸入指令就能生圖，不需要額外工具。</div>
+      <ul class="tool-uses">
+        <li class="tool-use">行銷海報</li>
+        <li class="tool-use">IG 貼圖系列</li>
+        <li class="tool-use">競品資訊圖表</li>
+        <li class="tool-use">品牌故事漫畫</li>
+      </ul>
+    </div>
+    <div class="hl">跟以前的 AI 生圖最大的差別：<b>中文字渲染大幅改善</b>，可直接出現在海報、菜單、文宣上。</div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-num">1</div>
+        <div class="feat-title">行銷海報直出</div>
+        <div class="feat-desc">試試：「幫我生成一張手工藤編包的夏季新品海報，主色系米白+深棕，有台灣在地感，附上品牌名「芒草工坊」」</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">2</div>
+        <div class="feat-title">競品資訊圖表</div>
+        <div class="feat-desc">試試：「把以下三個競品的比較資料，生成一張清楚的比較資訊圖，繁體中文」</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">3</div>
+        <div class="feat-title">系列 IG 貼圖</div>
+        <div class="feat-desc">試試：「幫我生成 6 張系列 IG 貼圖，主題是「手工藤編的一天」，從早晨到夜晚，扁平插畫風，暖色系，人物外貌全程一致」</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">4</div>
+        <div class="feat-title">品牌故事漫畫</div>
+        <div class="feat-desc">試試：「生成 4 格漫畫，描述一個雲林青年創業賣手工包的故事」</div>
+      </div>
+    </div>
+    <div class="note">使用注意：免費帳號每天有次數限制 · 生成真實品牌 Logo 效果不穩定，建議用文字描述特徵</div>
+  </div>
+
+  <!-- 三、Seedance 2.0 -->
+  <div class="hd-section">
+    <span class="hd-section-title">三、Seedance 2.0 AI 影片生成</span>
+    <div class="tool-row">
+      <div class="tool-header">
+        <span class="tool-name">Seedance 2.0</span>
+        <span class="tool-badge">字節跳動 · 即夢平台</span>
+      </div>
+      <div class="tool-desc">用在即夢平台（jimeng.jianying.com）。三大亮點：物理模擬逼真、長鏡頭穩定、理解中文語義。</div>
+      <ul class="tool-uses">
+        <li class="tool-use">產品展示影片（圖生影片）</li>
+        <li class="tool-use">品牌故事短片（文生影片）</li>
+        <li class="tool-use">IG 動態素材</li>
+      </ul>
+    </div>
+    <div class="hl">最實用場景：上傳產品圖 → 輸入描述 → 自動生成動態展示影片。沒有拍攝設備也能做社群影片。</div>
+    <div class="note">免費用戶每天有積分限額 · 排隊等待時間長，先送出任務去做其他事 · 生成影片有浮水印，開通會員可移除</div>
+  </div>
+
+  <!-- 四、今日工具清單 -->
+  <div class="hd-section">
+    <span class="hd-section-title">四、今天課程用到的工具清單</span>
+    <table class="tbl">
+      <tr><th>工具</th><th>用途</th><th>費用</th><th>網址</th></tr>
+      <tr><td><b>ChatGPT</b></td><td>文案、圖片生成、對話</td><td>免費 / 付費</td><td><a href="https://chatgpt.com" target="_blank">chatgpt.com</a></td></tr>
+      <tr><td><b>Claude</b></td><td>長文件分析、開發信</td><td>免費 / 付費</td><td><a href="https://claude.ai" target="_blank">claude.ai</a></td></tr>
+      <tr><td><b>Manus</b></td><td>自動化研究、競品分析</td><td>邀請制 / 付費</td><td><a href="https://manus.im" target="_blank">manus.im</a></td></tr>
+      <tr><td><b>即夢</b></td><td>AI 影片生成</td><td>免費積分制</td><td><a href="https://jimeng.jianying.com" target="_blank">jimeng.jianying.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- 今天帶走 -->
+  <div class="takeaway">
+    <span class="takeaway-title">今天你要帶走的三件東西</span>
+    <ul class="takeaway-list">
+      <li><b>BROCEF 提示語架構</b>——六個元素讓 AI 真的聽懂你的需求</li>
+      <li><b>你自己的競品研究報告</b>——Manus 幫你跑的，不是手動整理的</li>
+      <li><b>一套可直接套用的業務開發信模板</b>——下次開發新通路直接改</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

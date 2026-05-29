@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上午場｜AI 工具實作 · 文案 · 競品研究</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
+.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide.active{display:flex;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cover{background:#0f0d0c;color:white;padding:6vh 9vw}
+.cover .s-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:block}
+.cover h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:24px;color:white}
+.cover h1 .hi{color:var(--orange)}
+.cover .sub{font-size:clamp(.95rem,1.6vw,1.15rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:660px}
+.cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
+.cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.sbreak{background:#1a0d07;color:white}
+.sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
+.sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
+.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
+.slide-sub{font-size:clamp(1.25rem,1.75vw,1.45rem);color:var(--dim);margin-bottom:20px;padding-left:18px}
+.blist{list-style:none}
+.blist li{font-size:clamp(1.45rem,2.1vw,1.65rem);color:var(--ink);padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:10px}
+.blist li b{font-weight:700}
+.nlist{list-style:none;counter-reset:n}
+.nlist li{counter-increment:n;font-size:clamp(1.45rem,2.1vw,1.65rem);color:var(--ink);padding:11px 0 11px 46px;position:relative;border-bottom:1px solid var(--line)}
+.nlist li::before{content:counter(n);width:28px;height:28px;border-radius:50%;background:var(--orange);color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:9px}
+.nlist li span{font-size:.9rem;color:var(--dim)}
+.cgrid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:white;border-radius:10px;padding:20px 22px;border:1px solid var(--line)}
+.card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}
+.ct{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cd{font-size:1.05rem;color:var(--dim);line-height:1.6}
+.chat-ui{background:#1c1c28;border-radius:12px;overflow:hidden;margin:8px 0;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.chat-bar{background:#141420;padding:9px 14px;display:flex;align-items:center;gap:6px}
+.chat-dot{width:10px;height:10px;border-radius:50%}
+.chat-dot.r{background:#ff5f57}.chat-dot.y{background:#febc2e}.chat-dot.g{background:#28c840}
+.chat-appname{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;margin-left:6px;text-transform:uppercase}
+.chat-body{padding:14px 18px}
+.chat-who{font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:7px}
+.chat-text{font-family:'Courier New',monospace;font-size:clamp(1.05rem,1.55vw,1.2rem);color:#e2e2e2;line-height:1.8;white-space:pre-wrap}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(1.05rem,1.5vw,1.2rem)}
+.tbl th{background:var(--orange);color:white;padding:11px 14px;text-align:left;font-weight:600}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:nth-child(even) td{background:white}
+.hl{border-left:3px solid var(--orange);padding:13px 17px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.25rem,1.8vw,1.5rem);color:var(--ink);line-height:1.65;margin:8px 0}
+.hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
+.hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
+.hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
+.brocef{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.britem{padding:15px;border-radius:8px;background:white;border:1px solid var(--line);border-left:3px solid var(--orange)}
+.brletter{font-size:2rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:5px}
+.brname{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.brdesc{font-size:.86rem;color:var(--dim);line-height:1.5}
+.ex{background:#fff9f5}
+.excard{background:white;border-radius:10px;padding:20px 22px;border:2px solid rgba(232,84,30,.25)}
+.extag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--orange);background:rgba(232,84,30,.08);padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.excard h3{font-size:.98rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.excard p{font-size:.94rem;color:var(--ink);line-height:1.65}
+.intro{background:#0f0d0c;color:white}
+.intro-inner{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.intro-name{font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:900;color:white;margin-bottom:6px}
+.intro-title{font-size:clamp(.9rem,1.4vw,1.1rem);color:var(--orange);font-weight:600;margin-bottom:20px}
+.intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-item{background:rgba(255,255,255,.05);padding:12px 14px;border-radius:8px;border-left:3px solid var(--orange)}
+.stat-n{font-size:1.6rem;font-weight:900;color:white}
+.stat-l{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:2px}
+.intro-bio{font-size:clamp(.86rem,1.3vw,1rem);color:rgba(255,255,255,.65);line-height:1.8}
+.cert-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.cert{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.5)}
+.insight{background:#120c04;color:white}
+.insight-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+.insight h2{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:700;color:white;border-left:3px solid var(--orange);padding-left:14px;margin-bottom:16px}
+.insight-list{list-style:none}
+.insight-list li{font-size:clamp(.98rem,1.55vw,1.15rem);color:rgba(255,255,255,.78);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(255,255,255,.08)}
+.insight-list li:last-child{border-bottom:none}
+.insight-list li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
+.bqslide{background:var(--paper);align-items:center;text-align:center}
+.bq{font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:800;color:var(--ink);line-height:1.35;max-width:860px}
+.bq .accent{color:var(--orange)}
+.bq-src{font-size:.92rem;color:var(--dim);margin-top:20px}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.compare-card{background:white;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:18px}
+.compare-card:nth-child(2){border-top-color:var(--blue)}
+.compare-card h3{font-size:1.25rem;color:var(--ink);margin-bottom:8px}
+.compare-card p{font-size:1rem;color:var(--dim);line-height:1.55}
+.compare-card ul{margin-top:10px;padding-left:0;list-style:none}
+.compare-card ul li{font-size:.95rem;color:var(--dim);padding:4px 0 4px 16px;position:relative}
+.compare-card ul li::before{content:'·';color:var(--orange);position:absolute;left:0;font-weight:700}
+/* stats */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.stat-box{background:white;border-radius:12px;padding:18px 14px;border:1px solid var(--line);text-align:center}
+.stat-box .big{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--orange);line-height:1}
+.stat-box .label{font-size:.78rem;color:var(--dim);margin-top:6px;line-height:1.4}
+.stat-box .src{font-size:.64rem;color:rgba(110,110,115,.6);margin-top:4px}
+/* tool map */
+.tool-map{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tmap-cell{border-radius:12px;padding:16px 18px;border:1px solid var(--line)}
+.tmap-cell.text{background:#fff9f5;border-color:rgba(232,84,30,.2)}
+.tmap-cell.img{background:#f0f4ff;border-color:rgba(0,102,204,.2)}
+.tmap-cell.vid{background:#f0fff4;border-color:rgba(22,163,74,.2)}
+.tmap-cell.auto{background:#1a0d07;border-color:rgba(255,255,255,.1)}
+.tmap-title{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.tmap-cell.text .tmap-title{color:var(--orange)}
+.tmap-cell.img .tmap-title{color:var(--blue)}
+.tmap-cell.vid .tmap-title{color:var(--green)}
+.tmap-cell.auto .tmap-title{color:#a78bfa}
+.tmap-tools{font-size:.9rem;line-height:1.7}
+.tmap-cell.auto .tmap-tools{color:rgba(255,255,255,.7)}
+/* myth cards */
+.myth-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.myth-bad{background:#fef2f2;border-radius:10px;padding:12px 16px;border:1px solid #fca5a5}
+.myth-good{background:#f0fdf4;border-radius:10px;padding:12px 16px;border:1px solid #86efac}
+.myth-tag{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
+.myth-bad .myth-tag{color:#dc2626}
+.myth-good .myth-tag{color:#16a34a}
+.myth-text{font-size:.95rem;color:var(--ink);line-height:1.5}
+/* layers */
+.layer-stack{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.layer{border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:16px}
+.layer.l1{background:rgba(232,84,30,.08);border:1px solid rgba(232,84,30,.2)}
+.layer.l2{background:rgba(0,102,204,.08);border:1px solid rgba(0,102,204,.2)}
+.layer.l3{background:#120c04;border:1px solid rgba(255,255,255,.1)}
+.layer-num{font-size:1.4rem;font-weight:900;width:36px;flex-shrink:0;text-align:center}
+.layer.l1 .layer-num{color:var(--orange)}
+.layer.l2 .layer-num{color:var(--blue)}
+.layer.l3 .layer-num{color:#a78bfa}
+.layer-content{}
+.layer-title{font-size:1rem;font-weight:700;color:var(--ink)}
+.layer.l3 .layer-title{color:white}
+.layer-desc{font-size:.88rem;color:var(--dim);margin-top:2px}
+.layer.l3 .layer-desc{color:rgba(255,255,255,.55)}
+.layer-badge{margin-left:auto;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.layer.l1 .layer-badge{background:rgba(232,84,30,.15);color:var(--orange)}
+.layer.l2 .layer-badge{background:rgba(0,102,204,.15);color:var(--blue)}
+.layer.l3 .layer-badge{background:rgba(167,139,250,.15);color:#a78bfa}
+/* search ai */
+.search-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.sc-item{background:white;border-radius:10px;padding:14px 16px;border:1px solid var(--line)}
+.sc-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.sc-tag{font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px}
+.sc-tag.orange{background:rgba(232,84,30,.1);color:var(--orange)}
+.sc-tag.blue{background:rgba(0,102,204,.1);color:var(--blue)}
+.sc-tag.green{background:rgba(22,163,74,.1);color:var(--green)}
+.sc-desc{font-size:.86rem;color:var(--dim);line-height:1.5}
+/* prompt levels */
+.plevel{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.pl-item{border-radius:10px;padding:12px 16px;border-left:4px solid}
+.pl-item.p1{background:#f9fafb;border-color:var(--dim)}
+.pl-item.p2{background:rgba(0,102,204,.04);border-color:var(--blue)}
+.pl-item.p3{background:rgba(232,84,30,.04);border-color:var(--orange)}
+.pl-label{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.pl-item.p1 .pl-label{color:var(--dim)}
+.pl-item.p2 .pl-label{color:var(--blue)}
+.pl-item.p3 .pl-label{color:var(--orange)}
+.pl-text{font-family:'Courier New',monospace;font-size:clamp(.88rem,1.3vw,1rem);color:var(--ink);line-height:1.7}
+/* ab test */
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.ab-card{border-radius:10px;padding:16px;border:1px solid var(--line)}
+.ab-card.a{background:rgba(232,84,30,.04);border-color:rgba(232,84,30,.2)}
+.ab-card.b{background:rgba(0,102,204,.04);border-color:rgba(0,102,204,.2)}
+.ab-tag{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:block}
+.ab-card.a .ab-tag{color:var(--orange)}
+.ab-card.b .ab-tag{color:var(--blue)}
+.ab-content{font-size:.92rem;color:var(--ink);line-height:1.6}
+/* notebook */
+.nb-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.nb-col h3{font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.nb-item{background:white;border-radius:8px;padding:10px 13px;border:1px solid var(--line);margin-bottom:8px;font-size:.92rem;color:var(--ink);line-height:1.5}
+.nb-item b{color:var(--orange)}
+/* sop steps */
+.sop-steps{display:flex;gap:0;margin-top:14px}
+.sop-step{flex:1;background:white;border:1px solid var(--line);padding:16px 14px;position:relative}
+.sop-step:first-child{border-radius:10px 0 0 10px}
+.sop-step:last-child{border-radius:0 10px 10px 0}
+.sop-arrow{width:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:1.2rem;background:rgba(232,84,30,.05);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sop-n{font-size:1.5rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:5px}
+.sop-t{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.sop-d{font-size:.82rem;color:var(--dim);line-height:1.5}
+/* swot */
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.swot-cell{border-radius:10px;padding:14px 16px}
+.swot-cell.s{background:#fff9f5;border:1px solid rgba(232,84,30,.2)}
+.swot-cell.w{background:#fef2f2;border:1px solid #fca5a5}
+.swot-cell.o{background:#f0fdf4;border:1px solid #86efac}
+.swot-cell.t{background:#eff6ff;border:1px solid #bfdbfe}
+.swot-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
+.swot-cell.s .swot-label{color:var(--orange)}
+.swot-cell.w .swot-label{color:#dc2626}
+.swot-cell.o .swot-label{color:#16a34a}
+.swot-cell.t .swot-label{color:#2563eb}
+.swot-items{font-size:.85rem;color:var(--ink);line-height:1.6}
+/* mistakes */
+.mistake-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.mistake-row{display:flex;align-items:flex-start;gap:12px;background:white;border-radius:8px;padding:11px 14px;border:1px solid var(--line)}
+.mistake-x{font-size:1rem;color:#dc2626;flex-shrink:0;margin-top:1px}
+.mistake-fix{font-size:.88rem;color:var(--dim);margin-top:3px}
+.mistake-title{font-size:.95rem;font-weight:700;color:var(--ink)}
+/* vs table */
+.vs-tbl{width:100%;border-collapse:collapse;font-size:clamp(.9rem,1.35vw,1.05rem);margin-top:14px}
+.vs-tbl th{padding:10px 12px;text-align:left;font-weight:600;font-size:.8rem}
+.vs-tbl th:nth-child(1){background:var(--dim);color:white;width:28%}
+.vs-tbl th:nth-child(2){background:var(--orange);color:white}
+.vs-tbl th:nth-child(3){background:var(--blue);color:white}
+.vs-tbl td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.vs-tbl tr:last-child td{border-bottom:none}
+.vs-tbl tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+.check{color:var(--green);font-weight:700}
+.xmark{color:#dc2626;font-weight:700}
+/* savings */
+.saving-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.saving-item{background:white;border-radius:10px;padding:14px 15px;border:1px solid var(--line)}
+.saving-task{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.saving-bar{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.saving-label{font-size:.7rem;color:var(--dim);width:28px}
+.bar-bg{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.bar-fill{height:8px;border-radius:4px}
+.bar-fill.before{background:#d1d5db}
+.bar-fill.after{background:var(--orange)}
+.saving-note{font-size:.75rem;color:var(--dim)}
+/* checklist */
+.checklist{list-style:none;margin-top:12px}
+.checklist li{font-size:clamp(1.1rem,1.6vw,1.25rem);color:var(--ink);padding:9px 0 9px 34px;position:relative;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'□';font-size:1.1rem;color:var(--orange);position:absolute;left:0;top:8px}
+/* diff */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.diff-card{border-radius:12px;padding:16px}
+.diff-card.d1{background:#fff9f5;border:1px solid rgba(232,84,30,.2)}
+.diff-card.d2{background:#eff6ff;border:1px solid #bfdbfe}
+.diff-card.d3{background:#f0fdf4;border:1px solid #86efac}
+.diff-icon{font-size:1.6rem;margin-bottom:8px}
+.diff-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.diff-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+.diff-eg{font-size:.78rem;font-style:italic;color:var(--orange);margin-top:6px}
+/* review */
+.review-score{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.rs-row{display:flex;align-items:flex-start;gap:12px;background:white;border-radius:8px;padding:11px 14px;border:1px solid var(--line)}
+.rs-q{font-size:.65rem;font-weight:700;width:20px;flex-shrink:0;color:var(--orange)}
+.rs-text{font-size:.95rem;color:var(--ink)}
+/* nav */
+#nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
+#counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
+.nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
+.nb:hover{transform:scale(1.1)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
+.home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
+.home-btn:hover{color:white}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<a href="index.html" class="home-btn">← 返回</a>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <span class="s-tag">應用AI提升職場效率與決策力 · 上午場 / 09:00–12:00</span>
+  <h1>AI 幫你寫、幫你查、<br><span class="hi">幫你找對方向</span></h1>
+  <div class="sub">BROCEF 提示語框架 · 業務開發信 · IG 行銷文案 · 競品研究 · NotebookLM</div>
+  <div class="bar">
+    <span class="pill">3 小時</span>
+    <span class="pill">雲林青年創業基地</span>
+    <span class="pill">2026.05.30</span>
+  </div>
+  <div class="ghost">AM</div>
+</section>
+
+<!-- 2. 講師介紹 -->
+<section class="slide intro">
+  <div class="intro-inner">
+    <div>
+      <div class="intro-name">季祥<br>Simon Chi</div>
+      <div class="intro-title">AI 實戰顧問 · 企業培訓講師</div>
+      <div class="intro-stats">
+        <div class="stat-item"><div class="stat-n">40+</div><div class="stat-l">場企業 / 公部門 AI 培訓</div></div>
+        <div class="stat-item"><div class="stat-n">10+</div><div class="stat-l">年資安 / AI 專案經歷</div></div>
+        <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">件自有 SaaS 產品</div></div>
+        <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">項國際雲端 / PM 認證</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="intro-bio">HP → 趨勢科技 → 外商 AI 專案主管 → 創業。<br><br>
+      我設計課程的標準只有一個：<b style="color:white">你離開教室時，手上要有一個今天就能用的東西。</b><br><br>
+      動手做，不只聽講。</div>
+      <div class="cert-row">
+        <span class="cert">PMP</span><span class="cert">PMI-ACP</span><span class="cert">AWS Certified</span>
+        <span class="cert">Google Cloud</span><span class="cert">Azure</span><span class="cert">ISO 27001</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 今天的遊戲規則 -->
+<section class="slide">
+  <div class="slide-tag">TODAY'S RULES</div>
+  <h2>今天的遊戲規則</h2>
+  <div class="slide-sub">三小時，帶走六件東西</div>
+  <ul class="nlist" style="margin-top:12px">
+    <li>一套 <b>BROCEF 提示語框架</b>，讓 AI 每次都聽懂你<span>不用再猜 AI 要什麼</span></li>
+    <li>一封<b>可直接寄出的業務開發信</b><span>不是 AI 寫的，是你告訴 AI 怎麼寫的</span></li>
+    <li>三則<b>針對不同客群的 IG 貼文</b><span>同一件事，說給不同人聽</span></li>
+    <li>一份<b>競品分析摘要</b>，含差異化建議<span>下午 Manus 會自動跑更完整版本</span></li>
+    <li>你自己的<b>客服 AI 規則書草稿</b><span>把品牌語氣教給 AI</span></li>
+    <li>了解 <b>NotebookLM</b>，讓 AI 讀你的資料<span>你的報告、法規、SOP 都能問它</span></li>
+  </ul>
+</section>
+
+<!-- 4. 今天的假資料情境 -->
+<section class="slide">
+  <div class="slide-tag">CLASS SCENARIO · 今天的主角</div>
+  <h2>今天用這個品牌練習</h2>
+  <div class="slide-sub">虛擬情境 · 真實操作 · 你的行業可以類比替換</div>
+  <div class="cgrid g2" style="margin-top:16px">
+    <div class="card o">
+      <div class="ct">芒草工坊 Mángcǎo Studio</div>
+      <div class="cd">雲林虎尾人林宥辰（28 歲）創辦，主打手工藤編包、竹編托盤、草編帽。<br><br>
+      IG 粉絲 1,200 · 每月訂單 30–50 筆 · 全靠 DM 下單<br><br>
+      <b>目標：</b>打進台北選品店市場，建立線上電商</div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="ct">今天要解決的三件事</div>
+        <ul class="blist" style="margin-top:8px">
+          <li style="font-size:1.05rem;padding:8px 0 8px 22px">寫一封開發信給台北選品店</li>
+          <li style="font-size:1.05rem;padding:8px 0 8px 22px">寫三種客群的 IG 貼文</li>
+          <li style="font-size:1.05rem;padding:8px 0 8px 22px">做競品分析找差異化方向</li>
+        </ul>
+      </div>
+      <div class="hl dim" style="font-size:1rem">代購、房地產、上班族、學生都可以把情境換成自己的行業——邏輯一樣</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. sbreak 主題一 -->
+<section class="slide sbreak">
+  <span class="s-tag">主題一 · 09:15</span>
+  <h2>AI 如何重塑<br>職場效率與決策模式</h2>
+  <div class="sub">兩種 AI 工具的本質差異 · 數據告訴你 AI 的真實影響 · 你為什麼要現在開始</div>
+</section>
+
+<!-- 6. 兩種 AI -->
+<section class="slide">
+  <div class="slide-tag">FOUNDATIONS · 兩種模式</div>
+  <h2>AI 工具只有兩種</h2>
+  <div class="slide-sub">搞清楚差異，才知道今天用的是哪一種</div>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h3>對話型 AI</h3>
+      <p>ChatGPT · Claude · Gemini</p>
+      <ul>
+        <li>你問一個問題，它回答一個問題</li>
+        <li>不會主動幫你搜網路</li>
+        <li>不會自己存檔整理</li>
+        <li>每個動作都需要你下指令</li>
+      </ul>
+      <div style="margin-top:10px;font-size:.9rem;font-weight:700;color:var(--orange)">像圖書館：你走進去拿答案</div>
+    </div>
+    <div class="compare-card">
+      <h3>代理型 AI（Agent）</h3>
+      <p>Manus · n8n · Make 等</p>
+      <ul>
+        <li>你下一個任務，它自己多步驟執行</li>
+        <li>自己開瀏覽器搜尋資料</li>
+        <li>自己整理成報告並存檔</li>
+        <li>你可以去做別的事，回來拿結果</li>
+      </ul>
+      <div style="margin-top:10px;font-size:.9rem;font-weight:700;color:var(--blue)">像管家：你在不在，它都在幫你幹活</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">上午學對話型，下午學代理型。今天兩種都會碰到。</div>
+</section>
+
+<!-- 7. 數字說話 -->
+<section class="slide">
+  <div class="slide-tag">DATA · AI 生產力影響</div>
+  <h2>數字告訴你 AI 的真實影響</h2>
+  <div class="slide-sub">不是炒作，是研究數據</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="big">20–40%</div><div class="label">知識工作者生產力提升幅度</div><div class="src">McKinsey 2025</div></div>
+    <div class="stat-box"><div class="big">14%</div><div class="label">AI 輔助客服人員效率提升</div><div class="src">Stanford 研究</div></div>
+    <div class="stat-box"><div class="big">37%</div><div class="label">AI 加快文件撰寫速度</div><div class="src">MIT 研究</div></div>
+    <div class="stat-box"><div class="big">3億</div><div class="label">全球受 AI 影響的工作崗位數</div><div class="src">Goldman Sachs</div></div>
+  </div>
+  <div class="hl" style="margin-top:16px">這些數字不是說 AI 會取代你——而是說<b>會用 AI 的人效率是別人的 1.4–2 倍</b></div>
+</section>
+
+<!-- 8. 你每週花多少時間 -->
+<section class="slide">
+  <div class="slide-tag">SELF CHECK · 想一想</div>
+  <h2>你每週花多少時間<br>在「可以 AI 化」的事上？</h2>
+  <div class="slide-sub">先盤點，再知道從哪裡省起</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <ul class="checklist">
+        <li>寫重複性的回覆或文件</li>
+        <li>整理資料、做摘要報告</li>
+        <li>回答重複的客戶問題</li>
+        <li>研究競品或市場趨勢</li>
+        <li>寫提案、企劃書初稿</li>
+        <li>整理會議記錄</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card o" style="height:100%">
+        <div class="ct">保守估計</div>
+        <div class="cd" style="font-size:1.15rem;margin-top:8px">一個人每週在以上這些事上<br>平均花 <b style="font-size:1.6rem;color:var(--orange)">8–12 小時</b><br><br>
+        用 AI 可以壓縮到 <b style="color:var(--orange)">2–3 小時</b><br><br>
+        這就是今天你要帶走的東西。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. AI 工具版圖 -->
+<section class="slide">
+  <div class="slide-tag">LANDSCAPE · AI 工具四大類</div>
+  <h2>AI 工具全景地圖</h2>
+  <div class="slide-sub">2026 年你需要知道的四個類別</div>
+  <div class="tool-map">
+    <div class="tmap-cell text">
+      <div class="tmap-title">文字生成 / 對話</div>
+      <div class="tmap-tools">ChatGPT · Claude · Gemini<br><span style="font-size:.8rem;color:var(--dim)">今天主要用這類</span></div>
+    </div>
+    <div class="tmap-cell img">
+      <div class="tmap-title">圖像生成</div>
+      <div class="tmap-tools">GPT Image 2 · Midjourney · DALL-E<br><span style="font-size:.8rem;color:#6b7280">今天會示範 GPT Image 2</span></div>
+    </div>
+    <div class="tmap-cell vid">
+      <div class="tmap-title">影片生成</div>
+      <div class="tmap-tools">Seedance 2.0 · Runway · Sora<br><span style="font-size:.8rem;color:#6b7280">速查手冊有介紹</span></div>
+    </div>
+    <div class="tmap-cell auto">
+      <div class="tmap-title">自動化代理</div>
+      <div class="tmap-tools">Manus · n8n · Make · Zapier<br><span style="font-size:.8rem">今天下午的主角：Manus</span></div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">今天上午：文字生成 → 今天下午：自動化代理。四大類你全部都會碰到。</div>
+</section>
+
+<!-- 10. AI 取代論三個誤解 -->
+<section class="slide">
+  <div class="slide-tag">MYTHS · 三個常見誤解</div>
+  <h2>AI「取代」論的三個誤解</h2>
+  <div class="slide-sub">把這三個誤解搞清楚，你才能用對心態</div>
+  <div class="myth-list">
+    <div class="myth-row">
+      <div class="myth-bad"><span class="myth-tag">誤解一</span><div class="myth-text">AI 會取代我的工作 → 我現在學也沒用</div></div>
+      <div class="myth-good"><span class="myth-tag">真相</span><div class="myth-text"><b>會用 AI 的人</b>會取代不會用的人。工具取代工序，不取代有判斷力的人。</div></div>
+    </div>
+    <div class="myth-row">
+      <div class="myth-bad"><span class="myth-tag">誤解二</span><div class="myth-text">AI 說的一定正確，可以直接用</div></div>
+      <div class="myth-good"><span class="myth-tag">真相</span><div class="myth-text">AI 會「幻覺」——在不確定時會編出聽起來合理的答案。<b>重要資訊一定要核實。</b></div></div>
+    </div>
+    <div class="myth-row">
+      <div class="myth-bad"><span class="myth-tag">誤解三</span><div class="myth-text">等 AI 技術成熟再學也不遲</div></div>
+      <div class="myth-good"><span class="myth-tag">真相</span><div class="myth-text">你每次用 AI 都在<b>累積提示語資本</b>。越晚開始，差距越大。學習曲線已經過了最陡的地方。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. 先行者優勢 -->
+<section class="slide">
+  <div class="slide-tag">FIRST MOVER · 為什麼現在開始</div>
+  <h2>先行者優勢：現在開始的意義</h2>
+  <div class="slide-sub">不是因為 AI 很酷，而是因為競爭對手還沒準備好</div>
+  <div class="cgrid g2" style="margin-top:16px">
+    <div>
+      <ul class="blist">
+        <li>台灣中小企業 AI 採用率目前約 <b>20–30%</b>，多數還在觀望</li>
+        <li>每一次使用都在<b>累積你的 Prompt 資本</b>——有效的提示語是可以複用的資產</li>
+        <li>早學的人正在建立<b>6 個月的學習領先</b>，這個差距之後很難追</li>
+        <li>AI 工具越用越順手，使用習慣本身就是優勢</li>
+      </ul>
+    </div>
+    <div class="card o" style="text-align:center;padding:28px">
+      <div style="font-size:3rem;font-weight:900;color:var(--orange);line-height:1">今天</div>
+      <div style="font-size:1rem;color:var(--dim);margin-top:6px;margin-bottom:16px">是你最晚應該開始的日子</div>
+      <div style="font-size:.92rem;color:var(--ink);line-height:1.7">6 個月後，你的競爭對手<br>會開始後悔今天沒有來。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. AI 工作應用三層次 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · 三個層次</div>
+  <h2>AI 工作應用的三個層次</h2>
+  <div class="slide-sub">今天你會到達第一層，下午到達第二層</div>
+  <div class="layer-stack">
+    <div class="layer l1">
+      <div class="layer-num">1</div>
+      <div class="layer-content">
+        <div class="layer-title">個人效率</div>
+        <div class="layer-desc">文案生成、研究分析、草稿撰寫、客服回覆。你問它答，你自己執行。</div>
+      </div>
+      <div class="layer-badge">今天上午 · 立刻能用</div>
+    </div>
+    <div class="layer l2">
+      <div class="layer-num">2</div>
+      <div class="layer-content">
+        <div class="layer-title">流程自動化</div>
+        <div class="layer-desc">Manus 自動跑研究、多步驟任務、你離開它自己完成。Agent 工作流。</div>
+      </div>
+      <div class="layer-badge">今天下午 · Manus</div>
+    </div>
+    <div class="layer l3">
+      <div class="layer-num">3</div>
+      <div class="layer-content">
+        <div class="layer-title">決策輔助</div>
+        <div class="layer-desc">AI 整理數據洞察、生成策略選項、你做最終判斷。AI 支援，人決策。</div>
+      </div>
+      <div class="layer-badge">下午後半段 · SOP 設計</div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. 新趨勢：搜尋型 AI -->
+<section class="slide">
+  <div class="slide-tag">2026 TREND · 搜尋型 AI</div>
+  <h2>新趨勢：AI 正在取代 Google 搜尋</h2>
+  <div class="slide-sub">三種搜尋工具，各有適合的場景</div>
+  <div class="search-compare">
+    <div class="sc-item">
+      <div class="sc-name">ChatGPT Search</div>
+      <span class="sc-tag orange">OpenAI</span>
+      <div class="sc-desc">ChatGPT 內建搜尋，可直接在對話中查詢網路資訊，適合問「最新事件」</div>
+    </div>
+    <div class="sc-item">
+      <div class="sc-name">Perplexity AI</div>
+      <span class="sc-tag blue">附來源</span>
+      <div class="sc-desc">每個答案都附來源連結，需要查證資料時的最佳選擇，比 Google 快又完整</div>
+    </div>
+    <div class="sc-item">
+      <div class="sc-name">Google AI Overviews</div>
+      <span class="sc-tag green">Google</span>
+      <div class="sc-desc">Google 搜尋結果頁面直接出現 AI 摘要，適合快速了解一個主題</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">競品研究 → 用 Perplexity（附來源）。寫文案 → 用 ChatGPT/Claude（生成）。兩種用途不要混。</div>
+</section>
+
+<!-- 14. bq 轉變 -->
+<section class="slide bqslide">
+  <div class="bq">
+    你現在面臨的選擇不是<br>
+    「要不要用 AI」<br>
+    而是「<span class="accent">要用得多好</span>」
+  </div>
+  <div class="bq-src">進入今天的第一個工具：BROCEF 提示語框架</div>
+</section>
+
+<!-- 15. sbreak 主題二 BROCEF -->
+<section class="slide sbreak">
+  <span class="s-tag">主題二 · 09:40</span>
+  <h2>AI 提升個人<br>工作效率的核心應用</h2>
+  <div class="sub">BROCEF 提示語框架 · 業務開發信 · IG 行銷文案 · 客服效率 · NotebookLM</div>
+</section>
+
+<!-- 16. BROCEF 六元素 -->
+<section class="slide">
+  <div class="slide-tag">BROCEF · 六個元素</div>
+  <h2>BROCEF 框架</h2>
+  <div class="slide-sub">讓 AI 每次都聽懂你的六個元素</div>
+  <div class="brocef" style="margin-top:14px">
+    <div class="britem"><div class="brletter">B</div><div class="brname">Background · 背景</div><div class="brdesc">你是誰、你的情境、你的品牌</div></div>
+    <div class="britem"><div class="brletter">R</div><div class="brname">Role · 角色</div><div class="brdesc">要 AI 扮演什麼身份</div></div>
+    <div class="britem"><div class="brletter">O</div><div class="brname">Objective · 目標</div><div class="brdesc">要達成什麼具體結果</div></div>
+    <div class="britem"><div class="brletter">C</div><div class="brname">Constraint · 限制</div><div class="brdesc">不能做什麼、語氣要求</div></div>
+    <div class="britem"><div class="brletter">E</div><div class="brname">Example · 範例</div><div class="brdesc">給 AI 看的好例子</div></div>
+    <div class="britem"><div class="brletter">F</div><div class="brname">Format · 格式</div><div class="brdesc">輸出要長什麼樣子</div></div>
+  </div>
+  <div class="hl" style="margin-top:14px">不需要六個都用。但越多，結果越精準。</div>
+</section>
+
+<!-- 17. 好 vs 壞提示語 -->
+<section class="slide">
+  <div class="slide-tag">COMPARE · 同一個需求</div>
+  <h2>同一個需求，兩種提示語</h2>
+  <div class="slide-sub">先看差異，再理解原因</div>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h3>沒有 BROCEF 的版本</h3>
+      <p style="font-family:'Courier New',monospace;font-size:.95rem;line-height:1.7">「幫我寫一封開發信給選品店」</p>
+      <ul style="margin-top:10px">
+        <li>AI 不知道你是誰</li>
+        <li>AI 不知道對方是誰</li>
+        <li>AI 不知道你要什麼語氣</li>
+        <li>輸出：一封通用、沒有個性的信</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h3>BROCEF 完整版</h3>
+      <p style="font-size:.88rem;color:var(--dim);line-height:1.65">B：雲林手工藤編品牌，IG 1,200 粉絲<br>R：B2B 業務顧問<br>O：讓對方願意回信約說明會<br>C：不超過 250 字，不承諾折扣<br>E：好信要說明合作對對方的好處<br>F：商業書信格式，含稱謂署名</p>
+      <ul style="margin-top:10px">
+        <li>輸出：有個性、可以直接用的信</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 18. 為什麼 BROCEF 有效 -->
+<section class="slide">
+  <div class="slide-tag">WHY · 背後的邏輯</div>
+  <h2>為什麼 BROCEF 有效？</h2>
+  <div class="slide-sub">AI 不是不聰明，是沒有足夠的背景資訊</div>
+  <div class="cgrid g2" style="margin-top:16px">
+    <ul class="blist">
+      <li><b>AI 沒有讀心術。</b>你越清楚它越精確，你越模糊它越廢。</li>
+      <li><b>角色設定改變語氣。</b>同一件事，「業務顧問」和「小學老師」的回答完全不同。</li>
+      <li><b>限制條件避免廢話。</b>沒有限制，AI 會說很多你不需要的東西。</li>
+      <li><b>範例是最快的校準。</b>你給一個好例子，勝過寫十句說明。</li>
+      <li><b>格式讓輸出立刻可用。</b>不然你還要花時間重新整理。</li>
+    </ul>
+    <div class="card o" style="display:flex;flex-direction:column;justify-content:center;padding:28px">
+      <div style="font-size:.85rem;color:var(--dim);margin-bottom:10px">BROCEF 的核心邏輯</div>
+      <div style="font-size:1.3rem;font-weight:800;color:var(--ink);line-height:1.5">你給的背景越完整，<br>AI 輸出的品質<br>就越高</div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. Prompt 三個層次 -->
+<section class="slide">
+  <div class="slide-tag">LEVELS · 三個進化層次</div>
+  <h2>Prompt 的三個進化層次</h2>
+  <div class="slide-sub">你現在在哪一層？今天要到哪一層？</div>
+  <div class="plevel">
+    <div class="pl-item p1">
+      <div class="pl-label">初階 · 大多數人停在這裡</div>
+      <div class="pl-text">「幫我寫開發信」「幫我分析這個市場」</div>
+    </div>
+    <div class="pl-item p2">
+      <div class="pl-label">中階 · 開始有效果</div>
+      <div class="pl-text">「幫我寫一封給台北選品店的開發信，我是雲林手工藤編品牌，希望對方回信約說明會」</div>
+    </div>
+    <div class="pl-item p3">
+      <div class="pl-label">進階 · BROCEF 完整版 · 今天的目標</div>
+      <div class="pl-text">B + R + O + C + E + F 完整給出 → 輸出可直接使用，不需要大幅修改</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">從初階到進階不需要一週，今天練習 3 次就會。</div>
+</section>
+
+<!-- 20. 五個常見 Prompt 錯誤 -->
+<section class="slide">
+  <div class="slide-tag">MISTAKES · 五個陷阱</div>
+  <h2>最常見的 5 個 Prompt 錯誤</h2>
+  <div class="slide-sub">先認識這些，就不會踩</div>
+  <div class="mistake-list">
+    <div class="mistake-row"><div class="mistake-x">✕</div><div><div class="mistake-title">沒有告訴 AI 你是誰（缺 B）</div><div class="mistake-fix">→ 加上你的身份、品牌背景、目前的情境</div></div></div>
+    <div class="mistake-row"><div class="mistake-x">✕</div><div><div class="mistake-title">沒有指定 AI 的角色（缺 R）</div><div class="mistake-fix">→ 「你是一位擅長 B2B 開發的業務顧問」效果比空白好很多</div></div></div>
+    <div class="mistake-row"><div class="mistake-x">✕</div><div><div class="mistake-title">目標太模糊（缺 O）</div><div class="mistake-fix">→ 「讓對方願意回信約說明會」比「寫一封好信」具體</div></div></div>
+    <div class="mistake-row"><div class="mistake-x">✕</div><div><div class="mistake-title">沒有說不要什麼（缺 C）</div><div class="mistake-fix">→ 「不要承諾折扣」「不超過 250 字」才能避免不需要的內容</div></div></div>
+    <div class="mistake-row"><div class="mistake-x">✕</div><div><div class="mistake-title">沒有格式要求（缺 F）</div><div class="mistake-fix">→ AI 會給你一大段文字。說「用條列式」或「商業書信格式」，輸出立刻可用</div></div></div>
+  </div>
+</section>
+
+<!-- 21. ChatGPT vs Claude -->
+<section class="slide">
+  <div class="slide-tag">TOOLS · 選哪個？</div>
+  <h2>ChatGPT vs Claude：什麼時候用哪個？</h2>
+  <div class="slide-sub">不是哪個比較好，是不同任務用不同工具</div>
+  <table class="vs-tbl">
+    <tr><th>功能 / 任務</th><th>ChatGPT</th><th>Claude</th></tr>
+    <tr><td>圖片生成</td><td><span class="check">✓ GPT Image 2</span></td><td><span class="xmark">✕ 無</span></td></tr>
+    <tr><td>語音對話</td><td><span class="check">✓ 支援</span></td><td><span class="xmark">✕ 不支援</span></td></tr>
+    <tr><td>長文件分析</td><td>可以</td><td><span class="check">更強（20萬字以上）</span></td></tr>
+    <tr><td>文案風格</td><td>直接、結構清晰</td><td><span class="check">更有文采、語氣自然</span></td></tr>
+    <tr><td>程式碼 / 技術</td><td><span class="check">較強</span></td><td>也很好</td></tr>
+    <tr><td>知識截止日</td><td>2025 年初</td><td>2025 年 4 月</td></tr>
+  </table>
+  <div class="hl" style="margin-top:12px;font-size:1rem">建議：文案/開發信 → Claude；圖片/多功能/語音 → ChatGPT。兩個都用，各有專長。</div>
+</section>
+
+<!-- 22. 六個省時場景 -->
+<section class="slide">
+  <div class="slide-tag">USE CASES · 你的行業可以從這裡開始</div>
+  <h2>AI 幫你省時的 6 個日常場景</h2>
+  <div class="slide-sub">每一個都可以今天下班後就試</div>
+  <div class="saving-grid">
+    <div class="saving-item">
+      <div class="saving-task">業務開發信</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">30分</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:17%"></div></div><span style="font-size:.7rem;color:var(--orange)">5分</span></div>
+    </div>
+    <div class="saving-item">
+      <div class="saving-task">IG 貼文</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">20分</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:15%"></div></div><span style="font-size:.7rem;color:var(--orange)">3分</span></div>
+    </div>
+    <div class="saving-item">
+      <div class="saving-task">客服 FAQ 回覆</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">60分</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:17%"></div></div><span style="font-size:.7rem;color:var(--orange)">10分</span></div>
+    </div>
+    <div class="saving-item">
+      <div class="saving-task">競品市場研究</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">4小時</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:13%"></div></div><span style="font-size:.7rem;color:var(--orange)">30分</span></div>
+    </div>
+    <div class="saving-item">
+      <div class="saving-task">企劃書初稿</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">1天</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:25%"></div></div><span style="font-size:.7rem;color:var(--orange)">2小時</span></div>
+    </div>
+    <div class="saving-item">
+      <div class="saving-task">會議記錄整理</div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:#aaa">前</span><div class="bar-bg"><div class="bar-fill before" style="width:100%"></div></div><span style="font-size:.7rem;color:#aaa">30分</span></div>
+      <div class="saving-bar"><span class="saving-label" style="font-size:.65rem;color:var(--orange)">後</span><div class="bar-bg"><div class="bar-fill after" style="width:17%"></div></div><span style="font-size:.7rem;color:var(--orange)">5分</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 23. sbreak 實作 01 業務開發信 -->
+<section class="slide sbreak">
+  <span class="s-tag">主題二 實作 · 業務開發信</span>
+  <h2>AI 提升個人<br>工作效率的核心應用</h2>
+  <div class="sub">用 BROCEF 寫一封業務開發信 · 打開 ChatGPT 或 Claude（10 分鐘）</div>
+</section>
+
+<!-- 24. 實作指引 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 業務開發信</div>
+  <h2>用芒草工坊的資料來練習</h2>
+  <div class="slide-sub">先送「壞版本」感受差距，再送 BROCEF 版本</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="excard">
+      <span class="extag">先試這個（壞版本）</span>
+      <p style="font-family:'Courier New',monospace;font-size:1rem;line-height:1.8">幫我寫一封開發信給選品店</p>
+    </div>
+    <div class="excard">
+      <span class="extag">BROCEF 完整版</span>
+      <p style="font-size:.88rem;line-height:1.75;font-family:'Courier New',monospace">B：雲林手工藤編品牌「芒草工坊」，IG 1,200 粉絲，定價 680–2,800<br>R：擅長 B2B 開發的業務顧問<br>O：讓「日常選物」願意回信約說明會<br>C：不超過 250 字，不承諾折扣，結尾有明確下一步<br>E：好信要說明合作對對方的好處<br>F：商業書信，含稱謂、正文、署名</p>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:12px;font-size:1rem">練習題在「練習題頁面」有完整提示語可以複製。不需要自己打字。</div>
+</section>
+
+<!-- 25. 審查 AI 回覆 -->
+<section class="slide">
+  <div class="slide-tag">QUALITY CHECK · 收到 AI 回覆後</div>
+  <h2>收到 AI 回覆，先問這 5 個問題</h2>
+  <div class="slide-sub">AI 給的是草稿，你的判斷是品質保證</div>
+  <div class="review-score">
+    <div class="rs-row"><div class="rs-q">Q1</div><div class="rs-text">語氣符合我的品牌嗎？（太正式/太隨意/太誇張）</div></div>
+    <div class="rs-row"><div class="rs-q">Q2</div><div class="rs-text">有沒有承諾我沒說過的事？（折扣/交期/規格）</div></div>
+    <div class="rs-row"><div class="rs-q">Q3</div><div class="rs-text">對方看了會想行動嗎？（有沒有讓對方有理由回應）</div></div>
+    <div class="rs-row"><div class="rs-q">Q4</div><div class="rs-text">長度和格式適合使用情境嗎？（信/貼文/訊息長度不同）</div></div>
+    <div class="rs-row"><div class="rs-q">Q5</div><div class="rs-text">有沒有明確的下一步行動？（「歡迎回覆」不夠；「下週三前方便約 20 分鐘通話嗎？」才夠）</div></div>
+  </div>
+</section>
+
+<!-- 26. sbreak 實作 02 IG -->
+<section class="slide sbreak">
+  <span class="s-tag">主題二 實作 · IG 行銷文案</span>
+  <h2>AI 提升個人<br>工作效率的核心應用</h2>
+  <div class="sub">三種客群，三種說話方式 · 同一個產品對不同人說不一樣的話</div>
+</section>
+
+<!-- 27. 三種客群 -->
+<section class="slide">
+  <div class="slide-tag">CONTENT STRATEGY · 客群定位</div>
+  <h2>芒草工坊的三種客群</h2>
+  <div class="slide-sub">每個客群在意的事完全不同</div>
+  <div class="cgrid g3" style="margin-top:16px">
+    <div class="card o">
+      <div class="ct">A 類：都市女性</div>
+      <div class="cd">25–40 歲 · 重視手感、台灣製造、獨特性 · 會在 IG 上找靈感 · 在意「有沒有故事」</div>
+    </div>
+    <div class="card b">
+      <div class="ct">B 類：選品店策展人</div>
+      <div class="cd">需要有故事、有質感的在地品牌 · 在意品牌一致性和可持續合作性 · 看重「能不能賣」</div>
+    </div>
+    <div class="card dim">
+      <div class="ct">C 類：企業採購</div>
+      <div class="cd">需要客製化與開發票 · 在意交期、規格、最低訂量 · 最不在意「故事」</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">同一件事，說給 A 類聽的語言和說給 C 類聽的完全不同。AI 可以幫你一次生成三種版本。</div>
+</section>
+
+<!-- 28. IG 三客群貼文 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · IG 貼文三客群</div>
+  <h2>讓 AI 同時生成三種貼文</h2>
+  <div class="slide-sub">一個提示語，三個版本，你來挑</div>
+  <div class="excard" style="margin-top:14px">
+    <span class="extag">複製給 ChatGPT / Claude</span>
+    <p style="font-size:.9rem;font-family:'Courier New',monospace;line-height:1.85;color:var(--ink)">
+      根據以下品牌資料，分別針對三種目標客群（A：25–40歲都市女性 / B：選品店策展人 / C：企業採購）各寫一則 IG 貼文。<br>
+      每則包含：主標題、內文（100 字內）、3 個 hashtag。<br>
+      語氣要有溫度、在地感，避免過度商業化語言。<br><br>
+      品牌資料：芒草工坊，雲林虎尾，手工藤編包/竹編托盤/草編帽，定價 NT$680–2,800，台灣在地農村工藝，IG 粉絲 1,200。
+    </p>
+  </div>
+  <div class="hl dim" style="margin-top:12px;font-size:1rem">收到三個版本後，觀察：語氣有沒有真的不一樣？A 和 C 類的用詞有多大差距？</div>
+</section>
+
+<!-- 29. A/B 測試文案 -->
+<section class="slide">
+  <div class="slide-tag">ADVANCED · A/B 測試</div>
+  <h2>進階：讓 AI 生成兩個版本，你來選</h2>
+  <div class="slide-sub">用對比決定語氣方向，比修改一篇快多了</div>
+  <div class="ab-grid">
+    <div class="ab-card a">
+      <span class="ab-tag">版本 A · 理性訴求</span>
+      <div class="ab-content">強調商業利益、數字、合作條件。適合 B 類（選品店）和 C 類（企業採購）。</div>
+    </div>
+    <div class="ab-card b">
+      <span class="ab-tag">版本 B · 情感訴求</span>
+      <div class="ab-content">強調品牌故事、製作過程、在地情感。適合 A 類（都市女性）。</div>
+    </div>
+  </div>
+  <div class="excard" style="margin-top:12px">
+    <span class="extag">提示語</span>
+    <p style="font-size:.9rem;font-family:'Courier New',monospace;line-height:1.8">生成兩個版本的開發信：<br>版本A：理性訴求，強調合作的商業價值和數字<br>版本B：情感訴求，強調芒草工坊的品牌故事和在地精神<br>我來決定哪個版本更適合「日常選物」這家店</p>
+  </div>
+</section>
+
+<!-- 30. GPT Image 2 -->
+<section class="slide">
+  <div class="slide-tag">BONUS · GPT Image 2</div>
+  <h2>有了文案，再生一張圖</h2>
+  <div class="slide-sub">GPT Image 2：中文字可以直接出現在海報上</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <ul class="blist">
+        <li>直接在 ChatGPT 對話框輸入指令，不需要其他工具</li>
+        <li>中文字渲染大幅改善——品牌名稱可以直接嵌入圖片</li>
+        <li>適合：<b>行銷海報、IG 封面、產品展示圖、資訊圖表</b></li>
+        <li>限制：免費帳號每天有次數限制</li>
+      </ul>
+    </div>
+    <div class="excard">
+      <span class="extag">試試這個指令</span>
+      <p style="font-size:.88rem;font-family:'Courier New',monospace;line-height:1.8">幫我生成一張手工藤編包的夏季新品海報，主色系米白+深棕，有台灣在地感，右下角加上品牌名稱「芒草工坊」，繁體中文</p>
+    </div>
+  </div>
+</section>
+
+<!-- 31. GPT Image 2 使用技巧 -->
+<section class="slide">
+  <div class="slide-tag">TIPS · GPT Image 2</div>
+  <h2>GPT Image 2 使用技巧</h2>
+  <div class="slide-sub">讓生成的圖片更符合你要的效果</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <ul class="nlist" style="margin-top:0">
+      <li>描述越<b>具體</b>越好：說材質、光線、氛圍、構圖<span>「柔和自然光 · 木質背景 · 俯拍角度」</span></li>
+      <li>加「<b>繁體中文</b>」指定文字語言<span>確保品牌名稱不會出現簡體或英文</span></li>
+      <li>指定<b>視覺風格</b><span>攝影寫實 / 扁平插畫 / 水彩 / 日系雜誌風</span></li>
+      <li>失敗就<b>重新跑</b>：同一個 prompt 每次結果不同<span>跑 3–5 次挑最好的</span></li>
+    </ul>
+    <div>
+      <div class="card o" style="margin-bottom:10px">
+        <div class="ct">最適合的場景</div>
+        <div class="cd">IG 封面圖 · 電商主圖 · 活動海報 · 品牌故事漫畫</div>
+      </div>
+      <div class="card dim">
+        <div class="ct">不適合的場景</div>
+        <div class="cd">需要精確產品規格圖 · 真實人臉 · 競品 Logo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 32. sbreak 實作 03 視覺素材 -->
+<section class="slide sbreak">
+  <span class="s-tag">主題二 實作 · 視覺素材生成</span>
+  <h2>AI 提升個人<br>工作效率的核心應用</h2>
+  <div class="sub">海報 · 資訊圖表 · 線上圖文企劃——圖不用自己設計，但指令要你來下</div>
+</section>
+
+<!-- 33. 實作：生成行銷海報 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 生成行銷海報</div>
+  <h2>實作 03-A · 生成一張可以直接用的海報</h2>
+  <div class="slide-sub">把品牌資訊餵給 ChatGPT，直接出圖</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <div class="hl" style="margin-bottom:12px;font-size:.95rem"><b>目標：</b>生成一張夏季新品海報，有品牌名稱、主視覺、節慶氛圍</div>
+      <ul class="blist" style="font-size:.95rem">
+        <li>在 ChatGPT 輸入框貼上右側提示語</li>
+        <li>不滿意？在同一個對話中說「改成...」繼續修改</li>
+        <li>下載後直接發 IG 或 LINE</li>
+      </ul>
+    </div>
+    <div class="excard">
+      <span class="extag">複製這個提示語</span>
+      <p style="font-size:.82rem;font-family:'Courier New',monospace;line-height:1.9">幫我生成一張行銷海報：<br><br>品牌：芒草工坊（手工藤編包）<br>主題：2026 夏季新品上市<br>主視覺：藤編托特包，搭配夏日海邊或稻田背景<br>色系：米白 + 深棕 + 淡橘<br>文字：「夏日輕提，自然美學」、品牌名「芒草工坊」<br>風格：日系雜誌清新風<br>語言：繁體中文<br>尺寸：1:1 正方形</p>
+    </div>
+  </div>
+</section>
+
+<!-- 34. 實作：生成資訊圖表 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 生成資訊圖表</div>
+  <h2>實作 03-B · 把數據變成一張圖</h2>
+  <div class="slide-sub">比較競品、解釋製程、呈現數字——資訊圖表讓人一眼看懂</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <div class="hl" style="margin-bottom:12px;font-size:.95rem"><b>目標：</b>生成「芒草工坊 vs 一般工廠包」比較資訊圖，放 IG 或官網用</div>
+      <div class="card" style="font-size:.88rem;line-height:1.65">
+        <b>資訊圖表的三種常見用法：</b>
+        <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--line)">① 競品比較表（你 vs 市場）</div>
+        <div style="padding:4px 0;border-bottom:1px solid var(--line)">② 製作流程拆解（4–6 步驟）</div>
+        <div style="padding:4px 0;border-bottom:1px solid var(--line)">③ 數字故事（材料/時間/尺寸）</div>
+        <div style="padding-top:4px">④ FAQ 懶人包（前 5 個常見問題）</div>
+      </div>
+    </div>
+    <div class="excard">
+      <span class="extag">複製這個提示語</span>
+      <p style="font-size:.82rem;font-family:'Courier New',monospace;line-height:1.9">幫我生成一張比較資訊圖：<br><br>左邊：芒草工坊（手工藤編）<br>右邊：一般工廠量產包<br><br>比較項目：<br>· 製作方式（手工 vs 機器）<br>· 材料（天然藤草 vs 合成塑料）<br>· 耐用度（5–10年 vs 1–2年）<br>· 客製化（可 vs 不可）<br>· 在地就業（有 vs 無）<br><br>風格：扁平插畫，橘+棕色系，繁體中文</p>
+    </div>
+  </div>
+</section>
+
+<!-- 35. 實作：生成線上圖文企劃 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 線上圖文企劃</div>
+  <h2>實作 03-C · 一次生成一套內容企劃</h2>
+  <div class="slide-sub">不只一張圖，是一整套可以排上去的 IG 輪播</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <div class="hl" style="margin-bottom:12px;font-size:.95rem"><b>目標：</b>生成「手工藤編的一天」6 張系列圖文，主角形象一致</div>
+      <ul class="blist" style="font-size:.9rem">
+        <li>輪播貼文比單張圖觸及率高 3 倍</li>
+        <li>要求「人物外貌全程一致」讓整套有品牌感</li>
+        <li>生完圖再請 ChatGPT 配每張文案</li>
+      </ul>
+    </div>
+    <div class="excard">
+      <span class="extag">複製這個提示語</span>
+      <p style="font-size:.82rem;font-family:'Courier New',monospace;line-height:1.9">幫我生成 6 張 IG 輪播系列圖：<br><br>主題：「手工藤編的一天」<br>場景順序：<br>1. 清晨採集天然藤草<br>2. 工作室裡開始編織<br>3. 專注手工的特寫<br>4. 完成一個包的瞬間<br>5. 包裝與附上手寫感謝卡<br>6. 顧客拿到包包、微笑特寫<br><br>風格：暖色系扁平插畫，人物外貌全程一致<br>比例：1:1，繁體中文標題文字</p>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px;font-size:.9rem">生完 6 張圖後，繼續問：「幫每張圖配一段 120 字的 IG 文案，加上 10 個相關 hashtag」</div>
+</section>
+
+<!-- 36. sbreak 實作 04 客服 -->
+<section class="slide sbreak">
+  <span class="s-tag">主題二 實作 · 客服效率</span>
+  <h2>AI 提升個人<br>工作效率的核心應用</h2>
+  <div class="sub">讓 AI 知道你的品牌規則，生成符合你的客服回覆</div>
+</section>
+
+<!-- 33. 客服回覆練習 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 客服回覆</div>
+  <h2>讓 AI 知道你的規則，再讓它回覆</h2>
+  <div class="slide-sub">不是叫 AI 直接回客戶，是讓 AI 依照你的規則生成</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <div class="hl dim" style="font-size:.95rem;margin-bottom:12px">客戶 IG 私訊：<br>「請問包包可以客製化嗎？需要多久？我想送禮，預算大概 1,500」</div>
+      <div class="card" style="font-size:.88rem;color:var(--ink);line-height:1.65">
+        <b>你的品牌規則（貼給 AI）：</b><br>
+        · 客製化最少 2 週工作天<br>
+        · 1,500 元以內有 3 款符合<br>
+        · 可加購燙金名字（+180 元）<br>
+        · 預算不夠不要推銷，提供選項讓客人決定
+      </div>
+    </div>
+    <div class="excard">
+      <span class="extag">提示語結構</span>
+      <p style="font-size:.88rem;font-family:'Courier New',monospace;line-height:1.8">我是手工藤編品牌「芒草工坊」的客服。<br>顧客問：[貼上問題]<br><br>我的品牌規則：[貼上規則]<br><br>請生成一則親切、誠實、不過度推銷的回覆。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 34. 建立客服 AI 規則書 -->
+<section class="slide">
+  <div class="slide-tag">SYSTEM · 客服規則書</div>
+  <h2>建立你的「客服 AI 規則書」</h2>
+  <div class="slide-sub">這份文件每次貼給 AI，它就知道怎麼代表你說話</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <ul class="nlist" style="margin-top:0">
+        <li><b>品牌語氣</b>：親切、有溫度、不過度商業化<span>三個形容詞定義你的語氣</span></li>
+        <li><b>常見問題清單</b>：列出前 10 個最常被問的問題<span>加上你希望 AI 回答的方向</span></li>
+        <li><b>絕對不能說的話</b>：不能承諾的折扣/規格/交期<span>AI 有幻覺，限制它比修改它快</span></li>
+        <li><b>紅線項目</b>：哪些問題必須由你本人回答<span>退費、投訴、法律相關</span></li>
+      </ul>
+    </div>
+    <div class="card o" style="display:flex;flex-direction:column;justify-content:center">
+      <div class="ct">使用方式</div>
+      <div class="cd" style="margin-top:8px;line-height:1.8">每次開新對話，<br>先貼上「客服規則書」，<br>再貼上「顧客問題」，<br>最後說「請生成回覆」。<br><br>這份文件以後越來越完整，<br>AI 回覆的品質也會越來越準。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 35. AI 幫你寫 SOP 草稿 -->
+<section class="slide">
+  <div class="slide-tag">PRODUCTIVITY · SOP 自動化</div>
+  <h2>AI 幫你把流程變成 SOP 草稿</h2>
+  <div class="slide-sub">你有流程，但沒有時間整理成文件？這個場景最快</div>
+  <div class="sop-steps">
+    <div class="sop-step"><div class="sop-n">1</div><div class="sop-t">口語描述</div><div class="sop-d">用口語跟 AI 說你現在怎麼做這件事，不用整理，說清楚就好</div></div>
+    <div class="sop-arrow">→</div>
+    <div class="sop-step"><div class="sop-n">2</div><div class="sop-t">AI 整理</div><div class="sop-d">AI 幫你整理成步驟清單、注意事項、例外情境</div></div>
+    <div class="sop-arrow">→</div>
+    <div class="sop-step"><div class="sop-n">3</div><div class="sop-t">你審查</div><div class="sop-d">確認有沒有遺漏步驟、有沒有不適合的描述</div></div>
+    <div class="sop-arrow">→</div>
+    <div class="sop-step"><div class="sop-n">4</div><div class="sop-t">AI 補充</div><div class="sop-d">告訴 AI 哪裡需要補充，它繼續完善</div></div>
+    <div class="sop-arrow">→</div>
+    <div class="sop-step"><div class="sop-n">5</div><div class="sop-t">輸出文件</div><div class="sop-d">要求格式輸出：Markdown / Word / 表格格式都可以</div></div>
+  </div>
+  <div class="hl" style="margin-top:14px;font-size:1rem">原本需要半天整理的 SOP，口述 10 分鐘，AI 跑 1 分鐘，你審查 5 分鐘。</div>
+</section>
+
+<!-- 36. NotebookLM -->
+<section class="slide">
+  <div class="slide-tag">NEW TOOL · NotebookLM</div>
+  <h2>NotebookLM：讓 AI 讀你的資料</h2>
+  <div class="slide-sub">Google 出品 · 免費 · 你的文件上傳後可以直接問它問題</div>
+  <div class="nb-grid">
+    <div>
+      <div class="nb-col"><h3>上傳這些</h3></div>
+      <div class="nb-item"><b>競品分析報告</b>：問「哪個競品最值得研究？」</div>
+      <div class="nb-item"><b>法規 / 申請文件</b>：問「我需要辦理哪些許可？」</div>
+      <div class="nb-item"><b>客戶回饋 / 評論</b>：問「最常見的抱怨是什麼？」</div>
+      <div class="nb-item"><b>你自己的 SOP</b>：問「第三步驟之後要做什麼？」</div>
+    </div>
+    <div>
+      <div class="nb-col"><h3>可以這樣用</h3></div>
+      <div class="nb-item">上傳多份文件，跨文件問問題</div>
+      <div class="nb-item">生成摘要或播客形式的學習材料</div>
+      <div class="nb-item">下午把 Manus 跑出的報告上傳進去，繼續深度問答</div>
+      <div class="nb-item" style="background:#f0fdf4;border-color:#86efac"><b style="color:#16a34a">網址：</b>notebooklm.google.com · 免費帳號即可使用</div>
+    </div>
+  </div>
+</section>
+
+<!-- 37. sbreak 主題三 -->
+<section class="slide sbreak">
+  <span class="s-tag">主題三 · 11:00</span>
+  <h2>AI 輔助分析與判斷：<br>從資料到洞察</h2>
+  <div class="sub">競品研究框架 · AI 分析 · SWOT · 差異化方向（手動版，下午 Manus 自動化）</div>
+</section>
+
+<!-- 38. AI 做競品研究的方式 -->
+<section class="slide">
+  <div class="slide-tag">ANALYSIS · 競品研究</div>
+  <h2>AI 做競品研究，分兩步</h2>
+  <div class="slide-sub">先建框架，再填資料——不要直接問 AI「誰是競品」</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card o">
+      <div class="ct">Step 1：建立分析框架</div>
+      <div class="cd" style="margin-top:8px">讓 AI 幫你設計分析維度，確保你問了所有重要的問題。<br><br>
+      <b>問題設計維度：</b>定價策略 · 目標客群 · 主要通路 · 品牌故事 · 社群策略 · 弱點</div>
+    </div>
+    <div class="card b">
+      <div class="ct">Step 2：填入真實資料讓 AI 分析</div>
+      <div class="cd" style="margin-top:8px">把你調查到的競品資料貼給 AI，讓它做比較分析和差異化建議。<br><br>
+      AI 不是幫你「找」資料，是幫你「整理和解讀」資料。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">重要觀念：<b>AI 搜尋的資料可能是舊的或不準確的</b>。你提供資料，AI 幫你分析，這樣最可靠。</div>
+</section>
+
+<!-- 39. 競品分析框架提示語 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 建立分析框架</div>
+  <h2>先讓 AI 設計你的競品分析框架</h2>
+  <div class="slide-sub">這個框架你以後每次做競品分析都能用</div>
+  <div class="excard" style="margin-top:14px">
+    <span class="extag">複製給 ChatGPT / Claude</span>
+    <p style="font-size:.9rem;font-family:'Courier New',monospace;line-height:1.85">我是手工藤編品牌「芒草工坊」的創辦人，想了解台灣手工包品牌市場。<br><br>
+請幫我設計一個競品分析框架，包含以下維度：<br>定價策略、目標客群、主要通路、品牌故事角度、社群經營方式。<br><br>
+用表格呈現，並在最後提供 3 個問題，讓我可以進一步判斷哪個競品最值得深入研究。</p>
+  </div>
+  <div class="hl dim" style="margin-top:12px;font-size:1rem">觀察：AI 給的框架有沒有你沒想到的維度？「3 個問題」有沒有讓你思考到新方向？</div>
+</section>
+
+<!-- 40. 貼入競品資料 -->
+<section class="slide ex">
+  <div class="slide-tag">HANDS-ON · 貼入資料分析</div>
+  <h2>把這份資料貼給 AI</h2>
+  <div class="slide-sub">用真實（假）的競品資料，讓 AI 做比較分析</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div style="background:#0f1117;border-radius:10px;padding:14px 16px;font-family:'Courier New',monospace;font-size:.78rem;color:#c8ccd8;line-height:1.7">
+      品牌A：草本工房（台南）IG:8,200 按讚:180–320 頻率:每週3則<br>
+      內容:農村採集/老師傅手作/限定預購<br>
+      定價:NT$1,200–4,500 通路:官網/台南市集/Pinkoi<br><br>
+      品牌B：編織島（台東）IG:15,600 按讚:400–800 頻率:每週2則<br>
+      內容:部落文化/工藝師訪談/旅遊<br>
+      定價:NT$2,000–8,000 通路:自建網站/百貨快閃/原住民文創館<br><br>
+      品牌C：森林工作室（台中）IG:5,400 按讚:90–150 頻率:每週5則<br>
+      內容:極簡產品照/生活風格/新品預告<br>
+      定價:NT$680–1,800 通路:蝦皮/官網/設計師市集
+    </div>
+    <div class="excard">
+      <span class="extag">分析提示語</span>
+      <p style="font-size:.82rem;font-family:'Courier New',monospace;line-height:1.8">根據以上三個競品資料，分析：<br>1. 每個品牌的核心定位<br>2. 芒草工坊（粉絲1,200/定價680–2,800/只有IG）跟這三個競品相比，最明顯的差距和機會<br>3. 給我2個在3個月內可執行的差異化建議</p>
+    </div>
+  </div>
+</section>
+
+<!-- 41. AI 跑 SWOT -->
+<section class="slide">
+  <div class="slide-tag">ANALYSIS · SWOT</div>
+  <h2>讓 AI 幫你跑 SWOT 分析</h2>
+  <div class="slide-sub">把競品分析的結論餵給 AI，讓它產出 SWOT</div>
+  <div class="swot" style="margin-top:14px">
+    <div class="swot-cell s">
+      <span class="swot-label">S · Strengths 優勢</span>
+      <div class="swot-items">在地故事（雲林虎尾）· 價格親民 · 品項多樣（包/托盤/帽）</div>
+    </div>
+    <div class="swot-cell w">
+      <span class="swot-label">W · Weaknesses 劣勢</span>
+      <div class="swot-items">粉絲少（1,200）· 無電商頁面 · 訂單全靠 DM，效率低</div>
+    </div>
+    <div class="swot-cell o">
+      <span class="swot-label">O · Opportunities 機會</span>
+      <div class="swot-items">台北選品店市場 · 企業禮品客製需求 · 文化觀光市集崛起</div>
+    </div>
+    <div class="swot-cell t">
+      <span class="swot-label">T · Threats 威脅</span>
+      <div class="swot-items">競品已有成熟通路 · 進口替代品低價競爭</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:12px;font-size:1rem">這份 SWOT 是 AI 根據你提供的資料生成的。你要做的是：<b>判斷哪個項目最值得行動</b>。</div>
+</section>
+
+<!-- 42. 差異化三個切入點 -->
+<section class="slide">
+  <div class="slide-tag">STRATEGY · 差異化</div>
+  <h2>差異化的三個切入點</h2>
+  <div class="slide-sub">不需要全部做，選一個做深</div>
+  <div class="diff-grid">
+    <div class="diff-card d1">
+      <div class="diff-icon">📦</div>
+      <div class="diff-title">產品差異化</div>
+      <div class="diff-desc">競品沒有的材質、功能、客製化選項。讓產品本身成為護城河。</div>
+      <div class="diff-eg">例：芒草工坊可以推「雲林限定草編系列」，強調在地原料</div>
+    </div>
+    <div class="diff-card d2">
+      <div class="diff-icon">🏪</div>
+      <div class="diff-title">通路差異化</div>
+      <div class="diff-desc">競品沒有覆蓋的販售管道。找到空白地帶，比搶競品的通路容易。</div>
+      <div class="diff-eg">例：競品都在市集，芒草工坊可以主攻「辦公室企業送禮」通路</div>
+    </div>
+    <div class="diff-card d3">
+      <div class="diff-icon">📖</div>
+      <div class="diff-title">故事差異化</div>
+      <div class="diff-desc">競品講不出的在地故事。「雲林虎尾，28 歲農村青年」是很強的故事資產。</div>
+      <div class="diff-eg">例：系列內容記錄「農村工藝師傅傳承」，建立文化品牌定位</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:12px;font-size:1rem">用 AI 分析哪個切入點競爭最小、芒草工坊最有優勢。</div>
+</section>
+
+<!-- 43. 分析競品評論找痛點 -->
+<section class="slide">
+  <div class="slide-tag">ADVANCED · 評論分析</div>
+  <h2>進階：分析競品客戶評論，找痛點</h2>
+  <div class="slide-sub">競品的差評，就是你的機會清單</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div>
+      <div class="hl" style="margin-bottom:12px;font-size:1rem">在 Pinkoi / 蝦皮 / Google Maps 找到競品的評論，複製後貼給 AI</div>
+      <div class="excard">
+        <span class="extag">分析提示語</span>
+        <p style="font-size:.85rem;font-family:'Courier New',monospace;line-height:1.8">以下是[競品名稱]的客戶評論摘要，請分析：<br>1. 客戶最喜歡的三個面向<br>2. 客戶最常抱怨的三個問題<br>3. 這些抱怨對芒草工坊代表什麼機會？</p>
+      </div>
+    </div>
+    <div>
+      <ul class="blist">
+        <li>競品常見抱怨 = <b>你的差異化機會</b></li>
+        <li>「交期太長」→ 你主打快速出貨</li>
+        <li>「不接小批量」→ 你主打少量客製</li>
+        <li>「回覆太慢」→ 你強調 24 小時回覆</li>
+        <li>這種分析上午手動做 20 分鐘，下午 Manus 自動跑</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 44. 搜尋型 AI 補充 -->
+<section class="slide">
+  <div class="slide-tag">TOOLS · 什麼時候用哪種 AI</div>
+  <h2>競品研究：搜尋型 vs 對話型 AI</h2>
+  <div class="slide-sub">不同工具，不同強項，不要搞混</div>
+  <table class="tbl" style="margin-top:14px">
+    <tr><th>任務</th><th>用哪個工具</th><th>原因</th></tr>
+    <tr><td>查競品最新動態</td><td><b>Perplexity / ChatGPT Search</b></td><td>附來源、資料較新</td></tr>
+    <tr><td>分析你貼給它的資料</td><td><b>Claude / ChatGPT</b></td><td>對話型分析更深入</td></tr>
+    <tr><td>完整市場研究報告</td><td><b>Manus</b>（下午）</td><td>自動搜尋+整理+存檔</td></tr>
+    <tr><td>上傳 PDF 問問題</td><td><b>NotebookLM / Claude</b></td><td>可讀長文件</td></tr>
+    <tr><td>快速問一個市場問題</td><td><b>Perplexity</b></td><td>比 Google 快又有摘要</td></tr>
+  </table>
+</section>
+
+<!-- 45. 觀念 AI 分析 ≠ AI 決策 -->
+<section class="slide">
+  <div class="slide-tag">MINDSET · 重要觀念</div>
+  <h2>AI 分析 ≠ AI 決策</h2>
+  <div class="slide-sub">這個區別，今天帶走它</div>
+  <div class="cgrid g2" style="margin-top:16px">
+    <div class="card o">
+      <div class="ct">AI 可以做的</div>
+      <div class="cd" style="margin-top:8px;line-height:1.8">
+        ✓ 整理競品資料<br>
+        ✓ 生成 SWOT 分析<br>
+        ✓ 提供差異化選項<br>
+        ✓ 列出市場趨勢<br>
+        ✓ 草擬執行方案
+      </div>
+    </div>
+    <div class="card b">
+      <div class="ct">你必須自己決定</div>
+      <div class="cd" style="margin-top:8px;line-height:1.8">
+        → 要走哪條差異化路線<br>
+        → 這個市場值不值得投入<br>
+        → 你願意承擔多大的風險<br>
+        → 這個合作要不要做<br>
+        → 什麼時候該放棄，什麼時候堅持
+      </div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">AI 給你更多選項和分析，<b>但最終選哪一個是你的責任，也是你的優勢</b>。</div>
+</section>
+
+<!-- 46. 上午你學了什麼 -->
+<section class="slide insight">
+  <span class="insight-tag">RECAP · 上午場回顧</span>
+  <h2>上午你學了什麼</h2>
+  <ul class="insight-list">
+    <li><b style="color:white">主題一：</b>AI 工具兩種類型、生產力數據、先行者優勢、工作應用三層次</li>
+    <li><b style="color:white">主題二：</b>BROCEF 六元素、ChatGPT vs Claude、六個省時場景</li>
+    <li><b style="color:white">實作 01：</b>業務開發信，用 BROCEF 把模糊指令變成可用的草稿</li>
+    <li><b style="color:white">實作 02：</b>IG 三客群貼文、A/B 測試、GPT Image 2 生圖</li>
+    <li><b style="color:white">實作 03：</b>客服規則書、AI 幫你寫 SOP、NotebookLM 介紹</li>
+    <li><b style="color:white">主題三：</b>競品分析框架、SWOT、差異化三切入點、評論分析技巧</li>
+  </ul>
+</section>
+
+<!-- 47. 今天帶走三件東西 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 下午繼續</div>
+  <h2>帶走的三件東西</h2>
+  <div class="slide-sub">不只是知識，是今天就能用的東西</div>
+  <ul class="nlist" style="margin-top:14px">
+    <li><b>BROCEF 提示語框架</b>——六個元素模板，回家套用在任何場景<span>你的業務/產品/行業都能用</span></li>
+    <li><b>你的競品分析草稿</b>——剛才手動做的那份，回家繼續補充<span>下午 Manus 會自動跑更完整版本</span></li>
+    <li><b>客服 AI 規則書框架</b>——把品牌語氣和規則整理起來，下週就能用<span>每次貼給 AI，它就知道怎麼代表你</span></li>
+  </ul>
+  <div class="hl" style="margin-top:18px">你今天花了多少時間手動做這些？下午，Manus 跑競品研究，你去喝咖啡。</div>
+</section>
+
+<!-- 48. bq 工具的主人 -->
+<section class="slide bqslide">
+  <div class="bq">
+    AI 是你的工具，<br>不是你的老闆。<br>
+    你要練習的是：<br>
+    「<span class="accent">問更好的問題</span>」
+  </div>
+  <div class="bq-src">下午 13:00 · Manus AI Agent · 你下任務，它自己跑完</div>
+</section>
+
+<!-- 49. Manus QR Code -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">下午場預告 · MANUS</div>
+  <h2 style="color:white;border-left-color:var(--orange)">下午要用到這個工具</h2>
+  <div style="display:flex;align-items:center;justify-content:center;margin-top:28px;gap:48px;flex-wrap:wrap">
+    <div style="text-align:center">
+      <img src="assets/qr/manus-invitation.png" alt="Manus 申請" style="width:220px;height:220px;border-radius:14px;border:3px solid rgba(124,106,247,.5)">
+      <div style="margin-top:16px;font-size:1.1rem;font-weight:700;color:white">Manus 申請</div>
+      <div style="font-size:.92rem;color:rgba(255,255,255,.45);margin-top:8px;line-height:1.6">掃描申請 Manus 帳號<br>午休先申請，下午就能跟著操作</div>
+    </div>
+    <div style="max-width:320px">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px">Manus 是什麼？</div>
+      <div style="font-size:1.05rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:12px">你下一個任務，<br>Manus 自己開瀏覽器搜尋、整理報告、存檔。<br>你去吃飯，回來就有成果。</div>
+      <div style="font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.6">對話型 AI：你問 → 它答 → 你執行<br>代理型 AI（Manus）：你下任務 → 它執行完</div>
+    </div>
+  </div>
+</section>
+
+<!-- 50. 午休 sbreak -->
+<section class="slide sbreak">
+  <span class="s-tag">上午場結束 · 午休 12:00–13:00</span>
+  <h2>下午 13:00<br>我們換工具</h2>
+  <div class="sub">下午的主角是 Manus——一個不需要你盯著它的 AI<br><br>現在去吃飯，回來會有驚喜。</div>
+</section>
+
+<!-- nav -->
+<div id="nav">
+  <span id="counter">1 / 1</span>
+  <button class="nb" onclick="move(-1)">‹</button>
+  <button class="nb" onclick="move(1)">›</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
+function move(d){show(cur+d)}
+show(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+</body>
+</html>

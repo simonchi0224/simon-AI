@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>練習題 · 提示語全集 | AI 創業加速器 雲林場</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:52px 28px 80px}
+.back{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:36px}
+.back:hover{color:var(--orange)}
+.page-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:12px}
+.page-sub{font-size:1rem;color:var(--dim);margin-bottom:48px;line-height:1.65}
+/* scenario box */
+.scenario{background:#fff9f5;border:2px solid rgba(232,84,30,.2);border-radius:14px;padding:24px 26px;margin-bottom:48px}
+.scenario-title{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:580px){.scenario-grid{grid-template-columns:1fr}}
+.scenario-col h3{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.scenario-col ul{list-style:none}
+.scenario-col ul li{font-size:.92rem;color:var(--dim);padding:3px 0 3px 16px;position:relative}
+.scenario-col ul li::before{content:'·';color:var(--orange);position:absolute;left:0;font-weight:700}
+/* session block */
+.session-block{margin-bottom:56px}
+.session-header{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.session-header h2{font-size:1.4rem;font-weight:800;color:var(--ink)}
+.session-badge{font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;background:var(--orange);color:white}
+/* task */
+.task{margin-bottom:28px}
+.task-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.task-num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.task-title{font-size:1.05rem;font-weight:700;color:var(--ink)}
+.task-diff{font-size:.68rem;color:var(--dim)}
+.task-context{font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:10px;padding-left:38px}
+/* prompt box */
+.prompt-box{position:relative;background:#1c1c28;border-radius:10px;overflow:hidden}
+.prompt-header{background:#141420;padding:8px 14px;display:flex;align-items:center;justify-content:space-between}
+.prompt-dots{display:flex;gap:5px}
+.prompt-dot{width:9px;height:9px;border-radius:50%}
+.prompt-dot.r{background:#ff5f57}.prompt-dot.y{background:#febc2e}.prompt-dot.g{background:#28c840}
+.prompt-label{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase}
+.copy-btn{font-size:.7rem;font-weight:700;color:var(--orange);background:rgba(232,84,30,.15);border:1px solid rgba(232,84,30,.3);border-radius:6px;padding:4px 10px;cursor:pointer;transition:all .15s}
+.copy-btn:hover{background:rgba(232,84,30,.3)}
+.copy-btn.copied{color:#4ade80;background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.3)}
+.prompt-body{padding:14px 18px}
+.prompt-text{font-family:'Courier New',monospace;font-size:clamp(.85rem,1.3vw,.95rem);color:#e2e2e2;line-height:1.8;white-space:pre-wrap;word-break:break-word}
+/* competitor data special */
+.comp-data{background:#0f1117;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin-bottom:10px}
+.comp-data-header{background:#171b25;padding:8px 14px;font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase}
+.comp-data-body{padding:14px 18px;font-family:'Courier New',monospace;font-size:clamp(.82rem,1.25vw,.9rem);color:#c8ccd8;line-height:1.8;white-space:pre-wrap}
+/* manus task */
+.manus-badge{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:#7c6af7;background:rgba(124,106,247,.12);border:1px solid rgba(124,106,247,.25);border-radius:6px;padding:4px 10px;margin-bottom:10px}
+.note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">← 返回首頁</a>
+  <span class="page-tag">練習題 · 提示語全集</span>
+  <h1>今天的練習任務</h1>
+  <p class="page-sub">五個任務的完整提示語。直接複製貼入 ChatGPT 或 Claude，<br>不用自己打字。芒草工坊的背景資料也在這裡。</p>
+
+  <!-- 品牌背景 -->
+  <div class="scenario">
+    <span class="scenario-title">今天的主角 · 芒草工坊 Mángcǎo Studio（假資料）</span>
+    <div class="scenario-grid">
+      <div class="scenario-col">
+        <h3>品牌基本資料</h3>
+        <ul>
+          <li>創辦人：林宥辰，雲林虎尾人，28 歲</li>
+          <li>主力商品：手工藤編包、竹編托盤、草編帽</li>
+          <li>定價：NT$680–2,800</li>
+          <li>現況：IG 粉絲 1,200，每月訂單 30–50 筆，全靠 DM</li>
+          <li>目標：打進台北選品店，建立線上電商</li>
+        </ul>
+        <h3 style="margin-top:14px">目標客群</h3>
+        <ul>
+          <li>A：25–40 歲都市女性，重視手感、台灣製造</li>
+          <li>B：選品店與文創市集策展人</li>
+          <li>C：企業送禮採購，需客製化與發票</li>
+        </ul>
+      </div>
+      <div class="scenario-col">
+        <h3>三件待解決的事</h3>
+        <ul>
+          <li>寫一封開發信給台北選品店「日常選物」</li>
+          <li>寫三則針對 A/B/C 客群的 IG 貼文</li>
+          <li>做競品分析，找差異化定位</li>
+        </ul>
+        <h3 style="margin-top:14px">客服常見問題（練習用）</h3>
+        <ul>
+          <li>包包可以客製化嗎？要多久？</li>
+          <li>有沒有企業採購折扣？可以開統編？</li>
+          <li>台灣製造嗎？材料安全嗎？小孩可以用？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session A -->
+  <div class="session-block">
+    <div class="session-header">
+      <h2>Session A · 業務開發信 + 行銷文案</h2>
+      <span class="session-badge">上午場</span>
+    </div>
+
+    <!-- Task 1: Bad prompt -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">1a</div>
+        <div>
+          <div class="task-title">先試這個：不好的提示語</div>
+          <div class="task-diff">先送這個，感受差距</div>
+        </div>
+      </div>
+      <div class="task-context">送出去，看 AI 給你什麼。然後換下面的 BROCEF 版本比較。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">幫我寫一封開發信給選品店</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 1: BROCEF version -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">1b</div>
+        <div>
+          <div class="task-title">開發信 · BROCEF 完整版</div>
+          <div class="task-diff">難度 ★★ · 主要練習</div>
+        </div>
+      </div>
+      <div class="task-context">換這個送出去，比較兩個版本的差異。哪封信選品店比較可能回你？</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">B（背景）：我是台灣雲林手工藤編品牌「芒草工坊」的創辦人，品牌成立一年，主打在地農村工藝，IG 有 1,200 粉絲，定價 NT$680–2,800。
+
+R（角色）：你是一位擅長 B2B 開發的業務顧問
+
+O（目標）：寫一封初次開發信給台北選品店「日常選物」，目標是讓對方願意回信約一個線上說明會
+
+C（限制）：信的長度不超過 250 字，不要過度吹噓，不要承諾折扣，結尾要有明確的下一步行動
+
+E（範例）：好開發信的特點：有說明合作對對方的好處、不是只說自己很棒
+
+F（格式）：格式為商業書信，含稱謂、正文、署名</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 2: IG posts -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">2</div>
+        <div>
+          <div class="task-title">IG 貼文三角 · 三種客群</div>
+          <div class="task-diff">難度 ★★</div>
+        </div>
+      </div>
+      <div class="task-context">同一個品牌，對三種不同客群說不一樣的話。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">根據以下品牌資料，分別針對三種目標客群（A：都市女性 / B：選品店策展人 / C：企業採購）各寫一則 IG 貼文。
+
+每則包含：主標題、內文（100 字內）、3 個 hashtag。
+語氣要有溫度、在地感，避免過度商業化語言。
+
+品牌資料：
+芒草工坊，雲林虎尾，創辦人林宥辰 28 歲。主力商品手工藤編包、竹編托盤、草編帽。定價 NT$680–2,800。強調台灣在地農村工藝、手感質地、獨特性。IG 粉絲 1,200，每月 30–50 筆訂單，全靠 DM 下單。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 3: Customer service -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">3</div>
+        <div>
+          <div class="task-title">客服回覆 · 讓 AI 知道你的規則</div>
+          <div class="task-diff">難度 ★ · 快速練習</div>
+        </div>
+      </div>
+      <div class="task-context">有人在 IG 私訊問：「請問包包可以客製化嗎？需要多久？我想送禮，預算大概 1,500。」</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">我是手工藤編品牌「芒草工坊」的客服，有顧客在 IG 私訊詢問：
+「請問包包可以客製化嗎？需要多久？我想送禮，預算大概 1,500。」
+
+我的品牌規則：
+- 客製化最少需要 2 週工作天
+- 1,500 元以內有 3 款藤編手提包符合
+- 可以加購燙金名字（+180 元）
+- 預算不夠不要主動推銷，而是提供選項讓客人自己決定
+
+請幫我生成一則回覆，語氣親切、誠實，不要過度推銷。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session B -->
+  <div class="session-block">
+    <div class="session-header">
+      <h2>Session B · 競品研究 + 產業分析</h2>
+      <span class="session-badge">上午場</span>
+    </div>
+
+    <!-- Task B1 -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">4</div>
+        <div>
+          <div class="task-title">建立競品分析框架</div>
+          <div class="task-diff">難度 ★★</div>
+        </div>
+      </div>
+      <div class="task-context">先讓 AI 幫你設計分析框架，再填入真實資料。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">我是手工藤編品牌「芒草工坊」的創辦人，想了解台灣手工包品牌市場。
+
+請幫我設計一個競品分析框架，包含以下維度：
+定價策略、目標客群、主要通路、品牌故事角度、社群經營方式。
+
+用表格呈現，並在最後提供 3 個問題，讓我可以進一步判斷哪個競品最值得深入研究。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task B2 -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">5</div>
+        <div>
+          <div class="task-title">分析競品資料 · 找差異化機會</div>
+          <div class="task-diff">難度 ★★★ · 重點任務</div>
+        </div>
+      </div>
+      <div class="task-context">先複製競品資料，再複製下面的提示語，一起貼入 AI。</div>
+
+      <div class="comp-data">
+        <div class="comp-data-header">競品資料 · 複製這一段</div>
+        <div class="comp-data-body">品牌 A：草本工房（台南）
+  IG 粉絲：8,200｜平均按讚：180–320
+  發文頻率：每週 3 則
+  主要內容：農村採集過程、老師傅手作影片、限定款預購
+  定價：NT$1,200–4,500
+  通路：官網、台南市集、Pinkoi
+
+品牌 B：編織島（台東）
+  IG 粉絲：15,600｜平均按讚：400–800
+  發文頻率：每週 2 則
+  主要內容：部落文化故事、工藝師訪談、旅遊結合
+  定價：NT$2,000–8,000
+  通路：自建網站、百貨快閃、原住民文創館
+
+品牌 C：森林工作室（台中）
+  IG 粉絲：5,400｜平均按讚：90–150
+  發文頻率：每週 5 則
+  主要內容：極簡產品照、生活風格搭配、新品預告
+  定價：NT$680–1,800
+  通路：蝦皮、官網、設計師市集</div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT / Claude · 貼在競品資料後面</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">根據以上三個競品的社群資料，請分析：
+
+1. 每個品牌的核心定位是什麼？
+2. 芒草工坊（粉絲 1,200、定價 680–2,800、目前只有 IG）跟這三個競品相比，最明顯的差距和機會在哪裡？
+3. 給我 2 個具體的差異化建議，讓芒草工坊在 3 個月內可以執行。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session B2 -->
+  <div class="session-block">
+    <div class="session-header">
+      <h2>Session B2 · 視覺素材生成</h2>
+      <span class="session-badge">上午場</span>
+    </div>
+
+    <!-- Task V1 -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:var(--orange)">V1</div>
+        <div>
+          <div class="task-title">生成行銷海報</div>
+          <div class="task-diff">工具：ChatGPT（GPT Image 2）· 難度 ★</div>
+        </div>
+      </div>
+      <div class="task-context">在 ChatGPT 對話框直接貼入以下提示語，不需要額外工具。生完可以說「改成冬季版」或「改成深色背景」繼續迭代。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT · GPT Image 2</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">幫我生成一張行銷海報：
+
+品牌：芒草工坊（手工藤編包）
+主題：2026 夏季新品上市
+主視覺：藤編托特包，搭配夏日海邊或稻田背景
+色系：米白 + 深棕 + 淡橘
+文字：「夏日輕提，自然美學」、品牌名「芒草工坊」
+風格：日系雜誌清新風
+語言：繁體中文
+尺寸：1:1 正方形</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task V2 -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:var(--orange)">V2</div>
+        <div>
+          <div class="task-title">生成競品比較資訊圖表</div>
+          <div class="task-diff">工具：ChatGPT（GPT Image 2）· 難度 ★★</div>
+        </div>
+      </div>
+      <div class="task-context">把文字資料轉成一張視覺圖，放 IG 或官網「為什麼選我們」頁面。生完可以請 ChatGPT 再加上「在地就業」或其他你想強調的欄位。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">ChatGPT · GPT Image 2</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">幫我生成一張比較資訊圖：
+
+左邊：芒草工坊（手工藤編）
+右邊：一般工廠量產包
+
+比較項目：
+· 製作方式（手工 vs 機器）
+· 材料（天然藤草 vs 合成塑料）
+· 耐用度（5–10年 vs 1–2年）
+· 客製化（可 vs 不可）
+· 在地就業（有 vs 無）
+
+風格：扁平插畫，橘+棕色系，繁體中文，清晰易讀</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task V3 -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:var(--orange)">V3</div>
+        <div>
+          <div class="task-title">生成 IG 系列輪播圖文企劃</div>
+          <div class="task-diff">工具：ChatGPT（GPT Image 2）· 難度 ★★★ · 重點實作</div>
+        </div>
+      </div>
+      <div class="task-context">先生成 6 張系列圖，再用第二個提示語配文案。兩個一起做，一次輸出完整貼文素材。</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">步驟一：生成系列圖</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">幫我生成 6 張 IG 輪播系列圖：
+
+主題：「手工藤編的一天」
+場景順序：
+1. 清晨採集天然藤草
+2. 工作室裡開始編織
+3. 專注手工的特寫
+4. 完成一個包的瞬間
+5. 包裝與附上手寫感謝卡
+6. 顧客拿到包包、微笑特寫
+
+風格：暖色系扁平插畫，人物外貌全程一致
+比例：1:1，每張有繁體中文小標題</div>
+        </div>
+      </div>
+      <div class="prompt-box" style="margin-top:10px">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">步驟二：配文案（生完圖之後繼續問）</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">根據以上 6 張圖的場景，幫每張圖配一段 IG 貼文文案：
+
+要求：
+· 每段 100–140 字，繁體中文
+· 語氣溫暖有故事感，不過度商業
+· 每段結尾加 1 個行動呼籲（例如：留言、儲存、點連結）
+· 在最後統一提供 15 個相關 hashtag（中英文混合）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session C -->
+  <div class="session-block">
+    <div class="session-header">
+      <h2>Session C · Manus 競品研究自動化</h2>
+      <span class="session-badge">下午場</span>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">6</div>
+        <div>
+          <div class="task-title">Manus 示範任務 · 芒草工坊</div>
+          <div class="task-diff">老師示範 → 學員跟著改</div>
+        </div>
+      </div>
+      <div class="task-context">這個任務老師先跑給大家看（約 8–12 分鐘）。跑完之後跟上午手動版本比較。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">請幫我研究台灣手工包與手工編織包的品牌市場。
+任務：
+1. 找出 5 個台灣在地手工包品牌
+2. 整理每個品牌的：名稱、主要產品、定價區間、銷售通路、IG 粉絲數（估計即可）
+3. 分析這個市場的 3 個趨勢
+4. 根據以上資料，給出一個剛起步的雲林手工藤編品牌「芒草工坊」最值得切入的差異化方向
+
+請用表格 + 文字摘要的方式呈現，最後存成一份報告。</div>
+        </div>
+      </div>
+      <div class="note">Manus 跑的時候你不需要盯著。送出去，去喝杯水，回來看報告。這就是「代理型 AI」和「對話型 AI」的差別。</div>
+    </div>
+
+    <!-- Task M-A -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:#7c6af7">M-A</div>
+        <div>
+          <div class="task-title">通路開發調查</div>
+          <div class="task-diff">⬡ Manus · 難度 ★★ · 跑完帶回去直接聯絡</div>
+        </div>
+      </div>
+      <div class="task-context">讓 Manus 找出適合你品牌的選品店和展售通路，連聯絡方式都幫你整理好。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">幫我調查台灣適合手工品牌的選品店和展售通路：
+
+目標品牌：芒草工坊（手工藤編包，定價 680–2,800 元）
+
+請整理：
+1. 全台 8–10 個以台灣手作/文創為主的選品店
+2. 每個通路：店名、地點、IG 帳號、選品風格、進駐申請方式（如有）
+3. 雲林/嘉義/台南區域優先，其次是台北
+
+最後建議芒草工坊最值得優先聯絡的前 3 名，並說明理由。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task M-B -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:#7c6af7">M-B</div>
+        <div>
+          <div class="task-title">KOL 合作名單調查</div>
+          <div class="task-diff">⬡ Manus · 難度 ★★</div>
+        </div>
+      </div>
+      <div class="task-context">讓 Manus 找出適合品牌合作的微型到中型 KOL，附粉絲數和合作方向建議。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">請幫我找台灣 IG 上適合和手工品牌合作的創作者：
+
+品牌背景：芒草工坊（台灣在地手工藤編包）
+
+請整理 10 個符合以下條件的 KOL：
+· 主題：台灣手工、文創、慢生活、永續、在地文化
+· 粉絲範圍：5,000–80,000（微型到中型）
+· 台灣本地為主
+
+每位附上：
+- IG 帳號名稱
+- 粉絲數（估計）
+- 主要內容風格
+- 建議的合作切入方式
+
+最後說明哪 3 位最適合芒草工坊，理由是什麼。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task M-C -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:#7c6af7">M-C</div>
+        <div>
+          <div class="task-title">市集 &amp; 活動情報自動整理</div>
+          <div class="task-diff">⬡ Manus · 難度 ★ · 最快看到成果</div>
+        </div>
+      </div>
+      <div class="task-context">2026 下半年想擺攤？讓 Manus 先把行事曆和報名方式都拉出來。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">請幫我整理 2026 年 7 月到 12 月台灣的文創 / 手作市集資訊：
+
+條件：
+· 類型：文創市集、手作市集、設計師市集、農創市集
+· 地區：全台均可，雲林/嘉義/台南/台中優先
+· 規模：不限（含小型在地市集）
+
+請整理每個市集：
+- 名稱、日期、地點
+- 攤位費（估計）
+- 適合的品牌類型
+- 報名方式或官方聯絡
+
+最後依照「最適合手工藤編包」排出前 5 名推薦。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task M-D -->
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num" style="background:#7c6af7">M-D</div>
+        <div>
+          <div class="task-title">競品評論痛點分析</div>
+          <div class="task-diff">⬡ Manus · 難度 ★★★ · 重點任務</div>
+        </div>
+      </div>
+      <div class="task-context">讓 Manus 讀幾百則競品評論，找出客戶真正在意什麼——比你自己猜快 100 倍。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">請幫我分析台灣手工包品牌在以下平台的顧客評論：
+
+平台：Pinkoi、蝦皮、Google Maps 評論
+
+分析方向：
+1. 顧客最常稱讚的 5 件事（正面）
+2. 顧客最常抱怨的 5 件事（負面）
+3. 有顧客主動提到但品牌沒解決的需求
+
+最後：根據這些評論洞察，給芒草工坊（手工藤編包）3 個可以立刻改進或強調的行動建議。
+
+用條列式呈現，每點加一句說明。</div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:10px">換成你自己的行業：把「手工包」換成你的產品，把平台換成競品會出現的地方（蝦皮 / 104 / TripAdvisor / Facebook 評論）。</div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-num">7</div>
+        <div>
+          <div class="task-title">Manus 學員實作 · 你的行業版本</div>
+          <div class="task-diff">把模板改成你自己的方向</div>
+        </div>
+      </div>
+      <div class="task-context">把 [你的行業/產品類別] 和 [你的品牌/事業] 換成你自己的版本後貼入 Manus。</div>
+      <div class="manus-badge">⬡ Manus</div>
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div>
+          <span class="prompt-label">manus.im · 改成你的版本</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">複製</button>
+        </div>
+        <div class="prompt-body">
+          <div class="prompt-text">請幫我研究 [你的行業/產品類別] 的市場。
+任務：
+1. 找出 5 個競品或類似業者
+2. 整理每個的：名稱、主要服務/產品、定價、目標客群、特色
+3. 分析市場的 2–3 個趨勢或機會
+4. 根據以上，給我 [你的品牌/事業] 一個具體的切入建議
+
+請用表格 + 文字摘要呈現，儲存成報告。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyPrompt(btn) {
+  const text = btn.closest('.prompt-box').querySelector('.prompt-text').textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '已複製 ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '複製'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
