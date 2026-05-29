@@ -79,7 +79,20 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
 .meta{padding-top:20px;border-top:1px solid var(--border2);display:flex;gap:24px;flex-wrap:wrap}
 .meta-item{font-size:.75rem;color:var(--ink3);letter-spacing:.3px}
 .meta-item b{color:var(--ink2);font-weight:600}
+
+/* qr banner */
+.qr-banner{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.qr-box{width:140px;height:140px;flex-shrink:0;background:white;border-radius:10px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;padding:8px}
+#qr-canvas{width:124px;height:124px}
+.qr-info{flex:1;min-width:180px}
+.qr-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.qr-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.qr-desc{font-size:.88rem;color:var(--ink2);line-height:1.6;margin-bottom:12px}
+.qr-link{font-size:.78rem;font-weight:600;color:var(--orange);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.qr-link:hover{color:var(--orange-d);text-decoration:underline}
+@media(max-width:480px){.qr-banner{justify-content:center;text-align:center}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -144,6 +157,19 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
     </a>
   </div>
 
+  <!-- qr banner -->
+  <div class="qr-banner">
+    <div class="qr-box">
+      <canvas id="qr-canvas"></canvas>
+    </div>
+    <div class="qr-info">
+      <span class="qr-eyebrow">掃描直接開啟</span>
+      <div class="qr-title">練習題 · 提示語全集</div>
+      <div class="qr-desc">所有練習的完整提示語，一鍵複製就能貼入 ChatGPT、Claude 或 Manus。手機掃描直接開。</div>
+      <a href="exercises.html" class="qr-link">直接點這裡開啟 →</a>
+    </div>
+  </div>
+
   <!-- resources -->
   <span class="sec-label">課程資源</span>
   <div class="res-grid">
@@ -171,5 +197,12 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
   </div>
 
 </div>
+<script>
+QRCode.toCanvas(document.getElementById('qr-canvas'),
+  window.location.origin + window.location.pathname.replace('index.html','') + 'exercises.html',
+  {width:124,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}},
+  function(err){if(err)console.error(err)}
+);
+</script>
 </body>
 </html>
