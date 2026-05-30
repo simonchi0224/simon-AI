@@ -302,7 +302,46 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   </div>
 </section>
 
-<!-- 3. 今天的遊戲規則 -->
+<!-- 3. 課前下載 QR Code -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">課前準備 · 現在就做</div>
+  <h2 style="color:white;border-left-color:var(--orange)">先掃這個，把練習素材存進手機</h2>
+  <div style="display:flex;align-items:center;justify-content:center;gap:52px;margin-top:28px;flex-wrap:wrap">
+    <div style="text-align:center">
+      <div id="am-qr" style="width:200px;height:200px;background:white;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:10px;margin:0 auto"></div>
+      <div style="margin-top:14px;font-size:1rem;font-weight:700;color:white">練習題 + 下載素材</div>
+      <div style="font-size:.88rem;color:rgba(255,255,255,.4);margin-top:6px">simon-chi.com → 雲林場 → 練習題</div>
+    </div>
+    <div style="max-width:340px">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px">掃完之後下載這三個檔案</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.3rem">📋</span>
+          <div>
+            <div style="font-size:.92rem;font-weight:700;color:white">顧客訪談紀錄</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:2px">上傳到 NotebookLM 用</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.3rem">💬</span>
+          <div>
+            <div style="font-size:.92rem;font-weight:700;color:white">客服對話紀錄</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:2px">客服規則書練習用</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.3rem">🏷️</span>
+          <div>
+            <div style="font-size:.92rem;font-weight:700;color:white">品牌背景資料</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:2px">所有練習的情境資料</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 今天的遊戲規則 -->
 <section class="slide">
   <div class="slide-tag">TODAY'S RULES</div>
   <h2>今天的遊戲規則</h2>
@@ -1297,6 +1336,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <button class="nb" onclick="move(1)">›</button>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script>
 const slides=document.querySelectorAll('.slide');
 let cur=0;
@@ -1307,6 +1347,11 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')mov
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+// QR code for exercises page
+const exUrl = window.location.origin + window.location.pathname.replace('slide-AM.html','') + 'exercises.html';
+QRCode.toCanvas(document.createElement('canvas'), exUrl, {width:180,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}}, function(err,canvas){
+  if(!err){const box=document.getElementById('am-qr');box.innerHTML='';box.appendChild(canvas);canvas.style.width='180px';canvas.style.height='180px';}
+});
 </script>
 </body>
 </html>

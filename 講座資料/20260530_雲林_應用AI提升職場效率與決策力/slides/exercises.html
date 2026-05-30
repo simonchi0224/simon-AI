@@ -55,6 +55,21 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 /* manus task */
 .manus-badge{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:#7c6af7;background:rgba(124,106,247,.12);border:1px solid rgba(124,106,247,.25);border-radius:6px;padding:4px 10px;margin-bottom:10px}
 .note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin-top:8px}
+/* download section */
+.dl-section{background:#fff;border:2px solid var(--orange);border-radius:14px;padding:24px 26px;margin-bottom:44px}
+.dl-title{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;display:block}
+.dl-heading{font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:6px}
+.dl-sub{font-size:.9rem;color:var(--dim);margin-bottom:18px;line-height:1.6}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.dl-card{border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;background:var(--paper);transition:all .15s}
+.dl-card:hover{border-color:var(--orange);background:#fff9f5;box-shadow:0 2px 12px rgba(232,84,30,.08)}
+.dl-icon{font-size:1.5rem;line-height:1;flex-shrink:0}
+.dl-info{}
+.dl-name{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.dl-desc{font-size:.78rem;color:var(--dim);line-height:1.4}
+.dl-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-top:5px}
+.dl-badge.nb{background:rgba(0,102,204,.1);color:var(--blue)}
+.dl-badge.ai{background:rgba(232,84,30,.1);color:var(--orange)}
 </style>
 </head>
 <body>
@@ -63,6 +78,39 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
   <span class="page-tag">練習題 · 提示語全集</span>
   <h1>今天的練習任務</h1>
   <p class="page-sub">五個任務的完整提示語。直接複製貼入 ChatGPT 或 Claude，<br>不用自己打字。芒草工坊的背景資料也在這裡。</p>
+
+  <!-- 下載區 -->
+  <div class="dl-section">
+    <span class="dl-title">課前下載 · 練習素材</span>
+    <div class="dl-heading">把這幾個檔案存進手機或電腦</div>
+    <div class="dl-sub">上傳到 NotebookLM 或直接複製給 AI 用。三個檔案，課程全天都會用到。</div>
+    <div class="dl-grid">
+      <a class="dl-card" href="../class-materials/practice-files/芒草工坊_顧客訪談紀錄.txt" download>
+        <span class="dl-icon">📋</span>
+        <div class="dl-info">
+          <div class="dl-name">顧客訪談紀錄</div>
+          <div class="dl-desc">8 位顧客的完整訪談，含正負面回饋與機會點</div>
+          <span class="dl-badge nb">NotebookLM 上傳用</span>
+        </div>
+      </a>
+      <a class="dl-card" href="../class-materials/practice-files/芒草工坊_客服對話紀錄.txt" download>
+        <span class="dl-icon">💬</span>
+        <div class="dl-info">
+          <div class="dl-name">客服對話紀錄</div>
+          <div class="dl-desc">12 則真實情境客服對話，含問題分析與處理範例</div>
+          <span class="dl-badge nb">NotebookLM 上傳用</span>
+        </div>
+      </a>
+      <a class="dl-card" href="../class-materials/session-AM-ai-tools/品牌背景資料_芒草工坊.txt" download>
+        <span class="dl-icon">🏷️</span>
+        <div class="dl-info">
+          <div class="dl-name">品牌背景資料</div>
+          <div class="dl-desc">芒草工坊完整品牌資料、客群定義、競品清單</div>
+          <span class="dl-badge ai">貼給 AI 用</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
   <!-- 品牌背景 -->
   <div class="scenario">
