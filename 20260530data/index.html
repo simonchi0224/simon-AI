@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 創業加速器 · 雲林進階班 2026.05.30</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;
+  --bg:#ffffff;--bg2:#f5f5f7;
+  --border:#d2d2d7;--border2:#e8e8ed;
+  --orange:#e8541e;--orange-d:#c94316;
+  --blue:#0066cc;
+  --shadow:0 2px 16px rgba(0,0,0,.07);
+  --shadow-h:0 8px 32px rgba(0,0,0,.12);
+  --sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+/* ribbon */
+.ribbon{background:var(--bg2);border-bottom:1px solid var(--border2);padding:9px 0;text-align:center}
+.ribbon-inner{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.ribbon-inner span{font-size:.72rem;font-weight:600;color:var(--ink2);letter-spacing:.3px}
+.ribbon-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:6px;vertical-align:middle}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08);padding:0 5%;display:flex;align-items:center;height:54px}
+.nav-logo{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px}
+.nav-logo span{color:var(--orange)}
+.nav-badge{font-size:.64rem;font-weight:700;color:white;background:var(--orange);padding:2px 8px;border-radius:20px;margin-left:10px;letter-spacing:1px;text-transform:uppercase}
+
+/* wrap */
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 80px}
+
+/* hero */
+.hero{margin-bottom:52px}
+.hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+.hero-h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:14px}
+.hero-h1 span{color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--ink2);line-height:1.75;margin-bottom:20px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap}
+.hero-pill{font-size:.78rem;font-weight:600;color:var(--ink2);padding:5px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg2)}
+
+/* section label */
+.sec-label{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:block;padding-bottom:8px;border-bottom:1px solid var(--border2)}
+
+/* slides grid */
+.slides-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:44px}
+@media(max-width:580px){.slides-grid{grid-template-columns:1fr}}
+.session-card{background:var(--bg);border:1px solid var(--border2);border-radius:16px;padding:26px 24px;text-decoration:none;transition:all .2s;display:block;box-shadow:var(--shadow)}
+.session-card:hover{border-color:rgba(232,84,30,.3);box-shadow:var(--shadow-h);transform:translateY(-2px)}
+.sc-tag{font-size:.64rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;display:block}
+.sc-time{font-size:.76rem;color:var(--ink3);margin-bottom:12px;display:block}
+.sc-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:7px;line-height:1.3}
+.sc-desc{font-size:.86rem;color:var(--ink2);line-height:1.6}
+.sc-btn{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--orange)}
+.sc-btn:hover{color:var(--orange-d)}
+
+/* resources grid */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
+@media(max-width:580px){.res-grid{grid-template-columns:1fr}}
+.res-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 22px;text-decoration:none;transition:all .2s;display:block}
+.res-card:hover{background:var(--bg);border-color:var(--border);box-shadow:var(--shadow)}
+.res-icon{font-size:1.5rem;margin-bottom:10px;display:block}
+.res-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.res-desc{font-size:.84rem;color:var(--ink2);line-height:1.6}
+.res-btn{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.76rem;font-weight:700;color:var(--ink3)}
+
+/* takeaway strip */
+.strip{background:var(--orange);border-radius:14px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.strip-label{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap}
+.strip-pills{display:flex;gap:8px;flex-wrap:wrap}
+.strip-pill{font-size:.82rem;font-weight:600;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white}
+
+/* meta */
+.meta{padding-top:20px;border-top:1px solid var(--border2);display:flex;gap:24px;flex-wrap:wrap}
+.meta-item{font-size:.75rem;color:var(--ink3);letter-spacing:.3px}
+.meta-item b{color:var(--ink2);font-weight:600}
+
+</style>
+</head>
+<body>
+
+<!-- ribbon -->
+<div class="ribbon">
+  <div class="ribbon-inner">
+    <span><span class="ribbon-dot"></span>2026.05.30 · 斗六</span>
+    <span>上午 09:00–12:00 ／ 下午 13:00–16:00</span>
+    <span>撫錢 House 雲林青年創業基地</span>
+  </div>
+</div>
+
+<!-- nav -->
+<nav class="nav">
+  <span class="nav-logo">AI<span>.</span>Workshop</span>
+  <span class="nav-badge">雲林進階班</span>
+</nav>
+
+<div class="wrap">
+
+  <!-- hero -->
+  <div class="hero">
+    <span class="hero-eyebrow">AI 創業加速器 · 進階班</span>
+    <h1 class="hero-h1">AI 幫你做事，<br>不只是<span>幫你說話</span></h1>
+    <p class="hero-sub">從 BROCEF 提示語到 Manus 自動化，從競品分析到個人 SOP——<br>今天你帶走的是一套能持續用的 AI 工作系統。</p>
+    <div class="hero-meta">
+      <span class="hero-pill">講師：季祥 Simon Chi</span>
+      <span class="hero-pill">學員 10 位</span>
+      <span class="hero-pill">素材情境：芒草工坊</span>
+    </div>
+  </div>
+
+  <!-- takeaway strip -->
+  <div class="strip">
+    <span class="strip-label">今天帶走</span>
+    <div class="strip-pills">
+      <span class="strip-pill">BROCEF 框架</span>
+      <span class="strip-pill">業務開發信</span>
+      <span class="strip-pill">競品研究報告</span>
+      <span class="strip-pill">個人 SOP</span>
+      <span class="strip-pill">30 天計畫</span>
+      <span class="strip-pill">AI 轉型路徑</span>
+    </div>
+  </div>
+
+  <!-- slides -->
+  <span class="sec-label">今日投影片</span>
+  <div class="slides-grid">
+    <a href="slide-AM.html" class="session-card">
+      <span class="sc-tag">上午場</span>
+      <span class="sc-time">09:00 – 12:00</span>
+      <div class="sc-title">AI 工具實作<br>文案 · 競品研究</div>
+      <div class="sc-desc">BROCEF 提示語框架 · 業務開發信 · IG 貼文生成 · AI 競品分析 · NotebookLM</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+    <a href="slide-PM.html" class="session-card">
+      <span class="sc-tag">下午場</span>
+      <span class="sc-time">13:00 – 16:00</span>
+      <div class="sc-title">Manus 自動化<br>工作流 · 30天計畫</div>
+      <div class="sc-desc">Manus AI Agent · 競品研究自動化 · 打造個人 SOP · 決策助理 · 倫理與未來職能</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+  </div>
+
+  <!-- resources -->
+  <span class="sec-label">課程資源</span>
+  <div class="res-grid">
+    <a href="exercises.html" class="res-card">
+      <span class="res-icon">✏️</span>
+      <div class="res-title">練習題 · 提示語全集</div>
+      <div class="res-desc">五個練習任務的完整提示語，含芒草工坊競品資料，可直接複製貼入 ChatGPT / Claude</div>
+      <div class="res-btn">查看練習 →</div>
+    </a>
+    <a href="handout.html" class="res-card">
+      <span class="res-icon">📋</span>
+      <div class="res-title">AI 工具速查手冊</div>
+      <div class="res-desc">兩種 AI 工具比較 · GPT Image 2 · Seedance 2.0 · AI Agent 概念 · 今日工具清單</div>
+      <div class="res-btn">查看手冊 →</div>
+    </a>
+  </div>
+
+  <!-- meta -->
+  <div class="meta">
+    <div class="meta-item">講師 <b>季祥 Simon Chi</b></div>
+    <div class="meta-item">學員人數 <b>10 位</b></div>
+    <div class="meta-item">課程主軸 <b>創業效率 × AI 自動化</b></div>
+    <div class="meta-item">素材情境 <b>芒草工坊手工藤編品牌</b></div>
+    <div class="meta-item">地點 <b>撫錢 House 雲林青年創業基地 · 斗六</b></div>
+  </div>
+
+</div>
+</body>
+</html>
