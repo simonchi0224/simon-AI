@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>課程講義摘要 · AI 創業加速器 · 雲林進階班 2026.05.30</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1d1d1f;--dim:#6e6e73;--muted:#86868b;
+  --bg:#f5f5f7;--border:#d2d2d7;
+  --orange:#e8541e;--orange-d:#c94316;--blue:#0066cc;
+  --sans:'Noto Sans TC','PingFang TC',sans-serif;
+}
+
+html{font-size:10pt}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:white;
+  -webkit-font-smoothing:antialiased;
+  width:210mm;
+  margin:0 auto;
+}
+
+/* === PRINT === */
+@media print{
+  body{width:210mm;margin:0}
+  .page{padding:12mm 14mm 14mm}
+  .no-print{display:none}
+  a{color:inherit;text-decoration:none}
+}
+@page{
+  size:A4;
+  margin:0;
+}
+
+/* === PAGE === */
+.page{padding:14mm 16mm 16mm;min-height:297mm}
+
+/* === HEADER === */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding-bottom:10pt;
+  border-bottom:3pt solid var(--orange);
+  margin-bottom:14pt;
+}
+.header-left{}
+.course-tag{
+  font-size:6pt;
+  font-weight:700;
+  letter-spacing:3pt;
+  text-transform:uppercase;
+  color:var(--orange);
+  display:block;
+  margin-bottom:5pt;
+}
+.course-title{
+  font-size:17pt;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.25;
+  margin-bottom:4pt;
+}
+.course-title span{color:var(--orange)}
+.course-subtitle{
+  font-size:8.5pt;
+  color:var(--dim);
+  line-height:1.6;
+}
+.header-right{
+  text-align:right;
+  flex-shrink:0;
+  margin-left:20pt;
+}
+.logo-img{
+  height:54pt;
+  width:auto;
+  display:block;
+  margin-left:auto;
+  margin-bottom:6pt;
+}
+.header-meta{
+  font-size:7pt;
+  color:var(--muted);
+  line-height:1.8;
+  text-align:right;
+}
+.header-meta b{color:var(--dim);font-weight:600}
+
+/* === OVERVIEW STRIP === */
+.overview{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6pt;
+  margin-bottom:14pt;
+}
+.ov{
+  background:var(--bg);
+  border-radius:5pt;
+  padding:7pt 8pt;
+  border:1pt solid var(--border);
+}
+.ov-lbl{
+  font-size:5.5pt;
+  font-weight:700;
+  letter-spacing:2pt;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:3pt;
+}
+.ov-val{
+  font-size:9pt;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.3;
+}
+
+/* === SECTION TITLE === */
+.sec-label{
+  font-size:6pt;
+  font-weight:700;
+  letter-spacing:3pt;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  padding-bottom:4pt;
+  border-bottom:1pt solid var(--border);
+  margin-bottom:9pt;
+}
+
+/* === BROCEF === */
+.brocef-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:5pt;
+  margin-bottom:14pt;
+}
+.bro-cell{
+  border-radius:5pt;
+  padding:7pt 6pt;
+  text-align:center;
+}
+.bro-cell:nth-child(1){background:#fff4ef;border:1pt solid #f5c4b0}
+.bro-cell:nth-child(2){background:#fff8f0;border:1pt solid #f5d8b0}
+.bro-cell:nth-child(3){background:#fffbef;border:1pt solid #f5eab0}
+.bro-cell:nth-child(4){background:#effff4;border:1pt solid #b0f5c4}
+.bro-cell:nth-child(5){background:#eff4ff;border:1pt solid #b0c4f5}
+.bro-cell:nth-child(6){background:#f4efff;border:1pt solid #c4b0f5}
+.bro-letter{
+  font-size:14pt;
+  font-weight:900;
+  color:var(--orange);
+  line-height:1;
+  display:block;
+  margin-bottom:3pt;
+}
+.bro-word{
+  font-size:5.5pt;
+  font-weight:700;
+  color:var(--dim);
+  letter-spacing:1pt;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:2pt;
+}
+.bro-zh{
+  font-size:6.5pt;
+  color:var(--muted);
+}
+
+/* === SESSION BLOCKS === */
+.sessions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10pt;
+  margin-bottom:14pt;
+}
+.sb{
+  border-radius:7pt;
+  overflow:hidden;
+  border:1pt solid var(--border);
+}
+.sb-head{
+  padding:8pt 10pt;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.sb-head.am{background:var(--orange);color:white}
+.sb-head.pm{background:#1d1d1f;color:white}
+.sb-head-title{font-size:9pt;font-weight:800}
+.sb-head-time{font-size:6.5pt;opacity:.75}
+.sb-body{padding:9pt 10pt}
+.topic{margin-bottom:7pt}
+.topic:last-child{margin-bottom:0}
+.topic-name{
+  font-size:7.5pt;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:3pt;
+  display:flex;
+  align-items:center;
+  gap:4pt;
+}
+.topic-name::before{
+  content:'';
+  display:inline-block;
+  width:3pt;
+  height:3pt;
+  border-radius:50%;
+  background:var(--orange);
+  flex-shrink:0;
+}
+.pills{display:flex;flex-wrap:wrap;gap:3pt}
+.pill{
+  font-size:6pt;
+  color:var(--dim);
+  background:var(--bg);
+  padding:1.5pt 5pt;
+  border-radius:20pt;
+  border:1pt solid var(--border);
+}
+
+/* === TOOLS TABLE === */
+.tools-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:14pt;
+  font-size:7.5pt;
+}
+.tools-table th{
+  background:var(--bg);
+  font-size:6pt;
+  font-weight:700;
+  letter-spacing:1.5pt;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding:5pt 8pt;
+  text-align:left;
+  border-bottom:1pt solid var(--border);
+}
+.tools-table td{
+  padding:5pt 8pt;
+  border-bottom:1pt solid #f0f0f2;
+  vertical-align:top;
+  line-height:1.5;
+}
+.tools-table tr:last-child td{border-bottom:none}
+.tool-name{font-weight:700;color:var(--ink)}
+.tool-cat{
+  display:inline-block;
+  font-size:6pt;
+  font-weight:700;
+  padding:1pt 5pt;
+  border-radius:10pt;
+  background:var(--bg);
+  border:1pt solid var(--border);
+  color:var(--muted);
+}
+
+/* === EXERCISES === */
+.ex-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7pt;
+  margin-bottom:14pt;
+}
+.ex{
+  background:var(--bg);
+  border:1pt solid var(--border);
+  border-radius:5pt;
+  padding:7pt 8pt;
+}
+.ex-tag{
+  font-size:5.5pt;
+  font-weight:700;
+  letter-spacing:2pt;
+  text-transform:uppercase;
+  color:var(--orange);
+  display:block;
+  margin-bottom:3pt;
+}
+.ex-title{font-size:7pt;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3pt}
+.ex-desc{font-size:6.5pt;color:var(--dim);line-height:1.5}
+
+/* === TAKEAWAYS === */
+.takeaways{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5pt;
+  margin-bottom:14pt;
+}
+.tw{
+  display:flex;
+  align-items:flex-start;
+  gap:6pt;
+  padding:5pt 0;
+}
+.tw-num{
+  flex-shrink:0;
+  width:15pt;
+  height:15pt;
+  border-radius:50%;
+  background:var(--orange);
+  color:white;
+  font-size:7pt;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tw-text{font-size:7.5pt;color:var(--ink);line-height:1.5}
+.tw-text b{font-weight:700}
+
+/* === 30-DAY PLAN === */
+.plan-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8pt;
+  margin-bottom:14pt;
+}
+.plan-week{
+  border:1pt solid var(--border);
+  border-radius:6pt;
+  overflow:hidden;
+}
+.plan-week-head{
+  padding:5pt 8pt;
+  font-size:7pt;
+  font-weight:700;
+  color:white;
+}
+.plan-week-head.w1{background:var(--orange)}
+.plan-week-head.w2{background:#c94316}
+.plan-week-head.w3{background:#1d1d1f}
+.plan-week-body{
+  padding:7pt 8pt;
+  font-size:7pt;
+  color:var(--dim);
+  line-height:1.8;
+}
+.plan-week-body li{
+  list-style:none;
+  padding-left:8pt;
+  position:relative;
+}
+.plan-week-body li::before{
+  content:'→';
+  position:absolute;
+  left:0;
+  color:var(--orange);
+  font-size:6pt;
+  line-height:1.8;
+}
+
+/* === FOOTER === */
+.footer{
+  border-top:1pt solid var(--border);
+  padding-top:8pt;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer-contact{font-size:7pt;color:var(--dim);line-height:1.7}
+.footer-contact b{color:var(--ink);font-weight:700}
+.footer-note{font-size:6.5pt;color:var(--muted);text-align:right;line-height:1.6}
+
+/* === PRINT BUTTON (screen only) === */
+.print-btn{
+  position:fixed;
+  top:20px;right:20px;
+  background:var(--orange);
+  color:white;
+  border:none;
+  padding:10px 22px;
+  border-radius:20px;
+  font-size:.85rem;
+  font-weight:700;
+  cursor:pointer;
+  font-family:var(--sans);
+  z-index:100;
+}
+@media print{.print-btn{display:none}}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">列印 / 匯出 PDF</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <span class="course-tag">課程講義摘要</span>
+      <div class="course-title">AI 幫你做事，<br>不只是<span>幫你說話</span></div>
+      <div class="course-subtitle">AI 創業加速器 · 雲林進階班 · 2026.05.30<br>撫錢 House 雲林青年創業基地 · 斗六</div>
+    </div>
+    <div class="header-right">
+      <img class="logo-img" src="assets/simon-ai-logo.png" alt="Simon AI Logo">
+      <div class="header-meta">
+        <b>季祥 Simon Chi</b><br>
+        AI 實戰顧問 · 講師<br>
+        simonchi0224@gmail.com<br>
+        simon-chi.com
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="overview">
+    <div class="ov"><span class="ov-lbl">課程時數</span><div class="ov-val">6 小時</div></div>
+    <div class="ov"><span class="ov-lbl">學員人數</span><div class="ov-val">10 位</div></div>
+    <div class="ov"><span class="ov-lbl">課程主軸</span><div class="ov-val">創業效率<br>× AI 自動化</div></div>
+    <div class="ov"><span class="ov-lbl">素材情境</span><div class="ov-val">芒草工坊<br>手工藤編品牌</div></div>
+    <div class="ov"><span class="ov-lbl">核心框架</span><div class="ov-val">BROCEF<br>提示語系統</div></div>
+  </div>
+
+  <!-- BROCEF -->
+  <span class="sec-label">核心框架 · BROCEF 提示語系統</span>
+  <div class="brocef-grid">
+    <div class="bro-cell">
+      <span class="bro-letter">B</span>
+      <span class="bro-word">Background</span>
+      <span class="bro-zh">背景設定</span>
+    </div>
+    <div class="bro-cell">
+      <span class="bro-letter">R</span>
+      <span class="bro-word">Role</span>
+      <span class="bro-zh">角色扮演</span>
+    </div>
+    <div class="bro-cell">
+      <span class="bro-letter">O</span>
+      <span class="bro-word">Objective</span>
+      <span class="bro-zh">明確目標</span>
+    </div>
+    <div class="bro-cell">
+      <span class="bro-letter">C</span>
+      <span class="bro-word">Constraint</span>
+      <span class="bro-zh">限制條件</span>
+    </div>
+    <div class="bro-cell">
+      <span class="bro-letter">E</span>
+      <span class="bro-word">Example</span>
+      <span class="bro-zh">範例參考</span>
+    </div>
+    <div class="bro-cell">
+      <span class="bro-letter">F</span>
+      <span class="bro-word">Format</span>
+      <span class="bro-zh">輸出格式</span>
+    </div>
+  </div>
+
+  <!-- SESSIONS -->
+  <span class="sec-label">今日課程內容</span>
+  <div class="sessions">
+    <div class="sb">
+      <div class="sb-head am">
+        <span class="sb-head-title">上午場 · AI 工具實作</span>
+        <span class="sb-head-time">09:00 – 12:00</span>
+      </div>
+      <div class="sb-body">
+        <div class="topic">
+          <div class="topic-name">BROCEF 提示語框架</div>
+          <div class="pills">
+            <span class="pill">六要素結構</span>
+            <span class="pill">實際演練</span>
+            <span class="pill">模板建立</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">業務開發信 · IG 貼文</div>
+          <div class="pills">
+            <span class="pill">芒草工坊開發信</span>
+            <span class="pill">IG 輪播圖文</span>
+            <span class="pill">語氣調整</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">視覺素材生成</div>
+          <div class="pills">
+            <span class="pill">品牌海報</span>
+            <span class="pill">資訊圖表</span>
+            <span class="pill">線上圖文企劃</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">AI 競品分析 · NotebookLM</div>
+          <div class="pills">
+            <span class="pill">競品研究框架</span>
+            <span class="pill">文件上傳分析</span>
+            <span class="pill">顧客訪談解讀</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sb">
+      <div class="sb-head pm">
+        <span class="sb-head-title">下午場 · Manus 自動化</span>
+        <span class="sb-head-time">13:00 – 16:00</span>
+      </div>
+      <div class="sb-body">
+        <div class="topic">
+          <div class="topic-name">Manus AI Agent 原理</div>
+          <div class="pills">
+            <span class="pill">代理型 vs 對話型</span>
+            <span class="pill">任務分解</span>
+            <span class="pill">自動執行</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">Manus 實作練習</div>
+          <div class="pills">
+            <span class="pill">M-A 通路開發</span>
+            <span class="pill">M-B KOL 合作</span>
+            <span class="pill">M-C 市集企劃</span>
+            <span class="pill">M-D 評論管理</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">打造個人 SOP · 決策助理</div>
+          <div class="pills">
+            <span class="pill">工作流程化</span>
+            <span class="pill">標準化輸出</span>
+            <span class="pill">AI 決策輔助</span>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="topic-name">AI 轉型路徑 · 倫理與未來職能</div>
+          <div class="pills">
+            <span class="pill">30 天行動計畫</span>
+            <span class="pill">台灣 SME 現況</span>
+            <span class="pill">AI 複利效應</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <span class="sec-label">今日使用工具</span>
+  <table class="tools-table">
+    <thead>
+      <tr>
+        <th>工具</th>
+        <th>類型</th>
+        <th>今日用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tool-name">ChatGPT</span></td>
+        <td><span class="tool-cat">對話型 AI</span></td>
+        <td>BROCEF 框架練習、文案生成、競品分析</td>
+      </tr>
+      <tr>
+        <td><span class="tool-name">Claude</span></td>
+        <td><span class="tool-cat">對話型 AI</span></td>
+        <td>長文摘要、業務開發信、邏輯推理任務</td>
+      </tr>
+      <tr>
+        <td><span class="tool-name">Manus</span></td>
+        <td><span class="tool-cat">AI Agent</span></td>
+        <td>競品研究自動化、通路開發、KOL 合作企劃</td>
+      </tr>
+      <tr>
+        <td><span class="tool-name">NotebookLM</span></td>
+        <td><span class="tool-cat">文件分析</span></td>
+        <td>上傳顧客訪談 / 客服記錄，萃取洞察</td>
+      </tr>
+      <tr>
+        <td><span class="tool-name">GPT Image 2</span></td>
+        <td><span class="tool-cat">圖像生成</span></td>
+        <td>品牌海報、產品情境圖、IG 視覺素材</td>
+      </tr>
+      <tr>
+        <td><span class="tool-name">Seedance 2.0</span></td>
+        <td><span class="tool-cat">影片生成</span></td>
+        <td>短影音素材生成、產品展示動態</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EXERCISES -->
+  <span class="sec-label">課堂練習題組</span>
+  <div class="ex-grid">
+    <div class="ex">
+      <span class="ex-tag">練習 A</span>
+      <div class="ex-title">業務開發信</div>
+      <div class="ex-desc">用 BROCEF 框架為芒草工坊寫一封禮品通路合作開發信</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">練習 B</span>
+      <div class="ex-title">AI 競品分析</div>
+      <div class="ex-desc">上傳品牌資料，請 AI 生成一份結構化競品研究報告</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">練習 B2</span>
+      <div class="ex-title">視覺素材生成</div>
+      <div class="ex-desc">生成品牌海報 / 資訊圖表 / IG 輪播圖文企劃三件組</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">練習 C</span>
+      <div class="ex-title">NotebookLM 分析</div>
+      <div class="ex-desc">上傳顧客訪談紀錄，萃取痛點、需求與服務改善方向</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">M-A</span>
+      <div class="ex-title">Manus 通路開發</div>
+      <div class="ex-desc">讓 Manus 自動研究台灣藤編禮品潛在通路並整理報告</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">M-B</span>
+      <div class="ex-title">Manus KOL 合作</div>
+      <div class="ex-desc">Manus 自動篩選適合芒草工坊的 IG 生活風格創作者</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">M-C</span>
+      <div class="ex-title">Manus 市集企劃</div>
+      <div class="ex-desc">一鍵生成台灣文創市集參展企劃書，含攤位設計建議</div>
+    </div>
+    <div class="ex">
+      <span class="ex-tag">M-D</span>
+      <div class="ex-title">Manus 評論管理</div>
+      <div class="ex-desc">上傳客服對話，Manus 生成標準回覆 SOP 與話術庫</div>
+    </div>
+  </div>
+
+  <!-- TAKEAWAYS -->
+  <span class="sec-label">今天帶走的八件事</span>
+  <div class="takeaways">
+    <div class="tw"><div class="tw-num">1</div><div class="tw-text"><b>BROCEF 框架</b>——六要素讓 AI 輸出品質提升 3 倍，任何問題都能結構化</div></div>
+    <div class="tw"><div class="tw-num">2</div><div class="tw-text"><b>業務開發信模板</b>——可直接套用的禮品 / 通路合作信件範本</div></div>
+    <div class="tw"><div class="tw-num">3</div><div class="tw-text"><b>競品研究報告</b>——AI 一鍵生成結構化分析，不再憑感覺做決策</div></div>
+    <div class="tw"><div class="tw-num">4</div><div class="tw-text"><b>視覺素材工作流</b>——海報 + 資訊圖表 + 輪播圖文，三種格式一次搞定</div></div>
+    <div class="tw"><div class="tw-num">5</div><div class="tw-text"><b>個人 SOP 雛形</b>——把你最常做的事，變成 AI 可以執行的標準流程</div></div>
+    <div class="tw"><div class="tw-num">6</div><div class="tw-text"><b>Manus 操作經驗</b>——代理型 AI 的任務分解思維，適合複雜研究任務</div></div>
+    <div class="tw"><div class="tw-num">7</div><div class="tw-text"><b>30 天行動計畫</b>——每週聚焦一個場景，四週後形成系統性 AI 工作習慣</div></div>
+    <div class="tw"><div class="tw-num">8</div><div class="tw-text"><b>AI 複利思維</b>——今天省下的 1 小時，明天可以用來做更高價值的事</div></div>
+  </div>
+
+  <!-- 30-DAY PLAN -->
+  <span class="sec-label">30 天 AI 導入行動計畫</span>
+  <div class="plan-row">
+    <div class="plan-week">
+      <div class="plan-week-head w1">第 1–2 週 · 工具熟悉期</div>
+      <div class="plan-week-body">
+        <ul>
+          <li>每天用 BROCEF 框架寫一個提示語</li>
+          <li>挑一項重複性工作試用 AI 完成</li>
+          <li>記錄哪些地方 AI 輸出不如預期</li>
+          <li>建立個人提示語資料庫（Notion）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="plan-week">
+      <div class="plan-week-head w2">第 3 週 · 流程標準化</div>
+      <div class="plan-week-body">
+        <ul>
+          <li>選一個核心業務流程用 AI 寫 SOP</li>
+          <li>用 Manus 完成一份競品或市場研究</li>
+          <li>用 NotebookLM 整理顧客回饋洞察</li>
+          <li>和團隊分享一個 AI 工作流成果</li>
+        </ul>
+      </div>
+    </div>
+    <div class="plan-week">
+      <div class="plan-week-head w3">第 4 週 · 系統擴展</div>
+      <div class="plan-week-body">
+        <ul>
+          <li>評估哪些 SOP 可以讓同仁接手執行</li>
+          <li>規劃下一個 AI 自動化的業務場景</li>
+          <li>計算本月 AI 節省了多少工作時間</li>
+          <li>設定下一個月的 AI 導入目標</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-contact">
+      <b>季祥 Simon Chi</b> · AI 實戰顧問 &amp; 講師<br>
+      📧 simonchi0224@gmail.com<br>
+      🌐 simon-chi.com<br>
+      課程資源 simon-chi.com/20260530data/exercises.html
+    </div>
+    <div class="footer-note">
+      AI 創業加速器 · 雲林進階班<br>
+      2026.05.30 · 撫錢 House · 斗六<br>
+      © 2026 Simon Chi · 版權所有
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
