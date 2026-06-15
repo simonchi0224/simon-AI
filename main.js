@@ -20,6 +20,15 @@ if (hamburger && mobileMenu) {
   });
 }
 
+// Topic outline accordion
+document.querySelectorAll('.topic-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.nextElementSibling.classList.toggle('open', !isOpen);
+  });
+});
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
