@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offer Letter — COO | Quanyu Group</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+
+    .print-btn {
+      display: block;
+      margin: 0 auto 32px;
+      max-width: 794px;
+      text-align: right;
+    }
+
+    .print-btn button {
+      padding: 10px 24px;
+      background: #1a3a5c;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: -apple-system, sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+
+    .print-btn button:hover { background: #0f2540; }
+
+    .page {
+      background: #fff;
+      max-width: 794px;
+      margin: 0 auto;
+      padding: 72px 80px 80px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+
+    .letterhead {
+      border-bottom: 2px solid #1a3a5c;
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+    }
+
+    .company-name {
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a3a5c;
+      letter-spacing: 0.5px;
+    }
+
+    .company-sub {
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    .doc-title {
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a3a5c;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .date-line {
+      margin-bottom: 28px;
+      font-size: 13.5px;
+    }
+
+    .salutation {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .opening-para {
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #1a3a5c;
+      border-left: 3px solid #1a3a5c;
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+    }
+
+    .comp-table th {
+      background: #1a3a5c;
+      color: #fff;
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-weight: 600;
+      padding: 9px 12px;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .comp-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #e8e8e8;
+      line-height: 1.5;
+    }
+
+    .comp-table tr:nth-child(even) td { background: #f8f9fb; }
+
+    .comp-table .phase-col { font-weight: 600; color: #1a3a5c; }
+
+    .note {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.7;
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .resp-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .resp-item {
+      margin-bottom: 16px;
+    }
+
+    .resp-item strong {
+      display: block;
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a3a5c;
+      margin-bottom: 6px;
+    }
+
+    .resp-item ul {
+      padding-left: 18px;
+      list-style: disc;
+    }
+
+    .resp-item ul li {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: #2a2a2a;
+    }
+
+    .terms-list {
+      padding-left: 20px;
+    }
+
+    .terms-list li {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: #2a2a2a;
+      margin-bottom: 4px;
+    }
+
+    .sig-block {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .sig-party { }
+
+    .sig-line {
+      border-bottom: 1px solid #1a1a1a;
+      margin-bottom: 8px;
+      padding-top: 40px;
+    }
+
+    .sig-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .sig-title {
+      font-size: 12.5px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .sig-date {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .sig-date span {
+      display: inline-block;
+      min-width: 140px;
+      border-bottom: 1px solid #999;
+      margin-left: 8px;
+    }
+
+    p { line-height: 1.8; font-size: 13.5px; }
+
+    .highlight-box {
+      background: #f0f4f9;
+      border-left: 3px solid #1a3a5c;
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-btn { display: none; }
+      .page { box-shadow: none; padding: 48px 60px 60px; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-btn">
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- Letterhead -->
+  <div class="letterhead">
+    <div class="company-name">QUANYU GROUP &nbsp;｜&nbsp; 全育集團</div>
+    <div class="company-sub">Integrated Sports Operations &amp; Fitness Management</div>
+  </div>
+
+  <div class="doc-title">Letter of Offer — Chief Operating Officer</div>
+
+  <div class="date-line">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+  <div class="salutation">Dear Simon Chi (季祥),</div>
+
+  <div class="opening-para">
+    <p>We are pleased to extend this Letter of Offer to you for the position of <strong>Chief Operating Officer (COO)</strong> at <strong>Quanyu Group (全育集團)</strong>. This letter sets out the terms and conditions of your appointment, including compensation structure, scope of responsibilities, required authority, and performance review framework.</p>
+  </div>
+
+  <!-- Position Details -->
+  <div class="section">
+    <div class="section-title">Position Details</div>
+    <table class="comp-table">
+      <tr><td style="width:200px;font-weight:600;">Position Title</td><td>Chief Operating Officer (COO)</td></tr>
+      <tr><td style="font-weight:600;">Reporting To</td><td>Chief Executive Officer (CEO)</td></tr>
+      <tr><td style="font-weight:600;">Work Location</td><td>Quanyu Group venues and designated offices</td></tr>
+      <tr><td style="font-weight:600;">Commencement Date</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+    </table>
+  </div>
+
+  <!-- Compensation -->
+  <div class="section">
+    <div class="section-title">Compensation Structure</div>
+    <p style="margin-bottom:12px;">Compensation is structured in three progressive phases to reflect the nature of the engagement:</p>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Period</th>
+          <th>Monthly Base Salary</th>
+          <th>Engagement Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="phase-col">Phase 1</td>
+          <td>Months 1 – 2</td>
+          <td><strong>NT$90,000</strong></td>
+          <td>50% — Strategy &amp; Assessment</td>
+        </tr>
+        <tr>
+          <td class="phase-col">Phase 2</td>
+          <td>Months 3 – 4</td>
+          <td><strong>NT$140,000</strong></td>
+          <td>75% — Transition &amp; Build</td>
+        </tr>
+        <tr>
+          <td class="phase-col">Phase 3</td>
+          <td>Month 5 onward</td>
+          <td><strong>NT$180,000</strong></td>
+          <td>100% — Full-time COO</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box">
+      <strong>Annual Bonus:</strong> There is no guaranteed year-end bonus. Any bonus award is entirely at the discretion of the Board of Directors and CEO, subject to company performance and individual KPI achievement as evaluated at the end of each calendar year.
+    </div>
+  </div>
+
+  <!-- Responsibilities -->
+  <div class="section">
+    <div class="section-title">Key Responsibilities</div>
+    <ul class="resp-list">
+      <li class="resp-item">
+        <strong>1. Group Operations Integration</strong>
+        <ul>
+          <li>Establish and oversee the venue general manager system across all locations</li>
+          <li>Establish and oversee the sports division director system</li>
+          <li>Lead weekly operations meetings and monthly business reviews</li>
+          <li>Track group-wide revenue, cost, and member lifecycle metrics</li>
+          <li>Develop and standardize replicable operating procedures (SOP)</li>
+          <li>Design cross-venue and cross-program member referral flows</li>
+        </ul>
+      </li>
+      <li class="resp-item">
+        <strong>2. Sports Program Productization</strong>
+        <ul>
+          <li>Oversee curriculum and product design across all sports verticals (Basketball, Tennis, Pickleball, Sports Recovery)</li>
+          <li>Ensure product-market fit, quality standards, and tiered membership structures</li>
+          <li>Drive member lifecycle design and cross-program upsell and referral</li>
+        </ul>
+      </li>
+      <li class="resp-item">
+        <strong>3. CrossFit / HYROX Business Line</strong>
+        <ul>
+          <li>Act as interim Division Director during the initial launch phase</li>
+          <li>Lead venue positioning, equipment configuration, and curriculum design</li>
+          <li>Recruit, train, and manage coaches for CrossFit and HYROX programs</li>
+          <li>Establish trial class processes, sales flows, and in-house competition systems</li>
+        </ul>
+      </li>
+      <li class="resp-item">
+        <strong>4. Events, Competitions &amp; Brand Partnerships</strong>
+        <ul>
+          <li>Organize inter-program competitions and member challenge events</li>
+          <li>Develop the Quanyu Group challenge event platform</li>
+          <li>Lead corporate wellness program development and enterprise sales</li>
+          <li>Identify and develop external brand partnership opportunities</li>
+        </ul>
+      </li>
+      <li class="resp-item">
+        <strong>5. AI &amp; Information Systems Implementation</strong>
+        <ul>
+          <li>Automate venue manager weekly reports and key operational workflows</li>
+          <li>Implement member CRM and trial-client tracking systems</li>
+          <li>Deploy operational data dashboard and churn prediction tools</li>
+          <li>Build AI-powered FAQ automation and customer service flows</li>
+          <li>Implement the <strong>AI Coach Teaching Evaluation System</strong>: coaches wear microphones during class; voice and video are recorded and analyzed by AI to evaluate teaching quality, instruction clarity, and coaching style; outputs are used for coach-member matching and periodic coach performance review</li>
+          <li>Lead AI literacy training for venue managers and division directors</li>
+        </ul>
+      </li>
+      <li class="resp-item">
+        <strong>6. Executive Reporting</strong>
+        <ul>
+          <li>Provide regular operational progress and strategic updates to the CEO</li>
+          <li>Drive data-informed decision-making across all business lines</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Authority -->
+  <div class="section">
+    <div class="section-title">Required Authority &amp; Resources</div>
+    <p style="margin-bottom:12px;">To fulfill the above responsibilities effectively, the Company agrees to provide the following:</p>
+    <ul class="terms-list">
+      <li>Direct management authority over all venue general managers and division directors</li>
+      <li>Full access to venue-level financial and operational data across all locations</li>
+      <li>Budget authority for operational expenditures (scope to be defined within 30 days of start)</li>
+      <li>Authority to propose organizational structure changes for CEO approval</li>
+      <li>Access to all internal operational and information systems</li>
+    </ul>
+  </div>
+
+  <!-- Performance Review -->
+  <div class="section">
+    <div class="section-title">Performance Review Schedule</div>
+    <table class="comp-table">
+      <tr><td style="width:200px;">End of Month 2</td><td>Initial strategy alignment and operational assessment review</td></tr>
+      <tr><td>End of Month 4</td><td>Engagement level and compensation transition assessment</td></tr>
+      <tr><td>Annually from Month 5</td><td>Full COO performance and compensation review</td></tr>
+    </table>
+    <p class="note">Performance metrics and KPIs will be discussed and mutually agreed upon within the first 30 days of employment.</p>
+  </div>
+
+  <!-- Terms -->
+  <div class="section">
+    <div class="section-title">Terms &amp; Conditions</div>
+    <ol class="terms-list">
+      <li>This offer is contingent upon mutual agreement on any remaining terms prior to the commencement date.</li>
+      <li>Either party may terminate this agreement by providing 30 days' written notice, unless otherwise agreed.</li>
+      <li>The COO agrees to maintain strict confidentiality regarding all business, financial, personnel, and strategic information during and after the term of employment.</li>
+      <li>Any conflict of interest involving related entities (including but not limited to 四季健身 / 4SC CrossFit) must be disclosed to the CEO and governed by individually negotiated terms. Neither party assumes the other's obligations or liabilities without explicit written agreement.</li>
+      <li>This letter of offer supersedes any prior oral or written agreements regarding compensation and scope of work.</li>
+      <li>This offer is governed by the laws of the Republic of China (Taiwan).</li>
+    </ol>
+  </div>
+
+  <p style="margin-top:8px;margin-bottom:0;">Please review the terms of this offer carefully. If you are in agreement, kindly sign below and return a copy to us. We look forward to welcoming you to the Quanyu Group leadership team.</p>
+
+  <!-- Signatures -->
+  <div class="sig-block">
+    <div class="sig-party">
+      <div class="sig-line"></div>
+      <div class="sig-name">Simon Chi（季祥）</div>
+      <div class="sig-title">Chief Operating Officer</div>
+      <div class="sig-date">Date: <span></span></div>
+    </div>
+    <div class="sig-party">
+      <div class="sig-line"></div>
+      <div class="sig-name">________________</div>
+      <div class="sig-title">Chief Executive Officer<br>Quanyu Group (全育集團)</div>
+      <div class="sig-date">Date: <span></span></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
