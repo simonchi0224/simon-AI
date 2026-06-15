@@ -257,7 +257,7 @@
 
   <div class="doc-title">Letter of Offer — Chief Operating Officer</div>
 
-  <div class="date-line">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div class="date-line">Date: <span id="doc-date"></span></div>
 
   <div class="salutation">Dear Simon Chi (季祥),</div>
 
@@ -422,17 +422,25 @@
       <div class="sig-line"></div>
       <div class="sig-name">Simon Chi（季祥）</div>
       <div class="sig-title">Chief Operating Officer</div>
-      <div class="sig-date">Date: <span></span></div>
+      <div class="sig-date">Date: <span class="auto-date"></span></div>
     </div>
     <div class="sig-party">
       <div class="sig-line"></div>
       <div class="sig-name">________________</div>
       <div class="sig-title">Chief Executive Officer<br>Quanyu Group (全育集團)</div>
-      <div class="sig-date">Date: <span></span></div>
+      <div class="sig-date">Date: <span class="auto-date"></span></div>
     </div>
   </div>
 
 </div>
+
+<script>
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const d = new Date();
+  const formatted = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  document.getElementById('doc-date').textContent = formatted;
+  document.querySelectorAll('.auto-date').forEach(el => el.textContent = formatted);
+</script>
 
 </body>
 </html>
