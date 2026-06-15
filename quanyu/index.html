@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COO｜Simon × 全育集團</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --dim: #64748b;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --accent-mid: #bfdbfe;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --radius: 16px;
+      --section-gap: 80px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand { font-size: 14px; font-weight: 600; color: var(--text); letter-spacing: 0.01em; }
+    .nav-version { font-size: 12px; color: var(--dim); background: var(--bg); border: 1px solid var(--border); padding: 3px 10px; border-radius: 20px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      color: white;
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      background: rgba(147,197,253,0.12);
+      border: 1px solid rgba(147,197,253,0.3);
+      padding: 5px 16px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #60a5fa; }
+    .hero-sub {
+      font-size: 16px; color: #94a3b8; max-width: 540px; margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-roles {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    .role-badge {
+      font-size: 13px; font-weight: 500;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e2e8f0;
+      padding: 6px 16px; border-radius: 8px;
+    }
+
+    /* LAYOUT */
+    .section { padding: var(--section-gap) 24px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-alt { background: var(--surface); }
+
+    .kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-h2 {
+      font-size: clamp(26px, 4vw, 36px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .section-desc {
+      font-size: 15px; color: var(--dim); margin-bottom: 40px; line-height: 1.7;
+    }
+
+    /* VALUE CARDS */
+    .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .value-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .value-icon { font-size: 24px; margin-bottom: 12px; }
+    .value-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .value-card p { font-size: 14px; color: var(--dim); line-height: 1.7; }
+
+    /* ORG */
+    .org-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .org-ceo {
+      display: flex; align-items: center; justify-content: center;
+      background: #0f172a; color: white;
+      border-radius: 10px; padding: 12px 28px;
+      font-size: 14px; font-weight: 600; width: fit-content; margin: 0 auto 12px;
+    }
+    .org-connector { text-align: center; color: var(--border); font-size: 20px; margin: 4px 0; }
+    .org-coo {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--accent); color: white;
+      border-radius: 10px; padding: 14px 28px;
+      font-size: 15px; font-weight: 700; width: fit-content; margin: 0 auto 28px;
+    }
+    .org-coo-badge {
+      font-size: 11px; background: rgba(255,255,255,0.2);
+      padding: 2px 8px; border-radius: 6px;
+    }
+    .org-lines {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+    }
+    .org-line {
+      border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+      background: var(--bg);
+    }
+    .org-line-num { font-size: 11px; color: var(--accent); font-weight: 700; margin-bottom: 4px; letter-spacing: 0.05em; }
+    .org-line-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .org-line-items { font-size: 12px; color: var(--dim); line-height: 2; }
+
+    /* PHASES */
+    .phases { display: flex; flex-direction: column; gap: 16px; }
+    .phase-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 28px 28px 24px;
+      display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+      align-items: start;
+    }
+    .phase-left { text-align: center; }
+    .phase-num { font-size: 11px; font-weight: 700; color: var(--dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .phase-pct { font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .phase-months { font-size: 12px; color: var(--dim); }
+    .phase-label {
+      display: inline-block; margin-top: 8px;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 6px;
+    }
+    .phase-1 .phase-label { background: #fef9c3; color: #854d0e; }
+    .phase-2 .phase-label { background: #fed7aa; color: #9a3412; }
+    .phase-3 .phase-label { background: var(--green-light); color: #14532d; }
+    .phase-divider { width: 1px; background: var(--border); margin: 0 auto; display: none; }
+    .phase-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .phase-desc { font-size: 14px; color: var(--dim); line-height: 1.7; margin-bottom: 14px; }
+    .phase-items { display: flex; flex-wrap: wrap; gap: 6px; }
+    .phase-item {
+      font-size: 12px; color: var(--dim);
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 3px 10px; border-radius: 6px;
+    }
+
+    /* SCOPE */
+    .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .scope-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .scope-num { font-size: 28px; font-weight: 800; color: var(--accent-mid); line-height: 1; margin-bottom: 8px; }
+    .scope-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .scope-card ul { padding-left: 16px; }
+    .scope-card li { font-size: 13px; color: var(--dim); line-height: 1.9; }
+
+    /* ALIGNMENT */
+    .align-list { display: flex; flex-direction: column; gap: 10px; }
+    .align-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+    }
+    .align-check {
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid var(--border); flex-shrink: 0; margin-top: 1px;
+    }
+    .align-item p { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a; color: #64748b;
+      text-align: center; padding: 32px 24px;
+      font-size: 13px;
+    }
+    footer strong { color: #94a3b8; }
+
+    @media (max-width: 600px) {
+      .phase-card { grid-template-columns: 1fr; }
+      .phase-left { text-align: left; display: flex; align-items: center; gap: 12px; }
+      .phase-pct { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">全育集團 × 季祥 Simon</span>
+  <span class="nav-version">v1.0 討論稿</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Partnership Document</div>
+  <h1>全育集團<br><span>COO｜Simon</span></h1>
+  <p class="hero-sub">職務範圍、組織架構與階段工作規劃——作為雙方後續討論的基礎文件。</p>
+  <div class="hero-roles">
+    <span class="role-badge">Chief Operating Officer</span>
+    <span class="role-badge">Acting CIO · AI & Digital Transformation Lead</span>
+    <span class="role-badge">Acting Director · CrossFit / HYROX</span>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="kicker">WHY THIS WORKS</div>
+    <h2 class="section-h2">Simon 帶入的資源</h2>
+    <p class="section-desc">四季健身與 4SC CrossFit 不是全育的競爭資源，而是 Simon 可協助全育整合與運用的外部合作資源。</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">🏋️</div>
+        <h3>健身產業實戰經驗</h3>
+        <p>經營四季健身與 4SC CrossFit 累積的品牌資源、教練網絡、課程產品與活動經驗。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤖</div>
+        <h3>AI 導入能力</h3>
+        <p>具備 AI 講師與企業培訓經驗，已累積培訓超過 500 人，可協助全育將 AI 工具導入各項營運流程。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏆</div>
+        <h3>活動賽事與品牌合作</h3>
+        <p>運動賽事、論壇活動、產業交流與品牌合作的實戰執行能力，協助全育提升品牌能見度。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📊</div>
+        <h3>大型企業系統思維</h3>
+        <p>HP → Trend Micro → 外商科技公司 AI 專案經理，帶入大型組織的系統化管理思維。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORG -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="kicker">ORGANIZATION</div>
+    <h2 class="section-h2">建議組織架構</h2>
+    <p class="section-desc">COO｜Simon 位於執行長之下，統籌四條管理線，協助集團從多項目場館升級為整合型運動健康平台。</p>
+    <div class="org-box">
+      <div class="org-ceo">執行長 / CEO</div>
+      <div class="org-connector">│</div>
+      <div class="org-coo">
+        COO｜Simon
+        <span class="org-coo-badge">+ Acting CIO</span>
+      </div>
+      <div class="org-lines">
+        <div class="org-line">
+          <div class="org-line-num">LINE 01</div>
+          <div class="org-line-title">場館營運管理線</div>
+          <div class="org-line-items">
+            場館店長<br>球場店長<br>訓練場館店長<br>未來新場館店長
+          </div>
+        </div>
+        <div class="org-line">
+          <div class="org-line-num">LINE 02</div>
+          <div class="org-line-title">運動項目事業線</div>
+          <div class="org-line-items">
+            籃球事業總監<br>網球事業總監<br>匹克球事業總監<br>CrossFit / HYROX 總監<br>運動恢復事業總監
+          </div>
+        </div>
+        <div class="org-line">
+          <div class="org-line-num">LINE 03</div>
+          <div class="org-line-title">共享營運支援線</div>
+          <div class="org-line-items">
+            業務銷售主管<br>會員經營主管<br>行銷內容主管<br>活動賽事主管<br>品牌合作主管
+          </div>
+        </div>
+        <div class="org-line">
+          <div class="org-line-num">LINE 04</div>
+          <div class="org-line-title">AI 與營運系統線</div>
+          <div class="org-line-items">
+            AI 導入<br>會員 CRM<br>預約 / 課程系統<br>營運數據 Dashboard<br>SOP 知識庫
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="kicker">RESPONSIBILITIES</div>
+    <h2 class="section-h2">COO 可負責的主要範圍</h2>
+    <p class="section-desc">五個核心工作方向，協助全育從各自獨立運作，走向集團型整合營運。</p>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <div class="scope-num">01</div>
+        <h3>集團營運整合</h3>
+        <ul>
+          <li>建立場館店長制度</li>
+          <li>建立項目總監制度</li>
+          <li>每週營運會議</li>
+          <li>每月營運檢討</li>
+          <li>跨項目導流流程</li>
+          <li>可複製的營運 SOP</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <div class="scope-num">02</div>
+        <h3>運動項目產品化</h3>
+        <ul>
+          <li>籃球 · 網球 · 匹克球</li>
+          <li>課程分級與產品線</li>
+          <li>教練招募與品質管理</li>
+          <li>賽事與活動設計</li>
+          <li>企業健康方案</li>
+          <li>會員制度設計</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <div class="scope-num">03</div>
+        <h3>CrossFit / HYROX 新事業線</h3>
+        <ul>
+          <li>第一階段由 COO 兼任總監</li>
+          <li>場館定位與器材配置</li>
+          <li>課程產品設計</li>
+          <li>體驗課與銷售流程</li>
+          <li>HYROX 專項訓練</li>
+          <li>內部賽與會員活動</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <div class="scope-num">04</div>
+        <h3>活動賽事與品牌合作</h3>
+        <ul>
+          <li>各項目交流賽與挑戰賽</li>
+          <li>企業運動日 / 體能挑戰</li>
+          <li>親子運動節</li>
+          <li>AI × 運動產業講座</li>
+          <li>品牌聯名活動</li>
+          <li>企業健康合作方案</li>
+        </ul>
+      </div>
+      <div class="scope-card">
+        <div class="scope-num">05</div>
+        <h3>AI 與營運系統導入</h3>
+        <ul>
+          <li>店長週報自動化</li>
+          <li>會員 CRM 建立</li>
+          <li>業務跟進流程</li>
+          <li>客服 FAQ 自動化</li>
+          <li>營運數據 Dashboard</li>
+          <li>主管 AI 培訓</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="kicker">ROADMAP</div>
+    <h2 class="section-h2">三階段投入計畫</h2>
+    <p class="section-desc">前四個月是導入期，不是完整接管期。第五個月起才是正式 full-time COO 執行期。</p>
+    <div class="phases">
+      <div class="phase-card phase-1">
+        <div class="phase-left">
+          <div class="phase-num">Phase 1</div>
+          <div class="phase-pct">50%</div>
+          <div class="phase-months">第 1–2 個月</div>
+          <div class="phase-label">策略盤點期</div>
+        </div>
+        <div>
+          <div class="phase-title">盤點現況，建立架構</div>
+          <div class="phase-desc">重點在理解全育現有場館、項目、人員、營收與系統的實際狀況，設計 COO 管理架構與初步分工，提出 90 天至 6 個月的營運優先順序。</div>
+          <div class="phase-items">
+            <span class="phase-item">全育場館與項目現況盤點</span>
+            <span class="phase-item">組織架構初稿</span>
+            <span class="phase-item">CrossFit / HYROX 規劃初稿</span>
+            <span class="phase-item">AI 系統導入方向初稿</span>
+            <span class="phase-item">初版週報格式</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-card phase-2">
+        <div class="phase-left">
+          <div class="phase-num">Phase 2</div>
+          <div class="phase-pct">67%</div>
+          <div class="phase-months">第 3–4 個月</div>
+          <div class="phase-label">系統建置期</div>
+        </div>
+        <div>
+          <div class="phase-title">建制度，啟動試行</div>
+          <div class="phase-desc">啟動 CrossFit / HYROX 新事業線建置，推動至少一項既有項目的課程或活動優化，建立店長週報與項目月報制度，導入 AI 工具流程。</div>
+          <div class="phase-items">
+            <span class="phase-item">CrossFit / HYROX 產品規劃完成</span>
+            <span class="phase-item">教練招募與培訓流程</span>
+            <span class="phase-item">體驗課銷售流程</span>
+            <span class="phase-item">週報 / 月報制度上線</span>
+            <span class="phase-item">AI 流程導入 2–3 項</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-card phase-3">
+        <div class="phase-left">
+          <div class="phase-num">Phase 3</div>
+          <div class="phase-pct">100%</div>
+          <div class="phase-months">第 5 個月起</div>
+          <div class="phase-label">正式 COO 執行期</div>
+        </div>
+        <div>
+          <div class="phase-title">全面接管，驅動成長</div>
+          <div class="phase-desc">正式建立 COO 管理節奏，管理各場館店長與項目總監，推動各事業線產品化與活動化，建立固定的數據追蹤與決策回報機制。</div>
+          <div class="phase-items">
+            <span class="phase-item">COO 管理制度正式運作</span>
+            <span class="phase-item">CrossFit / HYROX 正式執行</span>
+            <span class="phase-item">各事業線營收數據追蹤</span>
+            <span class="phase-item">活動賽事固定節奏</span>
+            <span class="phase-item">完整 KPI 正式檢核</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALIGNMENT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="kicker">NEXT STEPS</div>
+    <h2 class="section-h2">需要與執行長對齊的事項</h2>
+    <p class="section-desc">這份文件是討論起點。以下是讓 COO｜Simon 的角色與集團期待一致，需要優先確認的問題。</p>
+    <div class="align-list">
+      <div class="align-item"><div class="align-check"></div><p>COO｜Simon 的正式匯報對象與授權範圍</p></div>
+      <div class="align-item"><div class="align-check"></div><p>各場館店長與各項目總監是否向 COO 回報</p></div>
+      <div class="align-item"><div class="align-check"></div><p>CrossFit / HYROX 新事業線的預算、時程與決策方式</p></div>
+      <div class="align-item"><div class="align-check"></div><p>既有籃球、網球、匹克球目前的營收與人員狀況</p></div>
+      <div class="align-item"><div class="align-check"></div><p>AI / 資訊系統目前既有工具與導入需求</p></div>
+      <div class="align-item"><div class="align-check"></div><p>前四個月過渡導入期的成果期待</p></div>
+      <div class="align-item"><div class="align-check"></div><p>第五個月起 full-time 後的完整 KPI 設計</p></div>
+      <div class="align-item"><div class="align-check"></div><p>薪資、獎金、績效與職權的對應方式</p></div>
+      <div class="align-item"><div class="align-check"></div><p>四季健身與全育若有合作，如何確認品牌授權、成本分攤與收益分配</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>全育集團 COO｜Simon</strong> — 職務範圍、組織架構與階段工作規劃</p>
+  <p style="margin-top: 8px;">v1.0 討論稿 · 本文件為雙方共識討論基礎，後續依實際組織、人員、預算與時程調整</p>
+</footer>
+
+</body>
+</html>
