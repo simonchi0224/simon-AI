@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Offer Letter — COO | Quanyu Group</title>
+  <title>COO 高階經理人聘任與合作協議書｜全育集團 × 季祥 Simon</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 14px;
-      color: #1a1a1a;
+      color: #18202a;
       background: #f5f5f5;
       padding: 40px 20px;
+      line-height: 1.75;
     }
 
     .print-btn {
       display: block;
       margin: 0 auto 32px;
-      max-width: 794px;
+      max-width: 900px;
       text-align: right;
     }
 
@@ -26,538 +27,684 @@
       padding: 10px 24px;
       background: #1a3a5c;
       color: #fff;
-      border: none;
+      border: 0;
       border-radius: 6px;
       font-size: 14px;
-      font-family: -apple-system, sans-serif;
       cursor: pointer;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.04em;
     }
-
-    .print-btn button:hover { background: #0f2540; }
 
     .page {
       background: #fff;
-      max-width: 794px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 72px 80px 80px;
+      padding: 56px 64px 64px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.10);
     }
 
     .letterhead {
       border-bottom: 2px solid #1a3a5c;
-      padding-bottom: 24px;
-      margin-bottom: 36px;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
     }
 
     .company-name {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 800;
       color: #1a3a5c;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.03em;
     }
 
     .company-sub {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
       font-size: 13px;
-      color: #555;
+      color: #5b6472;
       margin-top: 4px;
     }
 
     .doc-title {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
       color: #1a3a5c;
       text-align: center;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 32px;
+      margin: 26px 0 8px;
     }
 
-    .date-line {
-      margin-bottom: 28px;
+    .doc-title h1 {
+      font-size: 24px;
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .doc-title p {
+      font-size: 13px;
+      color: #667085;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+      margin: 28px 0 32px;
+      padding: 18px 20px;
+      background: #f4f7fb;
+      border: 1px solid #dce6f2;
+      border-radius: 8px;
       font-size: 13.5px;
     }
 
-    .salutation {
-      margin-bottom: 20px;
-      font-size: 14px;
+    .meta-grid strong { color: #1a3a5c; }
+    .blank {
+      display: inline-block;
+      min-width: 160px;
+      border-bottom: 1px solid #98a2b3;
+      height: 1.25em;
+      vertical-align: baseline;
     }
 
-    .opening-para {
+    .intro {
       margin-bottom: 28px;
-      line-height: 1.8;
+      font-size: 13.8px;
+    }
+
+    .notice {
+      margin: 20px 0 30px;
+      padding: 14px 16px;
+      border-left: 4px solid #b45309;
+      background: #fffbeb;
+      color: #3f2d12;
+      font-size: 13.5px;
     }
 
     .section {
-      margin-bottom: 28px;
+      margin-bottom: 34px;
+      page-break-inside: avoid;
     }
 
     .section-title {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       color: #1a3a5c;
-      border-left: 3px solid #1a3a5c;
+      border-left: 4px solid #1a3a5c;
       padding-left: 10px;
       margin-bottom: 14px;
     }
 
-    .comp-table {
+    p { margin-bottom: 10px; }
+
+    ol, ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+
+    table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 12px;
-      font-size: 13.5px;
+      margin: 12px 0;
+      font-size: 13.2px;
     }
 
-    .comp-table th {
+    th {
       background: #1a3a5c;
       color: #fff;
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-weight: 600;
-      padding: 9px 12px;
+      padding: 9px 10px;
       text-align: left;
-      font-size: 12px;
-      letter-spacing: 0.3px;
+      font-weight: 700;
     }
 
-    .comp-table td {
-      padding: 9px 12px;
-      border-bottom: 1px solid #e8e8e8;
-      line-height: 1.5;
+    td {
+      border: 1px solid #e4e7ec;
+      padding: 9px 10px;
+      vertical-align: top;
     }
 
-    .comp-table tr:nth-child(even) td { background: #f8f9fb; }
+    tr:nth-child(even) td { background: #fafbfc; }
 
-    .comp-table .phase-col { font-weight: 600; color: #1a3a5c; }
-
-    .note {
-      font-size: 13px;
-      color: #444;
-      line-height: 1.7;
-      font-style: italic;
-      margin-top: 8px;
+    .emphasis {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 13px 15px;
+      margin-top: 12px;
+      font-size: 13.4px;
     }
 
-    .resp-list {
+    .risk-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      padding: 13px 15px;
+      margin-top: 12px;
+      font-size: 13.4px;
+    }
+
+    .attachment-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       padding-left: 0;
       list-style: none;
     }
 
-    .resp-item {
-      margin-bottom: 16px;
-    }
-
-    .resp-item strong {
-      display: block;
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a3a5c;
-      margin-bottom: 6px;
-    }
-
-    .resp-item ul {
-      padding-left: 18px;
-      list-style: disc;
-    }
-
-    .resp-item ul li {
-      font-size: 13.5px;
-      line-height: 1.9;
-      color: #2a2a2a;
-    }
-
-    .terms-list {
-      padding-left: 20px;
-    }
-
-    .terms-list li {
-      font-size: 13.5px;
-      line-height: 1.9;
-      color: #2a2a2a;
-      margin-bottom: 4px;
+    .attachment-list li {
+      border: 1px solid #e4e7ec;
+      background: #fafbfc;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin: 0;
     }
 
     .sig-block {
       margin-top: 48px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 42px;
     }
-
-    .sig-party { }
 
     .sig-line {
-      border-bottom: 1px solid #1a1a1a;
-      margin-bottom: 8px;
-      padding-top: 40px;
+      border-bottom: 1px solid #101828;
+      padding-top: 48px;
+      margin-bottom: 10px;
     }
 
-    .sig-name {
-      font-size: 13.5px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .sig-title {
-      font-size: 12.5px;
-      color: #555;
-      margin-bottom: 12px;
-    }
-
-    .sig-date {
-      font-size: 13px;
-      color: #555;
-    }
-
+    .sig-name { font-weight: 800; color: #1a3a5c; }
+    .sig-title, .sig-date { font-size: 12.5px; color: #667085; }
     .sig-date span {
       display: inline-block;
       min-width: 140px;
-      border-bottom: 1px solid #999;
-      margin-left: 8px;
+      border-bottom: 1px solid #98a2b3;
+      margin-left: 6px;
     }
 
-    p { line-height: 1.8; font-size: 13.5px; }
+    .legal-note {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #e4e7ec;
+      font-size: 12.4px;
+      color: #667085;
+    }
 
-    .highlight-box {
-      background: #f0f4f9;
-      border-left: 3px solid #1a3a5c;
-      padding: 14px 16px;
+    .en-block {
       margin-top: 12px;
-      font-size: 13px;
-      line-height: 1.7;
-      color: #2a2a2a;
+      padding: 12px 14px;
+      border-left: 3px solid #98a2b3;
+      background: #f8fafc;
+      color: #475467;
+      font-size: 12.6px;
+      line-height: 1.65;
     }
 
-    .clarif-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding: 16px 18px;
-      background: #fffbf0;
-      border: 1px solid #e8d5a3;
-      border-left: 3px solid #b45309;
-      border-radius: 0 4px 4px 0;
+    .en-block .en-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1a3a5c;
+      margin-bottom: 6px;
     }
 
-    .clarif-num {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #b45309;
-      min-width: 20px;
-      padding-top: 1px;
+    .en-block ol,
+    .en-block ul {
+      margin: 0;
+      padding-left: 18px;
     }
 
-    .clarif-body {
-      font-size: 13px;
-      line-height: 1.8;
-      color: #2a2a2a;
-    }
-
-    .clarif-body strong {
-      font-family: -apple-system, 'Helvetica Neue', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      color: #7c3a00;
-      display: block;
-      margin-bottom: 4px;
-    }
+    .en-block li { margin-bottom: 6px; }
 
     @media print {
       body { background: #fff; padding: 0; }
       .print-btn { display: none; }
-      .page { box-shadow: none; padding: 48px 60px 60px; max-width: 100%; }
+      .page { box-shadow: none; max-width: 100%; padding: 42px 52px; }
+      .section { page-break-inside: avoid; }
     }
-
   </style>
 </head>
 <body>
 
-<div class="print-btn">
-  <button onclick="window.print()">Print / Save as PDF</button>
+<div style="max-width:900px;margin:0 auto 16px;padding:12px 20px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-family:-apple-system,sans-serif;font-size:13.5px;color:#1a3a5c;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+  <span><strong>v2.1 · 2026-06-24</strong> — 高階經理人聘任與合作協議書（現行版本，中英雙語正式簽署版）</span>
+  <a href="offer-letter-v1.html" style="color:#1a3a5c;font-weight:700;text-decoration:underline;">查看歷史版本 v1.0 →</a>
 </div>
 
-<div class="page">
+<div class="print-btn">
+  <button onclick="window.print()">列印 / 儲存 PDF</button>
+</div>
 
-  <!-- Letterhead -->
-  <div class="letterhead">
-    <div class="company-name">QUANYU GROUP &nbsp;｜&nbsp; 全育集團</div>
-    <div class="company-sub">Integrated Sports Operations &amp; Fitness Management</div>
+<main class="page">
+  <header class="letterhead">
+    <div class="company-name">QUANYU GROUP ｜ 全育集團</div>
+    <div class="company-sub">高階經理人聘任、營運整合、新事業線與 AI 數位轉型合作文件</div>
+  </header>
+
+  <section class="doc-title">
+    <h1>全育集團 × 季祥 Simon<br>COO 高階經理人聘任與合作協議書</h1>
+      <p>以 v1.0 COO 職務範圍、組織架構與階段工作規劃為基礎之正式聘任條件<br>Executive Appointment and Cooperation Agreement based on the v1.0 COO Role, Organization Structure, and Phased Work Plan</p>
+  </section>
+
+  <section class="meta-grid">
+    <div><strong>甲方：</strong>全育生活體能股份有限公司 / 全育集團</div>
+    <div><strong>統一編號：</strong>62096297</div>
+    <div><strong>代表人：</strong>湯圓圓</div>
+    <div><strong>核准設立日期：</strong>2026-06-17</div>
+    <div><strong>資本總額 / 實收資本額：</strong>NT$500,000 / NT$500,000</div>
+    <div><strong>登記地址：</strong>臺北市內湖區瑞湖街99號</div>
+    <div><strong>乙方：</strong>季祥 Simon Chi</div>
+    <div><strong>文件日期：</strong><span id="doc-date"></span></div>
+    <div><strong>職稱：</strong>Chief Operating Officer（COO）</div>
+    <div><strong>版本：</strong>v2.1 中英雙語正式簽署版</div>
+  </section>
+
+  <section class="intro">
+    <p>甲乙雙方基於全育集團未來營運整合、組織管理、新事業線建置、AI 與資訊系統導入、跨項目產品化及高階經營管理需求，確認由甲方聘任乙方擔任全育集團 Chief Operating Officer（COO）。</p>
+    <p>本協議不是一般職員 offer letter，而係針對高階經理人職務所訂定之聘任、授權、責任、資源邊界與合作條件文件。雙方同意，本協議應與附件所列之 COO Role &amp; Strategy Document、階段工作規劃、權限表、KPI 原則及外部資源合作邊界一併理解與適用。</p>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <p>The parties confirm that Party A appoints Party B as Chief Operating Officer (COO) of Quanyu Group for future group operations integration, organization management, new business-line development, AI and information-system implementation, cross-program productization, and executive management needs.</p>
+      <p>This Agreement is not an ordinary employee offer letter. It is an executive appointment, authorization, responsibility, resource-boundary, and cooperation document. This Agreement shall be read together with the attached COO Role &amp; Strategy Document, phased work plan, delegation-of-authority schedule, KPI principles, and external-resource cooperation boundaries.</p>
+    </div>
+  </section>
+
+  <div class="notice">
+    本文件為雙方就高階經理人聘任、合作條件、職務授權與資源邊界所訂定之正式簽署版本。經甲方正式用印或由甲方授權代表簽署後，本文件及其附件即構成雙方正式聘任與合作文件之一部；如另有一般聘僱契約、員工手冊或 HR 制式文件，應明確將本文件列為附件或載明本文件之優先適用效力。
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      This document is the formal execution version of the parties' executive appointment, cooperation terms, role authority, and resource-boundary agreement. Upon Party A's company chop or signature by Party A's authorized representative, this document and its attachments shall form part of the parties' formal appointment and cooperation documents. If any general employment agreement, employee handbook, or HR standard document is also used, this document shall be expressly listed as an attachment or expressly stated to prevail on the matters covered herein.
+    </div>
   </div>
 
-  <div class="doc-title">Letter of Offer — Chief Operating Officer</div>
+  <section class="section">
+    <div class="section-title">一、聘任定位與職稱</div>
+    <ol>
+      <li>甲方正式聘任乙方擔任全育集團 COO，直接向 CEO / 執行長匯報。</li>
+      <li>乙方之任務不是單一場館主管或一般行政主管，而係負責集團層級之營運整合、組織制度、跨項目管理、新事業線規劃、AI 數位轉型及經營管理節奏建置。</li>
+      <li>本職務之薪酬與條件，係基於高階經理人、營運轉型、新事業創建、AI 導入與跨事業整合之總體價值，而非單一部門主管或一般員工薪資級距。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Party A formally appoints Party B as COO of Quanyu Group, reporting directly to the CEO / Executive Director.</li>
+        <li>Party B's role is not that of a single-venue manager or ordinary administrative manager. The role covers group-level operations integration, organization systems, cross-program management, new business-line planning, AI transformation, and executive management cadence.</li>
+        <li>The compensation and conditions for this role reflect the aggregate value of executive management, operations transformation, new business creation, AI implementation, and cross-business integration, rather than the salary grade of a single department manager or ordinary employee.</li>
+      </ol>
+    </div>
+  </section>
 
-  <div class="date-line">Date: <span id="doc-date"></span></div>
+  <section class="section">
+    <div class="section-title">二、匯報關係與組織定位</div>
+    <ol>
+      <li>乙方直接向 CEO / 執行長匯報，並就全育集團各場館、各運動項目、共享資源單位、資訊系統及新事業線進行整合管理。</li>
+      <li>甲方應於乙方到任前或到任後十四日內，確認各場館店長、項目總監、共享資源主管與乙方之匯報、協作與決策關係。</li>
+      <li>未完成正式組織授權表前，乙方得先進行診斷、訪談、資料盤點、流程建議與初步制度設計，但不得以完整 COO 結果型 KPI 評估乙方。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Party B reports directly to the CEO / Executive Director and integrates management across venues, sports programs, shared-resource units, information systems, and new business lines.</li>
+        <li>Party A shall confirm the reporting, collaboration, and decision-making relationships between Party B and venue managers, program directors, and shared-resource managers before or within fourteen days after Party B's commencement date.</li>
+        <li>Before the formal organization and authority schedule is completed, Party B may conduct diagnosis, interviews, data review, process recommendations, and initial system design, but Party B shall not be evaluated against full COO result-based KPIs.</li>
+      </ol>
+    </div>
+  </section>
 
-  <div class="salutation">Dear Simon Chi (季祥),</div>
+  <section class="section">
+    <div class="section-title">三、甲方公司資料與付款保障</div>
+    <ol>
+      <li>雙方確認，甲方全育生活體能股份有限公司為 2026 年 6 月 17 日核准設立之公司，統一編號 62096297，代表人為湯圓圓，資本總額與實收資本額均為 NT$500,000。</li>
+      <li>鑑於甲方為新設公司且資本額低於本協議前四個月薪資、後續薪資、獎金、分潤、費用報銷及提前終止違約金等可能付款義務之總額，甲方應於簽署本協議時，同步提供付款保障安排。</li>
+      <li>前項付款保障包括下列至少一項：甲方實際控制人、主要出資人、關係企業或指定第三方就本協議項下薪資、獎金、分潤、費用報銷、違約金及其他應付款出具連帶付款承諾；或由甲方提供三至六個月薪資及預估費用之保證金、專戶、預付款、銀行保證或其他雙方書面同意之付款保障。</li>
+      <li>未完成付款保障安排前，乙方得暫緩承擔完整 COO 結果型 KPI、CrossFit / HYROX 完整建置責任、P&amp;L 責任或需乙方先行墊付之專案責任；該暫緩不得視為乙方未履職或績效不佳。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>The parties confirm that Party A, Quanyu Life Fitness Co., Ltd., was approved for establishment on June 17, 2026, with tax ID 62096297, representative Tang Yuan-Yuan, and registered and paid-in capital of NT$500,000.</li>
+        <li>Because Party A is a newly established company and its capital is lower than the potential payment obligations under this Agreement, including the first four months of salary, subsequent salary, bonus, revenue share, expense reimbursement, and early termination liquidated damages, Party A shall provide payment-security arrangements upon execution.</li>
+        <li>Such payment security shall include at least one of the following: a joint payment undertaking by Party A's actual controller, principal investor, affiliated company, or designated third party; or a security deposit, escrow, prepayment, bank guarantee, or other written payment security covering three to six months of salary and estimated expenses.</li>
+        <li>Before payment security is completed, Party B may suspend full result-based COO KPIs, full CrossFit / HYROX build-out responsibility, P&amp;L responsibility, or any project requiring Party B to advance costs. Such suspension shall not be deemed non-performance or poor performance.</li>
+      </ol>
+    </div>
+  </section>
 
-  <div class="opening-para">
-    <p>We are pleased to extend this Letter of Offer to you for the position of <strong>Chief Operating Officer (COO)</strong> at <strong>Quanyu Group (全育集團)</strong>. This letter sets out the terms and conditions of your appointment, including compensation structure, scope of responsibilities, required authority, and performance review framework.</p>
-  </div>
-
-  <!-- Position Details -->
-  <div class="section">
-    <div class="section-title">Position Details</div>
-    <table class="comp-table">
-      <tr><td style="width:200px;font-weight:600;">Position Title</td><td>Chief Operating Officer (COO)</td></tr>
-      <tr><td style="font-weight:600;">Reporting To</td><td>Chief Executive Officer (CEO)</td></tr>
-      <tr><td style="font-weight:600;">Contracting Entity</td><td>Legal Entity Name: 全育生活體能股份有限公司&nbsp;&nbsp;&nbsp; Tax ID (統一編號): <span style="display:inline-block;min-width:120px;border-bottom:1px solid #999;">&nbsp;</span></td></tr>
-      <tr><td style="font-weight:600;">Work Location</td><td>Flexible — a Company-provided office workstation or remote work, with on-site presence at venues or other locations as required by specific tasks</td></tr>
-      <tr><td style="font-weight:600;">Commencement Date</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-    </table>
-  </div>
-
-  <!-- Compensation -->
-  <div class="section">
-    <div class="section-title">Compensation Structure</div>
-    <p style="margin-bottom:12px;">Compensation is structured in three progressive phases to reflect the nature of the engagement:</p>
-    <table class="comp-table">
+  <section class="section">
+    <div class="section-title">四、三階段投入與薪資安排</div>
+    <table>
       <thead>
         <tr>
-          <th>Phase</th>
-          <th>Period</th>
-          <th>Monthly Base Salary</th>
-          <th>Engagement Level</th>
+          <th>階段</th>
+          <th>期間</th>
+          <th>月薪</th>
+          <th>投入定位</th>
+          <th>主要成果</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="phase-col">Phase 1</td>
-          <td>Months 1 – 2</td>
+          <td>Phase 1</td>
+          <td>第 1-2 個月</td>
           <td><strong>NT$90,000</strong></td>
-          <td>50% — Strategy &amp; Assessment</td>
+          <td>50% 導入、診斷、策略盤點</td>
+          <td>組織盤點、營運診斷、資料需求、初步 Roadmap</td>
         </tr>
         <tr>
-          <td class="phase-col">Phase 2</td>
-          <td>Months 3 – 4</td>
+          <td>Phase 2</td>
+          <td>第 3-4 個月</td>
           <td><strong>NT$140,000</strong></td>
-          <td>75% — Transition &amp; Build</td>
+          <td>75% 轉換、制度建置、試行管理</td>
+          <td>管理節奏、權限表、KPI 初稿、AI / 系統導入計畫</td>
         </tr>
         <tr>
-          <td class="phase-col">Phase 3</td>
-          <td>Month 5 onward</td>
+          <td>Phase 3</td>
+          <td>第 5 個月起</td>
           <td><strong>NT$180,000</strong></td>
-          <td>100% — Full-time COO</td>
+          <td>100% Full-time COO</td>
+          <td>正式承接 COO 職責，依雙方確認之權限與 KPI 管理</td>
         </tr>
       </tbody>
     </table>
-    <div class="highlight-box">
-      <strong>Annual Bonus:</strong> There is no guaranteed fixed-amount year-end bonus. This does not mean no bonus is paid — the annual bonus shall be calculated and paid based on the COO's degree of KPI achievement and company performance, as evaluated at the end of each calendar year. If the COO's employment ends partway through a calendar year for any reason other than termination for cause, the annual bonus for that year shall be prorated based on the portion of the year served and the COO's KPI achievement during that period, and paid within a reasonable time after the departure date.
+    <div class="emphasis">
+      三階段薪資係對應乙方投入程度、責任範圍與職務承接階段，非單純績效調薪。除雙方另以書面調整外，各階段薪資應依期間自動適用。
     </div>
-  </div>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <p>The three-phase salary structure corresponds to Party B's engagement level, responsibility scope, and phase of role assumption. It is not merely a performance-based raise. Unless otherwise adjusted in writing by both parties, each phase's salary shall automatically apply according to the stated period.</p>
+      <ul>
+        <li>Phase 1: Months 1-2, NT$90,000 per month, 50% engagement for onboarding, diagnosis, and strategic assessment.</li>
+        <li>Phase 2: Months 3-4, NT$140,000 per month, 75% engagement for transition, system building, and pilot management.</li>
+        <li>Phase 3: Month 5 onward, NT$180,000 per month, 100% full-time COO responsibility based on confirmed authority and KPIs.</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Responsibilities -->
-  <div class="section">
-    <div class="section-title">Key Responsibilities</div>
-    <ul class="resp-list">
-      <li class="resp-item">
-        <strong>1. Group Operations Integration</strong>
-        <ul>
-          <li>Establish and oversee the venue general manager system across all locations</li>
-          <li>Establish and oversee the sports division director system</li>
-          <li>Lead weekly operations meetings and monthly business reviews</li>
-          <li>Track group-wide revenue, cost, and member lifecycle metrics</li>
-          <li>Develop and standardize replicable operating procedures (SOP)</li>
-          <li>Design cross-venue and cross-program member referral flows</li>
-        </ul>
-      </li>
-      <li class="resp-item">
-        <strong>2. Sports Program Productization</strong>
-        <ul>
-          <li>Oversee curriculum and product design across all sports verticals (Basketball, Tennis, Pickleball, Sports Recovery)</li>
-          <li>Ensure product-market fit, quality standards, and tiered membership structures</li>
-          <li>Drive member lifecycle design and cross-program upsell and referral</li>
-        </ul>
-      </li>
-      <li class="resp-item">
-        <strong>3. CrossFit / HYROX Business Line</strong>
-        <ul>
-          <li>Act as interim Division Director during the initial launch phase</li>
-          <li>Lead venue positioning, equipment configuration, and curriculum design</li>
-          <li>Recruit, train, and manage coaches for CrossFit and HYROX programs</li>
-          <li>Establish trial class processes, sales flows, and in-house competition systems</li>
-        </ul>
-      </li>
-      <li class="resp-item">
-        <strong>4. Events, Competitions &amp; Brand Partnerships</strong>
-        <ul>
-          <li>Organize inter-program competitions and member challenge events</li>
-          <li>Develop the Quanyu Group challenge event platform</li>
-          <li>Lead corporate wellness program development and enterprise sales</li>
-          <li>Identify and develop external brand partnership opportunities</li>
-        </ul>
-      </li>
-      <li class="resp-item">
-        <strong>5. AI &amp; Information Systems Implementation</strong>
-        <ul>
-          <li>Automate venue manager weekly reports and key operational workflows</li>
-          <li>Implement member CRM and trial-client tracking systems</li>
-          <li>Deploy operational data dashboard and churn prediction tools</li>
-          <li>Build AI-powered FAQ automation and customer service flows</li>
-          <li>Implement the <strong>AI Coach Teaching Evaluation System</strong>: coaches wear microphones during class; voice and video are recorded and analyzed by AI to evaluate teaching quality, instruction clarity, and coaching style; outputs are used for coach-member matching and periodic coach performance review</li>
-          <li>Lead AI literacy training for venue managers and division directors</li>
-        </ul>
-      </li>
-      <li class="resp-item">
-        <strong>6. Executive Reporting</strong>
-        <ul>
-          <li>Provide regular operational progress and strategic updates to the CEO</li>
-          <li>Drive data-informed decision-making across all business lines</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Authority -->
-  <div class="section">
-    <div class="section-title">Required Authority &amp; Resources</div>
-    <p style="margin-bottom:12px;">To fulfill the above responsibilities effectively, the Company agrees to provide the following:</p>
-    <ul class="terms-list">
-      <li>Direct management authority over all venue general managers and division directors</li>
-      <li>Full access to venue-level financial and operational data across all locations</li>
-      <li>Budget authority for operational expenditures, with scope set out in the Delegation of Authority schedule signed concurrently with this Offer Letter; operational management shall not begin before this schedule is signed</li>
-      <li>Authority to propose organizational structure changes for CEO approval</li>
-      <li>Access to all internal operational and information systems</li>
-    </ul>
-  </div>
-
-  <!-- Performance Review -->
-  <div class="section">
-    <div class="section-title">Performance Review Schedule</div>
-    <table class="comp-table">
-      <tr><td style="width:200px;">End of Month 2</td><td>Initial strategy alignment and operational assessment review</td></tr>
-      <tr><td>End of Month 4</td><td>Engagement level and role scope transition assessment (base salary progression is automatic per the Addendum and is not subject to this review)</td></tr>
-      <tr><td>Annually from Month 5</td><td>Full COO performance review and KPI-based annual bonus calculation</td></tr>
-    </table>
-    <p class="note">Performance metrics and KPIs will be discussed and mutually agreed upon within the first 30 days of employment.</p>
-  </div>
-
-  <!-- Work Arrangement -->
-  <div class="section">
-    <div class="section-title">Work Arrangement &amp; Autonomy</div>
-    <p>This is a full-responsibility, results-based arrangement. Once the goals, scope, and KPIs for the applicable phase have been mutually confirmed, the COO shall have full autonomy over working hours, work methods, and schedule needed to achieve the agreed outcomes. Performance shall be evaluated against agreed deliverables and KPIs rather than fixed attendance hours, provided the COO remains available for the operational cadence set out above (weekly operations meetings, monthly business reviews, and CEO reporting).</p>
-    <p style="margin-top:12px;">The Engagement Level percentages in the Compensation Structure table (50% / 75% / 100%) describe the relative scope of deliverables and KPIs assigned at each phase — they are not a measure of clocked hours, on-site attendance, or same-day on-call availability. The Company shall not expect the COO to be available for ad hoc operational matters beyond the deliverables, meeting cadence, and KPI scope defined for the applicable phase.</p>
-  </div>
-
-  <!-- Terms -->
-  <div class="section">
-    <div class="section-title">Terms &amp; Conditions</div>
-    <ol class="terms-list">
-      <li>This offer is contingent upon the parties completing the items expressly identified elsewhere in this Offer Letter and its Addendum as pending prior to signing or commencement (including the Contracting Entity field above and the Delegation of Authority schedule referenced in the Addendum). No additional terms beyond those already set out in this Offer Letter and its Addendum may be introduced as a condition of this offer.</li>
-      <li>Either party may terminate this agreement by providing 30 days' written notice, unless otherwise agreed. Any termination initiated by the Company shall comply with applicable ROC labor laws, including but not limited to Articles 11 and 16 of the Labor Standards Act. The 30-day notice period does not grant the Company grounds for termination beyond those permitted by law.</li>
-      <li>The COO agrees to maintain strict confidentiality regarding all business, financial, personnel, and strategic information during and after the term of employment.</li>
-      <li>Any conflict of interest involving related entities (including but not limited to 四季健身 / 4SC CrossFit) must be disclosed to the CEO and governed by individually negotiated terms. Neither party assumes the other's obligations or liabilities without explicit written agreement.</li>
-      <li>The Company shall reimburse the COO for reasonable business expenses incurred in the performance of duties, in accordance with the Company's expense policy then in effect.</li>
-      <li>In the event of any merger, acquisition, restructuring, or change of controlling ownership of the Company, this Offer Letter and its Addendum (including all compensation, engagement-level, and authority terms) shall remain binding on, and be assumed by, the successor entity. If the successor entity materially changes the COO's role, compensation, or authority as set out herein, the COO may terminate this agreement with no less than 30 days' written notice, and such termination shall not be treated as a resignation for cause or otherwise disadvantage the COO.</li>
-      <li>This letter of offer supersedes any prior oral or written agreements regarding compensation and scope of work.</li>
-      <li>This offer is governed by the laws of the Republic of China (Taiwan).</li>
+  <section class="section">
+    <div class="section-title">五、COO 職務範圍</div>
+    <ol>
+      <li>集團營運整合：建立場館店長制度、項目總監制度、週會與月會節奏、營收與成本追蹤、會員生命周期與跨項目導流流程。</li>
+      <li>運動項目產品化：協助籃球、網球、匹克球、運動恢復、CrossFit / HYROX 等項目建立課程結構、會員方案、體驗流程、教練標準與營運 SOP。</li>
+      <li>CrossFit / HYROX 新事業線：負責初期定位、場館配置、課程系統、教練招募與培訓、體驗課流程及賽事活動規劃，但其商品化、品牌授權、P&amp;L、複製展店及分潤激勵依本協議第十一條另行處理。</li>
+      <li>活動、賽事與品牌合作：設計跨項目挑戰賽、會員活動、企業健康方案、外部品牌合作與集團級活動平台。</li>
+      <li>AI 與資訊系統導入：推動營運儀表板、CRM、體驗追蹤、會員流失預警、客服 FAQ、自動化報告、AI 教練評估系統與管理者 AI 培訓。</li>
+      <li>高階經營報告：向 CEO 定期提出營運狀況、組織問題、策略建議、預算需求、風險事項與下一階段優先順序。</li>
     </ol>
-  </div>
-
-  <!-- Pre-Signing Clarifications -->
-  <div class="section" style="margin-top:36px;">
-    <div class="section-title" style="border-color:#b45309;color:#b45309;">Addendum — Points for Clarification Prior to Signing</div>
-    <p style="margin-bottom:8px;">To ensure mutual understanding and smooth execution of the COO role, both parties agree to clarify and confirm the following eight points prior to formal signing.</p>
-    <p style="margin-bottom:16px;font-weight:600;font-size:13px;color:#7c3a00;">This Addendum forms an integral part of this Offer Letter and carries the same binding effect as the main body above.</p>
-
-    <div class="clarif-item">
-      <div class="clarif-num">1</div>
-      <div class="clarif-body">
-        <strong>Compensation Aligned to Engagement Level</strong><br>
-        The three-phase base salary amounts (NT$90,000 → NT$140,000 → NT$180,000) correspond to the COO's increasing time investment and engagement level (50% → 75% → 100%), not to a performance-based or tenure-based raise. Each phase's salary takes effect automatically and unconditionally at its milestone, regardless of performance evaluation, and shall not be withheld, delayed, or suspended for performance reasons. Only the annual bonus, calculated based on KPI achievement, is performance-linked.
-      </div>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Group operations integration: venue manager systems, program director systems, weekly and monthly management cadence, revenue and cost tracking, member lifecycle, and cross-program referral flows.</li>
+        <li>Sports program productization: course structure, membership plans, trial-class process, coaching standards, and operating SOPs across basketball, tennis, pickleball, sports recovery, CrossFit / HYROX, and other programs.</li>
+        <li>CrossFit / HYROX new business line: initial positioning, venue configuration, course system, coach recruitment and training, trial-class process, and event planning, with commercialization, licensing, P&amp;L, replication, and incentives handled under Article 10.</li>
+        <li>Events, competitions, and brand partnerships: cross-program challenges, member events, corporate wellness programs, external brand partnerships, and a group-level event platform.</li>
+        <li>AI and information systems: operations dashboards, CRM, trial tracking, churn prediction, FAQ automation, AI coach evaluation, and management AI training.</li>
+        <li>Executive reporting: regular reporting to the CEO on operations, organizational issues, strategic recommendations, budget needs, risks, and next-stage priorities.</li>
+      </ol>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">2</div>
-      <div class="clarif-body">
-        <strong>Phase 1–2 KPI Scope</strong><br>
-        During Months 1–4, performance shall be evaluated against process and deliverable KPIs — assessment, planning, and system-building progress — not full group-level revenue or membership targets, which presuppose full authority and full-time engagement.
-      </div>
+  <section class="section">
+    <div class="section-title">六、必要授權、資料與資源</div>
+    <p>甲方應於乙方到任前或到任後十四日內完成 COO 授權表，明定乙方對下列事項之建議權、審核權、決策權及需 CEO 核准事項：</p>
+    <table>
+      <thead>
+        <tr>
+          <th>類別</th>
+          <th>甲方應提供或確認事項</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>組織與人事</td>
+          <td>場館店長、項目總監、共享資源主管之匯報關係、職責、會議節奏及績效追蹤方式。</td>
+        </tr>
+        <tr>
+          <td>財務與數據</td>
+          <td>各場館營收、成本、毛利、會員數、續約率、體驗轉換、廣告費、活動損益、教練成本及系統資料。</td>
+        </tr>
+        <tr>
+          <td>預算與採購</td>
+          <td>器材、系統、行銷、活動、人力、AI 工具及新事業線相關預算之核准流程與執行權限。</td>
+        </tr>
+        <tr>
+          <td>系統與資料</td>
+          <td>既有 CRM、金流、會員系統、報表、廣告帳戶、社群平台、客服紀錄及其他營運工具之可用權限。</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="risk-box">
+      若甲方未提供約定資料、授權、人力、預算或決策支持，與該等條件相關之 KPI 應暫緩、調整或重新約定，不得逕視為乙方未履行 COO 職責。
     </div>
-
-    <div class="clarif-item">
-      <div class="clarif-num">3</div>
-      <div class="clarif-body">
-        <strong>Authority–Responsibility Alignment</strong><br>
-        The COO's authority over budget, headcount, data access, and cross-departmental coordination shall be set out in a written Delegation of Authority schedule — specifying budget figures, named reporting lines, and approval limits — signed concurrently with this Offer Letter. The COO shall not be expected to assume operational management responsibility, nor shall any KPI or performance expectation attach, before this schedule is signed.
-      </div>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <p>Party A shall complete the COO delegation-of-authority schedule before or within fourteen days after Party B's commencement date, specifying Party B's recommendation rights, review rights, decision-making rights, and matters requiring CEO approval regarding organization, HR, financial data, budgets, procurement, systems, and information access.</p>
+      <p>If Party A fails to provide the agreed data, authority, personnel, budget, or decision-making support, any KPI dependent on such conditions shall be suspended, adjusted, or re-agreed, and Party B shall not be deemed to have failed to perform the COO duties.</p>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">4</div>
-      <div class="clarif-body">
-        <strong>CrossFit / HYROX New Business Line Compensation</strong><br>
-        Building CrossFit / HYROX from zero goes beyond standard COO management duties. Both parties shall negotiate in good faith and use reasonable efforts to reach a written bonus or profit-sharing framework by the end of Month 3. Until agreed, the COO shall not be expected to assume full P&amp;L or outcome-based responsibility for this line beyond the base COO role. If no written agreement is reached by that date, the COO may pause further build-out work on this line (e.g. recruitment, curriculum design, equipment configuration) beyond ordinary base COO oversight, without this being treated as underperformance or grounds for withholding any compensation, until terms are agreed.
-      </div>
+  <section class="section">
+    <div class="section-title">七、KPI 與績效評估原則</div>
+    <ol>
+      <li>第 1-4 個月為導入期與轉換期，評估重點為診斷、盤點、制度設計、管理節奏建立、資料整合、Roadmap 與試行成果，不以完整集團營收或會員數結果作為單一評估標準。</li>
+      <li>第 5 個月起，雙方應依正式授權表、資料可得性、預算、人力與公司策略，確認 full-time COO KPI。</li>
+      <li>年度獎金不設定固定保證金額，應依乙方 KPI 達成度、公司績效及雙方另行確認之獎金制度計算。若乙方於年度中途離職、終止或不再擔任本職務，且非因重大違約或可歸責於乙方之終止，該年度獎金應依乙方實際任職期間、該期間 KPI 達成度及公司績效按比例計算，並於 KPI 與財務數字確認後三十日內結算；最遲不得晚於離職或終止日起六十日。</li>
+      <li>若 KPI 需依賴甲方內部主管、預算、資料或跨部門配合，應同步確認甲方提供條件；未提供條件者，不得單方歸責乙方。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Months 1-4 are onboarding and transition phases. Evaluation shall focus on diagnosis, mapping, system design, management cadence, data integration, roadmap, and pilot progress, not full group-level revenue or membership outcomes.</li>
+        <li>From Month 5 onward, full-time COO KPIs shall be confirmed based on the formal authority schedule, data availability, budget, personnel, and company strategy.</li>
+        <li>Annual bonus is not a guaranteed fixed amount and shall be calculated based on Party B's KPI achievement, company performance, and the bonus system confirmed by the parties. Mid-year departure or termination not caused by Party B's material breach shall be prorated based on actual service period and KPI achievement, settled within thirty days after KPI and financial figures are confirmed, and no later than sixty days after departure or termination.</li>
+        <li>If KPI achievement depends on Party A's internal managers, budget, data, or cross-department cooperation, Party A's enabling conditions must be confirmed at the same time. Missing conditions shall not be unilaterally attributed to Party B.</li>
+      </ol>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">5</div>
-      <div class="clarif-body">
-        <strong>Independence of 四季健身 / 4SC CrossFit</strong><br>
-        四季健身 and 4SC CrossFit remain independent legal and operational entities. This appointment does not transfer any brand assets, member data, coach relationships, curriculum, SOP, or event IP to Quanyu Group. They may separately serve as an independent strategic partner of Quanyu Group where mutually beneficial, under a separate written agreement.
-      </div>
+  <section class="section">
+    <div class="section-title">八、Simon 既有事業與外部資源保留</div>
+    <p>雙方確認，乙方於任職前已存在之事業、品牌、營運資源、課程系統、教練網絡、會員關係、活動經驗、顧問服務、教案內容、AI 工作流及外部合作關係，均不因乙方擔任甲方 COO 而自動移轉、授權、揭露或納入甲方管理。</p>
+    <p>甲方不得以乙方擔任 COO 為由，要求乙方無償提供、移轉、開放或揭露其既有事業資產、合作名單、會員資料、教練名單、內部 SOP、教材、課程系統、營運工具或其他商業資源。</p>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <p>The parties confirm that Party B's pre-existing businesses, brands, operating resources, course systems, coach networks, member relationships, event experience, consulting services, teaching materials, AI workflows, and external partnerships shall not automatically transfer to, be licensed to, be disclosed to, or be placed under Party A's management merely because Party B serves as COO.</p>
+      <p>Party A may not require Party B to provide, transfer, open, or disclose any such pre-existing assets, partner lists, member data, coach lists, internal SOPs, teaching materials, course systems, operating tools, or other commercial resources without separate written agreement.</p>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">6</div>
-      <div class="clarif-body">
-        <strong>Written Authorization for Use of 四季 Resources</strong><br>
-        Any use of 四季健身 or 4SC CrossFit resources by Quanyu Group requires a separate written agreement defining scope, duration, cost allocation, revenue sharing, and exit mechanism.
-      </div>
+  <section class="section">
+    <div class="section-title">九、四季健身 / 4SC CrossFit 合作邊界</div>
+    <p>雙方確認，四季健身與 4SC CrossFit 為乙方任職前已存在之獨立事業、品牌、營運資源與合作網絡，不因乙方擔任全育 COO 而移轉、授權、揭露或納入甲方管理。</p>
+    <p>若甲方需使用四季健身或 4SC CrossFit 相關品牌、課程、教練、會員、場館、SOP、教材、活動、社群、賽事經驗或其他資源，應另以書面協議約定範圍、期間、費用、分潤、資料使用、保密義務與退出機制。合作期間以六至二十四個月為一個合作期；如涉及教練、場館、教材、活動或營運支援，費用不得低於實際成本加計 15%-30% 管理費，或依專案營業額 10%-30% 作為分潤基礎，並於每月結算後十五日內付款。</p>
+    <p>四季健身與 4SC CrossFit 可作為甲方之外部合作資源或策略合作夥伴，但不得被視為甲方自然可取得或可直接管理之內部資源。</p>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <p>4SC Fitness and 4SC CrossFit are Party B's independent pre-existing businesses, brands, operating resources, and cooperation networks. They shall not transfer to, be licensed to, be disclosed to, or be placed under Party A's management merely because Party B serves as COO.</p>
+      <p>Any use by Party A of 4SC-related brands, courses, coaches, members, venues, SOPs, materials, events, communities, competition experience, or other resources requires a separate written agreement covering scope, term, fees, revenue sharing, data use, confidentiality, and exit mechanism. Each cooperation term shall be six to twenty-four months. Where coaches, venues, materials, events, or operating support are involved, fees shall be no less than actual cost plus a 15%-30% management fee, or 10%-30% of project revenue, payable within fifteen days after monthly settlement.</p>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">7</div>
-      <div class="clarif-body">
-        <strong>AI Coach Evaluation System — Data Governance</strong><br>
-        Before any recording begins, both parties shall establish a written data governance policy — compliant with the Personal Data Protection Act and other applicable ROC laws — covering notification, consent, collection scope, storage, access control, permitted use, and deletion. No coach or member shall be recorded without prior notice and written consent.
-      </div>
+  <section class="section">
+    <div class="section-title">十、Know-how、保密與職務成果歸屬</div>
+    <ol>
+      <li>甲乙雙方各自於合作前已擁有之品牌、資料、制度、課程、教案、SOP、AI 工作流、顧問方法、商業網絡與 know-how，仍歸原權利人所有。</li>
+      <li>乙方於任職期間因執行甲方 COO 職務，使用甲方資料、預算、人員或系統而為甲方特定業務產出之文件、流程、報表、管理制度、內部訓練資料及分析成果，原則上供甲方於內部營運目的使用。</li>
+      <li>除雙方另有書面約定外，乙方一般性之管理能力、產業理解、AI 方法、非機密 know-how、職業經驗與專業能力，不應受不合理限制。</li>
+      <li>雙方均應保守對方之營業秘密、個人資料、未公開財務、人事、會員、客戶、合作夥伴與策略資訊。資料使用應符合中華民國個人資料保護法及相關法令。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Each party retains ownership of its pre-existing brands, data, systems, courses, materials, SOPs, AI workflows, consulting methods, business networks, and know-how.</li>
+        <li>Documents, processes, reports, management systems, internal training materials, and analyses created by Party B for Party A's specific business using Party A's data, budget, personnel, or systems shall generally be available for Party A's internal operational use.</li>
+        <li>Unless otherwise agreed in writing, Party B's general management ability, industry understanding, AI methods, non-confidential know-how, professional experience, and professional capability shall not be unreasonably restricted.</li>
+        <li>Both parties shall protect each other's trade secrets, personal data, non-public financial, HR, member, customer, partner, and strategic information, and comply with the ROC Personal Data Protection Act and applicable laws.</li>
+      </ol>
     </div>
+  </section>
 
-    <div class="clarif-item">
-      <div class="clarif-num">8</div>
-      <div class="clarif-body">
-        <strong>Employment vs. Consulting Classification</strong><br>
-        Prior to signing, the parties shall clarify whether this appointment is an employment relationship or a consulting / contractor arrangement, and confirm the corresponding treatment of labor insurance, national health insurance, labor pension contributions, leave entitlements, tax withholding, and working-hour expectations.
-      </div>
+  <section class="section">
+    <div class="section-title">十一、CrossFit / HYROX 新事業線激勵框架</div>
+    <ol>
+      <li>雙方確認，CrossFit / HYROX 事業線之基礎規劃、制度建置、初期定位、課程雛形與營運建議屬 COO 職務範圍。</li>
+      <li>若該事業線進入 P&amp;L 責任、品牌授權、課程系統商品化、賽事平台、跨館複製、外部招商、分館展店、顧問輸出或可獨立產生重大營收之階段，雙方應另以書面約定激勵、分潤、獎金或其他對價；建置完成後，以該事業線每月營業額 5% 作為乙方分潤基礎，按月結算，於次月十五日前支付。</li>
+      <li>前項「建置完成」係指 CrossFit / HYROX 事業線已具備課程架構、教練配置、定價方案、體驗流程、基礎銷售流程及營運 SOP，並符合下列任一條件：正式對外開課連續營運滿六十日、單月營業額達 NT$300,000、有效會員或付費學員達五十人，或經 CEO 書面確認可進入常態營運。</li>
+      <li>雙方應於第 3 個月底前，就 CrossFit / HYROX 新事業線之預算、里程碑、P&amp;L 歸屬、乙方責任範圍與激勵方式進行書面確認。若進入品牌授權、分館複製、賽事平台或外部顧問輸出，乙方除前述 5% 營業額分潤外，另依授權收入、加盟收入、賽事淨收入或顧問收入之 10%-20% 作為專案分潤基礎。</li>
+      <li>於前述書面框架完成前，乙方不承擔該事業線完整結果型 P&amp;L 責任。</li>
+      <li>若雙方於第 3 個月底前未就前述激勵、分潤、獎金或其他對價框架達成書面協議，乙方得暫停投入超出一般 COO 基礎監督範圍之 CrossFit / HYROX 建置工作，包括但不限於教練招募、課程商品化、器材配置、賽事平台、品牌授權、展店複製、外部招商及完整 P&amp;L 推進；該暫停不得被視為乙方績效不佳、未履職或甲方得扣減薪資、獎金或其他既有權益之理由。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Basic planning, system building, initial positioning, course prototypes, and operating recommendations for CrossFit / HYROX are within the COO role.</li>
+        <li>If the line enters P&amp;L responsibility, brand licensing, course-system commercialization, event platform, multi-venue replication, external sales, expansion, consulting output, or material independent revenue generation, additional written incentives, revenue share, bonus, or consideration shall apply. After completion, Party B shall receive 5% of monthly business-line revenue, settled monthly and paid by the fifteenth day of the following month.</li>
+        <li>"Completion" means the line has course structure, coach configuration, pricing plan, trial process, basic sales flow, and operating SOP, plus any one of the following: sixty consecutive days of public operation, NT$300,000 monthly revenue, fifty active members or paying students, or written CEO confirmation for regular operation.</li>
+        <li>By the end of Month 3, the parties shall confirm budget, milestones, P&amp;L ownership, Party B's responsibility scope, and incentives. For brand licensing, replication, event platforms, or consulting output, Party B shall additionally receive 10%-20% of licensing revenue, franchise revenue, event net revenue, or consulting revenue.</li>
+        <li>Before the written framework is completed, Party B shall not assume full result-based P&amp;L responsibility. If no written incentive framework is reached by the end of Month 3, Party B may suspend build-out work beyond ordinary COO oversight, without such suspension being deemed poor performance, non-performance, or grounds to reduce compensation or other rights.</li>
+      </ol>
     </div>
-  </div>
+  </section>
 
-  <p style="margin-top:28px;margin-bottom:0;">Upon written acknowledgment of the above eight points, this offer letter shall be considered complete and ready for formal execution. We look forward to welcoming you to the Quanyu Group leadership team.</p>
+  <section class="section">
+    <div class="section-title">十二、AI 系統與資料治理</div>
+    <ol>
+      <li>乙方可協助甲方導入 AI 營運報表、客服、自動化流程、會員分析、教練評估與管理者訓練等系統。</li>
+      <li>凡涉及錄音、錄影、會員資料、教練教學紀錄、個人表現評估或敏感資料者，甲方應建立資料治理政策，明定告知、同意、蒐集範圍、保存期間、存取權限、刪除機制、用途限制及資安責任。錄音、錄影與分析原始資料保存期間以九十至一百八十日為限；逾期應刪除或去識別化。當事人提出刪除請求時，甲方應於三十日內完成處理並留存紀錄。</li>
+      <li>未完成合法告知與必要同意前，不得錄製教練或會員之聲音、影像或可識別個人資料作為 AI 分析用途。</li>
+      <li>AI 系統產出不得作為唯一人事考核依據，應搭配人工評估、管理者判斷與必要申訴機制。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Party B may assist Party A in implementing AI operations reports, customer service, automation, member analytics, coach evaluation, and management training systems.</li>
+        <li>Where audio, video, member data, coach teaching records, personal performance evaluation, or sensitive data are involved, Party A shall establish data governance policies covering notice, consent, scope, retention, access, deletion, permitted use, and security. Raw audio, video, and analysis data shall be retained for ninety to one hundred eighty days, then deleted or de-identified. Deletion requests shall be processed within thirty days.</li>
+        <li>No coach or member voice, image, or identifiable personal data may be recorded for AI analysis before lawful notice and necessary consent are completed.</li>
+        <li>AI outputs shall not be the sole basis for HR evaluation and must be paired with human review, management judgment, and an appeal mechanism.</li>
+      </ol>
+    </div>
+  </section>
 
-  <!-- Signatures -->
-  <div class="sig-block">
-    <div class="sig-party">
+  <section class="section">
+    <div class="section-title">十三、工作模式與責任制</div>
+    <ol>
+      <li>本職務屬高階經理人責任制安排，乙方以階段成果、管理節奏、專案推進、組織整合及 KPI 達成為主要評估方式。</li>
+      <li>第 1-4 個月之投入比例描述的是責任範圍與可承接成果，不代表乙方須固定每日到場或承擔 full-time COO 即時回應義務。</li>
+      <li>第 5 個月起，乙方依正式授權表與 KPI 承接 full-time COO 職責，並維持必要之現場、會議、決策與 CEO 回報節奏。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>This is an executive responsibility-based role evaluated by phased outcomes, management cadence, project progress, organization integration, and KPI achievement.</li>
+        <li>The engagement percentage during Months 1-4 describes responsibility scope and achievable deliverables, not fixed daily on-site attendance or full-time immediate-response obligations.</li>
+        <li>From Month 5 onward, Party B assumes full-time COO responsibilities according to the formal authority schedule and KPIs, maintaining necessary on-site presence, meetings, decisions, and CEO reporting cadence.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">十四、費用報銷與控制權變更</div>
+    <ol>
+      <li>乙方因執行 COO 職務所生之合理必要費用，包括但不限於交通、住宿、餐飲、課程觀摩、活動執行、系統工具、軟體訂閱、器材採購、商務會議、外部合作拜訪及其他經甲方事前同意或符合甲方費用政策之支出，甲方應依公司費用報銷流程核實 reimbursement。單筆 NT$10,000 以下得事後檢據核銷；單筆 NT$10,001 至 NT$50,000 應取得 CEO 或指定主管書面同意；單筆超過 NT$50,000 應列入專案預算或另行書面核准。</li>
+      <li>若甲方要求乙方使用個人資源、外部工具、顧問協力、四季 / 4SC 相關資源或第三方服務支援甲方專案，應事前以書面確認費用負擔、報銷方式、付款期限及成果歸屬。一般費用應於乙方提出單據或請款文件後十五日內付款；需內部審核之費用最遲不得超過三十日。</li>
+      <li>如甲方發生合併、分割、收購、控制權變更、重大資產移轉、集團重組或營運主體變更，本協議及其附件所定之薪資、階段投入、COO 授權、KPI 原則、既有事業保留、四季 / 4SC 邊界、CrossFit / HYROX 激勵框架及 AI 資料治理條款，應由繼受公司、存續公司或實際控制主體承受並繼續履行。</li>
+      <li>若前述控制權或營運主體變更導致乙方職務、薪酬、授權、KPI、匯報關係、既有事業邊界或新事業激勵框架遭重大不利變更，乙方得要求重新協商；若協商未能於三十日內達成一致，乙方得依本協議及相關法令終止合作，且不得被視為乙方自願放棄既有權益或違約。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>Reasonable and necessary expenses incurred by Party B in performing COO duties, including transportation, lodging, meals, course observation, event execution, systems, software subscriptions, equipment, business meetings, and external partner visits, shall be reimbursed by Party A. Expenses up to NT$10,000 may be reimbursed with receipts after the fact; NT$10,001 to NT$50,000 requires written approval by the CEO or designated manager; over NT$50,000 requires project budget inclusion or separate written approval.</li>
+        <li>If Party A requires Party B to use personal resources, external tools, consultants, 4SC-related resources, or third-party services, the parties shall confirm cost allocation, reimbursement method, payment deadline, and ownership in writing in advance. Ordinary expenses shall be paid within fifteen days after supporting documents are submitted, and expenses requiring internal review shall be paid within thirty days.</li>
+        <li>In the event of merger, spin-off, acquisition, change of control, material asset transfer, group restructuring, or change of operating entity, this Agreement and its attachments shall be assumed by the successor, surviving company, or actual controlling entity.</li>
+        <li>If such change materially and adversely affects Party B's role, compensation, authority, KPIs, reporting relationship, pre-existing business boundaries, or new business incentive framework, Party B may request renegotiation. If no agreement is reached within thirty days, Party B may terminate pursuant to this Agreement and applicable laws without being deemed to waive rights or breach.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">十五、文件效力與優先適用</div>
+    <ol>
+      <li>本協議及附件為雙方就 COO 聘任、授權、階段投入、既有事業保留、四季 / 4SC 邊界、CrossFit / HYROX 激勵、AI 事項與高階職務定位之主要依據。</li>
+      <li>若一般聘僱契約、員工手冊、HR 規章、內部政策或其他文件與本協議不一致，就前項事項而言，雙方應優先依本協議之特別約定處理。但不得排除中華民國法律強制規定之適用。</li>
+      <li>本協議之附件經雙方確認後，與本協議具有同等效力。</li>
+      <li>雙方確認，本協議及附件須經甲方正式用印或由甲方授權代表簽署後，始作為正式聘任或合作文件之一部。若甲方另行提供一般聘僱契約、員工手冊或 HR 制式文件，應明確將本協議及附件列為正式契約附件或以書面載明本協議之優先適用效力。</li>
+      <li>本協議採中英文雙語版本。英文內容為中文內容之翻譯與對照；如中英文版本在文義、範圍、效力或解釋上有任何不一致、疑義或衝突，應以中文版本為準。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>This Agreement and its attachments are the primary basis for the parties' COO appointment, authority, phased engagement, pre-existing business reservation, 4SC boundaries, CrossFit / HYROX incentives, AI matters, and executive role positioning.</li>
+        <li>If any general employment agreement, employee handbook, HR policy, internal policy, or other document conflicts with this Agreement on the foregoing matters, the special provisions of this Agreement shall prevail, without excluding mandatory ROC law.</li>
+        <li>Attachments confirmed by the parties shall have the same effect as this Agreement.</li>
+        <li>This Agreement and its attachments shall become part of the formal appointment or cooperation documents only after Party A's company chop or signature by Party A's authorized representative. Any general employment or HR standard document shall expressly list this Agreement and attachments as formal contract attachments or state their priority.</li>
+        <li>This Agreement is bilingual in Chinese and English. The English text is a translation and reference counterpart to the Chinese text. In case of any inconsistency, ambiguity, or conflict in meaning, scope, effect, or interpretation, the Chinese version shall prevail.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">十六、終止、交接與退出機制</div>
+    <ol>
+      <li>本協議預設期間為二年，自乙方正式到任日起算。期間屆滿前三十至六十日內，雙方應就續約、調整職務範圍、薪酬條件、KPI 與新事業線激勵框架進行書面協商。</li>
+      <li>除本條所列重大事項、法定終止事由或雙方另有書面約定外，任一方於二年期間屆滿前提前終止本協議，應給付他方違約金 NT$500,000。前述違約金不影響他方請求已發生之薪資、獎金、分潤、費用報銷、交接款項或其他已確定債權。</li>
+      <li>若發生下列重大事項之一，非違約方得依本協議、正式聘任型態及中華民國相關法令終止合作，且不負前項提前終止違約金責任：重大違約經書面通知後十四日內未改善；重大違反保密義務或個人資料保護義務；侵占、背信、詐欺、偽造、重大職務不法或重大損害公司商譽之行為；職場暴力、性騷擾、歧視或其他重大違反公司治理與法令之行為；甲方連續二期未依約給付薪資、分潤、報銷或其他應付款；甲方未依本協議提供核心授權、資料、人力、預算或決策支持且經書面通知後三十日內未改善；控制權變更或營運主體變更造成乙方職務、薪酬、授權、KPI 或既有事業邊界重大不利變更且三十日內未協商完成。</li>
+      <li>若本聘任被認定為僱傭關係，甲方終止本合作仍應符合勞動基準法第 11 條、第 12 條、第 14 條、第 16 條及其他相關規定；本協議不得被解釋為賦予甲方超出法令允許範圍之終止權。若依勞動基準法或其他強制規定得不經預告或不負違約金終止者，依該等強制規定辦理。</li>
+      <li>如因甲方未提供約定授權、資料、人力、預算、內部配合或決策支持，致乙方無法完成相關 KPI，雙方應先進行書面檢討與 KPI 調整，不得逕以乙方未達成結果作為單方不利評價。</li>
+      <li>終止或退出時，乙方應於十四至三十日內合理交接其於甲方職務範圍內建立之進行中事項、文件、管理節奏與專案狀態；但乙方既有事業、四季 / 4SC 資源、個人 know-how、非甲方專屬工具與未另行授權之素材，不屬交接範圍。</li>
+      <li>若雙方於第 1-4 個月導入期內發現授權、文化、預算、內部支持或角色期待無法對齊，雙方應先以書面協商調整職務範圍、階段成果或合作方式；若經三十日協商仍無法對齊，雙方得以書面終止或重訂合作條件，違約金適用與否依本條第二項至第四項判斷。</li>
+    </ol>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ol>
+        <li>The default term is two years from Party B's commencement date. Thirty to sixty days before expiry, the parties shall discuss renewal, role adjustment, compensation, KPIs, and new business incentives in writing.</li>
+        <li>Except for the material events, statutory termination grounds, or written agreement stated herein, either party terminating early before the two-year term expires shall pay the other party NT$500,000 as liquidated damages. This does not affect claims for accrued salary, bonus, revenue share, expense reimbursement, transition payments, or confirmed debts.</li>
+        <li>Upon material breach not cured within fourteen days, confidentiality or personal data breach, fraud, forgery, embezzlement, breach of trust, serious misconduct, workplace violence, harassment, discrimination, two consecutive missed payments by Party A, failure by Party A to provide core authority/resources not cured within thirty days, or materially adverse change caused by change of control not resolved within thirty days, the non-breaching party may terminate without the early-termination liquidated damages.</li>
+        <li>If this appointment is deemed employment, Party A's termination must comply with Articles 11, 12, 14, 16, and other applicable provisions of the Labor Standards Act. This Agreement shall not be interpreted as granting Party A termination rights beyond mandatory law.</li>
+        <li>If Party A fails to provide agreed authority, data, personnel, budget, internal cooperation, or decision support, the parties shall first conduct a written review and KPI adjustment and shall not unilaterally treat Party B as failing to achieve results.</li>
+        <li>Upon termination or exit, Party B shall reasonably transition ongoing matters, documents, management cadence, and project status within fourteen to thirty days. Party B's pre-existing businesses, 4SC resources, personal know-how, non-Party-A tools, and non-licensed materials are excluded.</li>
+        <li>If during Months 1-4 the parties find that authority, culture, budget, internal support, or role expectations cannot align, they shall first negotiate adjustments in writing. If no alignment is reached within thirty days, either party may terminate or reset terms in writing, with liquidated damages determined under this Article.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">十七、附件清單</div>
+    <ul class="attachment-list">
+      <li>附件一：COO Role &amp; Strategy Document（v1.0）</li>
+      <li>附件二：三階段導入 Roadmap</li>
+      <li>附件三：COO 權限表</li>
+      <li>附件四：KPI 與績效評估原則</li>
+      <li>附件五：四季健身 / 4SC CrossFit 合作邊界</li>
+      <li>附件六：AI 教練評估系統與資料治理原則</li>
+    </ul>
+    <div class="en-block">
+      <div class="en-title">English Reference</div>
+      <ul>
+        <li>Attachment 1: COO Role &amp; Strategy Document (v1.0)</li>
+        <li>Attachment 2: Three-Phase Onboarding Roadmap</li>
+        <li>Attachment 3: COO Delegation of Authority Schedule</li>
+        <li>Attachment 4: KPI and Performance Evaluation Principles</li>
+        <li>Attachment 5: 4SC Fitness / 4SC CrossFit Cooperation Boundaries</li>
+        <li>Attachment 6: AI Coach Evaluation System and Data Governance Principles</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sig-block">
+    <div>
       <div class="sig-line"></div>
-      <div class="sig-name">Simon Chi（季祥）</div>
+      <div class="sig-name">季祥 Simon Chi</div>
       <div class="sig-title">Chief Operating Officer</div>
-      <div class="sig-date">Date: <span class="auto-date"></span></div>
+      <div class="sig-date">日期：<span class="auto-date"></span></div>
     </div>
-    <div class="sig-party">
+    <div>
       <div class="sig-line"></div>
-      <div class="sig-name">________________</div>
-      <div class="sig-title">Chief Executive Officer<br>Quanyu Group (全育集團)</div>
-      <div class="sig-date">Date: <span class="auto-date"></span></div>
+      <div class="sig-name">全育生活體能股份有限公司 / 全育集團</div>
+      <div class="sig-title">授權代表 / CEO</div>
+      <div class="sig-date">日期：<span class="auto-date"></span></div>
     </div>
-  </div>
+  </section>
 
-</div>
+  <p class="legal-note">
+    備註：本文件經甲方正式用印或授權代表簽署後生效，並應與正式聘任契約及附件一併保存。簽署時應補齊甲方完整法律名稱、統一編號、聘任型態、勞健保與退休金安排、稅務處理、到任日、附件內容及雙方授權代表資訊。
+  </p>
+</main>
 
 <script>
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const d = new Date();
-  const formatted = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  const formatted = `${d.getFullYear()} 年 ${String(d.getMonth() + 1).padStart(2, '0')} 月 ${String(d.getDate()).padStart(2, '0')} 日`;
   document.getElementById('doc-date').textContent = formatted;
-  document.querySelectorAll('.auto-date').forEach(el => el.textContent = formatted);
+  document.querySelectorAll('.auto-date').forEach((el) => { el.textContent = formatted; });
 </script>
 
 </body>
