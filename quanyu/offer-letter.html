@@ -247,11 +247,83 @@
 
     .en-block li { margin-bottom: 6px; }
 
+    .att-break {
+      margin-top: 64px;
+      padding-top: 44px;
+      border-top: 2px solid #e4e7ec;
+    }
+    .att-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #667085;
+      background: #f4f7fb;
+      border: 1px solid #dce6f2;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .att-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1a3a5c;
+      margin-bottom: 4px;
+    }
+    .att-desc {
+      font-size: 12.5px;
+      color: #667085;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e4e7ec;
+    }
+    .sub-h {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin: 18px 0 8px;
+      letter-spacing: 0.02em;
+    }
+    .rm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0 16px;
+    }
+    .rm-card {
+      background: #f4f7fb;
+      border: 1px solid #dce6f2;
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .rm-card .rm-head {
+      font-size: 11px;
+      font-weight: 800;
+      color: #1a3a5c;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .rm-card ul { padding-left: 16px; margin: 0; }
+    .rm-card li { font-size: 12.5px; margin-bottom: 4px; color: #344054; }
+    .kpi-block {
+      background: #f4f7fb;
+      border-left: 4px solid #1a3a5c;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      border-radius: 0 6px 6px 0;
+    }
+    .kpi-block .kb-head { font-weight: 700; color: #1a3a5c; font-size: 13px; margin-bottom: 6px; }
+    .kpi-block ul { padding-left: 18px; margin: 0; }
+    .kpi-block li { font-size: 12.5px; margin-bottom: 4px; }
+    ._blank { display: inline-block; min-width: 80px; border-bottom: 1px dashed #98a2b3; }
     @media print {
       body { background: #fff; padding: 0; }
       .print-btn { display: none; }
       .page { box-shadow: none; max-width: 100%; padding: 42px 52px; }
       .section { page-break-inside: avoid; }
+      .att-break { page-break-before: always; }
     }
   </style>
 </head>
@@ -706,6 +778,346 @@
   <p class="legal-note">
     備註：本文件經甲方正式用印或授權代表簽署後生效，並應與正式聘任契約及附件一併保存。簽署時應補齊甲方完整法律名稱、統一編號、聘任型態、勞健保與退休金安排、稅務處理、到任日、附件內容及雙方授權代表資訊。
   </p>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 附件 ATTACHMENTS                                           -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <!-- 附件一 -->
+  <div class="att-break">
+    <div class="att-tag">附件一 · Attachment 1</div>
+    <div class="att-title">COO Role &amp; Strategy Document</div>
+    <div class="att-desc">COO 職務定位、策略任務與行動原則 · v1.0</div>
+
+    <div class="sub-h">I. 職務總覽</div>
+    <table>
+      <tbody>
+        <tr><td style="width:30%"><strong>職稱</strong></td><td>Chief Operating Officer（COO）/ 首席營運長</td></tr>
+        <tr><td><strong>直屬上級</strong></td><td>CEO / 執行長</td></tr>
+        <tr><td><strong>任職主體</strong></td><td>全育生活體能股份有限公司 / 全育集團</td></tr>
+        <tr><td><strong>職務性質</strong></td><td>高階經理人、成果責任制</td></tr>
+        <tr><td><strong>到任日</strong></td><td><span class="_blank"></span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub-h">II. 核心策略任務</div>
+    <ol>
+      <li><strong>CrossFit / HYROX 新事業線建置</strong>（到職後六個月主要交付）— 從零建置至試營運結束、正式商業營運上線。</li>
+      <li><strong>集團整體營運整合</strong> — 建立跨場館管理節奏、場館店長制度、項目總監制度、週會 / 月會框架、P&amp;L 追蹤體系。</li>
+      <li><strong>組織制度與授權架構</strong> — 完成 COO 授權表（第四個月底前），明定各層級建議、審核、決策與 CEO 核准範圍。</li>
+      <li><strong>運動項目產品化</strong> — 協助籃球、網球、匹克球、運動恢復等項目建立課程結構、定價方案、體驗流程與教練標準。</li>
+      <li><strong>AI 數位轉型</strong> — 推動營運儀表板、CRM、會員分析、客服自動化及管理者 AI 培訓。</li>
+    </ol>
+
+    <div class="sub-h">III. 角色定位</div>
+    <ul>
+      <li><strong>策略端</strong>：CEO 決策之延伸執行力，確保集團目標在各場館、各事業線落實。</li>
+      <li><strong>建置端</strong>：CrossFit / HYROX 新事業線 Owner（前期建置主責）。</li>
+      <li><strong>整合端</strong>：場館、項目、共享資源、AI 系統之橫向協調者。</li>
+      <li><strong>回報端</strong>：定期以書面向 CEO 提出營運狀況、風險事項與策略建議。</li>
+    </ul>
+
+    <div class="sub-h">IV. 行動原則</div>
+    <ul>
+      <li>以具體成果與可量測里程碑為履職依據，不以出席時數論績效。</li>
+      <li>資訊透明：每月書面回報進度、卡關事項、資源需求。</li>
+      <li>跨部門協作優先於單向指令；遇分歧先尋求協商，再呈 CEO 裁決。</li>
+      <li>財務紀律：依授權表執行支出，超出範圍事先書面確認。</li>
+    </ul>
+  </div>
+
+  <!-- 附件二 -->
+  <div class="att-break">
+    <div class="att-tag">附件二 · Attachment 2</div>
+    <div class="att-title">三階段導入 Roadmap</div>
+    <div class="att-desc">Six-Month Onboarding &amp; Build-Out Roadmap — 雙軌推進（CF/HYROX 建置 × COO 組織架構）</div>
+
+    <div class="sub-h">Phase 1 — 第 1–2 個月（50% 投入，NT$90,000 / 月）</div>
+    <div class="rm-grid">
+      <div class="rm-card">
+        <div class="rm-head">CrossFit / HYROX 軌道</div>
+        <ul>
+          <li>市場定位與競品分析</li>
+          <li>場館空間配置方案提出</li>
+          <li>教練師資需求規格定義</li>
+          <li>課程類型、時段、定價方向初稿</li>
+          <li>器材清單與採購計畫初版</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="rm-head">COO 組織軌道</div>
+        <ul>
+          <li>現有場館與事業線盤點</li>
+          <li>場館店長、項目總監初步訪談</li>
+          <li>組織架構現況圖繪製</li>
+          <li>CRM、金流、會員系統、廣告帳戶盤點</li>
+          <li>週會 / 月會節奏框架建議</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-h">Phase 2 — 第 3–4 個月（75% 投入，NT$140,000 / 月）</div>
+    <div class="rm-grid">
+      <div class="rm-card">
+        <div class="rm-head">CrossFit / HYROX 軌道</div>
+        <ul>
+          <li>課程架構確認（類型、等級、時數）</li>
+          <li>教練招募完成、配置定案</li>
+          <li>器材採購執行</li>
+          <li>場館裝修 / 軟裝定案</li>
+          <li>完整 SOP 建立（體驗課、正課、會員服務）</li>
+          <li>內部試跑體驗課</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="rm-head">COO 組織軌道</div>
+        <ul>
+          <li><strong>正式 COO 授權表完成（第4個月底前必達）</strong></li>
+          <li>各場館 KPI 初稿確認</li>
+          <li>週月會節奏正式運作</li>
+          <li>AI / 系統導入需求確認</li>
+          <li>全年預算框架討論</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-h">Phase 3 — 第 5–6 個月（100% 投入，NT$180,000 / 月）</div>
+    <div class="rm-grid">
+      <div class="rm-card">
+        <div class="rm-head">CrossFit / HYROX 軌道</div>
+        <ul>
+          <li>對外試營運開始</li>
+          <li>體驗課 / 正式課程公開招生</li>
+          <li>問題收集與 SOP 優化</li>
+          <li>雙方書面確認正式營運啟動 → 分潤起算</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="rm-head">COO 組織軌道</div>
+        <ul>
+          <li>依授權表正式承接全職 COO 職責</li>
+          <li>集團 KPI 追蹤體系運作</li>
+          <li>AI 系統導入計畫執行</li>
+          <li><strong>第6個月底：首次半年績效評估</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="emphasis">
+      CrossFit / HYROX 正式營運目標里程碑：第六個月底前完成試營運，進入正式常態營運；具體開幕日期由雙方於建置期間依實際進度書面確認。
+    </div>
+  </div>
+
+  <!-- 附件三 -->
+  <div class="att-break">
+    <div class="att-tag">附件三 · Attachment 3</div>
+    <div class="att-title">COO 權限表（Delegation of Authority Schedule）</div>
+    <div class="att-desc">明定 COO 各類事項之建議權、審核權、決策權與需 CEO 核准範圍。預算門檻欄位（<span class="_blank">　　</span>）須由雙方於第四個月底前書面填入確認。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">類別</th>
+          <th>事項</th>
+          <th style="width:9%;text-align:center">建議權</th>
+          <th style="width:9%;text-align:center">審核權</th>
+          <th style="width:9%;text-align:center">決策權</th>
+          <th style="width:14%;text-align:center">需 CEO 核准</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><strong>組織與人事</strong></td>
+          <td>場館店長、項目總監異動（招募、晉升、離職）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td>一般員工招募與薪資調整</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td>CF/HYROX 教練招募（建置期）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>共享資源主管協調與任務指派</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>財務與數據</strong></td>
+          <td>各場館 P&amp;L 報表閱覽</td>
+          <td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>各場館 P&amp;L 分析與改善建議</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>集團整體財務資料存取</td>
+          <td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>預算與採購</strong></td>
+          <td>單筆 NT$<span class="_blank">　　　</span> 以下</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>單筆 NT$<span class="_blank">　　　</span>～ NT$<span class="_blank">　　　</span></td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td>CF/HYROX 建置期採購（依核定預算）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">超出核定部分</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>定價與商品</strong></td>
+          <td>課程定價 / 方案調整</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td>促銷、折扣方案（<span class="_blank">　　</span>% 以內）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">超出範圍</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>系統與資料</strong></td>
+          <td>現有系統 / 帳戶使用權申請</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>新系統 / 工具導入（NT$<span class="_blank">　　　</span> 以下）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>新系統 / 工具導入（NT$<span class="_blank">　　　</span> 以上）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>對外合作</strong></td>
+          <td>廠商合作（NT$<span class="_blank">　　　</span> 以下）</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>品牌合作、媒體、公關、高額廠商</td>
+          <td style="text-align:center">✓</td><td style="text-align:center">✓</td><td style="text-align:center"></td><td style="text-align:center">✓</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="risk-box" style="margin-top:14px">
+      本表中預算門檻欄位（<span class="_blank">　　　</span>）須由甲乙雙方於到職後第四個月底前以書面填入並共同簽認，未完成前，相關決策依建議權執行並呈 CEO 確認。
+    </div>
+  </div>
+
+  <!-- 附件四 -->
+  <div class="att-break">
+    <div class="att-tag">附件四 · Attachment 4</div>
+    <div class="att-title">KPI 與績效評估原則</div>
+    <div class="att-desc">三階段 KPI 框架 · 半年度評估制 · 年度獎金原則</div>
+
+    <div class="sub-h">Phase 1–4（第1–4個月）— 質性里程碑評估</div>
+    <div class="kpi-block">
+      <div class="kb-head">主要評估指標（以完成質量為依據，非以集團營收結果論）</div>
+      <ul>
+        <li>CrossFit / HYROX 建置里程碑達成率（依 Roadmap 附件二）</li>
+        <li>COO 授權表完成進度（第四個月底前書面確認為目標）</li>
+        <li>組織盤點報告提交</li>
+        <li>各場館週會 / 月會節奏建立情況</li>
+        <li>初步診斷、管理建議與 Roadmap 更新</li>
+      </ul>
+    </div>
+
+    <div class="sub-h">Phase 5+（第5個月起）— 量化 KPI（授權表確認後書面訂定）</div>
+    <div class="kpi-block">
+      <div class="kb-head">KPI 大方向（具體數字與目標值於授權表確認後另行書面訂定）</div>
+      <ul>
+        <li>CrossFit / HYROX：試營運期間會員累積數 / 體驗課轉換率 / 正式營運啟動達標</li>
+        <li>各場館：月度會員數、續約率、新客體驗轉換率</li>
+        <li>集團：P&amp;L 追蹤體系建立完整度、AI 系統導入進度</li>
+        <li>教練 / 場館店長：留存率、月度 KPI 達成率</li>
+      </ul>
+    </div>
+
+    <div class="sub-h">評估制度</div>
+    <table>
+      <tbody>
+        <tr><td style="width:32%"><strong>評估週期</strong></td><td>半年度制，每六個月一次</td></tr>
+        <tr><td><strong>首次評估</strong></td><td>到職第六個月底</td></tr>
+        <tr><td><strong>評估內容</strong></td><td>KPI 達成度 × 管理品質 × 協作效能</td></tr>
+        <tr><td><strong>年度獎金</strong></td><td>以全年度 KPI 達成度為主要計算依據，非固定保證金額；中途離職依服務月數比例計算</td></tr>
+        <tr><td><strong>KPI 調整機制</strong></td><td>若甲方未依約提供授權、資料或資源，相關 KPI 應先調整，不單方歸責乙方</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 附件五 -->
+  <div class="att-break">
+    <div class="att-tag">附件五 · Attachment 5</div>
+    <div class="att-title">四季健身 / 4SC CrossFit 合作邊界</div>
+    <div class="att-desc">確認 4SC 獨立事業地位、資源使用原則與競業豁免範圍</div>
+
+    <div class="sub-h">一、獨立事業確認</div>
+    <p>四季健身與 4SC CrossFit 為乙方任職前已存在之獨立品牌、事業體、營運資源與合作網絡，不因乙方擔任全育 COO 而移轉、授權、揭露或納入甲方管理。</p>
+
+    <div class="sub-h">二、資源使用原則</div>
+    <ul>
+      <li>甲方如需使用 4SC 相關品牌、課程、教練、會員、場館、SOP、活動、社群或其他資源，須另立書面合作協議，明定範圍、費用、期間、保密義務與退出機制。</li>
+      <li>定價依公平市場條件協商，甲方不得僅因乙方擔任 COO 而要求 4SC 無償或低於市場行情提供資源。</li>
+    </ul>
+
+    <div class="sub-h">三、競業豁免範圍（明文排除競業申報義務）</div>
+    <div class="emphasis">
+      以下項目雙方確認知悉並同意，不在競業限制或利益衝突強制申報義務範圍內，乙方得繼續經營，惟仍應遵守保密義務：
+      <ul style="margin-top:8px">
+        <li>四季健身 / 4SC CrossFit 日常營運（包括課程、教練、會員、活動、社群、賽事）</li>
+        <li>乙方既有個人 VIP 一對一教練學員</li>
+        <li>AI 顧問、AI 講師、演講與工作坊業務</li>
+      </ul>
+    </div>
+
+    <div class="sub-h">四、利益揭露義務</div>
+    <p>乙方以 COO 身份促成、建議或核准涉及 4SC 或乙方有重大利益關係第三方之商業合作前，應事前以書面向 CEO 揭露，並取得 CEO 書面核准後方可執行。</p>
+  </div>
+
+  <!-- 附件六 -->
+  <div class="att-break">
+    <div class="att-tag">附件六 · Attachment 6</div>
+    <div class="att-title">AI 教練評估系統與資料治理原則</div>
+    <div class="att-desc">導入原則、個資保護、資料保存與 AI 使用邊界</div>
+
+    <div class="sub-h">一、AI 系統導入範圍（規劃中）</div>
+    <ul>
+      <li>各場館營運儀表板（即時數據：會員數、營收、體驗轉換、教練出勤）</li>
+      <li>會員流失預警系統（CRM 整合）</li>
+      <li>體驗課追蹤與轉換分析</li>
+      <li>客服 FAQ 自動化</li>
+      <li>教練教學品質輔助追蹤（選用，需另行同意）</li>
+      <li>管理者 AI 工作效能培訓</li>
+    </ul>
+
+    <div class="sub-h">二、資料蒐集與告知同意</div>
+    <ul>
+      <li>凡涉及教練或會員之錄音、錄影、可識別個人資料，蒐集前須完成書面告知與必要同意。</li>
+      <li>未完成合法告知與同意前，不得錄製教練或會員之聲音、影像或個人資料作為 AI 分析用途。</li>
+    </ul>
+
+    <div class="sub-h">三、資料保存與刪除</div>
+    <table>
+      <tbody>
+        <tr><td style="width:40%"><strong>原始錄音 / 錄影 / 分析資料保存期限</strong></td><td>90 至 180 天，逾期自動刪除或去識別化</td></tr>
+        <tr><td><strong>當事人刪除請求處理期限</strong></td><td>30 天內完成並留存紀錄</td></tr>
+        <tr><td><strong>資料存取權限</strong></td><td>依職務最小必要原則；COO 可取得管理用彙整資料，原始可識別資料存取另行確認</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub-h">四、AI 評估使用邊界</div>
+    <div class="risk-box">
+      AI 系統輸出不得作為唯一人事考核依據。所有 AI 評估結果須搭配管理者人工判斷，並提供當事人申訴或說明機會。以 AI 數據作為績效評估或獎懲依據時，須同時附上管理者書面評核意見。
+    </div>
+
+    <div class="sub-h">五、個資保護法規遵循</div>
+    <p>所有資料蒐集、處理與利用應符合中華民國個人資料保護法及相關法規。甲方應建立內部資料治理政策，明定告知範本、同意書格式、資料分類、存取紀錄與資安責任歸屬，並於導入 AI 系統前完成政策備妥。</p>
+  </div>
+
 </main>
 
 <script>
