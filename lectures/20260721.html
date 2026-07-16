@@ -122,33 +122,49 @@ body {
 }
 
 /* ── Prepare Box ── */
-.prepare-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+.app-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 20px;
 }
-.prepare-card {
-  border: 2px solid var(--line);
+.app-row {
+  border: 1.5px solid var(--line);
   border-radius: 14px;
-  padding: 20px 16px;
-  text-align: center;
-  transition: border-color 0.2s;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
 }
-.prepare-card.done { border-color: var(--green); }
-.prepare-card .icon { font-size: 2rem; margin-bottom: 8px; display: block; }
-.prepare-card .app-name { font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 4px; }
-.prepare-card .app-sub { font-size: 0.78rem; color: var(--dim); margin-bottom: 12px; }
-.prepare-card .app-badge {
-  display: inline-block;
-  font-size: 0.72rem; font-weight: 700;
-  padding: 3px 10px; border-radius: 999px;
-  background: #f0fdf4; color: var(--green);
-  border: 1px solid #bbf7d0;
+.app-row.manus-row {
+  border-color: var(--orange);
+  background: #fff7ed;
 }
-.prepare-card.manus .app-badge {
-  background: #fff7ed; color: var(--orange);
-  border-color: #fed7aa;
+.app-row .app-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+.app-row .app-info { flex: 1; min-width: 0; }
+.app-row .app-name { font-size: 0.97rem; font-weight: 900; color: var(--ink); }
+.app-row .app-by { font-size: 0.75rem; color: var(--dim); margin-bottom: 8px; }
+.app-row.manus-row .app-name { color: var(--orange); }
+.store-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.store-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; font-weight: 800;
+  padding: 5px 10px; border-radius: 7px;
+  text-decoration: none; transition: opacity 0.15s;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+.store-btn:hover { opacity: 0.75; }
+.store-btn.ios {
+  background: #000; color: #fff; border-color: #000;
+}
+.store-btn.android {
+  background: #fff; color: #1a73e8; border-color: #1a73e8;
+}
+.store-btn.referral {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+  font-size: 0.78rem; padding: 6px 14px;
 }
 .notice-box {
   background: #fff7ed;
@@ -440,7 +456,8 @@ footer a { color: var(--orange); text-decoration: none; }
 
 /* ── RWD ── */
 @media (max-width: 480px) {
-  .prepare-grid { grid-template-columns: 1fr 1fr; }
+  .app-row { flex-wrap: nowrap; }
+  .store-btns { flex-direction: column; }
   .risk-grid { grid-template-columns: 1fr; }
   .instructor-card { flex-direction: column; align-items: center; text-align: center; }
   .hero h1 { font-size: 1.45rem; }
@@ -476,21 +493,57 @@ footer a { color: var(--orange); text-decoration: none; }
   <!-- 課前準備 -->
   <div class="section">
     <div class="section-label">Step 0 · 上課前</div>
-    <h2>上課之前，請先做這兩件事</h2>
+    <h2>上課之前，請先安裝這四個工具</h2>
 
-    <div class="prepare-grid">
-      <div class="prepare-card done">
-        <span class="icon">💬</span>
-        <div class="app-name">ChatGPT</div>
-        <div class="app-sub">OpenAI 出品<br>App Store / Google Play</div>
-        <span class="app-badge">✓ 請先下載</span>
+    <div class="app-list">
+
+      <div class="app-row">
+        <span class="app-icon">💬</span>
+        <div class="app-info">
+          <div class="app-name">ChatGPT</div>
+          <div class="app-by">OpenAI 出品</div>
+          <div class="store-btns">
+            <a class="store-btn ios" href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank">🍎 App Store</a>
+            <a class="store-btn android" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank">▶ Google Play</a>
+          </div>
+        </div>
       </div>
-      <div class="prepare-card done">
-        <span class="icon">✨</span>
-        <div class="app-name">Gemini</div>
-        <div class="app-sub">Google 出品<br>App Store / Google Play</div>
-        <span class="app-badge">✓ 請先下載</span>
+
+      <div class="app-row">
+        <span class="app-icon">✨</span>
+        <div class="app-info">
+          <div class="app-name">Gemini</div>
+          <div class="app-by">Google 出品</div>
+          <div class="store-btns">
+            <a class="store-btn ios" href="https://apps.apple.com/app/google-gemini/id1699520382" target="_blank">🍎 App Store</a>
+            <a class="store-btn android" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank">▶ Google Play</a>
+          </div>
+        </div>
       </div>
+
+      <div class="app-row">
+        <span class="app-icon">🔮</span>
+        <div class="app-info">
+          <div class="app-name">Claude</div>
+          <div class="app-by">Anthropic 出品</div>
+          <div class="store-btns">
+            <a class="store-btn ios" href="https://apps.apple.com/app/claude-by-anthropic/id6473753684" target="_blank">🍎 App Store</a>
+            <a class="store-btn android" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank">▶ Google Play</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-row manus-row">
+        <span class="app-icon">🤖</span>
+        <div class="app-info">
+          <div class="app-name">Manus</div>
+          <div class="app-by">AI Agent 工具 · 課堂上會重點介紹</div>
+          <div class="store-btns">
+            <a class="store-btn referral" href="MANUS_REFERRAL_LINK" target="_blank">🔗 點我加入（推薦連結）</a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="notice-box">
