@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上午場｜AI 高效時間管理：第1堂 時間管理的重要與AI導入 · 第2堂 AI助攻的工作優先排序</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
+.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide.active{display:flex;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cover{background:#0f0d0c;color:white;padding:6vh 9vw}
+.cover .s-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:block}
+.cover h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:24px;color:white}
+.cover h1 .hi{color:var(--orange)}
+.cover .sub{font-size:clamp(.95rem,1.6vw,1.15rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:660px}
+.cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
+.cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.sbreak{background:#1a0d07;color:white}
+.sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
+.sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
+.tag-break{background:#fff9f5;border:1px dashed rgba(232,84,30,.4);border-radius:14px;padding:5vh 8vw}
+.tag-break .s-tag{color:var(--orange)}
+.tag-break h2{color:var(--ink);border:none;padding:0}
+.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
+.slide-sub{font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--dim);margin-bottom:18px;padding-left:18px}
+.blist{list-style:none}
+.blist li{font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
+.blist li b{font-weight:700}
+.nlist{list-style:none;counter-reset:n}
+.nlist li{counter-increment:n;font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:10px 0 10px 44px;position:relative;border-bottom:1px solid var(--line)}
+.nlist li::before{content:counter(n);width:26px;height:26px;border-radius:50%;background:var(--orange);color:white;font-size:.74rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:9px}
+.nlist li span{font-size:.86rem;color:var(--dim)}
+.cgrid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
+.card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
+.ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cd{font-size:.96rem;color:var(--dim);line-height:1.55}
+.chat-ui{background:#1c1c28;border-radius:12px;overflow:hidden;margin:8px 0;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.chat-bar{background:#141420;padding:9px 14px;display:flex;align-items:center;gap:6px}
+.chat-dot{width:10px;height:10px;border-radius:50%}
+.chat-dot.r{background:#ff5f57}.chat-dot.y{background:#febc2e}.chat-dot.g{background:#28c840}
+.chat-appname{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;margin-left:6px;text-transform:uppercase}
+.chat-body{padding:14px 18px}
+.chat-who{font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:7px}
+.chat-text{font-family:'Courier New',monospace;font-size:clamp(.92rem,1.35vw,1.05rem);color:#e2e2e2;line-height:1.7;white-space:pre-wrap}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(.92rem,1.3vw,1.05rem)}
+.tbl th{background:var(--orange);color:white;padding:10px 13px;text-align:left;font-weight:600}
+.tbl td{padding:10px 13px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:nth-child(even) td{background:white}
+.hl{border-left:3px solid var(--orange);padding:12px 16px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.1rem,1.6vw,1.32rem);color:var(--ink);line-height:1.6;margin:8px 0}
+.hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
+.hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
+.hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
+.src-note{font-size:.76rem;color:var(--ink3);font-style:italic;line-height:1.5;margin-top:6px}
+.src-note b{font-style:normal;color:var(--dim)}
+.intro{background:#0f0d0c;color:white}
+.intro-inner{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.intro-name{font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:900;color:white;margin-bottom:6px}
+.intro-title{font-size:clamp(.9rem,1.4vw,1.1rem);color:var(--orange);font-weight:600;margin-bottom:20px}
+.intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-item{background:rgba(255,255,255,.05);padding:12px 14px;border-radius:8px;border-left:3px solid var(--orange)}
+.stat-n{font-size:1.6rem;font-weight:900;color:white}
+.stat-l{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:2px}
+.intro-bio{font-size:clamp(.86rem,1.3vw,1rem);color:rgba(255,255,255,.65);line-height:1.8}
+.cert-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.cert{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.5)}
+.bqslide{background:var(--paper);align-items:center;text-align:center}
+.bq{font-size:clamp(1.6rem,3.3vw,2.5rem);font-weight:800;color:var(--ink);line-height:1.35;max-width:860px}
+.bq .accent{color:var(--orange)}
+.bq-src{font-size:.9rem;color:var(--dim);margin-top:20px}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.compare-card{background:white;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:18px}
+.compare-card:nth-child(2){border-top-color:var(--blue)}
+.compare-card h3{font-size:1.2rem;color:var(--ink);margin-bottom:8px}
+.compare-card p{font-size:.95rem;color:var(--dim);line-height:1.5}
+.compare-card ul{margin-top:10px;padding-left:0;list-style:none}
+.compare-card ul li{font-size:.9rem;color:var(--dim);padding:4px 0 4px 16px;position:relative}
+.compare-card ul li::before{content:'·';color:var(--orange);position:absolute;left:0;font-weight:700}
+.checklist{list-style:none;margin-top:10px}
+.checklist li{font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--ink);padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'□';font-size:1.05rem;color:var(--orange);position:absolute;left:0;top:7px}
+.myth-list{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.myth-bad{background:#fef2f2;border-radius:10px;padding:11px 15px;border:1px solid #fca5a5}
+.myth-good{background:#f0fdf4;border-radius:10px;padding:11px 15px;border:1px solid #86efac}
+.myth-tag{font-size:.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;display:block}
+.myth-bad .myth-tag{color:#dc2626}
+.myth-good .myth-tag{color:#16a34a}
+.myth-text{font-size:.9rem;color:var(--ink);line-height:1.5}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:white;border-radius:12px;padding:16px 13px;border:1px solid var(--line);text-align:center}
+.stat-box .big{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--orange);line-height:1}
+.stat-box .label{font-size:.74rem;color:var(--dim);margin-top:6px;line-height:1.4}
+.stat-box .src{font-size:.62rem;color:rgba(110,110,115,.6);margin-top:4px}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:12px}
+.tl-row{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tl-row:last-child{border-bottom:none}
+.tl-year{font-size:1.15rem;font-weight:900;color:var(--orange)}
+.tl-text{font-size:.95rem;color:var(--ink);line-height:1.5}
+.tl-text b{color:var(--ink)}
+/* matrix */
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:12px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.mx-cell{padding:16px 15px;position:relative}
+.mx-cell.q1{background:#f0fdf4}.mx-cell.q2{background:#fff9f5}
+.mx-cell.q3{background:rgba(0,102,204,.05)}.mx-cell.q4{background:#f9fafb}
+.mx-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.mx-ai{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:7px}
+.mx-cell.q1 .mx-ai{background:rgba(22,163,74,.15);color:var(--green)}
+.mx-cell.q2 .mx-ai{background:rgba(232,84,30,.1);color:var(--orange)}
+.mx-cell.q3 .mx-ai{background:rgba(0,102,204,.1);color:var(--blue)}
+.mx-cell.q4 .mx-ai{background:#f1f5f9;color:var(--dim)}
+.mx-desc{font-size:.8rem;color:var(--dim);line-height:1.5}
+/* sop box */
+.sop-box{background:white;border:2px dashed var(--line);border-radius:12px;padding:18px 20px}
+.sop-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line)}
+.sop-row:last-child{border-bottom:none}
+.sop-label{font-size:.78rem;font-weight:700;color:var(--orange);padding-top:2px}
+.sop-blank{background:rgba(232,84,30,.04);border-radius:6px;padding:8px 12px;font-size:.9rem;color:rgba(29,29,31,.4);border:1px dashed rgba(232,84,30,.2)}
+/* six elements grid (reuse brocef pattern) */
+.brocef{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.britem{padding:13px;border-radius:8px;background:white;border:1px solid var(--line);border-left:3px solid var(--orange)}
+.brletter{font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px}
+.brname{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.brdesc{font-size:.8rem;color:var(--dim);line-height:1.45}
+/* mistake list */
+.mistake-list{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.mistake-row{display:flex;align-items:flex-start;gap:11px;background:white;border-radius:8px;padding:10px 13px;border:1px solid var(--line)}
+.mistake-x{font-size:1rem;color:#dc2626;flex-shrink:0;margin-top:1px}
+.mistake-title{font-size:.92rem;font-weight:700;color:var(--ink)}
+.mistake-fix{font-size:.84rem;color:var(--dim);margin-top:3px}
+#nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
+#counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
+.nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
+.nb:hover{transform:scale(1.1)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
+.home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
+.home-btn:hover{color:white}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<a href="index.html" class="home-btn">← 返回</a>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <span class="s-tag">AI 高效時間管理 · 上午場 / 09:30–12:30</span>
+  <h1>時間不會變多，<br><span class="hi">但可以分配得更準</span></h1>
+  <div class="sub">時間都去哪了、重要/緊急矩陣、GTD Lite、Timeboxing → AI能力邊界、任務×工具地圖、提示六要素</div>
+  <div class="bar">
+    <span class="pill">6 小時</span>
+    <span class="pill">博幼社會福利基金會</span>
+    <span class="pill">2026.07.22</span>
+  </div>
+  <div class="ghost">AM</div>
+</section>
+
+<!-- 2. 講師介紹 + 學員社群QR -->
+<section class="slide intro">
+  <div class="intro-inner">
+    <div>
+      <div class="intro-name">季祥<br>Simon Chi</div>
+      <div class="intro-title">AI 實戰顧問 · 企業 / 非營利組織培訓講師</div>
+      <div class="intro-stats">
+        <div class="stat-item"><div class="stat-n">40+</div><div class="stat-l">場企業 / 公部門 AI 培訓</div></div>
+        <div class="stat-item"><div class="stat-n">10+</div><div class="stat-l">年資安 / AI 專案經歷</div></div>
+        <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">件自有 SaaS 產品</div></div>
+        <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">項國際雲端 / PM 認證</div></div>
+      </div>
+      <div class="cert-row">
+        <span class="cert">PMP</span><span class="cert">PMI-ACP</span><span class="cert">AWS Certified</span>
+        <span class="cert">Google Cloud</span><span class="cert">Azure</span><span class="cert">ISO 27001</span>
+      </div>
+    </div>
+    <div>
+      <div class="intro-bio">HP → 趨勢科技 → 外商 AI 專案主管 → 創業。身為 PMP / PMI-ACP 持證者，今天這堂課的時間管理方法，不是心靈雞湯，是專案管理裡真的在用的框架，加上 AI 怎麼接手一半。<br><br>
+      我設計課程的標準只有一個：<b style="color:white">你今天離開的時候，手上要有一份自己真的會用的時間管理方案。</b></div>
+      <div style="margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:16px">
+        <img src="assets/qr/simon-ai-community.jpg" alt="Simon AI 學員社群" style="width:88px;height:88px;border-radius:8px;flex-shrink:0">
+        <div>
+          <div style="font-size:.92rem;font-weight:700;color:white">加入「Simon AI 學員社群」</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.6">今天的投影片、提示語、後續問題都會放在這裡，掃碼先加入</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 課前準備 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">課前準備 · 現在就做</div>
+  <h2 style="color:white;border-left-color:var(--orange)">先把帳號打開，今天要用到四個工具</h2>
+  <div style="display:flex;align-items:center;justify-content:center;gap:52px;margin-top:24px;flex-wrap:wrap">
+    <div style="text-align:center">
+      <img src="assets/qr/manus-invitation.png" alt="Manus 申請" style="width:180px;height:180px;border-radius:14px;border:3px solid rgba(124,106,247,.5)">
+      <div style="margin-top:12px;font-size:.98rem;font-weight:700;color:white">Manus 申請</div>
+      <div style="font-size:.85rem;color:rgba(255,255,255,.4);margin-top:6px">下午會用到，現在先申請</div>
+    </div>
+    <div style="max-width:360px">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px">今天你需要</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 15px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.2rem">💻</span>
+          <div><div style="font-size:.9rem;font-weight:700;color:white">筆電（建議）或手機</div><div style="font-size:.76rem;color:rgba(255,255,255,.4);margin-top:2px">今天有幾個練習需要複製貼上長文字，筆電比較順手</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 15px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.2rem">✦</span>
+          <div><div style="font-size:.9rem;font-weight:700;color:white">ChatGPT + Gemini 帳號</div><div style="font-size:.76rem;color:rgba(255,255,255,.4);margin-top:2px">兩個都免費，還沒有的現在申請</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 15px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:1.2rem">🟣</span>
+          <div><div style="font-size:.9rem;font-weight:700;color:white">Manus 帳號</div><div style="font-size:.76rem;color:rgba(255,255,255,.4);margin-top:2px">左邊 QR 先申請，審核需要一點時間</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 今天的遊戲規則 -->
+<section class="slide">
+  <div class="slide-tag">TODAY'S RULES</div>
+  <h2>今天的遊戲規則</h2>
+  <div class="slide-sub">六小時，四堂課，每堂都帶走一個做得出來的東西</div>
+  <ul class="nlist" style="margin-top:10px">
+    <li><b>第1堂 09:50–11:10</b> 時間管理的重要與AI導入<span>時間都去哪了？先看懂自己的工作日</span></li>
+    <li><b>第2堂 11:20–12:30</b> AI助攻的工作優先排序<span>先拆任務，再選AI工具</span></li>
+    <li><b>第3堂 13:30–14:50</b> AI掌控進度與時間規劃 + 提升成果效率<span>把零散資料變成完整工作流程</span></li>
+    <li><b>第4堂 15:00–16:20</b> 完成我的AI時間管理計劃書<span>排序、每日節奏、拖延處理，收成一份自己的方案</span></li>
+  </ul>
+</section>
+
+<!-- 5. 破冰 -->
+<section class="slide">
+  <div class="slide-tag">ICE BREAKER · 09:30–09:50</div>
+  <h2>先想一件事：<br>你上次「忙到沒時間喘氣」是哪一天？</h2>
+  <div class="slide-sub">不用寫下來，先在心裡過一遍</div>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o"><div class="ct">那天你在忙什麼</div><div class="cd">開會、交辦、處理臨時狀況、寫報告——通常不是一件事，是十幾件事疊在一起</div></div>
+    <div class="card b"><div class="ct">今天想解決的</div><div class="cd">不是要你更拼，是要你把「疊在一起」的事，變成看得清楚、排得出順序、可以交出去一部分的系統</div></div>
+  </div>
+  <div class="hl" style="margin-top:12px">研究上，時間管理能力跟工作表現、幸福感呈中度正向關聯，也跟較低的壓力困擾相關——這不是心靈雞湯，是有數據支持的事。<div class="src-note">資料來源：PLOS ONE 時間管理統合分析</div></div>
+</section>
+
+<!-- 6. sbreak 第1堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 1 堂 · 09:50–11:10</span>
+  <h2>時間管理的重要與AI導入<br>時間都去哪了？</h2>
+  <div class="sub">看懂忙碌的一天 · 重要/緊急矩陣 · GTD Lite · Timeboxing · 明日行程草稿</div>
+</section>
+
+<!-- 7. 看懂忙碌一天裡有哪些工作 -->
+<section class="slide">
+  <div class="slide-tag">HANDS-ON · 現在就寫</div>
+  <h2>看懂「忙了一天」裡面<br>到底有哪些工作</h2>
+  <div class="slide-sub">回想最近一個真實的工作日，全部寫下來，先不排序</div>
+  <ul class="nlist" style="margin-top:10px">
+    <li>從上班到下班，實際處理過的每一件事<span>大事小事都算，不用篩選</span></li>
+    <li>區分：例行工作 / 專案工作 / 主管臨時交辦 / 突發事件<span>四個類別，先貼標籤就好</span></li>
+    <li>找出隱藏耗時：等待回覆、重複輸入、查找資料、來回修改<span>這些通常是最容易被AI省掉的部分</span></li>
+  </ul>
+  <div class="hl dim" style="margin-top:10px">先寫完再往下看——等一下的矩陣練習，會直接用到你現在寫的清單。</div>
+</section>
+
+<!-- 8. 時間、注意力與工作容量 -->
+<section class="slide">
+  <div class="slide-tag">FOUNDATIONS · 時間 vs 注意力</div>
+  <h2>時間是固定的，<br>注意力不是</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o">
+      <div class="ct">同樣一小時，品質差很多</div>
+      <div class="cd">複雜文件、資料判斷、需要下決定的事，跟例行回覆需要的「認知負荷」完全不同。早上腦子清楚時做判斷題，下午精神稍弱時處理例行事，效果差很多。</div>
+    </div>
+    <div class="card b">
+      <div class="ct">切換任務會留下殘影</div>
+      <div class="cd">研究稱為「注意力殘留」：處理完一件事、切到下一件，部分注意力還留在前一項任務上——信件、LINE、會議、文件交錯處理，是最容易發生的地方。</div>
+      <div class="src-note">資料來源：Attention Residue 相關研究</div>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:10px">課堂討論：哪些事情適合早上處理？哪些事情可以集中到下午一次做完？</div>
+</section>
+
+<!-- 9. 單純急迫效應 -->
+<section class="slide">
+  <div class="slide-tag">觀念 · 為什麼你老是先做「急」的事</div>
+  <h2>「看起來很急」不等於「真的重要」</h2>
+  <div class="slide-sub">這是一個有名字的心理現象</div>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card dim">
+      <div class="ct">單純急迫效應（Mere Urgency Effect）</div>
+      <div class="cd">研究發現：人會優先處理有時限壓力的小事，即使另一件事的價值明顯更高，也會被急迫感牽著走。</div>
+      <div class="src-note">資料來源：Journal of Consumer Research</div>
+    </div>
+    <div class="card o">
+      <div class="ct">這解釋了什麼</div>
+      <div class="cd">為什麼你一整天都在回訊息、處理小事，真正重要的專案卻一直往後延——不是你不夠自律，是這個效應每個人都會中招。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px">解法不是靠意志力，是靠一個能把「急」跟「重要」分開看的工具——下一頁就是。</div>
+</section>
+
+<!-- 10. 重要/緊急矩陣 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · 重要／緊急矩陣</div>
+  <h2>把你剛才寫的清單，<br>分進四個象限</h2>
+  <div class="slide-sub">重要程度看影響、責任、風險；緊急程度看真實期限</div>
+  <div class="matrix">
+    <div class="mx-cell q1"><span class="mx-ai">立即處理</span><div class="mx-title">重要又緊急</div><div class="mx-desc">主管交辦的明日簡報、核銷期限——必要時調整其他行程</div></div>
+    <div class="mx-cell q2"><span class="mx-ai">排入行事曆</span><div class="mx-title">重要但尚未緊急</div><div class="mx-desc">活動企畫、團隊培訓規劃——保留完整時間區塊，別讓它一直被往後延</div></div>
+    <div class="mx-cell q3"><span class="mx-ai">交辦或批次</span><div class="mx-title">緊急但影響較低</div><div class="mx-desc">例行報表、同事臨時詢問——確認能不能交辦、批次處理、或協調期限</div></div>
+    <div class="mx-cell q4"><span class="mx-ai">重新考慮</span><div class="mx-title">不重要也不緊急</div><div class="mx-desc">部分群組訊息、重複性低價值會議——先問自己為什麼在做這件事</div></div>
+  </div>
+</section>
+
+<!-- 11. 換你操作：矩陣分類 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 5 分鐘</div>
+  <h2>把你的清單，貼進四個象限</h2>
+  <div class="slide-sub">用第 7 頁寫下的工作清單來練習</div>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card"><div class="ct">練習素材（可套用）</div><div class="cd">主管交辦簡報、核銷期限、例行報表、同事詢問、活動企畫、群組訊息——把這些拿去分類，也可以換成你自己清單裡的項目</div></div>
+    <div class="card o"><div class="ct">分類完，先別急著動手</div><div class="cd">下一步是把「重要但尚未緊急」的事排進行事曆——這一類最容易被急事擠掉，卻常常是影響最大的工作</div></div>
+  </div>
+</section>
+
+<!-- 12. GTD Lite -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · GTD Lite</div>
+  <h2>清理腦中的待辦事項</h2>
+  <div class="slide-sub">原版 GTD 有五個步驟，今天用精簡版</div>
+  <div class="nlist" style="margin-top:8px">
+    <ul class="nlist" style="margin:0">
+      <li>建立一個統一收件匣<span>訊息、想法、交辦事項先全部丟進同一個地方，不要分散在腦子裡</span></li>
+      <li>判斷每件事是否需要採取行動<span>不需要的：刪除、歸檔、或列為「以後可能」</span></li>
+      <li>把模糊事項改寫成看得見的下一步<span>「活動企畫」→「確認活動日期與場地限制」</span></li>
+      <li>需要多步驟的工作列為專案，定義完成標準<span>什麼樣子算「做完」，先寫清楚</span></li>
+      <li>分開管理等待回覆、參考資料、暫緩事項<span>不要跟「要做的事」混在一起看</span></li>
+    </ul>
+  </div>
+  <div class="src-note" style="margin-top:6px">原始方法：Capture、Clarify、Organize、Reflect、Engage 五步驟 · 資料來源：Getting Things Done 官方說明</div>
+</section>
+
+<!-- 13. 換你打字：改寫模糊待辦 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3 分鐘</div>
+  <h2>挑一件模糊的待辦，改寫成下一步</h2>
+  <div class="slide-sub">先自己想，也可以請 AI 幫你拆</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">這是我手上一件還沒開始的工作：[貼上你的模糊待辦，例如「規劃下學期課後輔導」]
+請幫我拆解成 3–5 個具體的「下一步行動」，每一步都是我今天或明天就能開始做的動作，不要只是重複描述任務本身。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:10px">感受一下：從「一件模糊的大事」變成「幾個具體的下一步」，啟動的門檻是不是低很多？</div>
+</section>
+
+<!-- 14. 規劃謬誤 -->
+<section class="slide">
+  <div class="slide-tag">觀念 · 規劃謬誤</div>
+  <h2>為什麼你的預估時間，<br>永遠不夠用</h2>
+  <div class="slide-sub">不是你太樂觀，是人類大腦本來就會這樣算</div>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o">
+      <div class="ct">規劃謬誤（Planning Fallacy）</div>
+      <div class="cd">人們常根據「理想流程」預估時間，卻忽略過去類似工作實際花了多久——每次都覺得「這次應該比較快」。</div>
+      <div class="src-note">資料來源：MIT 收錄的原始研究</div>
+    </div>
+    <div class="card b">
+      <div class="ct">解法：參考類別預估</div>
+      <div class="cd">預估一件新工作要多久之前，先問自己：上次類似的事花了多久？再加一點緩衝——比憑感覺猜準得多。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. 把清單變成明日安排 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · Timeboxing</div>
+  <h2>把清單變成<br>實際做得到的明日安排</h2>
+  <div class="slide-sub">清單很多不會自動被完成，行事曆上有時間才會</div>
+  <ul class="nlist" style="margin-top:8px">
+    <li>找一件過去做過的類似工作，參考實際耗時<span>不是憑感覺猜</span></li>
+    <li>把大型任務拆成 30–60 分鐘的工作區塊<span>可以直接排進行事曆的大小</span></li>
+    <li>先安排已確定的會議、期限、例行工作</li>
+    <li>為 1–2 項重要工作保留完整時間區塊<span>對應矩陣裡「重要但尚未緊急」的那些</span></li>
+    <li>預留臨時交辦、溝通與修改的空間<span>不要把行事曆排到 100% 滿</span></li>
+  </ul>
+</section>
+
+<!-- 16. 實作：明日行事曆草稿 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 5 分鐘</div>
+  <h2>寫一份你的明日行事曆草稿</h2>
+  <div class="slide-sub">把第 11 頁分好類的清單，排進時間裡</div>
+  <div class="sop-box" style="margin-top:8px">
+    <div class="sop-row"><div class="sop-label">上午</div><div class="sop-blank">最重要的一件事（重要但尚未緊急）：_______________</div></div>
+    <div class="sop-row"><div class="sop-label">下午</div><div class="sop-blank">例行 + 交辦事項批次處理時段：_______________</div></div>
+    <div class="sop-row"><div class="sop-label">保留空白</div><div class="sop-blank">給臨時交辦與突發狀況的緩衝時間：_______________</div></div>
+  </div>
+  <div class="hl dim" style="margin-top:10px">今天最需要推進的一件事，是哪一件？先在心裡標記起來。</div>
+</section>
+
+<!-- 17. 第1堂收尾 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 第1堂</div>
+  <h2>帶走的話</h2>
+  <div class="bq" style="font-size:clamp(1.4rem,2.8vw,2.1rem);text-align:left;max-width:100%">時間管理不是把行事曆填滿，<br>是把時間留給<span class="accent" style="color:var(--orange)">只有你能做的判斷</span>。</div>
+  <div class="hl dim" style="margin-top:20px">下一堂：清單排好順序之後，換你決定——哪些交給AI先跑，哪些你自己來。</div>
+</section>
+
+<!-- 18. sbreak 第2堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 2 堂 · 11:20–12:30</span>
+  <h2>AI助攻的工作優先排序<br>先拆任務，再選AI工具</h2>
+  <div class="sub">AI能省多少時間 · AI能力的不規則邊界 · 任務×工具地圖 · 提示六要素 · 資料安全</div>
+</section>
+
+<!-- 19. AI能省多少時間 -->
+<section class="slide">
+  <div class="slide-tag">DATA · AI 能省多少時間</div>
+  <h2>AI 到底能幫你省多少時間</h2>
+  <div class="slide-sub">不是傳說，是有實驗數據的</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="big">-40%</div><div class="label">專業寫作任務完成時間減少</div><div class="src">Science 原始研究</div></div>
+    <div class="stat-box"><div class="big">+18%</div><div class="label">同一批任務，品質評分同時提升</div><div class="src">Science 原始研究</div></div>
+    <div class="stat-box"><div class="big">+15%</div><div class="label">客服工作平均生產力提升</div><div class="src">Quarterly Journal of Economics</div></div>
+    <div class="stat-box"><div class="big">資淺者</div><div class="label">經驗較少的工作者，獲益比資深者更明顯</div><div class="src">同上研究</div></div>
+  </div>
+  <div class="hl" style="margin-top:12px">效果會受任務類型、素材品質、專業程度、查核方式影響——不能直接套用成「所有工作都省 40%」。</div>
+</section>
+
+<!-- 20. AI能力的不規則邊界 -->
+<section class="slide">
+  <div class="slide-tag">重要觀念 · AI 不是全能，也不是均勻變強</div>
+  <h2>AI 能力有一條<br>不規則的邊界</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card g">
+      <div class="ct">能力範圍內：明顯加速</div>
+      <div class="cd">BCG 顧問實驗：在 AI 擅長的工作範圍內，平均快 <b>25.1%</b>。</div>
+    </div>
+    <div class="card o">
+      <div class="ct">能力範圍外：反而更容易錯</div>
+      <div class="cd">超出 AI 能力範圍的判斷任務，使用 AI 的正確率反而<b>降低 19%</b>——因為它會用同樣自信的語氣，講出聽起來合理但錯的答案。</div>
+    </div>
+  </div>
+  <div class="src-note" style="margin-top:6px">資料來源：Organization Science 2026 正式研究</div>
+  <div class="hl bl" style="margin-top:10px">結論：工作流程要拆開檢查，找出哪一段適合交給 AI；涉及責任判斷、政策解釋、數字核定、對外承諾，保留人工確認。</div>
+</section>
+
+<!-- 21. 任務-工具地圖 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · 任務 × 工具地圖</div>
+  <h2>什麼任務，用什麼工具</h2>
+  <div class="slide-sub">今天要記住的核心地圖</div>
+  <table class="tbl" style="margin-top:8px">
+    <tr><th>任務類型</th><th>建議工具</th></tr>
+    <tr><td>發想、整理、撰寫、比較、一般問答</td><td>ChatGPT / Gemini</td></tr>
+    <tr><td>保存專案背景、持續討論同一件事</td><td>ChatGPT Projects / Gemini Notebooks</td></tr>
+    <tr><td>以會議紀錄、文件為來源做摘要、問答、簡報草稿</td><td>Gemini Notebook（原 NotebookLM）</td></tr>
+    <tr><td>處理表格、分類資料、製作圖表</td><td>ChatGPT 資料分析 / Gemini 檔案分析</td></tr>
+    <tr><td>跨網站蒐集、多來源整理成一份報告</td><td>Manus</td></tr>
+    <tr><td>把確認過的內容轉成簡報初稿</td><td>Gamma / Canva</td></tr>
+  </table>
+  <div class="src-note" style="margin-top:6px">Google 已於 2026 年 7 月將 NotebookLM 品牌更新為 Gemini Notebook · 資料來源：Google 官方說明</div>
+</section>
+
+<!-- 21b. 拾光教育中心 情境介紹 -->
+<section class="slide">
+  <div class="slide-tag">CLASS SCENARIO · 今天的練習情境</div>
+  <h2>拾光教育中心</h2>
+  <div class="slide-sub">虛構情境，練習用——你的團隊也可以直接代入</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">拾光教育中心</div>
+      <div class="cd">服務對象是弱勢家庭的國中小學生，提供課後輔導與家訪支持。<br><br>
+      團隊：英文老師 2 位、數學老師 2 位、學習輔導員 2 位、社工員 2 位——共 8 人，你是他們的主管。<br><br>
+      <b>這個月要同時處理：</b>排定家訪與課後輔導班表、整理上次跨單位協調會紀錄、把上季服務成果寫成報告給董事會</div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="ct">你手上正在忙的事</div>
+        <ul class="blist" style="margin-top:6px">
+          <li style="font-size:.95rem;padding:7px 0 7px 20px">8 位老師/社工的月班表衝突</li>
+          <li style="font-size:.95rem;padding:7px 0 7px 20px">3 個家庭的個案進度要更新</li>
+          <li style="font-size:.95rem;padding:7px 0 7px 20px">董事會報告下週要交</li>
+        </ul>
+      </div>
+      <div class="hl dim" style="font-size:1rem">接下來的排序、交辦、六要素練習，都可以用這個情境，也可以直接換成你自己團隊的真實狀況——邏輯一樣。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 22. 換你打字：幫任務選工具 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 3 分鐘</div>
+  <h2>幫你手上一件任務，選工具</h2>
+  <div class="slide-sub">用第 10 頁的四象限清單挑一件，或直接用拾光教育中心這三件事</div>
+  <div class="card o" style="margin-top:8px">
+    <div class="ct">拾光教育中心這週的三件事</div>
+    <div class="cd">月班表衝突要處理、上次跨單位會議紀錄要整理、董事會報告下週要交——三件事，各自該用哪個工具？</div>
+  </div>
+  <div class="hl dim" style="margin-top:10px">先自己選一次，等一下第3、4堂會示範完整做法——這裡只是練習判斷的直覺。</div>
+</section>
+
+<!-- 23. 提示六要素 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · 工作提示六要素</div>
+  <h2>一個好提示，需要六件事</h2>
+  <div class="slide-sub">不是每次都要六個都給，但越完整、AI 猜得越準</div>
+  <div class="brocef" style="margin-top:10px">
+    <div class="britem"><div class="brletter">1</div><div class="brname">交付物</div><div class="brdesc">希望 AI 最後交出什麼</div></div>
+    <div class="britem"><div class="brletter">2</div><div class="brname">背景</div><div class="brdesc">工作情境、對象、使用目的</div></div>
+    <div class="britem"><div class="brletter">3</div><div class="brname">素材</div><div class="brdesc">會議紀錄、表格、規定、範例、資料來源</div></div>
+    <div class="britem"><div class="brletter">4</div><div class="brname">限制</div><div class="brdesc">字數、期限、不能修改的內容與用語</div></div>
+    <div class="britem"><div class="brletter">5</div><div class="brname">格式</div><div class="brdesc">表格、條列、信件、簡報架構、行動清單</div></div>
+    <div class="britem"><div class="brletter">6</div><div class="brname">檢查</div><div class="brdesc">要求標出不確定資訊、缺少資料、需要人工確認處</div></div>
+  </div>
+</section>
+
+<!-- 24. Demo：改寫模糊提示 -->
+<section class="slide">
+  <div class="slide-tag">BEFORE / AFTER · 同一件事，兩種問法</div>
+  <h2>把「幫我整理會議紀錄」<br>改寫成完整提示</h2>
+  <div class="myth-list" style="margin-top:8px">
+    <div class="myth-row">
+      <div class="myth-bad"><span class="myth-tag">六要素都沒有</span><div class="myth-text">「幫我整理會議紀錄」</div></div>
+      <div class="myth-good"><span class="myth-tag">六要素補齊</span><div class="myth-text">「我是拾光教育中心主管，這是本次跨單位協調會的逐字稿：[貼上]。請整理成決議事項、負責人、期限（不確定的標示待確認）、下次追蹤問題，條列格式，讓我能直接轉給團隊。」</div></div>
+    </div>
+    <div class="myth-row">
+      <div class="myth-bad"><span class="myth-tag">結果</span><div class="myth-text">一段通用摘要，看不出誰該做什麼、什麼時候要交</div></div>
+      <div class="myth-good"><span class="myth-tag">結果</span><div class="myth-text">一份可以直接轉發給團隊、附負責人與期限的行動清單</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 25. 換你打字：改寫你的模糊待辦 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 4 分鐘</div>
+  <h2>換你補齊六要素</h2>
+  <div class="slide-sub">挑一件你這週真的要請 AI 幫忙的事</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">我是[身分/單位]，要處理[背景]。
+以下是相關素材：[貼上會議紀錄／表格／過去範例]
+請幫我產出[交付物]，格式是[表格/條列/信件]，限制：[字數/期限/不能改動的內容]，
+最後標出你不確定、需要我確認的地方。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:10px">最後一句「標出不確定的地方」很關鍵——這是等一下要講的資料安全與查核習慣的第一步。</div>
+</section>
+
+<!-- 26. 資料安全與人工查核 -->
+<section class="slide">
+  <div class="slide-tag">RISK · 資料安全與人工查核</div>
+  <h2>先辨識，再決定能不能貼給 AI</h2>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">先分類手上的資料</div>
+      <div class="cd">公開資訊、機構內部資訊、個人資料、機敏／機密資訊——不是每一種都能直接貼給 AI。</div>
+    </div>
+    <div class="card b">
+      <div class="ct">練習去識別化</div>
+      <div class="cd">以代號、區間或模擬資料取代真實姓名和敏感數字——「王小明」改成「學生A」，處理完再填回實際內容。</div>
+    </div>
+  </div>
+  <div class="mistake-list" style="margin-top:10px">
+    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">個案／學生真實姓名、家庭狀況、聯絡方式</div><div class="mistake-fix">一律用代號處理，這是今天最重要的一條紅線</div></div></div>
+    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不核對就直接送出</div><div class="mistake-fix">日期、人名、法規、數字、引用來源，送出前一定要人工確認</div></div></div>
+  </div>
+  <div class="src-note" style="margin-top:8px">若對象涉及公務／政府協力：不得向生成式 AI 提供應保密、個人及未經同意公開的資訊，承辦人仍須負責最終判斷 · 資料來源：行政院生成式AI參考指引</div>
+</section>
+
+<!-- 27. 換你做：去識別化練習 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 2 分鐘</div>
+  <h2>把一段真實資料改成安全版本</h2>
+  <div class="slide-sub">在紙上或手機備忘錄練習就好，不用真的送出</div>
+  <div class="card o" style="margin-top:8px">
+    <div class="ct">原始版本（不能直接貼給AI）</div>
+    <div class="cd">「王小明，就讀OO國小三年級，單親家庭，母親從事臨時工，需要加強數學輔導與心理支持。」</div>
+  </div>
+  <div class="hl g" style="margin-top:10px">改寫成：「學生A，國小中年級，經濟弱勢單親家庭，需要加強數學輔導與心理支持。」——保留判斷需要的資訊，拿掉可以指認個人的部分。</div>
+</section>
+
+<!-- 28. 第2堂收尾 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 第2堂</div>
+  <h2>帶走的話</h2>
+  <div class="bq" style="font-size:clamp(1.4rem,2.8vw,2.1rem);text-align:left;max-width:100%">不是每件事都值得你的時間，<br><span class="accent" style="color:var(--orange)">先讓AI幫你篩一次</span>。</div>
+  <div class="hl dim" style="margin-top:20px">下午：把今天學的方法，套進一個真實的工作流程裡——從會議紀錄到一份完整的活動籌備。</div>
+</section>
+
+<!-- 29. 午休 sbreak -->
+<section class="slide sbreak">
+  <span class="s-tag">上午場結束 · 午休 12:30–13:30</span>
+  <h2>下午 13:30<br>從一場真實的活動籌備開始</h2>
+  <div class="sub">下午會用「跨單位活動籌備」這個案例，把交辦訊息、會議逐字稿、舊資料、簡報全部串起來，走一遍完整的工作流程。<br><br>現在去休息，下午見。</div>
+</section>
+
+<!-- nav -->
+<div id="nav">
+  <span id="counter">1 / 1</span>
+  <button class="nb" onclick="move(-1)">‹</button>
+  <button class="nb" onclick="move(1)">›</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
+function move(d){show(cur+d)}
+show(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+</body>
+</html>

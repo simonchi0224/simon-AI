@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下午場｜AI 高效時間管理：第3堂 AI掌控進度與時間規劃 · 第4堂 完成我的AI時間管理計劃書</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
+.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide.active{display:flex;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cover{background:#0f0d0c;color:white;padding:6vh 9vw}
+.cover .s-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:block}
+.cover h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:24px;color:white}
+.cover h1 .hi{color:var(--orange)}
+.cover .sub{font-size:clamp(.95rem,1.6vw,1.15rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:660px}
+.cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
+.cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.sbreak{background:#1a0d07;color:white}
+.sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
+.sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
+.tag-break{background:#fff9f5;border:1px dashed rgba(232,84,30,.4);border-radius:14px;padding:5vh 8vw}
+.tag-break .s-tag{color:var(--orange)}
+.tag-break h2{color:var(--ink);border:none;padding:0}
+.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
+.slide-sub{font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--dim);margin-bottom:18px;padding-left:18px}
+.blist{list-style:none}
+.blist li{font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
+.blist li b{font-weight:700}
+.nlist{list-style:none;counter-reset:n}
+.nlist li{counter-increment:n;font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:10px 0 10px 44px;position:relative;border-bottom:1px solid var(--line)}
+.nlist li::before{content:counter(n);width:26px;height:26px;border-radius:50%;background:var(--orange);color:white;font-size:.74rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:9px}
+.nlist li span{font-size:.86rem;color:var(--dim)}
+.cgrid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
+.card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
+.ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cd{font-size:.96rem;color:var(--dim);line-height:1.55}
+.chat-ui{background:#1c1c28;border-radius:12px;overflow:hidden;margin:8px 0;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.chat-bar{background:#141420;padding:9px 14px;display:flex;align-items:center;gap:6px}
+.chat-dot{width:10px;height:10px;border-radius:50%}
+.chat-dot.r{background:#ff5f57}.chat-dot.y{background:#febc2e}.chat-dot.g{background:#28c840}
+.chat-appname{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;margin-left:6px;text-transform:uppercase}
+.chat-body{padding:14px 18px}
+.chat-who{font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:7px}
+.chat-text{font-family:'Courier New',monospace;font-size:clamp(.92rem,1.35vw,1.05rem);color:#e2e2e2;line-height:1.7;white-space:pre-wrap}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(.92rem,1.3vw,1.05rem)}
+.tbl th{background:var(--orange);color:white;padding:10px 13px;text-align:left;font-weight:600}
+.tbl td{padding:10px 13px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:nth-child(even) td{background:white}
+.hl{border-left:3px solid var(--orange);padding:12px 16px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.1rem,1.6vw,1.32rem);color:var(--ink);line-height:1.6;margin:8px 0}
+.hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
+.hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
+.hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
+.hl.p{border-color:var(--purple);background:rgba(124,106,247,.05)}
+.src-note{font-size:.76rem;color:var(--ink3,var(--dim));font-style:italic;line-height:1.5;margin-top:6px}
+.src-note b{font-style:normal;color:var(--dim)}
+.bqslide{background:var(--paper);align-items:center;text-align:center}
+.bq{font-size:clamp(1.6rem,3.3vw,2.5rem);font-weight:800;color:var(--ink);line-height:1.35;max-width:860px}
+.bq .accent{color:var(--orange)}
+.bq-src{font-size:.9rem;color:var(--dim);margin-top:20px}
+.checklist{list-style:none;margin-top:10px}
+.checklist li{font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--ink);padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'□';font-size:1.05rem;color:var(--orange);position:absolute;left:0;top:7px}
+.mistake-list{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.mistake-row{display:flex;align-items:flex-start;gap:11px;background:white;border-radius:8px;padding:10px 13px;border:1px solid var(--line)}
+.mistake-x{font-size:1rem;color:#dc2626;flex-shrink:0;margin-top:1px}
+.mistake-title{font-size:.92rem;font-weight:700;color:var(--ink)}
+.mistake-fix{font-size:.84rem;color:var(--dim);margin-top:3px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:white;border-radius:12px;padding:16px 13px;border:1px solid var(--line);text-align:center}
+.stat-box .big{font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:900;color:var(--orange);line-height:1}
+.stat-box .label{font-size:.74rem;color:var(--dim);margin-top:6px;line-height:1.4}
+.stat-box .src{font-size:.62rem;color:rgba(110,110,115,.6);margin-top:4px}
+/* manus screen */
+.manus-screen{background:#0f1117;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.manus-bar{background:#171b25;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.07)}
+.manus-logo{font-size:.7rem;font-weight:800;color:var(--purple);letter-spacing:2px;text-transform:uppercase}
+.manus-status{font-size:.65rem;color:rgba(255,255,255,.35);margin-left:auto}
+.manus-body{padding:14px 18px}
+.manus-task{font-size:clamp(.86rem,1.25vw,.98rem);color:#c8ccd8;line-height:1.7;border-left:3px solid var(--purple);padding-left:12px;margin-bottom:10px}
+.manus-log{list-style:none}
+.manus-log li{font-size:clamp(.76rem,1.1vw,.86rem);color:rgba(200,204,216,.65);padding:4px 0 4px 20px;position:relative;font-family:'Courier New',monospace}
+.manus-log li::before{content:'›';color:var(--purple);position:absolute;left:0;font-weight:700}
+.manus-log li.done{color:#4ade80}
+.manus-log li.done::before{content:'✓'}
+/* sop box */
+.sop-box{background:white;border:2px dashed var(--line);border-radius:12px;padding:18px 20px}
+.sop-row{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line)}
+.sop-row:last-child{border-bottom:none}
+.sop-label{font-size:.76rem;font-weight:700;color:var(--orange);padding-top:2px}
+.sop-blank{background:rgba(232,84,30,.04);border-radius:6px;padding:8px 12px;font-size:.88rem;color:rgba(29,29,31,.4);border:1px dashed rgba(232,84,30,.2)}
+/* layer stack (workflow maturity) */
+.layer-stack{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.layer{border-radius:10px;padding:13px 18px;display:flex;align-items:center;gap:16px}
+.layer.l1{background:rgba(110,110,115,.06);border:1px solid var(--line)}
+.layer.l2{background:rgba(232,84,30,.06);border:1px solid rgba(232,84,30,.2)}
+.layer.l3{background:rgba(0,102,204,.06);border:1px solid rgba(0,102,204,.2)}
+.layer.l4{background:#120c04;border:1px solid rgba(255,255,255,.1)}
+.layer-num{font-size:1.3rem;font-weight:900;width:32px;flex-shrink:0;text-align:center}
+.layer.l1 .layer-num{color:var(--dim)}
+.layer.l2 .layer-num{color:var(--orange)}
+.layer.l3 .layer-num{color:var(--blue)}
+.layer.l4 .layer-num{color:#a78bfa}
+.layer-title{font-size:.96rem;font-weight:700;color:var(--ink)}
+.layer.l4 .layer-title{color:white}
+.layer-desc{font-size:.84rem;color:var(--dim);margin-top:2px}
+.layer.l4 .layer-desc{color:rgba(255,255,255,.55)}
+.layer-badge{margin-left:auto;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.layer.l1 .layer-badge{background:rgba(110,110,115,.15);color:var(--dim)}
+.layer.l2 .layer-badge{background:rgba(232,84,30,.15);color:var(--orange)}
+.layer.l3 .layer-badge{background:rgba(0,102,204,.15);color:var(--blue)}
+.layer.l4 .layer-badge{background:rgba(167,139,250,.15);color:#a78bfa}
+/* plan table (personal plan, stacked rows) */
+.plan-box{display:flex;flex-direction:column;gap:0;margin-top:10px;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.plan-row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--line)}
+.plan-row:last-child{border-bottom:none}
+.plan-label{background:var(--paper);padding:10px 14px;font-size:.8rem;font-weight:700;color:var(--orange);display:flex;align-items:center}
+.plan-fill{padding:10px 14px;font-size:.9rem;color:rgba(29,29,31,.4);border-left:1px dashed var(--line)}
+#nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
+#counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
+.nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
+.nb:hover{transform:scale(1.1)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
+.home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
+.home-btn:hover{color:white}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<a href="index.html" class="home-btn">← 返回</a>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <span class="s-tag">AI 高效時間管理 · 下午場 / 13:30–16:30</span>
+  <h1>從一份逐字稿，<br><span class="hi">走到一份可以追蹤的工作表</span></h1>
+  <div class="sub">會議前中後AI應用 · 資料整理 · 文件簡報 · 追蹤工作表 → AI協助排序 · WOOP/If-Then · 我的AI時間管理方案</div>
+  <div class="bar">
+    <span class="pill">6 小時</span>
+    <span class="pill">博幼社會福利基金會</span>
+    <span class="pill">2026.07.22</span>
+  </div>
+  <div class="ghost">PM</div>
+</section>
+
+<!-- 2. sbreak 第3堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 3 堂 · 13:30–14:50</span>
+  <h2>AI掌控進度與時間規劃<br>把零散資料變成完整工作流程</h2>
+  <div class="sub">今天下半場用同一個案例貫穿：兩週後的一場跨單位活動</div>
+</section>
+
+<!-- 3. 案例介紹 -->
+<section class="slide">
+  <div class="slide-tag">CASE · 今天下午的貫穿案例</div>
+  <h2>兩週後，你要辦一場跨單位活動</h2>
+  <div class="slide-sub">手上有：交辦訊息、會議逐字稿、三份舊資料、一張參加名單、一份舊簡報</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">情境</div>
+      <div class="cd">主管交辦你統籌一場跨單位協調活動，資料散落在訊息、會議記錄和過去的檔案裡，你要在兩週內把它變成一份能執行的計畫，還要交一份報告給董事會。</div>
+    </div>
+    <div class="card b">
+      <div class="ct">今天要做完的四件事</div>
+      <div class="cd">① 把逐字稿變成行動清單　② 把多份舊資料整理出重點　③ 寫出通知信與簡報大綱　④ 建立一份可以持續追蹤的工作表</div>
+    </div>
+  </div>
+  <div class="hl dim" style="margin-top:10px">上午練過的「拾光教育中心」（帶老師、社工排班和個案追蹤）也可以繼續用——下午的每個練習，兩個情境都能代入，邏輯完全一樣。</div>
+</section>
+
+<!-- 4. 會議前中後的AI應用 -->
+<section class="slide">
+  <div class="slide-tag">WORKFLOW · 會議前、中、後</div>
+  <h2>會議不是開完就結束</h2>
+  <div class="slide-sub">AI 在會議前中後，分別能幫上什麼忙</div>
+  <div class="cgrid g3" style="margin-top:10px">
+    <div class="card o"><div class="ct">會議前</div><div class="cd">根據背景資料產出議程、待確認問題、會前資料摘要</div></div>
+    <div class="card b"><div class="ct">會議中</div><div class="cd">逐字稿或錄音——保留前，先確認參與者同意與單位規定</div></div>
+    <div class="card g"><div class="ct">會議後</div><div class="cd">提取決議、行動項目、負責人、期限、待確認事項；轉成主管摘要與參與者通知信</div></div>
+  </div>
+  <div class="hl" style="margin-top:10px">會議後一定要人工核對：發言人、數字、日期，以及「真正形成的決議」是不是AI摘要出來的那樣。</div>
+  <div class="src-note">補充：部分平台（如 ChatGPT Record）可轉錄會議與語音筆記，但受方案與裝置限制，且要求使用者自行取得參與者同意 · 資料來源：OpenAI 官方說明</div>
+</section>
+
+<!-- 5. Demo：逐字稿轉行動清單 -->
+<section class="slide">
+  <div class="slide-tag">DEMO · 會議後</div>
+  <h2>把逐字稿變成行動清單</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Prompt 範例</span>
+      <div class="chat-text">以下是跨單位協調會的逐字稿（不整齊沒關係）：[貼上逐字稿]
+請幫我整理成三個區塊：
+1. 決議事項
+2. 行動清單（每項附負責人與截止日，從逐字稿推斷，不確定的標示「待確認」）
+3. 下次會議需跟進的問題
+用條列格式，清楚簡潔，個資部分請用代號呈現。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px">貼進去之前，記得把真實姓名先換成代號——這是上午第2堂練過的去識別化習慣，下午開始正式上場。</div>
+</section>
+
+<!-- 6. 換你打字：你的逐字稿 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 4–5 分鐘</div>
+  <h2>換你整理一份會議紀錄</h2>
+  <div class="slide-sub">用真實的會議筆記，或憑印象打幾句零散重點</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">以下是我的會議筆記（不整齊沒關係，個資已用代號處理）：[打幾句你記得的重點]
+請整理成：決議事項 / 行動清單（附負責人與期限）/ 待追蹤問題，條列清楚，讓我能直接轉給團隊。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:10px">打完看結果，跟你自己整理一份會議紀錄平常要花的時間比比看。</div>
+</section>
+
+<!-- 7. 大量資料整理與來源追查 -->
+<section class="slide">
+  <div class="slide-tag">SCENARIO · 三份舊資料要整理</div>
+  <h2>多份文件，怎麼一次看完</h2>
+  <div class="slide-sub">案例：手上有三份舊活動的檢討報告，要整理出這次能用的重點</div>
+  <ul class="nlist" style="margin-top:8px">
+    <li>把多份文件集中到同一個專案或 Gemini Notebook<span>而不是一份一份分開問</span></li>
+    <li>要求 AI 比較不同版本的差異、共通點與衝突</li>
+    <li>從資料中提取日期、金額、對象、規定、負責單位</li>
+    <li>整理出缺漏、重複資料及需要補充的問題</li>
+    <li>要求輸出附上來源位置（第幾份文件、第幾段）<span>方便回去對照原文</span></li>
+  </ul>
+</section>
+
+<!-- 8. Demo：比較舊資料 -->
+<section class="slide">
+  <div class="slide-tag">DEMO · Gemini Notebook</div>
+  <h2>把三份舊資料丟進去，直接問重點</h2>
+  <div class="manus-screen">
+    <div class="manus-bar"><div class="manus-logo">Gemini Notebook</div><div class="manus-status">來源：3 份文件已上傳</div></div>
+    <div class="manus-body">
+      <div class="manus-task">你問：這三次活動的檢討報告裡，最常被提到的問題是什麼？請附上分別出自哪一份文件。</div>
+      <ul class="manus-log">
+        <li class="done">讀取 3 份來源文件</li>
+        <li class="done">比對重複出現的問題點</li>
+        <li class="done">附上每個結論對應的文件來源</li>
+        <li>輸出：一份附來源標註的重點摘要</li>
+      </ul>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:10px">這種「以固定來源為基礎回答、附出處」的用法，正是 Gemini Notebook（原 NotebookLM）跟一般對話型 AI 最大的差別。</div>
+</section>
+
+<!-- 9. 文件與信件撰寫 -->
+<section class="slide">
+  <div class="slide-tag">SCENARIO · 通知信與說明文件</div>
+  <h2>寫信前，先想清楚三件事</h2>
+  <div class="slide-sub">讀者是誰、情境是什麼、希望對方採取什麼行動</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o"><div class="ct">先讓 AI 提架構</div><div class="cd">根據素材，先問 AI 建議用什麼架構寫，你再決定要不要採用——不用從白紙開始</div></div>
+    <div class="card b"><div class="ct">你來做最後把關</div><div class="cd">請 AI 檢查前後矛盾、資訊缺口、可能造成誤解的句子；事實、權責、附件、收件對象由你最終確認</div></div>
+  </div>
+</section>
+
+<!-- 10. Demo+換你打字：通知信 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 4 分鐘</div>
+  <h2>寫一封活動通知信</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">我是[單位/職稱]，要寫一封通知信給[對象]，說明[活動名稱]的[時間/地點/需準備事項]。
+語氣正式但親切，先講重點結論，再說明細節，[字數]以內，最後附上聯絡窗口。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:10px">拿到草稿後，檢查一次語氣是不是符合你們單位平常說話的方式——這一步不能省。</div>
+</section>
+
+<!-- 11. 簡報初稿與視覺整理 -->
+<section class="slide">
+  <div class="slide-tag">SCENARIO · 給董事會的報告</div>
+  <h2>簡報初稿，從一句話開始</h2>
+  <div class="slide-sub">先想清楚，再交給AI搭架構</div>
+  <ul class="nlist" style="margin-top:8px">
+    <li>用一句話寫出這份簡報要解決的問題<span>不是「介紹活動」，是「說服董事會核准什麼」</span></li>
+    <li>根據對象決定：背景、現況、方案、時程、行動要求</li>
+    <li>從長篇資料裡，提取每一頁的標題與佐證內容</li>
+    <li>請 AI 建議哪些內容適合表格、流程圖或時間軸</li>
+    <li>產出演講備註，以及可能被問到的問題<span>先準備，臨場比較不慌</span></li>
+  </ul>
+  <div class="hl dim" style="margin-top:10px">確認過內容後，可以用 Gamma 或 Canva 把大綱轉成有版面的簡報初稿，再自己微調。</div>
+</section>
+
+<!-- 12. Demo+換你打字：簡報大綱 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 4 分鐘</div>
+  <h2>換你搭一份簡報大綱</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">我要跟[董事會/主管]報告[主題]，這份報告要解決的問題是：[一句話]
+重點資料是：[貼上零散的資料或想法]
+請整理成簡報大綱，包含：現況、問題點、建議做法、預期效益、需要的資源，每個部分列3個重點以內。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. 把成果轉成可追蹤工作表 -->
+<section class="slide">
+  <div class="slide-tag">SYSTEM · 進度追蹤</div>
+  <h2>把成果轉成一份<br>可以持續追蹤的工作表</h2>
+  <div class="slide-sub">從會議紀錄、Email、文件中提取所有工作事項</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">每件工作至少要有</div>
+      <div class="cd">完成標準、負責人、期限、下一步——缺一項，這件事在追蹤上就會失蹤</div>
+    </div>
+    <div class="card b">
+      <div class="ct">狀態欄位</div>
+      <div class="cd">進行中／等待對象／有風險或阻礙——讓你一眼看出卡在哪裡，不用每件事都重新問一次</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px">固定欄位、固定格式，之後每次新專案都能重複套用同一套——這就是「系統」跟「臨時整理」的差別。</div>
+</section>
+
+<!-- 14. Demo：週報自動彙整 -->
+<section class="slide">
+  <div class="slide-tag">DEMO · 週報彙整</div>
+  <h2>用同一份工作表，自動彙整成週報</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Prompt 範例</span>
+      <div class="chat-text">以下是本週的工作追蹤表：[貼上表格內容]
+請幫我彙整成一份給主管看的週報，包含：本週完成、進行中（附卡點）、下週預計，語氣簡潔，重點優先，300字以內。</div>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:10px">同一份原始資料，換個提示就能產出不同用途的版本——這是「資產」跟「一次性文字」的差別。</div>
+</section>
+
+<!-- 15. 第3堂收尾 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 第3堂</div>
+  <h2>帶走的話</h2>
+  <div class="bq" style="font-size:clamp(1.4rem,2.8vw,2.1rem);text-align:left;max-width:100%">進度不會自己被追蹤，<br>但你可以讓<span class="accent" style="color:var(--orange)">AI幫你追</span>。</div>
+  <div class="hl dim" style="margin-top:20px">最後一堂：把今天學的方法收成一份真正屬於你的AI時間管理方案。</div>
+</section>
+
+<!-- 16. sbreak 第4堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 4 堂 · 15:00–16:20</span>
+  <h2>完成我的AI時間管理計劃書<br>完成自己的AI時間管理系統</h2>
+  <div class="sub">AI協助排序 · 每日工作節奏 · WOOP與If-Then · 工作流程四層次 · 個人方案實作</div>
+</section>
+
+<!-- 17. 讓AI協助工作排序 -->
+<section class="slide">
+  <div class="slide-tag">DEMO · AI協助排序</div>
+  <h2>把清單、期限、目標都給AI，<br>讓它幫你排一次順序</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Prompt 範例</span>
+      <div class="chat-text">以下是我這週的任務清單，附期限與預估時間：[貼上清單]
+我這週的目標是：[目標]
+請依影響程度、急迫性、投入時間、相依關係與風險排出建議順序，並說明每項排序的理由，同時標出哪些是固定時段（會議/等待回覆），不能移動。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px">重點是「請AI說明理由」——這樣你才能判斷排序合不合理，最終順序永遠由你調整、你決定。</div>
+</section>
+
+<!-- 18. 換你打字：排你的清單 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 5 分鐘</div>
+  <h2>換你排一次自己這週的清單</h2>
+  <div class="slide-sub">可以用今天寫下的所有練習內容彙整</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">以下是我這週真正要處理的任務：[列出3–6件事，附期限]
+目標：[你這週最想完成的事]
+請幫我排出建議順序並說明理由，標出哪些是不能移動的固定時段。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. 建立每天可執行的工作節奏 -->
+<section class="slide">
+  <div class="slide-tag">SYSTEM · 每日工作節奏</div>
+  <h2>建立一套<br>每天都能執行的節奏</h2>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o"><div class="ct">集中處理同類工作</div><div class="cd">信件、簽核、回覆、資料輸入集中在固定時段，減少任務切換的注意力殘留</div></div>
+    <div class="card b"><div class="ct">保留完整專注區塊</div><div class="cd">需要思考判斷的工作，安排在精神最好的時段，不要被瑣事切碎</div></div>
+    <div class="card g"><div class="ct">交接筆記</div><div class="cd">工作結束前，留下「做到哪裡、下一步是什麼」——明天或交接的人不用重新想一次</div></div>
+    <div class="card dim"><div class="ct">短暫休息</div><div class="cd">依疲勞程度安排休息，不用每個人都固定套用25分鐘番茄鐘——效果會隨任務種類和休息長度改變</div></div>
+  </div>
+  <div class="src-note" style="margin-top:8px">資料來源：微休息統合分析（短暫休息有助恢復精神、降低疲勞，效果受任務種類與休息長度影響）</div>
+  <div class="hl" style="margin-top:8px">每天下班前快速更新進度，每週安排一次完整回顧——系統會失效，通常是因為少了這個回顧動作。</div>
+</section>
+
+<!-- 20. 拖延與難以開始的任務 -->
+<section class="slide">
+  <div class="slide-tag">觀念 · 為什麼知道該做，還是沒開始</div>
+  <h2>處理拖延，<br>從縮小第一步開始</h2>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">把大任務改寫成小的第一步</div>
+      <div class="cd">不是「規劃下學期課程」，是「打開文件，寫下三個候選主題」——10到20分鐘可以開始的動作</div>
+    </div>
+    <div class="card b">
+      <div class="ct">WOOP</div>
+      <div class="cd">願望（Wish）→ 期待成果（Outcome）→ 內在障礙（Obstacle）→ 應對計畫（Plan）</div>
+      <div class="src-note">資料來源：WOOP 統合分析（結合心理對比與行動計畫，對目標達成有小到中度效果）</div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. If-Then行動計畫 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · If-Then 行動計畫</div>
+  <h2>「如果……，我就……」</h2>
+  <div class="slide-sub">研究上效果最扎實的一個小工具</div>
+  <div class="card o" style="margin-top:8px">
+    <div class="ct">句型</div>
+    <div class="cd" style="font-size:1.05rem">如果[某個情況出現]，我就[採取某個具體行動]。<br><br>例如：「如果上午會議取消，我就先完成活動簡報前三頁。」</div>
+  </div>
+  <div class="hl" style="margin-top:10px">在 94 組研究中，If-Then 行動計畫對目標達成呈現中到大的效果——不是心理暗示，是被反覆驗證過的方法。<div class="src-note">資料來源：Gollwitzer & Sheeran 統合分析</div></div>
+</section>
+
+<!-- 22. 換你打字：寫If-Then -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你寫 · 給自己 2 分鐘</div>
+  <h2>寫下你自己的一組 If-Then</h2>
+  <div class="sop-box" style="margin-top:8px">
+    <div class="sop-row"><div class="sop-label">如果</div><div class="sop-blank">情況：_______________</div></div>
+    <div class="sop-row"><div class="sop-label">我就</div><div class="sop-blank">具體行動：_______________</div></div>
+  </div>
+  <div class="hl dim" style="margin-top:10px">挑一件你這週最容易拖延的事來練習——通常是「重要但不緊急」象限裡的那些。</div>
+</section>
+
+<!-- 23. 工作流程四層次 -->
+<section class="slide">
+  <div class="slide-tag">FRAMEWORK · 從單次使用到可重複流程</div>
+  <h2>你的 AI 用法，在哪一層？</h2>
+  <div class="layer-stack">
+    <div class="layer l1"><div class="layer-num">1</div><div class="layer-content"><div class="layer-title">單次提問</div><div class="layer-desc">一次性整理，問完就結束，下次同樣的事重新問一次</div></div><div class="layer-badge">起點</div></div>
+    <div class="layer l2"><div class="layer-num">2</div><div class="layer-content"><div class="layer-title">保存常用提示</div><div class="layer-desc">把今天寫的好提示存起來，格式、範例可以重複使用</div></div><div class="layer-badge">今天達到這裡</div></div>
+    <div class="layer l3"><div class="layer-num">3</div><div class="layer-content"><div class="layer-title">保存工作背景</div><div class="layer-desc">用 Projects、Gems 或 Notebooks 保存專案背景，AI 不用每次重新交代</div></div><div class="layer-badge">下一步</div></div>
+    <div class="layer l4"><div class="layer-num">4</div><div class="layer-content"><div class="layer-title">固定排程</div><div class="layer-desc">安排固定提醒、週報整理、定期資料彙整——自動在固定時間發生</div></div><div class="layer-badge">進階</div></div>
+  </div>
+  <div class="hl" style="margin-top:8px">評估每一層時，記得把「查核成本」跟「維護時間」也算進去，不是只看省下多少時間。</div>
+  <div class="src-note">補充：ChatGPT／Gemini 皆提供排程功能，但可用性受方案、帳號類型與管理員設定影響，建議先當進階展示，不列為今天必做項目 · 資料來源：ChatGPT Scheduled Tasks／Gemini Scheduled Actions 官方說明</div>
+</section>
+
+<!-- 24. 個人方案實作 -->
+<section class="slide">
+  <div class="slide-tag">HANDS-ON · 我的AI時間管理計劃書</div>
+  <h2>選一件你真正想改善的工作</h2>
+  <div class="slide-sub">今天最耗時、最常卡住的那一件</div>
+  <div class="plan-box">
+    <div class="plan-row"><div class="plan-label">工作任務</div><div class="plan-fill">我想改善哪一項工作</div></div>
+    <div class="plan-row"><div class="plan-label">發生頻率</div><div class="plan-fill">每天／每週／每月幾次</div></div>
+    <div class="plan-row"><div class="plan-label">現在耗時</div><div class="plan-fill">每次大約花多久</div></div>
+    <div class="plan-row"><div class="plan-label">最常卡住的地方</div><div class="plan-fill">資料分散／沒有架構／一直修改／忘記追蹤</div></div>
+    <div class="plan-row"><div class="plan-label">使用的時間管理方法</div><div class="plan-fill">矩陣／Timeboxing／GTD Lite／WOOP／If-Then</div></div>
+    <div class="plan-row"><div class="plan-label">AI 負責的部分</div><div class="plan-fill">摘要／分類／初稿／檢查／轉換格式</div></div>
+    <div class="plan-row"><div class="plan-label">人工確認的部分</div><div class="plan-fill">決策／數字／權責／個資／對外內容</div></div>
+    <div class="plan-row"><div class="plan-label">預計使用工具</div><div class="plan-fill">ChatGPT／Gemini／Gemini Notebook／Manus</div></div>
+    <div class="plan-row"><div class="plan-label">成效指標</div><div class="plan-fill">工時／修改次數／準時率／錯誤率</div></div>
+    <div class="plan-row"><div class="plan-label">第一個行動</div><div class="plan-fill">明天要先做什麼，安排在哪個時間</div></div>
+  </div>
+</section>
+
+<!-- 25. 兩人互相檢查 -->
+<section class="slide">
+  <div class="slide-tag">PEER CHECK · 5 分鐘</div>
+  <h2>寫完，找旁邊的人互相檢查</h2>
+  <ul class="checklist">
+    <li>這個流程有沒有真的省到時間？</li>
+    <li>AI 使用的位置是否合適？</li>
+    <li>有沒有資料安全或查核風險？</li>
+    <li>成效是否能在一週後量出來？</li>
+  </ul>
+  <div class="hl dim" style="margin-top:10px">寫下來的計畫執行率，是沒寫的好幾倍——今天這份不是練習用的表格，是你下週真的要照著做的東西。</div>
+</section>
+
+<!-- 26. 課後問卷 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">課後問卷 · 花 1 分鐘</div>
+  <h2 style="color:white;border-left-color:var(--orange)">最後，掃這個給我一點回饋</h2>
+  <div style="display:flex;align-items:center;justify-content:center;gap:40px;margin-top:24px;flex-wrap:wrap">
+    <img src="assets/qr/post-course-survey.png" alt="課後問卷" style="width:190px;height:190px;border-radius:14px;border:3px solid rgba(232,84,30,.5)">
+    <div style="max-width:340px">
+      <div style="font-size:1rem;color:rgba(255,255,255,.75);line-height:1.75">今天哪一段最有用？哪一段太快或太難？<br>你的回饋會直接影響下一場課怎麼調整。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 27. 回去後這一週 -->
+<section class="slide">
+  <div class="slide-tag">ACTION · 回辦公室這一週</div>
+  <h2>回去後，你可以試試看的三件事</h2>
+  <ul class="nlist" style="margin-top:10px">
+    <li>把今天寫的<b>個人AI時間管理計劃書</b>貼在看得到的地方<span>下週一開始照著做</span></li>
+    <li><b>加入 Simon AI 學員社群</b>，今天的投影片和提示語都在裡面<span>之後有問題也可以在裡面問</span></li>
+    <li>把今天的<b>重要/緊急矩陣</b>教給團隊裡的一位老師或社工<span>教別人，是你記得最牢的方式</span></li>
+  </ul>
+</section>
+
+<!-- 28. 結尾金句 -->
+<section class="slide bqslide">
+  <div class="bq">你的判斷，<br>是 <span class="accent">AI 最後的防線</span>。</div>
+  <div class="bq-src">謝謝博幼社會福利基金會，今天辛苦了 —— 季祥 Simon</div>
+</section>
+
+<!-- nav -->
+<div id="nav">
+  <span id="counter">1 / 1</span>
+  <button class="nb" onclick="move(-1)">‹</button>
+  <button class="nb" onclick="move(1)">›</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
+function move(d){show(cur+d)}
+show(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+</body>
+</html>

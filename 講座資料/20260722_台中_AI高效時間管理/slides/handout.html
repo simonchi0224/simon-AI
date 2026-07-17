@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工具手冊 | AI 高效時間管理 · 博幼社會福利基金會場</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:52px 28px 80px}
+.back{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:36px}
+.back:hover{color:var(--orange)}
+.page-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:12px}
+.page-sub{font-size:.95rem;color:var(--dim);margin-bottom:48px;line-height:1.65}
+.hd-section{margin-bottom:44px}
+.hd-section-title{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line);display:block}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+.compare-card{background:white;border-radius:12px;padding:20px;border:1px solid var(--line)}
+.compare-card.o{border-top:3px solid var(--orange)}
+.compare-card.b{border-top:3px solid var(--blue)}
+.compare-type{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.compare-name{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.compare-meta{font-size:.84rem;color:var(--dim);margin-bottom:10px;font-style:italic}
+.compare-list{list-style:none}
+.compare-list li{font-size:.9rem;color:var(--ink);padding:4px 0 4px 18px;position:relative;border-bottom:1px solid var(--line)}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';position:absolute;left:0;color:var(--orange);font-weight:700}
+.hl{border-left:3px solid var(--orange);padding:11px 15px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:.95rem;color:var(--ink);line-height:1.65;margin:12px 0}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{background:white;border-radius:10px;padding:14px 16px;border:1px solid var(--line)}
+.feat-num{font-size:1.3rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px}
+.feat-title{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.feat-desc{font-size:.82rem;color:var(--dim);line-height:1.5}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:12px}
+.tbl th{background:var(--orange);color:white;padding:10px 12px;text-align:left;font-weight:600;font-size:.85rem}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:white}
+.note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:11px 15px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin:12px 0}
+.warn{background:#fef2f2;border-left:3px solid #dc2626;padding:11px 15px;border-radius:0 8px 8px 0;font-size:.9rem;color:var(--ink);line-height:1.6;margin:10px 0}
+.method-list{list-style:none;margin-top:6px}
+.method-list li{padding:10px 0;border-bottom:1px solid var(--line)}
+.method-list li:last-child{border-bottom:none}
+.method-name{font-size:.94rem;font-weight:700;color:var(--ink)}
+.method-desc{font-size:.85rem;color:var(--dim);margin-top:2px;line-height:1.55}
+.src-list{list-style:none;margin-top:6px}
+.src-list li{font-size:.85rem;color:var(--dim);padding:7px 0 7px 16px;position:relative;border-bottom:1px solid var(--line);line-height:1.55}
+.src-list li:last-child{border-bottom:none}
+.src-list li::before{content:'·';position:absolute;left:0;color:var(--orange);font-weight:700}
+.src-list b{color:var(--ink)}
+.takeaway{background:#0f0d0c;border-radius:14px;padding:24px 26px;margin-top:48px}
+.takeaway-title{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:block}
+.takeaway-list{list-style:none}
+.takeaway-list li{font-size:1rem;color:rgba(255,255,255,.8);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
+.takeaway-list li:last-child{border-bottom:none}
+.takeaway-list li::before{content:'→';color:var(--orange);position:absolute;left:0;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">← 返回首頁</a>
+  <span class="page-tag">AI 工具速查手冊</span>
+  <h1>今天用到的方法與工具</h1>
+  <p class="page-sub">博幼社會福利基金會場適用 · 建議自備筆電，手機也能操作</p>
+
+  <!-- 一、今天用到的時間管理方法 -->
+  <div class="hd-section">
+    <span class="hd-section-title">一、今天用到的時間管理方法</span>
+    <ul class="method-list">
+      <li><div class="method-name">工作時間盤點 Time Audit</div><div class="method-desc">解決「一整天很忙，卻說不清時間花在哪裡」——盤點例行工作、臨時交辦、等待、重工與被打斷</div></li>
+      <li><div class="method-name">重要／緊急矩陣</div><div class="method-desc">解決「所有事情看起來都急」——判斷立即處理、排入時間、交辦分工或重新考慮</div></li>
+      <li><div class="method-name">GTD Lite</div><div class="method-desc">解決「待辦清單寫得太模糊」——把「處理活動」改成有明確結果的下一步行動</div></li>
+      <li><div class="method-name">Timeboxing 時間區塊</div><div class="method-desc">解決「清單很多，行事曆沒有時間執行」——直接把重要任務排進行事曆</div></li>
+      <li><div class="method-name">參考類別預估</div><div class="method-desc">解決「常低估工作需要的時間」——參考過去類似任務，再加入修正與緩衝（避免規劃謬誤）</div></li>
+      <li><div class="method-name">注意力殘留 Attention Residue</div><div class="method-desc">解決「回完訊息後，很難立刻回到原本工作」——集中處理同類工作、保留完整專注區塊</div></li>
+      <li><div class="method-name">WOOP</div><div class="method-desc">解決「有目標，執行時常卡住」——願望、期待成果、內在障礙、應對計畫</div></li>
+      <li><div class="method-name">If–Then 行動計畫</div><div class="method-desc">解決「知道該做，到了時間仍沒開始」——「如果某個情況出現，我就採取某個行動」</div></li>
+      <li><div class="method-name">每日／每週回顧</div><div class="method-desc">解決「系統做幾天就失效」——更新進度、重新排序、調整下一週容量</div></li>
+    </ul>
+    <div class="hl">研究上，時間管理與工作表現、幸福感呈中度正向關聯，也與較低的壓力困擾相關。單教待辦清單效果有限，排序、安排、執行與回顧要一起做。</div>
+  </div>
+
+  <!-- 二、任務 × 工具地圖 -->
+  <div class="hd-section">
+    <span class="hd-section-title">二、任務 × 工具地圖</span>
+    <table class="tbl">
+      <tr><th>任務類型</th><th>建議工具</th></tr>
+      <tr><td>發想、整理、撰寫、比較、一般問答</td><td>ChatGPT / Gemini</td></tr>
+      <tr><td>保存專案背景、持續討論同一件事</td><td>ChatGPT Projects / Gemini Notebooks</td></tr>
+      <tr><td>以會議紀錄、文件為來源做摘要、問答、簡報草稿</td><td>Gemini Notebook（原 NotebookLM）</td></tr>
+      <tr><td>處理表格、分類資料、製作圖表</td><td>ChatGPT 資料分析 / Gemini 檔案分析</td></tr>
+      <tr><td>跨網站蒐集、多來源整理成一份報告</td><td>Manus</td></tr>
+      <tr><td>把確認過的內容轉成簡報初稿</td><td>Gamma / Canva</td></tr>
+    </table>
+    <div class="note">Google 已於 2026 年 7 月將 NotebookLM 品牌更新為 Gemini Notebook，投影片與手冊統一寫成「Gemini Notebook（原 NotebookLM）」，避免大家找不到工具。</div>
+  </div>
+
+  <!-- 三、對話型 vs 代理型 -->
+  <div class="hd-section">
+    <span class="hd-section-title">三、先搞清楚：AI 工具分兩種</span>
+    <div class="compare">
+      <div class="compare-card o">
+        <div class="compare-type">Type 1</div>
+        <div class="compare-name">對話型 AI</div>
+        <div class="compare-meta">ChatGPT · Gemini</div>
+        <ul class="compare-list">
+          <li>你問 → 它答 → 你自己去執行</li>
+          <li>最適合：草稿、文案、摘要、排序建議</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--orange)">像圖書館：你走進去拿答案，轉身走人</div>
+      </div>
+      <div class="compare-card b">
+        <div class="compare-type">Type 2</div>
+        <div class="compare-name">代理型 AI（Agent）</div>
+        <div class="compare-meta">Manus</div>
+        <ul class="compare-list">
+          <li>你下任務 → 它自己執行完整流程 → 交給你成果</li>
+          <li>最適合：需要花時間查資料、整理成一份報告的事</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--blue)">像管家：你在不在，它都在幫你做事</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四、工作提示六要素 -->
+  <div class="hd-section">
+    <span class="hd-section-title">四、工作提示的六項必要資訊</span>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-num">①</div><div class="feat-title">交付物</div><div class="feat-desc">希望AI最後交出什麼</div></div>
+      <div class="feat-card"><div class="feat-num">②</div><div class="feat-title">背景</div><div class="feat-desc">情境、對象、使用目的</div></div>
+      <div class="feat-card"><div class="feat-num">③</div><div class="feat-title">素材</div><div class="feat-desc">會議紀錄、表格、範例</div></div>
+      <div class="feat-card"><div class="feat-num">④</div><div class="feat-title">限制</div><div class="feat-desc">字數、期限、不能改動的內容</div></div>
+      <div class="feat-card"><div class="feat-num">⑤</div><div class="feat-title">格式</div><div class="feat-desc">表格、條列、信件、簡報架構</div></div>
+      <div class="feat-card"><div class="feat-num">⑥</div><div class="feat-title">檢查</div><div class="feat-desc">標出不確定與需人工確認處</div></div>
+    </div>
+  </div>
+
+  <!-- 五、資料安全與人工查核 -->
+  <div class="hd-section">
+    <span class="hd-section-title">五、資料安全與人工查核</span>
+    <div class="warn"><b>個資：</b>學生／個案／同仁的真實姓名、家庭狀況、聯絡方式不要貼進去；用「學生A」「某甲」代替，處理完再填回實際內容。</div>
+    <div class="warn"><b>核對：</b>AI 給的草稿只是起點，數字、日期、負責人、法規條文，送出前一定要人工確認。</div>
+    <div class="note">若涉及公務或政府協力：不得向生成式AI提供公務應保密、個人及未經同意公開的資訊，承辦人仍須負責最終判斷。<br>資料來源：行政院生成式AI參考指引</div>
+  </div>
+
+  <!-- 六、今天引用的研究來源 -->
+  <div class="hd-section">
+    <span class="hd-section-title">六、今天引用的研究與官方來源</span>
+    <ul class="src-list">
+      <li><b>時間管理與工作表現、幸福感的中度正向關聯</b> · PLOS ONE 時間管理統合分析</li>
+      <li><b>單純急迫效應（Mere Urgency Effect）</b>：人會優先處理有時限壓力的小事，即使另一件事價值更高 · Journal of Consumer Research</li>
+      <li><b>注意力殘留（Attention Residue）</b>：任務切換後，部分注意力仍留在前一項任務 · 相關研究</li>
+      <li><b>規劃謬誤（Planning Fallacy）</b>：常根據理想流程預估時間，忽略過去實際耗時 · MIT 收錄的原始研究</li>
+      <li><b>微休息效果</b>：短暫休息有助恢復精神、降低疲勞，效果受任務種類與休息長度影響 · 微休息統合分析</li>
+      <li><b>If–Then 行動計畫</b>：94組研究中，對目標達成呈現中到大效果 · Gollwitzer & Sheeran 統合分析</li>
+      <li><b>WOOP</b>：結合心理對比與行動計畫，對目標達成呈小到中度效果 · WOOP 統合分析</li>
+      <li><b>GTD 官方五步驟</b>：Capture、Clarify、Organize、Reflect、Engage · Getting Things Done 官方說明</li>
+      <li><b>專業寫作任務：完成時間 -40%、品質 +18%</b> · Science 原始研究</li>
+      <li><b>客服工作平均生產力 +15%，資淺者獲益更明顯</b> · Quarterly Journal of Economics</li>
+      <li><b>AI能力範圍內平均快25.1%；範圍外正確率反降19%</b> · Organization Science 2026 正式研究（BCG顧問實驗）</li>
+      <li><b>NotebookLM 品牌更新為 Gemini Notebook（2026.07）</b> · Google 官方說明</li>
+      <li><b>會議轉錄功能受方案／裝置限制，須取得參與者同意</b> · OpenAI 官方說明（ChatGPT Record）</li>
+      <li><b>排程功能受方案、帳號類型與管理員設定影響</b> · ChatGPT Scheduled Tasks／Gemini Scheduled Actions 官方說明</li>
+      <li><b>公務資訊使用生成式AI的限制與承辦人責任</b> · 行政院生成式AI參考指引</li>
+    </ul>
+  </div>
+
+  <div class="takeaway">
+    <span class="takeaway-title">今天帶走</span>
+    <ul class="takeaway-list">
+      <li>一套有研究根據的時間管理方法（矩陣、GTD Lite、Timeboxing、WOOP、If-Then）</li>
+      <li>任務 × 工具地圖，知道什麼任務找哪個AI工具</li>
+      <li>工作提示六要素，讓AI每次都聽懂你要什麼</li>
+      <li>會議 → 行動清單 → 追蹤工作表 → 週報，一條完整的工作流程</li>
+      <li>一份自己真實可用的「AI時間管理計劃書」</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

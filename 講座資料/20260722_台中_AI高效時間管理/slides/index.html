@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 高效時間管理 · 博幼社會福利基金會場 2026.07.22</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;
+  --bg:#ffffff;--bg2:#f5f5f7;
+  --border:#d2d2d7;--border2:#e8e8ed;
+  --orange:#e8541e;--orange-d:#c94316;
+  --blue:#0066cc;
+  --shadow:0 2px 16px rgba(0,0,0,.07);
+  --shadow-h:0 8px 32px rgba(0,0,0,.12);
+  --sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.ribbon{background:var(--bg2);border-bottom:1px solid var(--border2);padding:9px 0;text-align:center}
+.ribbon-inner{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.ribbon-inner span{font-size:.72rem;font-weight:600;color:var(--ink2);letter-spacing:.3px}
+.ribbon-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:6px;vertical-align:middle}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08);padding:0 5%;display:flex;align-items:center;height:54px}
+.nav-logo{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px}
+.nav-logo span{color:var(--orange)}
+.nav-badge{font-size:.64rem;font-weight:700;color:white;background:var(--orange);padding:2px 8px;border-radius:20px;margin-left:10px;letter-spacing:1px;text-transform:uppercase}
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 80px}
+.hero{margin-bottom:52px}
+.hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+.hero-h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:14px}
+.hero-h1 span{color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--ink2);line-height:1.75;margin-bottom:20px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap}
+.hero-pill{font-size:.78rem;font-weight:600;color:var(--ink2);padding:5px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg2)}
+.sec-label{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:block;padding-bottom:8px;border-bottom:1px solid var(--border2)}
+.slides-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:44px}
+@media(max-width:580px){.slides-grid{grid-template-columns:1fr}}
+.session-card{background:var(--bg);border:1px solid var(--border2);border-radius:16px;padding:26px 24px;text-decoration:none;transition:all .2s;display:block;box-shadow:var(--shadow)}
+.session-card:hover{border-color:rgba(232,84,30,.3);box-shadow:var(--shadow-h);transform:translateY(-2px)}
+.sc-tag{font-size:.64rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;display:block}
+.sc-time{font-size:.76rem;color:var(--ink3);margin-bottom:12px;display:block}
+.sc-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:7px;line-height:1.3}
+.sc-desc{font-size:.86rem;color:var(--ink2);line-height:1.6}
+.sc-btn{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--orange)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
+@media(max-width:580px){.res-grid{grid-template-columns:1fr}}
+.res-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 22px;text-decoration:none;transition:all .2s;display:block}
+.res-card:hover{background:var(--bg);border-color:var(--border);box-shadow:var(--shadow)}
+.res-icon{font-size:1.5rem;margin-bottom:10px;display:block}
+.res-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.res-desc{font-size:.84rem;color:var(--ink2);line-height:1.6}
+.res-btn{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.76rem;font-weight:700;color:var(--ink3)}
+.strip{background:var(--orange);border-radius:14px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.strip-label{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap}
+.strip-pills{display:flex;gap:8px;flex-wrap:wrap}
+.strip-pill{font-size:.82rem;font-weight:600;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white}
+.meta{padding-top:20px;border-top:1px solid var(--border2);display:flex;gap:24px;flex-wrap:wrap}
+.meta-item{font-size:.75rem;color:var(--ink3);letter-spacing:.3px}
+.meta-item b{color:var(--ink2);font-weight:600}
+.qr-banner{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.qr-box{width:140px;height:140px;flex-shrink:0;background:white;border-radius:10px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;padding:8px}
+#qr-canvas{width:124px;height:124px}
+.qr-info{flex:1;min-width:180px}
+.qr-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.qr-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.qr-desc{font-size:.88rem;color:var(--ink2);line-height:1.6;margin-bottom:12px}
+.qr-link{font-size:.78rem;font-weight:600;color:var(--orange);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.qr-link:hover{color:var(--orange-d);text-decoration:underline}
+@media(max-width:480px){.qr-banner{justify-content:center;text-align:center}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+
+<div class="ribbon">
+  <div class="ribbon-inner">
+    <span><span class="ribbon-dot"></span>2026.07.22 · 台中</span>
+    <span>上午 09:30–12:30 ／ 下午 13:30–16:30</span>
+    <span>博幼社會福利基金會</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <span class="nav-logo">AI<span>.</span>Workshop</span>
+  <span class="nav-badge">博幼基金會場</span>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="hero-eyebrow">AI 高效時間管理 · 主管與實習主管場</span>
+    <h1 class="hero-h1">把一天，<br>活成<span>一天半</span></h1>
+    <p class="hero-sub">交辦、排序、追蹤進度、寫報告——主管每天在做的事，AI 都能先幫你跑一輪草稿。<br>今天不只是工具課，是一套有研究根據的時間管理方法，加上讓 AI 接手一半的具體做法。</p>
+    <div class="hero-meta">
+      <span class="hero-pill">講師：季祥 Simon Chi</span>
+      <span class="hero-pill">主管 / 實習主管約 35 位</span>
+      <span class="hero-pill">6 小時實作課</span>
+    </div>
+  </div>
+
+  <div class="strip">
+    <span class="strip-label">今天帶走</span>
+    <div class="strip-pills">
+      <span class="strip-pill">重要／緊急矩陣</span>
+      <span class="strip-pill">GTD Lite</span>
+      <span class="strip-pill">Timeboxing</span>
+      <span class="strip-pill">任務×工具地圖</span>
+      <span class="strip-pill">提示六要素</span>
+      <span class="strip-pill">會議轉工作表</span>
+      <span class="strip-pill">WOOP／If-Then</span>
+      <span class="strip-pill">個人AI時間管理方案</span>
+    </div>
+  </div>
+
+  <span class="sec-label">今日投影片</span>
+  <div class="slides-grid">
+    <a href="slide-AM.html" class="session-card">
+      <span class="sc-tag">上午場 · 第 1–2 堂</span>
+      <span class="sc-time">09:30 – 12:30</span>
+      <div class="sc-title">時間管理的重要與AI導入<br>AI助攻的工作優先排序</div>
+      <div class="sc-desc">時間都去哪了、重要/緊急矩陣、GTD Lite、Timeboxing → AI能力邊界、任務×工具地圖、提示六要素、資料安全</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+    <a href="slide-PM.html" class="session-card">
+      <span class="sc-tag">下午場 · 第 3–4 堂</span>
+      <span class="sc-time">13:30 – 16:30</span>
+      <div class="sc-title">AI掌控進度與時間規劃／提升成果效率<br>完成我的AI時間管理計劃書</div>
+      <div class="sc-desc">會議前中後AI應用、資料整理、文件簡報、追蹤工作表 → AI協助排序、WOOP/If-Then、個人時間管理方案</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+  </div>
+
+  <div class="qr-banner">
+    <div class="qr-box">
+      <canvas id="qr-canvas"></canvas>
+    </div>
+    <div class="qr-info">
+      <span class="qr-eyebrow">掃描直接開啟</span>
+      <div class="qr-title">提示語全集 · 一鍵複製</div>
+      <div class="qr-desc">今天所有 Prompt 範本，手機掃描直接開，不用打字，複製貼入 ChatGPT / Gemini 就能用。</div>
+      <a href="exercises.html" class="qr-link">直接點這裡開啟 →</a>
+    </div>
+  </div>
+
+  <span class="sec-label">課程資源</span>
+  <div class="res-grid">
+    <a href="exercises.html" class="res-card">
+      <span class="res-icon">✏️</span>
+      <div class="res-title">提示語全集</div>
+      <div class="res-desc">今日所有 Prompt 範本，含優先排序、交辦、會議轉工作表、報告與簡報場景，可直接複製貼上</div>
+      <div class="res-btn">查看提示語 →</div>
+    </a>
+    <a href="handout.html" class="res-card">
+      <span class="res-icon">📋</span>
+      <div class="res-title">AI 工具速查手冊</div>
+      <div class="res-desc">任務 × 工具地圖 · ChatGPT / Gemini / Gemini Notebook / Manus 怎麼選 · 資料安全與研究出處</div>
+      <div class="res-btn">查看手冊 →</div>
+    </a>
+  </div>
+
+  <div class="meta">
+    <div class="meta-item">講師 <b>季祥 Simon Chi</b></div>
+    <div class="meta-item">對象 <b>博幼社會福利基金會 主管 / 實習主管</b></div>
+    <div class="meta-item">課程主軸 <b>時間管理方法論 × AI 工作流程</b></div>
+    <div class="meta-item">地點 <b>台中（場地確認後另行通知）</b></div>
+    <div class="meta-item">聯絡窗口 <b>王忻絨</b></div>
+  </div>
+
+</div>
+<script>
+QRCode.toCanvas(document.getElementById('qr-canvas'),
+  'https://simon-chi.com/講座資料/20260722_台中_AI高效時間管理/slides/exercises.html',
+  {width:124,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}},
+  function(err){if(err)console.error(err)}
+);
+</script>
+</body>
+</html>
