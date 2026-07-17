@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>顧問合作備忘錄 v3.0｜全育生活體能 × 季祥 Simon</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      color: #18202a;
+      background: #f5f5f5;
+      padding: 40px 20px;
+      line-height: 1.75;
+    }
+
+    .print-btn {
+      display: block;
+      margin: 0 auto 32px;
+      max-width: 900px;
+      text-align: right;
+    }
+
+    .print-btn button {
+      padding: 10px 24px;
+      background: #1a3a5c;
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 64px 64px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+
+    .letterhead {
+      border-bottom: 2px solid #1a3a5c;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+
+    .company-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1a3a5c;
+      letter-spacing: 0.03em;
+    }
+
+    .company-sub {
+      font-size: 13px;
+      color: #5b6472;
+      margin-top: 4px;
+    }
+
+    .doc-title {
+      color: #1a3a5c;
+      text-align: center;
+      margin: 26px 0 8px;
+    }
+
+    .doc-title h1 {
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .doc-title h2 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #3d5a7a;
+      margin-bottom: 4px;
+    }
+
+    .doc-title .version {
+      font-size: 12px;
+      color: #667085;
+      margin-top: 4px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+      margin: 28px 0 32px;
+      padding: 18px 20px;
+      background: #f4f7fb;
+      border: 1px solid #dce6f2;
+      border-radius: 8px;
+      font-size: 13.5px;
+    }
+
+    .meta-grid strong { color: #1a3a5c; }
+
+    .blank {
+      display: inline-block;
+      min-width: 160px;
+      border-bottom: 1px solid #98a2b3;
+      height: 1.25em;
+      vertical-align: baseline;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      font-size: 13.8px;
+    }
+
+    .notice {
+      margin: 20px 0 30px;
+      padding: 14px 16px;
+      border-left: 4px solid #1a3a5c;
+      background: #f0f5fb;
+      color: #1a3a5c;
+      font-size: 13.5px;
+    }
+
+    .section {
+      margin-bottom: 34px;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #1a3a5c;
+      border-left: 4px solid #1a3a5c;
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    .phase-header {
+      background: #1a3a5c;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px 6px 0 0;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-top: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .phase-body {
+      border: 1px solid #dce6f2;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+      background: #fafcff;
+    }
+
+    .phase-period {
+      font-size: 12.5px;
+      color: #667085;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .deliverables {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      font-size: 13.2px;
+    }
+
+    .deliverables strong {
+      display: block;
+      color: #1e40af;
+      margin-bottom: 6px;
+    }
+
+    p { margin-bottom: 10px; }
+
+    ol, ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13.2px;
+    }
+
+    th {
+      background: #1a3a5c;
+      color: #fff;
+      padding: 9px 10px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    td {
+      border: 1px solid #e4e7ec;
+      padding: 9px 10px;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #fafbfc; }
+
+    .emphasis {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 13px 15px;
+      margin: 12px 0;
+      font-size: 13.4px;
+    }
+
+    .warning-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      padding: 13px 15px;
+      margin: 12px 0;
+      font-size: 13.4px;
+    }
+
+    .fee-table {
+      margin: 16px 0;
+    }
+
+    .fee-highlight {
+      background: #f4f7fb;
+      border: 1px solid #dce6f2;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .fee-highlight .amount {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a3a5c;
+    }
+
+    .fee-highlight .label {
+      font-size: 12px;
+      color: #667085;
+    }
+
+    .sig-block {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+    }
+
+    .sig-party {
+      border-top: 2px solid #1a3a5c;
+      padding-top: 16px;
+    }
+
+    .sig-party .party-name {
+      font-weight: 800;
+      font-size: 14px;
+      color: #1a3a5c;
+      margin-bottom: 14px;
+    }
+
+    .sig-field {
+      margin-bottom: 16px;
+    }
+
+    .sig-field label {
+      display: block;
+      font-size: 12px;
+      color: #667085;
+      margin-bottom: 4px;
+    }
+
+    .sig-field .line {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #98a2b3;
+      height: 28px;
+    }
+
+    .legal-note {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e4e7ec;
+      font-size: 11.5px;
+      color: #98a2b3;
+      line-height: 1.6;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-btn { display: none; }
+      .page { box-shadow: none; padding: 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div style="max-width:900px;margin:0 auto 16px;padding:12px 20px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-family:-apple-system,sans-serif;font-size:13.5px;color:#1a3a5c;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+  <span><strong>v3.0 · 討論稿</strong> — 顧問合作備忘錄（CrossFit / HYROX 場館建置與試營運導入）</span>
+  <a href="offer-letter.html" style="color:#1a3a5c;font-weight:700;text-decoration:underline;">查看 COO 聘任協議書 v2.1 →</a>
+</div>
+
+<div class="print-btn">
+  <button onclick="window.print()">列印 / 儲存 PDF</button>
+</div>
+
+<main class="page">
+
+  <!-- Letterhead -->
+  <header class="letterhead">
+    <div class="company-name">QUANYU GROUP ｜ 全育集團</div>
+    <div class="company-sub">全育生活體能股份有限公司 · 顧問合作文件</div>
+  </header>
+
+  <!-- Title -->
+  <div class="doc-title">
+    <h1>顧問合作備忘錄</h1>
+    <h2>CrossFit / HYROX 場館建置與試營運導入</h2>
+    <div class="version">版本：v3.0 討論稿　　甲方：全育生活體能股份有限公司　　乙方：季祥（Simon Chi）</div>
+  </div>
+
+  <!-- Preamble -->
+  <div class="notice" style="margin-top:28px;">
+    甲乙雙方基於先前就全育集團 COO、高階經理人及運動事業發展所進行之討論，現階段同意優先啟動 CrossFit / HYROX 場館建置及試營運導入工作，並將原合作架構中的前期導入階段獨立為顧問專案。雙方同意依下列內容，作為顧問合作及後續正式合約之基礎。
+  </div>
+
+  <!-- Meta -->
+  <div class="meta-grid">
+    <div><strong>甲方</strong><br>全育生活體能股份有限公司<br>代表人：<span class="blank"></span></div>
+    <div><strong>乙方</strong><br>季祥（Simon Chi）<br>身分證字號：<span class="blank" style="min-width:120px;"></span></div>
+    <div><strong>專案名稱</strong><br>CrossFit / HYROX 場館建置與試營運導入</div>
+    <div><strong>備忘錄版本</strong><br>v3.0 討論稿</div>
+    <div><strong>預定啟動日</strong><br>2026 年 8 月 20 日</div>
+    <div><strong>預定完成日</strong><br>2027 年 2 月 19 日（共六個月）</div>
+  </div>
+
+  <!-- Article 1 -->
+  <section class="section">
+    <div class="section-title">第一條｜合作目標</div>
+    <p>本專案以協助甲方完成 CrossFit / HYROX 場館之前期規劃、建置導入、人力準備、課程與營運流程建立，以及試營運調整為主要目標。</p>
+    <p>乙方依其 CrossFit、HYROX、健身場館營運、教練團隊、課程產品及活動賽事等實務經驗，提供專業規劃、專案建議、建置協調與導入協助。</p>
+    <p>本專案完成後，甲方應具備下列基本營運條件：</p>
+    <ol>
+      <li>場館定位與主要服務方向明確。</li>
+      <li>空間功能區與器材配置完成。</li>
+      <li>初期教練團隊與人力配置建立。</li>
+      <li>課程產品及試營運課表完成。</li>
+      <li>體驗課、會員服務及現場營運流程建立。</li>
+      <li>試營運期間之問題完成彙整與調整。</li>
+      <li>正式開幕前之修正事項及執行清單完成。</li>
+    </ol>
+  </section>
+
+  <!-- Article 2 -->
+  <section class="section">
+    <div class="section-title">第二條｜合作期間</div>
+    <p>本專案合作期間自 <strong>2026 年 8 月 20 日</strong>起算，共計六個月，預計至 <strong>2027 年 2 月 19 日</strong>止。</p>
+    <p>2026 年 8 月 20 日為目前預定之場地點交日，乙方自該日起正式啟動場館建置與導入工作。</p>
+    <p>如實際場地點交日、裝修工程、器材進場、人員到位、許可作業或甲方決策時程有所調整，雙方應依實際情況更新專案里程碑及預定完成日期。</p>
+    <p>專案如有持續支援正式開幕或延長試營運之需要，雙方得書面確認增加第七個月之顧問合作，費用依原月顧問費標準計算。</p>
+  </section>
+
+  <!-- Article 3 -->
+  <section class="section">
+    <div class="section-title">第三條｜顧問費</div>
+
+    <div class="fee-highlight">
+      <div style="display:flex; gap:40px; align-items:flex-end;">
+        <div>
+          <div class="label">每月顧問費</div>
+          <div class="amount">NT$ 90,000</div>
+        </div>
+        <div>
+          <div class="label">六個月合計</div>
+          <div class="amount">NT$ 540,000</div>
+        </div>
+      </div>
+      <div style="margin-top:10px; font-size:12.5px; color:#667085;">本費用為專案導入顧問費，非按時計酬，亦非乙方提供固定工時、固定到班或即時待命之對價。</div>
+    </div>
+
+    <table class="fee-table">
+      <thead>
+        <tr><th>期別</th><th>計費期間</th><th>金額</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>第一期</td><td>2026 年 8 月 20 日 ～ 9 月 19 日</td><td>NT$ 90,000</td></tr>
+        <tr><td>第二期</td><td>2026 年 9 月 20 日 ～ 10 月 19 日</td><td>NT$ 90,000</td></tr>
+        <tr><td>第三期</td><td>2026 年 10 月 20 日 ～ 11 月 19 日</td><td>NT$ 90,000</td></tr>
+        <tr><td>第四期</td><td>2026 年 11 月 20 日 ～ 12 月 19 日</td><td>NT$ 90,000</td></tr>
+        <tr><td>第五期</td><td>2026 年 12 月 20 日 ～ 2027 年 1 月 19 日</td><td>NT$ 90,000</td></tr>
+        <tr><td>第六期</td><td>2027 年 1 月 20 日 ～ 2 月 19 日</td><td>NT$ 90,000</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>首期顧問費於本備忘錄或正式顧問合約簽署後，且最遲於專案啟動日前支付。</li>
+      <li>後續各期由乙方於每期開始前提出請款，甲方於收到請款文件後七個工作日內支付。</li>
+      <li>甲方依法辦理所得扣繳、申報及其他依法應辦理之作業。</li>
+      <li>因本專案產生之器材、交通、住宿、軟體、系統、外部專業服務、招募廣告、活動及其他專案支出，由甲方事前核定後另行負擔。</li>
+    </ul>
+  </section>
+
+  <!-- Article 4 -->
+  <section class="section">
+    <div class="section-title">第四條｜顧問服務方式</div>
+    <p>雙方以專案顧問模式進行合作。乙方之服務方式以下列項目為主：</p>
+    <ol>
+      <li>專案規劃與專業建議。</li>
+      <li>專案會議與決策討論。</li>
+      <li>場館現場訪視與建置檢核。</li>
+      <li>空間、器材、課程及流程文件製作。</li>
+      <li>教練招募、面試與導入協助。</li>
+      <li>試營運期間之現場觀察與改善建議。</li>
+      <li>專案進度與階段成果回報。</li>
+    </ol>
+    <p>乙方依專案里程碑及實際需求，自主安排工作方式、準備時間及執行順序。</p>
+    <p>雙方原則上每週安排一次專案進度會議；現場訪視依裝修、器材、人員、試營運等重要節點安排。</p>
+    <p>甲方應指定一名具備決策協調能力之專案負責人，作為乙方之主要聯繫窗口。</p>
+  </section>
+
+  <!-- Article 5 -->
+  <section class="section">
+    <div class="section-title">第五條｜專案階段</div>
+
+    <!-- Phase 1 -->
+    <div class="phase-header">第一階段｜場館規劃與建置啟動</div>
+    <div class="phase-body">
+      <div class="phase-period">預定期間：第 1 至第 2 個月（2026.08.20 ～ 2026.10.19）</div>
+      <p style="font-weight:600; margin-bottom:8px;">主要工作：</p>
+      <ol>
+        <li>場館定位與主要目標客群確認。</li>
+        <li>CrossFit / HYROX 服務及課程方向規劃。</li>
+        <li>空間功能區、動線與訓練區域配置建議。</li>
+        <li>器材種類、規格、數量及配置建議。</li>
+        <li>裝修及設備需求之營運面檢視。</li>
+        <li>教練與前期人力需求規劃。</li>
+        <li>課程產品初步架構。</li>
+        <li>試營運及正式開幕初步時程規劃。</li>
+      </ol>
+      <div class="deliverables">
+        <strong>階段交付成果</strong>
+        <ul>
+          <li>場館定位及營運概念建議</li>
+          <li>空間功能區配置建議</li>
+          <li>器材配置與採購建議清單</li>
+          <li>教練人力需求及招募條件</li>
+          <li>課程產品初步架構</li>
+          <li>專案總體時程及工作項目表</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-header">第二階段｜人員、課程與流程建置</div>
+    <div class="phase-body">
+      <div class="phase-period">預定期間：第 3 至第 4 個月（2026.10.20 ～ 2026.12.19）</div>
+      <p style="font-weight:600; margin-bottom:8px;">主要工作：</p>
+      <ol>
+        <li>教練職務內容及招募條件建立。</li>
+        <li>教練履歷篩選、面試及專業評估協助。</li>
+        <li>教練人力配置與排班原則建議。</li>
+        <li>教練初期工作標準及服務要求建立。</li>
+        <li>CrossFit / HYROX 初期課程產品設計。</li>
+        <li>體驗課流程及會員轉換流程設計。</li>
+        <li>試營運課表及排課原則建立。</li>
+        <li>現場基礎營運流程及 SOP 建立。</li>
+        <li>試營運前場地、器材、人員及流程檢核。</li>
+      </ol>
+      <div class="deliverables">
+        <strong>階段交付成果</strong>
+        <ul>
+          <li>教練職務需求與招募條件</li>
+          <li>教練面試及評估表</li>
+          <li>教練初期導入內容</li>
+          <li>課程產品及初期課表架構</li>
+          <li>體驗課與會員服務流程</li>
+          <li>現場基礎營運 SOP</li>
+          <li>試營運前檢核表</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-header">第三階段｜試營運導入與開幕準備</div>
+    <div class="phase-body">
+      <div class="phase-period">預定期間：第 5 至第 6 個月（2026.12.20 ～ 2027.02.19）</div>
+      <p style="font-weight:600; margin-bottom:8px;">主要工作：</p>
+      <ol>
+        <li>試營運課程與現場流程導入。</li>
+        <li>教練教學、課程品質及服務流程觀察。</li>
+        <li>課表、教練配置及課程產品調整。</li>
+        <li>體驗會員及初期會員回饋彙整。</li>
+        <li>現場營運問題與改善事項整理。</li>
+        <li>SOP、課程及服務流程修正。</li>
+        <li>正式開幕前準備狀況檢核。</li>
+        <li>開幕後初期營運重點建議。</li>
+      </ol>
+      <div class="deliverables">
+        <strong>階段交付成果</strong>
+        <ul>
+          <li>試營運觀察與問題紀錄</li>
+          <li>試營運改善建議</li>
+          <li>調整後之課程與流程內容</li>
+          <li>正式開幕前修正清單</li>
+          <li>開幕後前三個月營運建議</li>
+        </ul>
+      </div>
+      <p style="margin-top:12px; font-size:13px; color:#667085;">正式開幕日期由甲方依裝修、器材、人員、許可及整體營運準備狀況核定。</p>
+    </div>
+  </section>
+
+  <!-- Article 6 -->
+  <section class="section">
+    <div class="section-title">第六條｜甲方工作事項</div>
+    <ol>
+      <li>場館租賃、點交、工程、裝修及施工管理。</li>
+      <li>專案預算與資本支出核定。</li>
+      <li>器材、設備、系統及物資之採購與付款。</li>
+      <li>工程、設計、器材及其他供應商之選定與管理。</li>
+      <li>人員聘用、薪酬、勞動條件及最終任用決策。</li>
+      <li>消防、建管、營業登記、使用許可及其他法規事項。</li>
+      <li>場館品牌、定價、預算及重大營運決策。</li>
+      <li>提供乙方執行專案所需之圖面、預算、工程進度、供應商資訊及內部資料。</li>
+      <li>安排甲方內部人員配合專案會議、資料提供及執行工作。</li>
+      <li>場館完成後之日常營運與現場執行。</li>
+    </ol>
+    <div class="emphasis" style="margin-top:14px;">
+      甲方應就需要決策之重要事項，原則上於乙方提出後五個工作日內完成回覆或指定後續處理方式，以維持專案進度。
+    </div>
+  </section>
+
+  <!-- Article 7 -->
+  <section class="section">
+    <div class="section-title">第七條｜乙方工作事項</div>
+    <ol>
+      <li>提供 CrossFit / HYROX 場館建置與營運之專業建議。</li>
+      <li>協助整合場館定位、空間、器材、課程、人員及試營運流程。</li>
+      <li>提供課程、教練、會員體驗及現場營運之架構設計。</li>
+      <li>協助教練招募、面試、評估及初期導入。</li>
+      <li>依專案需要製作文件、表單、流程及檢核內容。</li>
+      <li>參與重要建置、器材、人員及試營運會議。</li>
+      <li>於試營運期間提供現場觀察與改善建議。</li>
+      <li>依階段提供進度、問題及後續建議。</li>
+    </ol>
+    <div class="warning-box">
+      乙方之專案責任以專業規劃、顧問建議、建置導入協助及本備忘錄所列交付成果為範圍。<br><br>
+      <strong>下列事項由甲方依其決策與執行狀況負責，不在乙方責任範圍內：</strong>營收結果、會員成交結果、工程施工品質、採購交期、人員最終任用、法規核准及甲方內部執行成果。
+    </div>
+  </section>
+
+  <!-- Article 8 -->
+  <section class="section">
+    <div class="section-title">第八條｜專案變更</div>
+    <p>本備忘錄所列服務範圍以本次 CrossFit / HYROX 專案場館為限。如甲方提出下列需求，雙方應另行確認工作範圍、時程及費用：</p>
+    <ol>
+      <li>其他場館或其他品牌之建置與導入。</li>
+      <li>完整教練培訓、認證或長期教育制度。</li>
+      <li>長期課程 programming 及課程內容製作。</li>
+      <li>開幕後之日常營運管理。</li>
+      <li>事業線營收、損益及團隊管理。</li>
+      <li>賽事、活動或品牌平台之完整建置。</li>
+      <li>AI 系統、會員系統或教練評估系統之開發。</li>
+      <li>四季健身或 4SC CrossFit 品牌、教練、場館、會員或其他資源之使用。</li>
+      <li>正式 COO、高階經理人、事業線負責人或分潤合作。</li>
+      <li>其他超出本備忘錄約定範圍之工作。</li>
+    </ol>
+    <p>專案內容如因甲方需求產生重大變更，雙方應以書面確認變更內容及相應之時程與費用。</p>
+  </section>
+
+  <!-- Article 9 -->
+  <section class="section">
+    <div class="section-title">第九條｜專案成果使用</div>
+    <p>甲方於依約支付顧問費後，取得乙方就本專案所製作之文件、表單、流程、SOP、課程架構及試營運資料，於<strong>本專案場館內部營運目的之非專屬使用權</strong>。</p>
+    <p>如甲方未來需要將前述成果運用於下列用途，雙方應另行書面約定使用範圍及合作條件：</p>
+    <ol>
+      <li>其他場館或其他品牌。</li>
+      <li>後續展店或標準化複製。</li>
+      <li>第三方合作或授權。</li>
+      <li>對外教育訓練或顧問服務。</li>
+      <li>課程、制度或文件之商業化。</li>
+      <li>品牌加盟、輸出或授權。</li>
+    </ol>
+  </section>
+
+  <!-- Article 10 -->
+  <section class="section">
+    <div class="section-title">第十條｜既有專業與外部資源</div>
+    <p>乙方於本專案開始前已具備之專業知識、管理方法、訓練方法、教練培訓邏輯、課程系統、活動賽事模型、AI 工作流程、顧問工具及其他既有 know-how，持續由乙方保有。</p>
+    <p>四季健身、4SC CrossFit 及其品牌、場館、會員、教練、教材、SOP、活動、供應商、人脈與其他資源，仍為其原有權利人所有。</p>
+    <p>甲方如有使用前述既有專業成果或外部資源之需求，雙方應另行約定合作範圍、期間、費用、分工及權利義務。</p>
+  </section>
+
+  <!-- Article 11 -->
+  <section class="section">
+    <div class="section-title">第十一條｜保密與資料管理</div>
+    <p>雙方對於因本專案取得之未公開營運、財務、人事、會員、工程、採購、課程、教練及商業資訊，均負保密義務。</p>
+    <p><strong>保密義務期間：</strong>本專案存續期間及合作終止後兩年。</p>
+    <p>因法律、主管機關、法院要求，或提供予律師、會計師、稅務與其他專業顧問所必要之資訊，得於必要範圍內揭露。</p>
+    <p>涉及會員、教練、影像、錄音、健康或其他個人資料之蒐集與使用，由甲方依適用法規及內部制度完成告知、同意與資料管理程序。</p>
+  </section>
+
+  <!-- Article 12 -->
+  <section class="section">
+    <div class="section-title">第十二條｜專案延誤與調整</div>
+    <p>因工程、裝修、器材採購、人員任用、預算核定、許可、甲方決策或其他專案條件變更，導致原訂里程碑需要調整時，雙方應更新專案進度及預計完成時間。</p>
+    <p>乙方於等待期間持續執行可推進之規劃、文件、人員、課程與流程工作，顧問費依原約計付。</p>
+    <p>如甲方書面要求專案暫停連續超過三十日，雙方應另行確認暫停期間、復工日期、剩餘工作及費用安排。</p>
+  </section>
+
+  <!-- Article 13 -->
+  <section class="section">
+    <div class="section-title">第十三條｜提前終止</div>
+    <p>任一方如需提前終止合作，應於三十日前以書面通知他方。</p>
+    <p><strong>甲方提前終止時，應支付：</strong></p>
+    <ol>
+      <li>終止生效日前已到期之顧問費。</li>
+      <li>已完成或已啟動之階段工作費用。</li>
+      <li>一個月顧問費，作為專案中止、文件整理及交接費用。</li>
+    </ol>
+    <p><strong>乙方提前終止時：</strong>應完成當期已進行工作之整理及合理交接；甲方已預付而尚未進入執行之顧問費，由雙方依實際完成比例結算。</p>
+    <p>如任一方有重大違反本備忘錄內容，經他方書面通知並給予十個工作日改善期限後仍未改善，他方得提前終止合作。</p>
+  </section>
+
+  <!-- Article 14 -->
+  <section class="section">
+    <div class="section-title">第十四條｜後續合作討論</div>
+    <p>雙方同意於本專案<strong>第五個月期間</strong>，依下列事項進行階段檢討：</p>
+    <ol>
+      <li>場館建置及試營運成果。</li>
+      <li>開幕後營運管理需求。</li>
+      <li>長期顧問合作方式。</li>
+      <li>CrossFit / HYROX 事業線負責人安排。</li>
+      <li>COO 或高階經理人合作可能性。</li>
+      <li>營運獎金、專案獎金或事業線分潤方式。</li>
+      <li>其他場館、品牌、活動、賽事及 AI 系統合作。</li>
+    </ol>
+    <p>雙方應優先就下一階段合作條件進行協商，並以另行書面簽署之文件為準。</p>
+  </section>
+
+  <!-- Article 15 -->
+  <section class="section">
+    <div class="section-title">第十五條｜備忘錄效力</div>
+    <p>本備忘錄經雙方簽署後生效，作為雙方啟動本專案及製作正式顧問合約之依據。</p>
+    <p>雙方如另行簽署正式顧問合約，正式顧問合約簽署後，以正式合約內容為準。</p>
+    <p>正式顧問合約完成前，如雙方已依本備忘錄開始履行工作、支付費用或提供專案資料，雙方同意依本備忘錄辦理。</p>
+    <p>本備忘錄之增刪、修改或補充，應經雙方以書面確認。</p>
+  </section>
+
+  <!-- Article 16 -->
+  <section class="section">
+    <div class="section-title">第十六條｜準據法與爭議處理</div>
+    <p>本備忘錄依中華民國法律解釋及適用。</p>
+    <p>雙方如對本專案內容或執行產生爭議，應先由雙方指定代表進行協商。</p>
+    <p>協商仍無法解決時，雙方同意以臺灣臺北地方法院為第一審管轄法院，但法律另有強制管轄規定者，依其規定辦理。</p>
+  </section>
+
+  <!-- Signature -->
+  <div class="sig-block">
+    <div class="sig-party">
+      <div class="party-name">甲方：全育生活體能股份有限公司</div>
+      <div class="sig-field">
+        <label>代表人</label>
+        <span class="line"></span>
+      </div>
+      <div class="sig-field">
+        <label>職稱</label>
+        <span class="line"></span>
+      </div>
+      <div class="sig-field">
+        <label>簽署日期</label>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="sig-party">
+      <div class="party-name">乙方：季祥（Simon Chi）</div>
+      <div class="sig-field">
+        <label>身分證字號</label>
+        <span class="line"></span>
+      </div>
+      <div class="sig-field">
+        <label>地址</label>
+        <span class="line"></span>
+      </div>
+      <div class="sig-field">
+        <label>簽署日期</label>
+        <span class="line"></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="legal-note">
+    本備忘錄為雙方合意之討論基礎文件（v3.0 討論稿），經雙方簽署後具備合作啟動之效力。正式顧問合約另行簽署後，以正式合約為準。
+  </p>
+
+</main>
+
+</body>
+</html>
