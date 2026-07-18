@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下午場｜叫 AI 來幫我：第3堂 三工具PK · 第4堂 生活場景與AI風險</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
+.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide.active{display:flex;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cover{background:#0f0d0c;color:white;padding:6vh 9vw}
+.cover .s-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:block}
+.cover h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:24px;color:white}
+.cover h1 .hi{color:var(--orange)}
+.cover .sub{font-size:clamp(.95rem,1.6vw,1.15rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:660px}
+.cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
+.cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.sbreak{background:#1a0d07;color:white}
+.sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
+.sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
+.divider{background:#20140c;color:white}
+.divider .s-tag{font-size:.75rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:block}
+.divider h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;color:white;border:none;padding:0;line-height:1.2;margin-bottom:16px}
+.divider h2 .hi{color:var(--orange)}
+.divider .sub{font-size:clamp(1rem,1.7vw,1.25rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:700px}
+.divider .count{position:absolute;right:8vw;bottom:6vh;font-size:clamp(4rem,10vw,8rem);font-weight:900;color:rgba(255,255,255,.05);line-height:1}
+.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
+.slide-sub{font-size:clamp(1.25rem,1.75vw,1.45rem);color:var(--dim);margin-bottom:20px;padding-left:18px}
+.eyebrow-n{font-size:clamp(3rem,7vw,5.5rem);font-weight:900;color:rgba(232,84,30,.15);line-height:1;position:absolute;right:7vw;top:8vh}
+.blist{list-style:none}
+.blist li{font-size:clamp(1.45rem,2.1vw,1.65rem);color:var(--ink);padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:10px}
+.blist li b{font-weight:700}
+.nlist{list-style:none;counter-reset:n}
+.nlist li{counter-increment:n;font-size:clamp(1.45rem,2.1vw,1.65rem);color:var(--ink);padding:11px 0 11px 46px;position:relative;border-bottom:1px solid var(--line)}
+.nlist li::before{content:counter(n);width:28px;height:28px;border-radius:50%;background:var(--orange);color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:9px}
+.nlist li span{font-size:.9rem;color:var(--dim)}
+.cgrid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:white;border-radius:10px;padding:20px 22px;border:1px solid var(--line)}
+.card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
+.ct{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cd{font-size:1.05rem;color:var(--dim);line-height:1.6}
+.chat-ui{background:#1c1c28;border-radius:12px;overflow:hidden;margin:8px 0;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.chat-bar{background:#141420;padding:9px 14px;display:flex;align-items:center;gap:6px}
+.chat-dot{width:10px;height:10px;border-radius:50%}
+.chat-dot.r{background:#ff5f57}.chat-dot.y{background:#febc2e}.chat-dot.g{background:#28c840}
+.chat-appname{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;margin-left:6px;text-transform:uppercase}
+.chat-body{padding:14px 18px}
+.chat-who{font-size:.65rem;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:7px}
+.chat-text{font-family:'Courier New',monospace;font-size:clamp(1.0rem,1.5vw,1.15rem);color:#e2e2e2;line-height:1.75;white-space:pre-wrap}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(1.0rem,1.4vw,1.15rem)}
+.tbl th{background:var(--orange);color:white;padding:11px 14px;text-align:left;font-weight:600}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:nth-child(even) td{background:white}
+.hl{border-left:3px solid var(--orange);padding:13px 17px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.25rem,1.8vw,1.5rem);color:var(--ink);line-height:1.65;margin:8px 0}
+.hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
+.hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
+.hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
+.bqslide{background:var(--paper);align-items:center;text-align:center}
+.bq{font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:800;color:var(--ink);line-height:1.35;max-width:860px}
+.bq .accent{color:var(--orange)}
+.bq-src{font-size:.92rem;color:var(--dim);margin-top:20px}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.diff-card{border-radius:12px;padding:16px}
+.diff-card.d1{background:#fff9f5;border:1px solid rgba(232,84,30,.2)}
+.diff-card.d2{background:#eff6ff;border:1px solid #bfdbfe}
+.diff-card.d3{background:#f5f0ff;border:1px solid #ddd6fe}
+.diff-icon{font-size:1.6rem;margin-bottom:8px}
+.diff-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.diff-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+.checklist{list-style:none;margin-top:12px}
+.checklist li{font-size:clamp(1.1rem,1.6vw,1.25rem);color:var(--ink);padding:9px 0 9px 34px;position:relative;border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'□';font-size:1.1rem;color:var(--orange);position:absolute;left:0;top:8px}
+.mistake-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.mistake-row{display:flex;align-items:flex-start;gap:12px;background:white;border-radius:8px;padding:11px 14px;border:1px solid var(--line)}
+.mistake-x{font-size:1rem;color:#dc2626;flex-shrink:0;margin-top:1px}
+.mistake-title{font-size:.95rem;font-weight:700;color:var(--ink)}
+.mistake-fix{font-size:.88rem;color:var(--dim);margin-top:3px}
+.sop-steps{display:flex;gap:0;margin-top:14px;flex-wrap:wrap}
+.sop-step{flex:1;min-width:140px;background:white;border:1px solid var(--line);padding:16px 14px;position:relative}
+.sop-n{font-size:1.5rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:5px}
+.sop-t{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.sop-d{font-size:.82rem;color:var(--dim);line-height:1.5}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.compare-card{background:white;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:18px}
+.compare-card:nth-child(2){border-top-color:var(--blue)}
+.compare-card h3{font-size:1.25rem;color:var(--ink);margin-bottom:8px}
+.compare-card p{font-size:1rem;color:var(--dim);line-height:1.55}
+.compare-card ul{margin-top:10px;padding-left:0;list-style:none}
+.compare-card ul li{font-size:.95rem;color:var(--dim);padding:4px 0 4px 16px;position:relative}
+.compare-card ul li::before{content:'·';color:var(--orange);position:absolute;left:0;font-weight:700}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:white;border-radius:12px;padding:18px 14px;border:1px solid var(--line);text-align:center}
+.stat-box .big{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--orange);line-height:1}
+.stat-box .label{font-size:.78rem;color:var(--dim);margin-top:6px;line-height:1.4}
+.stat-box .src{font-size:.64rem;color:rgba(110,110,115,.6);margin-top:4px}
+.cite{font-size:.78rem;color:var(--dim);margin-top:14px;padding-top:10px;border-top:1px solid var(--line);line-height:1.6}
+.cite b{color:var(--ink)}
+.agent-map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin-top:18px}
+.agent-box{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center;min-height:190px}
+.agent-box.dark{background:#111;color:white;border-color:rgba(124,106,247,.35)}
+.agent-icon{font-size:2.5rem;margin-bottom:12px}
+.agent-title{font-size:1.25rem;font-weight:900;margin-bottom:8px}
+.agent-desc{font-size:.95rem;line-height:1.55;color:var(--dim)}
+.agent-box.dark .agent-desc{color:rgba(255,255,255,.65)}
+.agent-arrow{font-size:2rem;color:var(--purple);font-weight:900}
+.factory{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:stretch;margin-top:18px}
+.factory-core{background:#111;border:1px solid rgba(124,106,247,.35);border-radius:14px;padding:24px;color:white;display:flex;flex-direction:column;justify-content:center}
+.factory-core .huge{font-size:4.8rem;font-weight:900;color:var(--purple);line-height:1;margin-bottom:12px}
+.factory-core .label{font-size:1.45rem;font-weight:900;margin-bottom:8px}
+.factory-core .desc{font-size:1rem;line-height:1.6;color:rgba(255,255,255,.62)}
+.factory-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.factory-chip{background:white;border-radius:12px;padding:18px;border:1px solid var(--line)}
+.factory-chip .t{font-size:1.15rem;font-weight:900;color:var(--ink);margin-bottom:6px}
+.factory-chip .d{font-size:.95rem;line-height:1.55;color:var(--dim)}
+.risk-board{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.risk-card{background:#111;color:white;border-radius:12px;padding:22px;border:1px solid rgba(232,84,30,.32);min-height:220px}
+.risk-card .num{font-size:3.2rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:12px}
+.risk-card .title{font-size:1.32rem;font-weight:900;margin-bottom:8px}
+.risk-card .desc{font-size:1rem;line-height:1.58;color:rgba(255,255,255,.66)}
+.truth-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.truth-card{background:white;border:1px solid var(--line);border-radius:12px;padding:20px;min-height:190px}
+.truth-card .mark{font-size:2rem;color:var(--orange);font-weight:900;margin-bottom:10px}
+.truth-card .title{font-size:1.12rem;font-weight:900;color:var(--ink);margin-bottom:8px}
+.truth-card .desc{font-size:.94rem;line-height:1.55;color:var(--dim)}
+.tool-lane{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.tool-card{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;min-height:230px}
+.tool-card:nth-child(1){border-top:5px solid var(--orange)}.tool-card:nth-child(2){border-top:5px solid var(--blue)}.tool-card:nth-child(3){border-top:5px solid var(--purple)}
+.tool-card .name{font-size:1.55rem;font-weight:900;margin-bottom:10px;color:var(--ink)}
+.tool-card .role{font-size:1.05rem;font-weight:800;color:var(--dim);margin-bottom:12px}
+.tool-card .best{font-size:.95rem;line-height:1.6;color:var(--dim)}
+#nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
+#counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
+.nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
+.nb:hover{transform:scale(1.1)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
+.home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
+.home-btn:hover{color:white}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<a href="index.html" class="home-btn">← 返回</a>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <span class="s-tag">叫 AI 來幫我 · 下午場 / 13:00–16:00</span>
+  <h1>換工具，<br><span class="hi">換場景，換角度</span></h1>
+  <div class="sub">看 Manus 怎麼自動幫你做事 · 把 AI 用在生活裡 · 最後聊清楚 AI 的紅線在哪</div>
+  <div class="bar">
+    <span class="pill">6 小時</span>
+    <span class="pill">台中市議會 國際會議廳</span>
+    <span class="pill">2026.07.21</span>
+  </div>
+  <div class="ghost">PM</div>
+</section>
+
+<!-- 2. sbreak 第3堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 3 堂 · 13:00–14:30</span>
+  <h2>三工具大 PK<br>ChatGPT vs Gemini vs Manus</h2>
+  <div class="sub">認識會自己做事的 AI Agent · 2026 Agent 新知 · 同一個任務，三個工具各跑一遍</div>
+</section>
+
+<!-- 2b. 三工具定位圖 -->
+<section class="slide">
+  <div class="slide-tag">TOOL MAP · 先知道工具性格</div>
+  <h2>三個工具，不是誰取代誰</h2>
+  <div class="slide-sub">今天先用一句話記住差異</div>
+  <div class="tool-lane">
+    <div class="tool-card"><div class="name">ChatGPT</div><div class="role">最會寫草稿</div><div class="best">適合改語氣、寫摘要、整理邏輯、把口語變成正式文字。</div></div>
+    <div class="tool-card"><div class="name">Gemini</div><div class="role">最像 Google 工作流</div><div class="best">適合搭配 Gmail、文件、搜尋脈絡，做資料整理與簡潔輸出。</div></div>
+    <div class="tool-card"><div class="name">Manus</div><div class="role">最像任務代理人</div><div class="best">適合交辦一個多步驟任務，讓它搜尋、比較、整理成成果。</div></div>
+  </div>
+  <div class="hl" style="margin-top:16px">選工具的問題不是「哪個最強」，而是「這件事是寫作、查資料，還是跑流程」。</div>
+</section>
+
+<!-- 3. Copilot vs Agent 比喻 -->
+<section class="slide">
+  <div class="slide-tag">觀念 · 一個很好懂的比喻</div>
+  <h2>副駕駛，跟代理人</h2>
+  <div class="slide-sub">微軟台灣總經理在研討會上用過的比喻</div>
+  <div class="agent-map">
+    <div class="agent-box"><div class="agent-icon">你</div><div class="agent-title">下指令</div><div class="agent-desc">目標、資料、限制條件講清楚。</div></div>
+    <div class="agent-arrow">→</div>
+    <div class="agent-box dark"><div class="agent-icon">Agent</div><div class="agent-title">自己拆任務</div><div class="agent-desc">搜尋、比較、整理、建立草稿，不只回一句話。</div></div>
+    <div class="agent-arrow">→</div>
+    <div class="agent-box"><div class="agent-icon">你</div><div class="agent-title">審核交付</div><div class="agent-desc">最後仍由人核對事實、法規、語氣與責任。</div></div>
+  </div>
+  <div class="cite">微軟 2026年5月發布的《Work Trend Index》年度報告調查了10個國家、2萬名AI使用者：企業裡的AI代理數量比去年成長了<b>15倍</b>，大型企業甚至成長<b>18倍</b>；而在「深度使用AI」的員工中，<b>82%</b>表示自己做出了一年前做不到的工作成果。來源：<b>Microsoft WorkLab</b>《2026 Work Trend Index Annual Report》</div>
+  <div class="hl" style="margin-top:14px">數字很快，但方向很清楚——AI代理正在從「新奇的功能」變成「企業裡實際在用的工具」，這不是三年後的事，是現在正在發生的事。</div>
+</section>
+
+<!-- 4. Manus是什麼 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">MANUS · AI AGENT</div>
+  <h2 style="color:white;border-left-color:var(--orange)">Manus 不只回答，<br>它會自己去做事</h2>
+  <div style="display:flex;align-items:center;justify-content:center;margin-top:24px;gap:48px;flex-wrap:wrap">
+    <img src="assets/qr/manus-invitation.png" alt="Manus" style="width:160px;height:160px;border-radius:14px;border:3px solid rgba(124,106,247,.5)">
+    <div style="max-width:420px">
+      <div style="font-size:1.05rem;color:rgba(255,255,255,.8);line-height:1.75;margin-bottom:14px">ChatGPT / Gemini：你問 → 它答 → 你自己執行<br>Manus：你下一個任務 → <b style="color:white">它自己開瀏覽器、整理資料、寫成報告</b> → 你回來拿成果</div>
+      <div style="font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.6">還沒申請的，掃左邊 QR，午休空檔申請就好，審核需要一點時間。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:20px;background:rgba(232,84,30,.12);color:rgba(255,255,255,.85)">⚠ 練習時只用公開資料、模擬資料——不要放民眾個資、未公開公文、內部簽呈。Agent 會把你給的資料存到雲端跑任務，機敏資訊不適合交給它。</div>
+</section>
+
+<!-- 5. AI Agent新知 -->
+<section class="slide">
+  <div class="slide-tag">新知 · 2026 Agent 元年</div>
+  <h2>不只 Manus，大家都在做 Agent</h2>
+  <div class="slide-sub">微軟、Google、OpenAI 都在講同一件事</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="big">Microsoft</div><div class="label">Copilot 加入 Agent 功能，自動處理 Excel/Outlook 任務</div></div>
+    <div class="stat-box"><div class="big">Google</div><div class="label">Gemini 整合 Agent，能跨 App 自動完成多步驟工作</div></div>
+    <div class="stat-box"><div class="big">OpenAI</div><div class="label">ChatGPT Work / GPT-5.6 支援多步驟自動任務</div></div>
+    <div class="stat-box"><div class="big">Manus</div><div class="label">獨立 Agent 平台，任務導向、自動搜尋整理</div></div>
+  </div>
+  <div class="hl" style="margin-top:16px">工具名字會一直換，但「你下任務、AI自己跑完」這個方向，是接下來幾年的主流。</div>
+</section>
+
+<!-- 5b. 時事：NVIDIA AI工廠 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--purple)">時事 · AI Agent背後需要什麼</div>
+  <h2 style="color:white;border-left-color:var(--purple)">AI 工廠：<br>黃仁勳的比喻</h2>
+  <div class="factory">
+    <div class="factory-core"><div class="huge">AI</div><div class="label">新的生產線</div><div class="desc">以前工廠生產汽車與衣服；AI 工廠生產答案、影像、模型與自動化能力。</div></div>
+    <div class="factory-grid">
+      <div class="factory-chip"><div class="t">算力</div><div class="d">GPU、資料中心、電力與冷卻，是 Agent 能跑多步驟任務的底座。</div></div>
+      <div class="factory-chip"><div class="t">資料</div><div class="d">公開資料、上傳文件、工具連結，決定輸出的品質。</div></div>
+      <div class="factory-chip"><div class="t">模型</div><div class="d">ChatGPT、Gemini、Manus 背後都是模型能力的商品化。</div></div>
+      <div class="factory-chip"><div class="t">人類審核</div><div class="d">越自動化，越需要清楚規則與人工把關。</div></div>
+    </div>
+  </div>
+  <div class="cite" style="color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.15)">來源：<b>Data Center Frontier</b>〈Jensen Huang Maps the AI Factory Era at NVIDIA GTC 2026〉、<b>SiliconANGLE</b>，2026年6月</div>
+  <div class="hl bl" style="margin-top:16px;background:rgba(124,106,247,.15);color:rgba(255,255,255,.85)">這正好解釋了為什麼 Manus 這種「自己會做事」的 AI 現在才普及——背後需要的運算能力，是這一兩年才真正到位的。</div>
+</section>
+
+<!-- ══════ 分組：Agent的兩個界線 ══════ -->
+
+<!-- 6. divider -->
+<section class="slide divider">
+  <span class="s-tag">觀念 · 劃清界線</span>
+  <h2>Agent 能做什麼，<br><span class="hi">不能做什麼</span></h2>
+  <div class="sub">先劃清界線，才不會期待錯方向</div>
+  <div class="count">A / B</div>
+</section>
+
+<!-- 7. 適合交給Agent -->
+<section class="slide">
+  <div class="eyebrow-n">A</div>
+  <div class="slide-tag">✓ 適合交給 Agent</div>
+  <h2>需要花時間、多步驟的事</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">需要搜尋多個來源再整合的事、重複性高的資料整理、幫你先跑一輪初步比較——這些「你自己做要花很久，但規則清楚」的任務，最適合交給 Agent。</div>
+</section>
+
+<!-- 8. 不適合交給Agent -->
+<section class="slide">
+  <div class="eyebrow-n">B</div>
+  <div class="slide-tag">✕ 不適合交給 Agent</div>
+  <h2>需要你當場判斷的事</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">需要你當場判斷的決策、涉及機敏資料的任務、需要對外負責的最終文件——這些事讓 Agent 自己跑，風險比省下的時間更高。</div>
+  <div class="cite">連企業界都還在觀望：85%的企業已經在試辦AI代理，但只有5%信任度足以正式上線。（來源：VentureBeat，2026年4月）</div>
+  <div class="hl bl" style="margin-top:14px">Agent 不是有意識的助理，它是「照你設定的任務，自動跑步驟」的工具——方向錯了，它會跑得又快又錯。</div>
+</section>
+
+<!-- ══════ 分組：同一任務三種做法 ══════ -->
+
+<!-- 9. divider -->
+<section class="slide divider">
+  <span class="s-tag">DEMO · 同一個任務</span>
+  <h2>幫民眾找<br><span class="hi">一份補助申請流程</span></h2>
+  <div class="sub">三個工具，各跑一遍給你看</div>
+  <div class="count">①②③</div>
+</section>
+
+<!-- 10. ChatGPT做法 -->
+<section class="slide">
+  <div class="eyebrow-n">①</div>
+  <div class="slide-tag">💬 ChatGPT 的做法</div>
+  <h2>你問，它根據知識回答</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">你問「補助申請流程是什麼」，它根據既有知識回答，語氣清楚、邏輯完整，但不會主動幫你去查最新公告或最新的申請期限。</div>
+  <div class="hl dim" style="margin-top:16px">適合：你想快速了解一個流程的大致邏輯</div>
+</section>
+
+<!-- 11. Gemini做法 -->
+<section class="slide">
+  <div class="eyebrow-n">②</div>
+  <div class="slide-tag">🔎 Gemini 的做法</div>
+  <h2>可以順便幫你查最新資料</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">Gemini 可以接 Google 搜尋，回答會附上參考來源連結，適合需要「查一下最新資料」的情境——比如確認補助方案是不是還在受理期間。</div>
+  <div class="hl bl" style="margin-top:16px">適合：需要確認資訊是否為最新版本的時候</div>
+</section>
+
+<!-- 12. Manus做法 -->
+<section class="slide">
+  <div class="eyebrow-n">③</div>
+  <div class="slide-tag">🟣 Manus 的做法</div>
+  <h2>你下任務，它自己整理成表格</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">你下任務「整理這三個補助方案的申請條件比較表」，它自己搜尋、整理成一份表格，你回來直接拿去用——不用自己一個一個網頁點開比對。</div>
+  <div class="hl g" style="margin-top:16px">簡單問答用 ChatGPT/Gemini；要花時間查資料、整理成一份東西，讓 Manus 去跑。</div>
+</section>
+
+<!-- 13. 換你打字：同一句話問兩個工具 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3 分鐘</div>
+  <h2>換你比比看，ChatGPT 跟 Gemini</h2>
+  <div class="slide-sub">同一句話，兩邊都打一次</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">先開 ChatGPT，再開 Gemini</span></div>
+    <div class="chat-body">
+      <span class="chat-who">兩邊都打這句</span>
+      <div class="chat-text">我是台中市議會人事室的同仁，請用三個重點跟我說明[你手上正在處理的一件事]，
+用一般民眾聽得懂的白話文。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">感受一下：哪個回答比較清楚？哪個語氣你比較喜歡？沒有標準答案，找到自己順手的就好。</div>
+</section>
+
+<!-- 14. 情境二demo -->
+<section class="slide">
+  <div class="slide-tag">DEMO · 情境二</div>
+  <h2>整理三家廠商報價比較</h2>
+  <div class="slide-sub">辦活動、採購常遇到的情境</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">Manus</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Manus 任務範例</span>
+      <div class="chat-text">請幫我整理以下三家廠商的報價資料，做成一份比較表：
+[貼上三份報價的重點，或口頭描述金額/項目/條件]
+比較欄位：單價、總價、交期、附加條件。最後給我一個建議排序。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">這種「多來源整合成一份表格」的事，正是 Agent 型 AI 最擅長的。</div>
+</section>
+
+<!-- 15. 換你打字：情境二練習 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3–4 分鐘</div>
+  <h2>換你整理一份比較表</h2>
+  <div class="slide-sub">沒有 Manus 帳號也沒關係，先用 ChatGPT / Gemini 練習</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini / Manus · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">請幫我把以下幾個選項整理成一份比較表：[打幾個你手上正在比較的東西，例如廠商、方案、地點]
+比較欄位：[你在意的幾個條件]。最後給我一個建議排序。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">已經申請到 Manus 的人可以直接用 Manus 跑跑看，感受一下「自動」和「你自己整理」的差別。</div>
+</section>
+
+<!-- 16. Manus任務示範mockup -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--purple)">觀念 · 一個完整任務長什麼樣子</div>
+  <h2 style="color:white;border-left-color:var(--purple)">Manus 跑完一個任務<br>會給你什麼</h2>
+  <div class="cgrid g2" style="margin-top:20px">
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--purple);margin-bottom:8px">你下的任務</div>
+      <div style="font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.6">「整理台中市其他五個縣市議會的AI導入案例，做成一份比較報告」</div>
+    </div>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:8px">它自己做的事</div>
+      <div style="font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.6">開瀏覽器搜尋 → 篩選相關新聞/資料 → 整理成表格 → 寫摘要 → 存成一份文件</div>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:16px;background:rgba(0,102,204,.1);color:rgba(255,255,255,.85)">你回來的時候，桌上已經有一份可以審閱的報告——這就是「你下任務、它跑完」的意思。</div>
+</section>
+
+<!-- ══════ 分組：哪些單位已在用 ══════ -->
+
+<!-- 17. divider -->
+<section class="slide divider">
+  <span class="s-tag">新知 · 誰已經在用</span>
+  <h2>哪些政府單位<br><span class="hi">已經在用 AI Agent</span></h2>
+  <div class="sub">還是早期階段，但方向很清楚</div>
+  <div class="count">01–02</div>
+</section>
+
+<!-- 18. 研考幕僚單位 -->
+<section class="slide">
+  <div class="eyebrow-n">01</div>
+  <div class="slide-tag">案例一 · 研考 / 幕僚單位</div>
+  <h2>自動彙整跨部門資料</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">用來自動彙整跨部門會議資料、產出定期報告初稿，省下人工蒐集、拼湊各單位資料的時間。</div>
+</section>
+
+<!-- 19. 研究政策分析單位 -->
+<section class="slide">
+  <div class="eyebrow-n">02</div>
+  <div class="slide-tag">案例二 · 研究 / 政策分析單位</div>
+  <h2>加快跨縣市政策研究</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">用來做跨縣市、跨國政策比較研究，加快前期資料蒐集的速度——原本要花好幾天蒐集的資料，現在可以先讓 Agent 跑一輪初稿。</div>
+  <div class="hl" style="margin-top:16px">先熟悉工具的人，之後會比較不吃力——這是今天下午想幫你們單位打的底。</div>
+</section>
+
+<!-- 20. 道德議題：你會成為AI的監督者 -->
+<section class="slide">
+  <div class="slide-tag">道德議題 · 誰對 AI 的錯誤負責</div>
+  <h2>你不是被取代，<br>你是 AI 的監督者</h2>
+  <div class="slide-sub">角色正在改變，不是消失</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card o">
+      <div class="ct">以前的工作方式</div>
+      <div class="cd">自己查資料、自己寫、自己送出——每一步都是你親手做</div>
+    </div>
+    <div class="card p">
+      <div class="ct">未來的工作方式</div>
+      <div class="cd">告訴 AI 做什麼、審核它做得對不對、決定要不要送出——你管理的是結果，不是過程</div>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:14px">這帶出一個核心問題：AI 做錯的時候，誰負責？答案是——你。這也是為什麼「審核」這個動作，永遠不能省略。</div>
+</section>
+
+<!-- 21. 第3堂收尾 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 第3堂</div>
+  <h2>帶走的話</h2>
+  <div class="bq" style="font-size:clamp(1.5rem,3vw,2.2rem);text-align:left;max-width:100%">工具會換，<span class="accent" style="color:var(--orange)">思路不換</span>。</div>
+  <div class="hl dim" style="margin-top:24px">下一堂：把今天學的，用在生活裡試試看。</div>
+</section>
+
+<!-- 22. sbreak 第4堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 4 堂 · 14:30–16:00</span>
+  <h2>生活場景實戰<br>+ AI 的風險與紅線</h2>
+  <div class="sub">旅遊 · 食譜 · 親子 · 賀詞 · 預算 · 證件照，六個情境動手做 · 最後聊清楚什麼能用、什麼不能用</div>
+</section>
+
+<!-- 23. 回顧：AI的過去現在未來 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 過去 → 現在 → 未來</div>
+  <h2>今天已經走了一大半，複習一下</h2>
+  <div class="cgrid g3" style="margin-top:14px">
+    <div class="card dim"><div class="ct">過去</div><div class="cd">AI 是查詢工具，你問、它答，你自己執行剩下所有步驟</div></div>
+    <div class="card o"><div class="ct">現在（今天上午+中午學的）</div><div class="cd">AI 能生成草稿、能整合多來源、能自己跑完一個任務（Manus）</div></div>
+    <div class="card p"><div class="ct">未來（正在發生）</div><div class="cd">AI 進入日常工作流程，你的角色從「自己做」變成「設定方向＋審核結果」</div></div>
+  </div>
+  <div class="hl" style="margin-top:14px">接下來這一堂，把這條線延伸到你的生活——AI 在家裡，也是同一套邏輯。</div>
+</section>
+
+<!-- 24. 六個生活情境 -->
+<section class="slide">
+  <div class="slide-tag">SCENARIOS · 挑一個，等一下自己試</div>
+  <h2>AI 也能是家人的備用大腦</h2>
+  <div class="cgrid g3" style="margin-top:14px">
+    <div class="card o"><div class="ct">🧳 旅遊行程規劃</div><div class="cd">「幫我排一個台中兩天一夜親子行程，帶6歲小孩，不要走太多路」</div></div>
+    <div class="card b"><div class="ct">🍚 假日食譜與購物清單</div><div class="cd">「用冰箱剩下的[食材]，設計三道家常菜，順便列購物清單」</div></div>
+    <div class="card g"><div class="ct">🧒 親子活動安排</div><div class="cd">「週末在台中，適合國小低年級的室內活動，天氣不好也能去」</div></div>
+    <div class="card o"><div class="ct">💌 節日賀詞 / 祝福文字</div><div class="cd">「幫我寫一段給長輩的中秋祝福文字，要有禮貌又不生硬」</div></div>
+    <div class="card b"><div class="ct">💰 家庭預算問答</div><div class="cd">「幫我列一份四口之家每月基本開銷試算表，含教育與保險」</div></div>
+    <div class="card g"><div class="ct">📸 AI證件照</div><div class="cd">用生活照生成一張證件照規格的照片，最後一堂會示範</div></div>
+  </div>
+</section>
+
+<!-- 25. 範例展開：旅遊規劃 -->
+<section class="slide">
+  <div class="slide-tag">DEMO · 旅遊行程規劃</div>
+  <h2>示範一次給你看</h2>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Prompt 範例</span>
+      <div class="chat-text">我們一家四口（兩大兩小，小孩6歲和9歲）要去台中玩兩天一夜。
+喜歡：室內景點、不要走太多路、想吃在地小吃。
+請幫我排一份行程，包含上午/下午/晚餐建議，附交通方式。</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:14px">一樣是角色（一家四口）+ 格式（兩天一夜行程表）+ 背景講清楚（小孩年紀、喜好）。</div>
+</section>
+
+<!-- 26. 換你打字：旅遊規劃 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3 分鐘</div>
+  <h2>①換你排一趟行程</h2>
+  <div class="slide-sub">用你自己的家庭組成、想去的地方</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">我們[家庭成員組成]要去[地點]玩[天數]。
+喜歡：[偏好]。
+請幫我排一份行程，包含上午/下午/晚餐建議，附交通方式。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">打完看結果，不滿意就追問：「太趕了，可以減少一個景點嗎」。</div>
+</section>
+
+<!-- 27. 換你打字：食譜與購物清單 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3 分鐘</div>
+  <h2>②換你想今晚吃什麼</h2>
+  <div class="slide-sub">冰箱現在有什麼，直接打進去</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">用冰箱剩下的[食材清單]，設計三道家常菜，難度簡單，
+順便列一份需要額外購買的購物清單。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">沒有具體食材也沒關係，先寫「常見的家裡食材」練習一次。</div>
+</section>
+
+<!-- 28. 換你打字：親子活動安排 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3 分鐘</div>
+  <h2>③換你排一個週末活動</h2>
+  <div class="slide-sub">給小孩、給自己都可以</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">週末在[地區]，適合[年齡層]的[室內/戶外]活動，
+[如果有特殊需求，寫在這裡，例如天氣不好也能去、預算有限]。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">沒有小孩也可以換成「適合朋友聚會」或「適合一個人放鬆」。</div>
+</section>
+
+<!-- 29. 換你打字：節日賀詞 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 2–3 分鐘</div>
+  <h2>④換你寫一段祝福</h2>
+  <div class="slide-sub">最快能感受到 AI 幫忙的一個</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">幫我寫一段給[對象，例如長輩/朋友/同事]的[節日]祝福文字，
+語氣[要有禮貌又不生硬 / 輕鬆活潑]，[字數]以內。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">打完可以直接傳給那個人看看反應——這是今天最快能實際「用出去」的一個。</div>
+</section>
+
+<!-- 30. 換你打字：家庭預算 -->
+<section class="slide">
+  <div class="slide-tag" style="color:var(--green)">✏️ 換你打字 · 給自己 3–4 分鐘</div>
+  <h2>⑤換你列一份試算表</h2>
+  <div class="slide-sub">大概估算就好，不用精確</div>
+  <div class="chat-ui">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini · 你來打</span></div>
+    <div class="chat-body">
+      <span class="chat-who">把空格換成你的內容</span>
+      <div class="chat-text">幫我列一份[家庭成員組成]每月基本開銷試算表，
+含[食衣住行/教育/保險等項目]，用表格呈現。</div>
+    </div>
+  </div>
+  <div class="hl g" style="margin-top:14px">五個情境都打過一輪了——挑你最喜歡的那個結果，等一下可以分享給旁邊的人看。</div>
+</section>
+
+<!-- 31. AI證件照demo -->
+<section class="slide">
+  <div class="slide-tag">DEMO · ⑥ 好玩又實用</div>
+  <h2>AI 也能幫你生成證件照</h2>
+  <div class="slide-sub">不用跑照相館，手機一張生活照就能改</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card o">
+      <div class="ct">怎麼做</div>
+      <div class="cd">用 ChatGPT 或 Gemini 的圖片功能，上傳一張清楚的生活照，請它「去背、換成正式服裝、調整成證件照規格、白色背景」</div>
+    </div>
+    <div class="card b">
+      <div class="ct">要注意</div>
+      <div class="cd">拿來做識別證、活動小卡、大頭貼這類非正式用途最沒有爭議</div>
+    </div>
+  </div>
+  <div class="hl bl" style="margin-top:14px">⚠ 正式證件（身分證、護照、駕照）<b>仍以申辦單位的規範為準</b>——AI生成的照片不一定能直接用於正式申請，尺寸、背景、拍攝方式都可能有法規要求，真的要辦證件還是要照機關規定來，不要拿AI生成照直接送件。</div>
+  <div class="hl" style="margin-top:10px">回家可以試試看非正式用途——這是今天最容易讓家人朋友驚豔的一招。</div>
+</section>
+
+<!-- ══════ 分組：生活場景新知 ══════ -->
+
+<!-- 32. divider -->
+<section class="slide divider">
+  <span class="s-tag">新知 · 還沒示範的用法</span>
+  <h2>AI 在生活裡<br><span class="hi">還能做什麼</span></h2>
+  <div class="sub">同一套邏輯，換到任何生活情境都能用</div>
+  <div class="count">01–03</div>
+</section>
+
+<!-- 33. 健康提醒 -->
+<section class="slide">
+  <div class="eyebrow-n">01</div>
+  <div class="slide-tag">💊 健康提醒</div>
+  <h2>幫長輩整理用藥時間表</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">「幫我整理長輩每天要吃的藥，做成一張時間表」——把藥袋上的資訊拍照或打字給AI，它可以幫你排出一天的服藥時刻表，方便貼在家裡提醒。</div>
+</section>
+
+<!-- 34. 陪小孩學習 -->
+<section class="slide">
+  <div class="eyebrow-n">02</div>
+  <div class="slide-tag">📚 陪小孩學習</div>
+  <h2>用孩子聽得懂的方式解釋</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">「用小學三年級能懂的方式解釋光合作用」——AI可以依照年齡調整解釋的難度，比自己想辦法「翻譯」課本內容快很多。</div>
+</section>
+
+<!-- 35. 居家維修判斷 -->
+<section class="slide">
+  <div class="eyebrow-n">03</div>
+  <div class="slide-tag">🏡 居家維修判斷</div>
+  <h2>先問AI，再決定要不要叫師傅</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">「馬桶一直漏水，可能是哪裡出問題，先自己排除還是要叫水電」——AI可以幫你初步判斷問題方向，省下不必要的叫修費用，但真的複雜的還是要找專業。</div>
+  <div class="hl" style="margin-top:16px">同一套「角色+格式+背景講清楚」，換到任何生活情境都能用。</div>
+</section>
+
+<!-- 35b. 今晚就能用的5件事 -->
+<section class="slide">
+  <div class="slide-tag">RECAP · 今晚回家就能用</div>
+  <h2>你今晚就能用的 5 件事</h2>
+  <div class="slide-sub">快速複習今天下午學的</div>
+  <ul class="nlist" style="margin-top:10px">
+    <li>幫長輩整理<b>藥袋時間表</b><span>拍照或打字給AI，排出一天服藥時刻</span></li>
+    <li>幫小孩<b>解釋今天的功課</b><span>換成他聽得懂的年齡語言</span></li>
+    <li>排一個<b>週末行程</b><span>套上「角色+格式+背景」公式</span></li>
+    <li>用<b>冰箱剩下的食材</b>想三道菜<span>順便列購物清單</span></li>
+    <li>寫一段<b>不尷尬的祝福文字</b><span>給許久沒聯絡的朋友或長輩</span></li>
+  </ul>
+</section>
+
+<!-- 36. 現場整理成果 -->
+<section class="slide">
+  <div class="slide-tag">WRAP-UP · 5 分鐘</div>
+  <h2>還有時間？挑一個自己的情境</h2>
+  <ul class="nlist" style="margin-top:12px">
+    <li>五個情境都試過了，還有時間的話<b>換一個你自己真正想解決的事</b><span>不用跟課本一樣，你的生活情境都可以</span></li>
+    <li>套用「角色 + 格式 + 講清楚背景」打出你的 prompt</li>
+    <li>看 AI 回答，覺得不夠好就<b>再追問一次</b><span>「可以再具體一點嗎」「這個太貴了，換便宜的」</span></li>
+    <li>帶著今天打出來的成果離開——回家就能用</li>
+  </ul>
+</section>
+
+<!-- 37. 生活場景收尾 -->
+<section class="slide">
+  <div class="slide-tag">TAKEAWAY · 生活場景</div>
+  <h2>帶走的話</h2>
+  <div class="bq" style="font-size:clamp(1.5rem,3vw,2.2rem);text-align:left;max-width:100%">AI 是<span class="accent" style="color:var(--orange)">家人的備用大腦</span>。</div>
+  <div class="hl dim" style="margin-top:24px">最後一段：實作收尾，再聊清楚 AI 的紅線在哪。</div>
+</section>
+
+<!-- 38. 最後動手做一次 -->
+<section class="slide">
+  <div class="slide-tag">HANDS-ON · 最後一次動手做</div>
+  <h2>今天想完成的一件事</h2>
+  <div class="slide-sub">現在讓 AI 幫你做</div>
+  <div class="sop-steps">
+    <div class="sop-step"><div class="sop-n">1</div><div class="sop-t">挑一件事</div><div class="sop-d">工作的、生活的都可以，選一件你今天最想解決的</div></div>
+    <div class="sop-step"><div class="sop-n">2</div><div class="sop-t">套公式打 prompt</div><div class="sop-d">角色 + 格式 + 背景講清楚</div></div>
+    <div class="sop-step"><div class="sop-n">3</div><div class="sop-t">追問調整</div><div class="sop-d">不滿意就再問一次，AI 不會生氣</div></div>
+    <div class="sop-step"><div class="sop-n">4</div><div class="sop-t">帶走成果</div><div class="sop-d">存到手機或分享到社群，今天就是你的</div></div>
+  </div>
+</section>
+
+<!-- 38b. 公部門用AI先守住三條線 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">最後一段 · 先記住這頁就夠</div>
+  <h2 style="color:white;border-left-color:var(--orange)">公部門用 AI，<br>先守住三條線</h2>
+  <div class="risk-board">
+    <div class="risk-card"><div class="num">01</div><div class="title">資料線</div><div class="desc">個資、未公開公文、內部簽呈，不貼進公開 AI 工具。</div></div>
+    <div class="risk-card"><div class="num">02</div><div class="title">事實線</div><div class="desc">數字、日期、法規、單位名稱，回到原始文件核對。</div></div>
+    <div class="risk-card"><div class="num">03</div><div class="title">責任線</div><div class="desc">AI 可以幫你起草，但不能替你判斷、承諾或負責。</div></div>
+  </div>
+  <div class="hl" style="margin-top:20px;background:rgba(232,84,30,.15);color:white">AI 可以幫你加速，但不能替你負責。</div>
+</section>
+
+<!-- ══════ 分組：AI會自信地說錯話 ══════ -->
+
+<!-- 39. divider -->
+<section class="slide divider">
+  <span class="s-tag">RISK 1 · 幻覺與假訊息</span>
+  <h2>AI 會<br><span class="hi">自信地說錯話</span></h2>
+  <div class="sub">兩種你要提防的錯誤內容</div>
+  <div class="count">A / B</div>
+</section>
+
+<!-- 40. 幻覺 -->
+<section class="slide">
+  <div class="eyebrow-n">A</div>
+  <div class="slide-tag">幻覺 Hallucination</div>
+  <h2>它不會告訴你「我不確定」</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">AI 講錯的時候，語氣跟講對的時候一樣自信，不會主動說「我不確定」。數字、日期、法規條文一定要人工核對，這是今天重複最多次的一句話，因為它真的最重要。</div>
+</section>
+
+<!-- 41. 深偽案例新知 -->
+<section class="slide">
+  <div class="eyebrow-n">B</div>
+  <div class="slide-tag">深偽 Deepfake · 真實案例</div>
+  <h2>眼見不一定為憑</h2>
+  <div class="slide-sub">香港 Arup 工程顧問公司真實案例</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="big">2,560萬</div><div class="label">員工被AI深偽視訊會議騙走的金額（美元）</div></div>
+    <div class="stat-box"><div class="big">3秒</div><div class="label">複製一個人聲音只需要的錄音長度</div></div>
+    <div class="stat-box"><div class="big">1,210%</div><div class="label">AI相關詐騙2025年暴增幅度</div></div>
+  </div>
+  <div class="cite">來源：CNN、CNBC，2026年5月</div>
+  <div class="hl" style="margin-top:14px">台灣也有真實案例：AI換臉名人拍投資詐騙廣告、AI合成臉部驗證影片盜刷存款——公部門特別容易成為目標，多一個「先用其他管道核對」的習慣，比事後補救省事很多。</div>
+</section>
+
+<!-- 42. 風險2: 個資+著作權 -->
+<section class="slide">
+  <div class="slide-tag">RISK 2 · 個資隱私與著作權</div>
+  <h2>什麼不能貼給 AI</h2>
+  <div class="mistake-list">
+    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">個資隱私</div><div class="mistake-fix">民眾姓名、身分證號、機敏資料不要貼進去；用「某甲」代替，處理完再填回實際內容</div></div></div>
+    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">著作權</div><div class="mistake-fix">AI 產出不等於可以直接使用，尤其是對外發布的圖片、文案，要再確認授權與原創性</div></div></div>
+  </div>
+</section>
+
+<!-- ══════ 分組：公務場合的紅線 ══════ -->
+
+<!-- 43. divider -->
+<section class="slide divider">
+  <span class="s-tag">RISK 3 · 公務場合的紅線</span>
+  <h2>什麼能用，<br><span class="hi">什麼不能用</span></h2>
+  <div class="sub">把界線劃清楚，用起來才安心</div>
+  <div class="count">A / B</div>
+</section>
+
+<!-- 44. 可以放心用 -->
+<section class="slide">
+  <div class="eyebrow-n">A</div>
+  <div class="slide-tag">✓ 可以放心用</div>
+  <h2>執行層、非最終決定的事</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">草稿撰寫、語氣潤飾、格式整理、公開資訊摘要、內部溝通文字——這些今天上午都已經練習過，可以放心繼續用。</div>
+</section>
+
+<!-- 45. 要格外小心 -->
+<section class="slide">
+  <div class="eyebrow-n">B</div>
+  <div class="slide-tag">✕ 要格外小心</div>
+  <h2>機敏、最終負責的事</h2>
+  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">機敏公文全文、個案認定、法規解釋的最終依據——AI 給草稿，你做最終審核，這條線不能鬆。</div>
+  <div class="hl bl" style="margin-top:16px">AI 是你的工具，就像 Excel 一樣，不需要特別說明——但你要對最終產出的內容負責。</div>
+</section>
+
+<!-- 46. 觀念：會用AI的人會取代不會用的人 -->
+<section class="slide bqslide">
+  <div class="bq">AI 不會取代你，<br>但<span class="accent">會用 AI 的人</span>，<br>會慢慢跑在你前面。</div>
+  <div class="bq-src">這不是威脅，是今天六小時想讓你先一步準備好</div>
+</section>
+
+<!-- 47. 道德討論：省下來的時間該用在哪裡 -->
+<section class="slide">
+  <div class="slide-tag">留給你想一想 · 沒有標準答案</div>
+  <h2>如果 AI 真的幫你省了時間，<br>那些時間該用在哪裡？</h2>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card o">
+      <div class="ct">一種答案</div>
+      <div class="cd">省下來的時間，拿去處理更多案子——單位效率提升，服務量能變大</div>
+    </div>
+    <div class="card b">
+      <div class="ct">另一種答案</div>
+      <div class="cd">省下來的時間，用在真正需要你判斷、需要溫度的個案上——量沒有變大，但每一件事做得更細</div>
+    </div>
+  </div>
+  <div class="hl dim" style="margin-top:14px">沒有標準答案，但這是今天最值得帶回去，在辦公室裡跟同事聊聊的一個問題。</div>
+</section>
+
+<!-- 48. 如何判斷AI說的是不是真的 -->
+<section class="slide">
+  <div class="slide-tag">CHECKLIST · 收到 AI 回覆，先問這幾個問題</div>
+  <h2>如何判斷 AI 說的是不是真的</h2>
+  <div class="truth-steps">
+    <div class="truth-card"><div class="mark">1</div><div class="title">找來源</div><div class="desc">數字、日期、法規，能不能回到原始文件？</div></div>
+    <div class="truth-card"><div class="mark">2</div><div class="title">問第二次</div><div class="desc">換個問法再問，答案有沒有前後矛盾？</div></div>
+    <div class="truth-card"><div class="mark">3</div><div class="title">查太完美</div><div class="desc">聽起來剛好符合期待的答案，反而要多核對。</div></div>
+    <div class="truth-card"><div class="mark">4</div><div class="title">對外必審</div><div class="desc">只要要對外發布，就不能只靠 AI 的回答。</div></div>
+  </div>
+</section>
+
+<!-- 49. 課後問卷 -->
+<section class="slide" style="background:#0f0d0c">
+  <div class="slide-tag" style="color:var(--orange)">課後問卷 · 花 1 分鐘</div>
+  <h2 style="color:white;border-left-color:var(--orange)">最後，掃這個給我一點回饋</h2>
+  <div style="display:flex;align-items:center;justify-content:center;gap:40px;margin-top:28px;flex-wrap:wrap">
+    <img src="assets/qr/post-course-survey.png" alt="課後問卷" style="width:200px;height:200px;border-radius:14px;border:3px solid rgba(232,84,30,.5)">
+    <div style="max-width:340px">
+      <div style="font-size:1rem;color:rgba(255,255,255,.75);line-height:1.75">今天哪一段最有用？哪一段太快或太難？<br>你的回饋會直接影響下一場課怎麼調整。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 50. 回去後這一週 -->
+<section class="slide">
+  <div class="slide-tag">ACTION · 回辦公室這一週</div>
+  <h2>回去後，你可以試試看的三件事</h2>
+  <ul class="nlist" style="margin-top:12px">
+    <li>挑一份<b>這週最讓你頭痛的文件</b>，丟給 AI 試試看第一版<span>不用是最重要的，是你最不想重寫的那份</span></li>
+    <li><b>加入 Simon AI 學員社群</b>，今天的投影片和提示語都在裡面<span>之後有問題也可以在裡面問</span></li>
+    <li>把今天學的<b>三個技巧（角色/格式/講清楚）</b>教給一位同事<span>教別人，是你記得最牢的方式</span></li>
+  </ul>
+</section>
+
+<!-- 50b. 5句帶得走的提示語 -->
+<section class="slide">
+  <div class="slide-tag">收好備用 · 直接複製</div>
+  <h2>今天最好用的 5 句話</h2>
+  <div class="slide-sub">忘記今天教的都沒關係，記住這5句就夠</div>
+  <ul class="checklist">
+    <li>「我是[身分]，要處理[背景]，請幫我寫成[格式]」</li>
+    <li>「以下是我的筆記（不整齊沒關係）：[貼上]請幫我整理成正式紀錄」</li>
+    <li>「幫我把這段內容濃縮成三個重點」</li>
+    <li>「可以再[正式/白話/具體]一點嗎」</li>
+    <li>「請幫我列成一份比較表，欄位是[你在意的條件]」</li>
+  </ul>
+  <div class="hl g" style="margin-top:14px">全部提示語都在 exercises.html，掃學員社群QR就能找到。</div>
+</section>
+
+<!-- 51. 結尾金句 -->
+<section class="slide bqslide">
+  <div class="bq">你的判斷，<br>是 <span class="accent">AI 最後的防線</span>。</div>
+  <div class="bq-src">謝謝台中市議會人事室，今天辛苦了 —— 季祥 Simon</div>
+</section>
+
+<!-- nav -->
+<div id="nav">
+  <span id="counter">1 / 1</span>
+  <button class="nb" onclick="move(-1)">‹</button>
+  <button class="nb" onclick="move(1)">›</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
+function move(d){show(cur+d)}
+show(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+</body>
+</html>

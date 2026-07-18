@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提示語全集 | 叫 AI 來幫我 · 台中市議會人事室場</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:52px 28px 80px}
+.back{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:36px}
+.back:hover{color:var(--orange)}
+.page-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:12px}
+.page-sub{font-size:1rem;color:var(--dim);margin-bottom:48px;line-height:1.65}
+.session-block{margin-bottom:56px}
+.session-header{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.session-header h2{font-size:1.4rem;font-weight:800;color:var(--ink)}
+.session-badge{font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;background:var(--orange);color:white}
+.task{margin-bottom:28px}
+.task-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.task-num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.task-title{font-size:1.05rem;font-weight:700;color:var(--ink)}
+.task-context{font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:10px;padding-left:38px}
+.prompt-box{position:relative;background:#1c1c28;border-radius:10px;overflow:hidden}
+.prompt-header{background:#141420;padding:8px 14px;display:flex;align-items:center;justify-content:space-between}
+.prompt-dots{display:flex;gap:5px}
+.prompt-dot{width:9px;height:9px;border-radius:50%}
+.prompt-dot.r{background:#ff5f57}.prompt-dot.y{background:#febc2e}.prompt-dot.g{background:#28c840}
+.prompt-label{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase}
+.copy-btn{font-size:.7rem;font-weight:700;color:var(--orange);background:rgba(232,84,30,.15);border:1px solid rgba(232,84,30,.3);border-radius:6px;padding:4px 10px;cursor:pointer;transition:all .15s}
+.copy-btn:hover{background:rgba(232,84,30,.3)}
+.copy-btn.copied{color:#4ade80;background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.3)}
+.prompt-body{padding:14px 18px}
+.prompt-text{font-family:'Courier New',monospace;font-size:clamp(.85rem,1.3vw,.95rem);color:#e2e2e2;line-height:1.8;white-space:pre-wrap;word-break:break-word}
+.note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin-top:8px}
+.security-box{background:#fff9f5;border:2px solid rgba(232,84,30,.25);border-radius:14px;padding:22px 24px;margin-bottom:52px}
+.security-title{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.security-box ul{list-style:none}
+.security-box li{font-size:.92rem;color:var(--ink);padding:6px 0 6px 18px;position:relative;line-height:1.6}
+.security-box li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">← 返回首頁</a>
+  <span class="page-tag">提示語全集</span>
+  <h1>今天用得到的所有 Prompt</h1>
+  <p class="page-sub">複製貼入 ChatGPT 或 Gemini，把方括號 [ ] 裡的內容換成你自己的情境就能用。<br>手機掃碼直接開這一頁，不用打字。</p>
+
+  <div class="security-box">
+    <span class="security-title">⚠ 用之前先記住</span>
+    <ul>
+      <li>不要把民眾姓名、身分證號等個資貼進去，用「某甲」代替</li>
+      <li>不要把列管文件的完整內容貼進去，只丟「文字結構」不丟「機敏資訊」</li>
+      <li>AI 給的是草稿，數字、日期、法規條文送出前一定要人工核對</li>
+    </ul>
+  </div>
+
+  <!-- 第2堂 -->
+  <div class="session-block">
+    <div class="session-header"><h2>第 2 堂 · 怎麼跟 AI 說話</h2><span class="session-badge">上午</span></div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">1</span><span class="task-title">萬用 Prompt 模板</span></div>
+      <div class="task-context">套用在任何情境：把方括號換成你的實際內容。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">通用模板</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">我是[單位/職稱]，要處理[這件事的背景]。
+對象是[誰會看到這個內容]。
+請幫我寫成[格式：信件／摘要／條列]，
+語氣[正式／親切／簡潔]，
+[字數或篇幅限制]。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第3堂 -->
+  <div class="session-block">
+    <div class="session-header"><h2>第 3 堂 · 工作場景實戰</h2><span class="session-badge">上午</span></div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">2</span><span class="task-title">Email 草稿</span></div>
+      <div class="task-context">同仁通知、對外聯繫都能用這個結構改。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">Email 草稿</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">我是[單位]承辦人，要寫一封 Email 通知[對象]「[要交代的事情]」。
+語氣正式但不要太生硬，需要提醒[期限/注意事項]和聯絡窗口，控制在[字數]以內。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">3</span><span class="task-title">會議紀錄重點摘要（版本一）</span></div>
+      <div class="task-context">會後把零散筆記貼給 AI，五分鐘內有一份能簽核的紀錄。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">會議摘要</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">以下是今天會議的筆記（不整齊沒關係）：[貼上筆記]
+請幫我整理成正式會議記錄格式，包含：出席人員、討論事項、決議事項、後續追蹤事項。語氣正式，條列清楚，讓主管能直接簽核。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">4</span><span class="task-title">會議紀錄轉行動清單（版本二）</span></div>
+      <div class="task-context">如果需要更明確的負責人與截止日，用這個版本。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">行動清單</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">以下是我的會議筆記（不整齊沒關係）。請幫我整理成三個區塊：
+1. 決議事項
+2. 行動清單（每項附上負責人和截止日期，從筆記中推斷，不確定的標示「待確認」）
+3. 下次會議需跟進的問題
+用條列格式，清楚簡潔。
+[貼上筆記]</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">5</span><span class="task-title">計畫書 / 公文草稿</span></div>
+      <div class="task-context">每個新案子都要重寫的格式，讓 AI 先幫你搭骨架。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">計畫書草稿</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">我是[單位名稱]的承辦人，要撰寫一份[活動/計畫]計畫書。
+活動名稱：[名稱]。目的：[目的]。預計對象：[對象]。預計時間地點：[時間地點]。預算概估：[金額]。
+請幫我依照政府計畫書常見格式（緣起與目的、辦理方式、預期效益、經費概估）產出一份草稿，文字要正式但不要太學術，長官看了能快速了解重點。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">6</span><span class="task-title">活動文案一次產出</span></div>
+      <div class="task-context">一個活動要出好幾種版本，一次請 AI 全部生成。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">活動文案</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">以下是活動資訊：[時間、地點、對象、亮點]。
+請幫我分別產出：
+(1) 200字新聞稿，語氣正式
+(2) 臉書貼文，親切活潑，適合一般市民
+(3) LINE推播簡短版，60字以內
+(4) 海報主標語，10字以內
+每個版本的語氣要符合其平台特性。</div></div>
+      </div>
+      <div class="note">此範例取材自季祥 Simon 過去在台南文化局工作坊的實戰內容。</div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">7</span><span class="task-title">回覆民眾陳情</span></div>
+      <div class="task-context">語氣要親切，內容要準確——AI 給草稿，你做最終審核。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">回覆民眾</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">我是[單位]承辦人，民眾陳情內容是[內容]。
+請幫我寫一封正式但親切的回覆信，先感謝來信、說明處理進度、附上聯絡窗口，[字數]以內。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第5堂 -->
+  <div class="session-block">
+    <div class="session-header"><h2>第 5 堂 · 生活場景實戰</h2><span class="session-badge">下午</span></div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">8</span><span class="task-title">旅遊行程規劃</span></div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">旅遊規劃</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">我們[家庭成員組成]要去[地點]玩[天數]。
+喜歡：[偏好，例如室內景點、不要走太多路、想吃在地小吃]。
+請幫我排一份行程，包含上午/下午/晚餐建議，附交通方式。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">9</span><span class="task-title">假日食譜與購物清單</span></div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">食譜規劃</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">用冰箱剩下的[食材清單]，設計三道家常菜，難度簡單，
+順便列一份需要額外購買的購物清單。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">10</span><span class="task-title">親子活動安排</span></div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">親子活動</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">週末在[地區]，適合[小孩年紀]的[室內/戶外]活動，
+[如果有特殊需求，例如天氣不好也能去、預算有限，寫在這裡]。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">11</span><span class="task-title">節日賀詞 / 祝福文字</span></div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">賀詞祝福</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">幫我寫一段給[對象，例如長輩/朋友/同事]的[節日]祝福文字，
+語氣[要有禮貌又不生硬 / 輕鬆活潑]，[字數]以內。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">12</span><span class="task-title">家庭預算問答</span></div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">家庭預算</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">幫我列一份[家庭成員組成]每月基本開銷試算表，
+含[食衣住行/教育/保險等項目]，用表格呈現。</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyPrompt(btn) {
+  const text = btn.closest('.prompt-box').querySelector('.prompt-text').textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '已複製 ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '複製'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 工具手冊 | 叫 AI 來幫我 · 台中市議會人事室場</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--paper);-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:52px 28px 80px}
+.back{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:36px}
+.back:hover{color:var(--orange)}
+.page-tag{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:12px}
+.page-sub{font-size:.95rem;color:var(--dim);margin-bottom:48px;line-height:1.65}
+.hd-section{margin-bottom:48px}
+.hd-section-title{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line);display:block}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+.compare-card{background:white;border-radius:12px;padding:20px;border:1px solid var(--line)}
+.compare-card.o{border-top:3px solid var(--orange)}
+.compare-card.b{border-top:3px solid var(--blue)}
+.compare-type{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.compare-name{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.compare-meta{font-size:.84rem;color:var(--dim);margin-bottom:10px;font-style:italic}
+.compare-list{list-style:none}
+.compare-list li{font-size:.9rem;color:var(--ink);padding:4px 0 4px 18px;position:relative;border-bottom:1px solid var(--line)}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';position:absolute;left:0;color:var(--orange);font-weight:700}
+.hl{border-left:3px solid var(--orange);padding:11px 15px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:.95rem;color:var(--ink);line-height:1.65;margin:12px 0}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{background:white;border-radius:10px;padding:14px 16px;border:1px solid var(--line)}
+.feat-num{font-size:1.3rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px}
+.feat-title{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.feat-desc{font-size:.82rem;color:var(--dim);line-height:1.5}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:12px}
+.tbl th{background:var(--orange);color:white;padding:10px 12px;text-align:left;font-weight:600;font-size:.85rem}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:white}
+.tbl a{color:var(--blue);text-decoration:none}
+.tbl a:hover{text-decoration:underline}
+.note{background:rgba(0,102,204,.05);border-left:3px solid var(--blue);padding:11px 15px;border-radius:0 8px 8px 0;font-size:.88rem;color:var(--dim);line-height:1.55;margin:12px 0}
+.warn{background:#fef2f2;border-left:3px solid #dc2626;padding:11px 15px;border-radius:0 8px 8px 0;font-size:.9rem;color:var(--ink);line-height:1.6;margin:10px 0}
+.takeaway{background:#0f0d0c;border-radius:14px;padding:24px 26px;margin-top:48px}
+.takeaway-title{font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:block}
+.takeaway-list{list-style:none}
+.takeaway-list li{font-size:1rem;color:rgba(255,255,255,.8);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
+.takeaway-list li:last-child{border-bottom:none}
+.takeaway-list li::before{content:'→';color:var(--orange);position:absolute;left:0;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">← 返回首頁</a>
+  <span class="page-tag">AI 工具速查手冊</span>
+  <h1>今天用到的 AI 工具</h1>
+  <p class="page-sub">台中市議會人事室場適用 · 全程手機操作，不需要電腦</p>
+
+  <!-- 一、兩種 AI -->
+  <div class="hd-section">
+    <span class="hd-section-title">一、先搞清楚：AI 工具分兩種</span>
+    <div class="compare">
+      <div class="compare-card o">
+        <div class="compare-type">Type 1</div>
+        <div class="compare-name">對話型 AI</div>
+        <div class="compare-meta">ChatGPT · Gemini</div>
+        <ul class="compare-list">
+          <li>你問 → 它答 → 你自己去執行</li>
+          <li>不會主動幫你搜網路（Gemini 部分可以）</li>
+          <li>最適合：草稿、文案、摘要、潤稿</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--orange)">像圖書館：你走進去拿答案，轉身走人</div>
+      </div>
+      <div class="compare-card b">
+        <div class="compare-type">Type 2</div>
+        <div class="compare-name">代理型 AI（Agent）</div>
+        <div class="compare-meta">Manus</div>
+        <ul class="compare-list">
+          <li>你下任務 → 它自己執行完整流程 → 交給你成果</li>
+          <li>自己開瀏覽器搜尋、整理、存檔</li>
+          <li>最適合：需要花時間查資料、整理成一份報告的事</li>
+        </ul>
+        <div style="margin-top:12px;font-size:.88rem;font-weight:700;color:var(--blue)">像管家：你在不在，它都在幫你做事</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、三個工具比較 -->
+  <div class="hd-section">
+    <span class="hd-section-title">二、ChatGPT / Gemini / Manus 怎麼選</span>
+    <table class="tbl">
+      <tr><th>情境</th><th>建議工具</th><th>原因</th></tr>
+      <tr><td>寫 Email、公文草稿</td><td>ChatGPT</td><td>語氣調整細膩，容易改出正式感</td></tr>
+      <tr><td>整理會議紀錄、摘要</td><td>ChatGPT / Gemini</td><td>兩個都快，看個人習慣</td></tr>
+      <tr><td>需要查最新資料再回答</td><td>Gemini</td><td>可接 Google 搜尋，附參考來源</td></tr>
+      <tr><td>整理成一份完整報告/比較表</td><td>Manus</td><td>自己搜尋、整理、存檔，不用你盯著</td></tr>
+      <tr><td>生活場景（旅遊、食譜等）</td><td>ChatGPT / Gemini</td><td>都很適合，先都用用看</td></tr>
+    </table>
+    <div class="note">兩個對話型工具都免費，先都用用看，找到自己順手的那一個就好，不用糾結選哪個。</div>
+  </div>
+
+  <!-- 三、三個提問技巧 -->
+  <div class="hd-section">
+    <span class="hd-section-title">三、問得好的三個技巧</span>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-num">①</div><div class="feat-title">角色設定</div><div class="feat-desc">「我是人事室承辦人」——讓 AI 知道用什麼身分回答</div></div>
+      <div class="feat-card"><div class="feat-num">②</div><div class="feat-title">格式指定</div><div class="feat-desc">「200字以內」「條列式」——讓 AI 知道要交出什麼樣子</div></div>
+      <div class="feat-card"><div class="feat-num">③</div><div class="feat-title">背景講清楚</div><div class="feat-desc">對象、目的都講，不要只丟一句話</div></div>
+    </div>
+    <div class="hl">萬用模板：我是[身分]，要處理[背景]。對象是[誰看]。請寫成[格式]，語氣[風格]，[字數限制]。</div>
+  </div>
+
+  <!-- 四、公部門用AI的注意事項 -->
+  <div class="hd-section">
+    <span class="hd-section-title">四、公部門用 AI 的注意事項</span>
+    <div class="warn"><b>資安：</b>不要把民眾姓名、身分證號等個資貼進去；不要把列管文件完整內容貼進去。用 AI 處理「文字結構」，不是處理「機敏資訊」——把名字換成「某甲」，處理完再填回實際內容。</div>
+    <div class="warn"><b>核對：</b>AI 給的草稿只是起點，數字、日期、負責單位、法規條文，送出前一定要人工確認。</div>
+    <div class="note"><b>長官知不知道我在用 AI？</b>AI 是你的工具，就像用 Excel 整理表格一樣不需要特別說明。重要的是你要對最終產出的內容負責——AI 做草稿，你做最終審核，這個分工是合理也是負責任的做法。</div>
+  </div>
+
+  <div class="takeaway">
+    <span class="takeaway-title">今天帶走</span>
+    <ul class="takeaway-list">
+      <li>知道對話型 AI 和代理型 AI（Manus）的差別</li>
+      <li>一套萬用 Prompt 公式（角色+格式+背景）</li>
+      <li>Email / 會議紀錄 / 公文草稿的實戰寫法</li>
+      <li>至少一個生活場景的 AI 使用範例</li>
+      <li>公部門用 AI 的資安紅線在哪裡</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
