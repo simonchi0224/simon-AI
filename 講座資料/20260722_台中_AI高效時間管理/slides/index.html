@@ -45,7 +45,8 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
 .sc-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:7px;line-height:1.3}
 .sc-desc{font-size:.86rem;color:var(--ink2);line-height:1.6}
 .sc-btn{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--orange)}
-.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:52px}
+@media(max-width:760px){.res-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:580px){.res-grid{grid-template-columns:1fr}}
 .res-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 22px;text-decoration:none;transition:all .2s;display:block}
 .res-card:hover{background:var(--bg);border-color:var(--border);box-shadow:var(--shadow)}
@@ -93,7 +94,7 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
   <div class="hero">
     <span class="hero-eyebrow">AI 高效時間管理 · 主管與實習主管場</span>
     <h1 class="hero-h1">把一天，<br>活成<span>一天半</span></h1>
-    <p class="hero-sub">交辦、排序、追蹤進度、寫報告——主管每天在做的事，AI 都能先幫你跑一輪草稿。<br>今天不只是工具課，是一套有研究根據的時間管理方法，加上讓 AI 接手一半的具體做法。</p>
+    <p class="hero-sub">交辦、排序、追蹤進度、寫報告——主管每天在做的事，AI 都能先幫你跑一輪草稿。<br>今天不只是工具課，是20多個有研究根據的時間管理方法（含PMI／PMP專案時程管理工具），每一堂結尾都有一張方法論總表可以直接拍照帶走。</p>
     <div class="hero-meta">
       <span class="hero-pill">講師：季祥 Simon Chi</span>
       <span class="hero-pill">主管 / 實習主管約 35 位</span>
@@ -106,11 +107,14 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
     <div class="strip-pills">
       <span class="strip-pill">重要／緊急矩陣</span>
       <span class="strip-pill">GTD Lite</span>
-      <span class="strip-pill">Timeboxing</span>
+      <span class="strip-pill">80/20法則</span>
+      <span class="strip-pill">4D任務決策法</span>
+      <span class="strip-pill">WBS／資源撫平</span>
+      <span class="strip-pill">看板／RACI矩陣</span>
       <span class="strip-pill">任務×工具地圖</span>
-      <span class="strip-pill">提示六要素</span>
-      <span class="strip-pill">會議轉工作表</span>
-      <span class="strip-pill">WOOP／If-Then</span>
+      <span class="strip-pill">番茄鐘／SMART</span>
+      <span class="strip-pill">WOOP／If-Then／OKR</span>
+      <span class="strip-pill">每堂方法論總表</span>
       <span class="strip-pill">個人AI時間管理方案</span>
     </div>
   </div>
@@ -158,6 +162,12 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
       <div class="res-title">AI 工具速查手冊</div>
       <div class="res-desc">任務 × 工具地圖 · ChatGPT / Gemini / Gemini Notebook / Manus 怎麼選 · 資料安全與研究出處</div>
       <div class="res-btn">查看手冊 →</div>
+    </a>
+    <a href="method-prompts.html" class="res-card">
+      <span class="res-icon">🧭</span>
+      <div class="res-title">方法論提示語庫</div>
+      <div class="res-desc">25 個時間管理方法論，各附「案例版」與「挖空版」提示語，複製貼上就能套用在你的工作上</div>
+      <div class="res-btn">查看提示語庫 →</div>
     </a>
   </div>
 
