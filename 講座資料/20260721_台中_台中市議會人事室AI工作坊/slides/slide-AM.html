@@ -212,7 +212,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <a href="index.html" class="home-btn">← 返回</a>
 
 <!-- 1. Cover -->
-<section class="slide cover" style="background:linear-gradient(rgba(5,5,5,.55),rgba(5,5,5,.8)),url('assets/generated/taichung-auditorium-bg.svg') center/cover no-repeat">
+<section class="slide cover" style="background:linear-gradient(90deg,rgba(5,5,5,.88) 0%,rgba(5,5,5,.68) 42%,rgba(5,5,5,.22) 100%),url('assets/generated/tc-ai-photo-01.jpg') center/cover no-repeat">
   <span class="s-tag">叫 AI 來幫我 · 上午場 / 09:00–12:00</span>
   <h1>AI 不難，<br><span class="hi">手機就能上手</span></h1>
   <div class="sub">用手機學會 ChatGPT / Gemini · 從公文到生活，都能請 AI 幫忙</div>
@@ -253,6 +253,25 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 2b. 過去實際授課現場 -->
+<section class="slide">
+  <div class="slide-tag">實績 · 不是第一次上場</div>
+  <h2>過去實際授課現場</h2>
+  <div class="slide-sub">帶過的場次，這些是真實的課堂照片</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px">
+    <img src="assets/generated/gen-photo-01-opening-auditorium.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-02-hands-on-workshop.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-03-large-keynote.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-04-team-discussion.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-05-small-group-ai.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-06-service-desk-ai.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-07-public-data-review.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-08-risk-and-approval.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-09-manager-judgment.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
+    <img src="assets/generated/gen-photo-10-closing-full-hall.jpg" alt="過去授課現場" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px">
   </div>
 </section>
 
@@ -789,15 +808,20 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <div class="slide-tag">SCENARIO 1 · EMAIL 草稿</div>
   <h2>Email 草稿撰寫</h2>
   <div class="slide-sub">從「不知道怎麼下筆」到「有草稿可以改」</div>
-  <div class="chat-ui">
-    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT</span></div>
-    <div class="chat-body">
-      <span class="chat-who">Prompt 範例</span>
-      <div class="chat-text">我是台中市議會人事室承辦人，要寫一封 Email 通知同仁「7月底前完成年度考績自評表」。
+  <div class="visual-split">
+    <div>
+      <div class="chat-ui">
+        <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT</span></div>
+        <div class="chat-body">
+          <span class="chat-who">Prompt 範例</span>
+          <div class="chat-text">我是台中市議會人事室承辦人，要寫一封 Email 通知同仁「7月底前完成年度考績自評表」。
 語氣正式但不要太生硬，需要提醒繳交期限和聯絡窗口，控制在150字以內。</div>
+        </div>
+      </div>
+      <div class="hl" style="margin-top:14px">拿到草稿後，只需要填入正確的日期、單位、窗口——你的專業判斷永遠是最後一關。</div>
     </div>
+    <div class="visual-wrap"><img src="assets/generated/tc-ai-photo-02.jpg" alt="承辦人整理公文"></div>
   </div>
-  <div class="hl" style="margin-top:14px">拿到草稿後，只需要填入正確的日期、單位、窗口——你的專業判斷永遠是最後一關。</div>
 </section>
 
 <!-- 41. 換你打字：Email -->
@@ -821,15 +845,20 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <div class="slide-tag">SCENARIO 2 · 會議紀錄</div>
   <h2>會議紀錄重點摘要</h2>
   <div class="slide-sub">你不需要「記錄」，你只需要「輸入」</div>
-  <div class="chat-ui">
-    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
-    <div class="chat-body">
-      <span class="chat-who">Prompt 範例</span>
-      <div class="chat-text">以下是今天會議的筆記（不整齊沒關係）：[貼上筆記]
+  <div class="visual-split">
+    <div>
+      <div class="chat-ui">
+        <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini</span></div>
+        <div class="chat-body">
+          <span class="chat-who">Prompt 範例</span>
+          <div class="chat-text">以下是今天會議的筆記（不整齊沒關係）：[貼上筆記]
 請幫我整理成正式會議記錄格式，包含：出席人員、討論事項、決議事項、後續追蹤事項（附負責人與期限，不確定的標示「待確認」）。語氣正式，條列清楚，讓主管能直接簽核。</div>
+        </div>
+      </div>
+      <div class="hl bl" style="margin-top:14px">開會時隨手記，不用整理格式——會後貼給 AI，五分鐘內有一份能簽核的紀錄。</div>
     </div>
+    <div class="visual-wrap"><img src="assets/generated/tc-ai-photo-03.jpg" alt="會議紀錄整理"></div>
   </div>
-  <div class="hl bl" style="margin-top:14px">開會時隨手記，不用整理格式——會後貼給 AI，五分鐘內有一份能簽核的紀錄。</div>
 </section>
 
 <!-- 43. 換你打字：會議紀錄 -->
@@ -887,15 +916,18 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <div class="slide-tag">SCENARIO 4 · 回覆民眾</div>
   <h2>回覆民眾詢問初稿</h2>
   <div class="slide-sub">語氣要親切，但內容要準確</div>
-  <div class="cgrid g2" style="margin-top:14px">
-    <div class="card o">
-      <div class="ct">適合用 AI 的部分</div>
-      <div class="cd">把零散的規定文字，整理成一般民眾看得懂的白話說明；把語氣調整得親切一點，不要公文腔。</div>
+  <div class="visual-split">
+    <div class="cgrid g2" style="margin-top:0">
+      <div class="card o">
+        <div class="ct">適合用 AI 的部分</div>
+        <div class="cd">把零散的規定文字，整理成一般民眾看得懂的白話說明；把語氣調整得親切一點，不要公文腔。</div>
+      </div>
+      <div class="card b">
+        <div class="ct">不能交給 AI 的部分</div>
+        <div class="cd">法規條文、承辦業務的正確性、個案的最終認定——AI 只是幫你把草稿寫出來，核對永遠是你的責任。</div>
+      </div>
     </div>
-    <div class="card b">
-      <div class="ct">不能交給 AI 的部分</div>
-      <div class="cd">法規條文、承辦業務的正確性、個案的最終認定——AI 只是幫你把草稿寫出來，核對永遠是你的責任。</div>
-    </div>
+    <div class="visual-wrap"><img src="assets/generated/tc-ai-photo-06.jpg" alt="服務台回覆民眾"></div>
   </div>
   <div class="hl" style="margin-top:14px">AI 是你的第一版草稿機，你來做最後決定。</div>
 </section>
@@ -1126,9 +1158,14 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <section class="slide">
   <div class="slide-tag">法規背景 · 知道就好，不用緊張</div>
   <h2>台灣已經有《人工智慧基本法》了</h2>
-  <div class="hl" style="font-size:clamp(1.3rem,1.9vw,1.6rem);margin-top:10px">2026年1月公布施行，台灣第一部AI專法。<br>公部門未來會越來越重視風險管理、資料治理、使用規範。</div>
-  <div class="cite">來源：數位發展部、中央社，2025/12/23</div>
-  <div class="hl dim" style="margin-top:14px">不是「明天就要被稽核」——而是提醒你：資安習慣，養成越早越好。</div>
+  <div class="visual-split">
+    <div>
+      <div class="hl" style="font-size:clamp(1.3rem,1.9vw,1.6rem);margin-top:10px">2026年1月公布施行，台灣第一部AI專法。<br>公部門未來會越來越重視風險管理、資料治理、使用規範。</div>
+      <div class="cite">來源：數位發展部、中央社，2025/12/23</div>
+      <div class="hl dim" style="margin-top:14px">不是「明天就要被稽核」——而是提醒你：資安習慣，養成越早越好。</div>
+    </div>
+    <div class="visual-wrap"><img src="assets/generated/tc-ai-photo-09.jpg" alt="權限與資安管控"></div>
+  </div>
 </section>
 
 <!-- 57. 第2堂收尾 + 資安提醒 -->
@@ -1136,10 +1173,13 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <div class="slide-tag">TAKEAWAY · 第2堂 + 資安提醒</div>
   <h2>帶走的話</h2>
   <div class="bq" style="font-size:clamp(1.4rem,2.8vw,2rem);text-align:left;max-width:100%;margin-bottom:20px">AI 是你的<span class="accent" style="color:var(--orange)">第一版草稿機</span>，<br>你來做最後決定。</div>
-  <div class="mistake-list">
-    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不要把民眾姓名、身分證號貼進 AI</div><div class="mistake-fix">用「某甲」代替，資料處理完再填回實際內容</div></div></div>
-    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不要把列管文件完整內容貼進 AI</div><div class="mistake-fix">用 AI 處理「文字結構」，不是處理「機敏資訊」</div></div></div>
-    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不用擔心「長官不知道我在用 AI」</div><div class="mistake-fix">AI 是工具，就像 Excel——你對最終內容負責就是負責任的做法</div></div></div>
+  <div class="visual-split">
+    <div class="mistake-list">
+      <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不要把民眾姓名、身分證號貼進 AI</div><div class="mistake-fix">用「某甲」代替，資料處理完再填回實際內容</div></div></div>
+      <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不要把列管文件完整內容貼進 AI</div><div class="mistake-fix">用 AI 處理「文字結構」，不是處理「機敏資訊」</div></div></div>
+      <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">不用擔心「長官不知道我在用 AI」</div><div class="mistake-fix">AI 是工具，就像 Excel——你對最終內容負責就是負責任的做法</div></div></div>
+    </div>
+    <div class="visual-wrap"><img src="assets/generated/tc-ai-photo-04.jpg" alt="機敏文件遮蔽處理"></div>
   </div>
 </section>
 
