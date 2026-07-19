@@ -127,6 +127,20 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 .tl-text{font-size:1rem;color:var(--ink);line-height:1.5}
 .tl-text b{color:var(--ink)}
 .big-icon{font-size:3.5rem;margin-bottom:14px}
+.visual-wrap{margin-top:18px;background:white;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:center;align-items:center;min-height:250px}
+.visual-wrap.dark{background:#111;border-color:rgba(255,255,255,.14)}
+.visual-wrap img{width:100%;height:auto;max-height:360px;object-fit:contain;display:block}
+.visual-split{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch;margin-top:18px}
+.visual-split .visual-wrap{margin-top:0;min-height:280px}
+.quote-bg{background:#0f0d0c;color:white;padding:7vh 9vw;justify-content:flex-end}
+.quote-bg::before{content:'';position:absolute;inset:0;background:var(--bg-img) center/cover no-repeat;opacity:.96}
+.quote-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.78) 38%,rgba(5,5,5,.28) 72%,rgba(5,5,5,.1) 100%)}
+.quote-bg>*{position:relative;z-index:1}
+.quote-bg .slide-tag{color:#f59e0b;margin-bottom:18px}
+.quote-bg h2{border:none;padding:0;color:white;font-size:clamp(2.5rem,5.2vw,4.5rem);line-height:1.12;font-weight:900;max-width:880px;margin-bottom:22px}
+.quote-bg .quote-line{width:120px;height:5px;background:#e8541e;border-radius:999px;margin-bottom:20px}
+.quote-bg .quote-note{font-size:clamp(1.25rem,1.9vw,1.58rem);line-height:1.7;color:rgba(255,255,255,.82);max-width:850px}
+.quote-bg .cite{border-top-color:rgba(255,255,255,.18);color:rgba(255,255,255,.52);max-width:850px}
 .viz-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
 .viz-step{background:#151515;color:white;border-radius:12px;padding:18px 14px;min-height:150px;border:1px solid rgba(232,84,30,.25);position:relative;overflow:hidden}
 .viz-step::after{content:'';position:absolute;left:14px;right:14px;bottom:12px;height:3px;background:linear-gradient(90deg,var(--orange),rgba(232,84,30,.12));border-radius:999px}
@@ -162,6 +176,28 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 .guard-card .desc{font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.62)}
 .photo-panel{background:#111;color:white;border-radius:14px;padding:24px;border:1px solid rgba(232,84,30,.25);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
 .photo-panel .kicker{font-size:.8rem;color:var(--orange);font-weight:900;letter-spacing:2px;margin-bottom:10px}
+.mini-visual{margin-top:14px;display:grid;gap:10px}
+.mini-visual.row3{grid-template-columns:repeat(3,1fr)}
+.mini-visual.row4{grid-template-columns:repeat(4,1fr)}
+.mini-card{background:white;border:1px solid var(--line);border-radius:10px;padding:16px 14px;min-height:118px}
+.mini-card .sym{font-size:1.7rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:10px}
+.mini-card .mt{font-size:1.02rem;font-weight:900;color:var(--ink);margin-bottom:5px}
+.mini-card .md{font-size:.86rem;line-height:1.45;color:var(--dim)}
+.mini-visual.dark .mini-card{background:#111;color:white;border-color:rgba(255,255,255,.12)}
+.mini-visual.dark .mini-card .mt{color:white}
+.mini-visual.dark .mini-card .md{color:rgba(255,255,255,.62)}
+.process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.process-node{background:white;padding:16px 14px;min-height:120px;border-right:1px solid var(--line)}
+.process-node:last-child{border-right:0}
+.process-node .pn{font-size:.78rem;font-weight:900;color:var(--orange);letter-spacing:2px;margin-bottom:8px}
+.process-node .pt{font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:5px}
+.process-node .pd{font-size:.86rem;line-height:1.42;color:var(--dim)}
+.pulse-board{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:14px}
+.pulse-main{background:#111;color:white;border-radius:12px;padding:20px;border:1px solid rgba(232,84,30,.3)}
+.pulse-main .pmark{font-size:3.4rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:8px}
+.pulse-main .ptext{font-size:1.15rem;font-weight:800;line-height:1.35}
+.pulse-list{display:grid;gap:8px}
+.pulse-item{background:white;border:1px solid var(--line);border-radius:10px;padding:13px 14px;font-size:.95rem;color:var(--ink);font-weight:700}
 #nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
 #counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
 .nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
@@ -176,7 +212,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <a href="index.html" class="home-btn">← 返回</a>
 
 <!-- 1. Cover -->
-<section class="slide cover">
+<section class="slide cover" style="background:linear-gradient(rgba(5,5,5,.55),rgba(5,5,5,.8)),url('assets/generated/taichung-auditorium-bg.svg') center/cover no-repeat">
   <span class="s-tag">叫 AI 來幫我 · 上午場 / 09:00–12:00</span>
   <h1>AI 不難，<br><span class="hi">手機就能上手</span></h1>
   <div class="sub">用手機學會 ChatGPT / Gemini · 從公文到生活，都能請 AI 幫忙</div>
@@ -255,12 +291,15 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <div class="slide-tag">TODAY'S RULES</div>
   <h2>今天的遊戲規則</h2>
   <div class="slide-sub">六小時，分成上午兩堂、下午兩堂</div>
-  <ul class="nlist" style="margin-top:12px">
-    <li><b>第1堂 09:00–10:30</b> AI是什麼、怎麼跟AI說話<span>破解迷思，學會問問題</span></li>
-    <li><b>第2堂 10:30–12:00</b> 工作場景實戰<span>公文、會議紀錄、通知信，動手做</span></li>
-    <li><b>第3堂 13:00–14:30</b> 三工具PK：ChatGPT / Gemini / Manus<span>認識會自己做事的 AI</span></li>
-    <li><b>第4堂 14:30–16:00</b> 生活場景 + AI的紅線<span>把AI用在家裡，也搞懂什麼不能用</span></li>
-  </ul>
+  <div class="cgrid g2" style="margin-top:12px;align-items:center">
+    <ul class="nlist" style="margin-top:0">
+      <li><b>第1堂 09:00–10:30</b> AI是什麼、怎麼跟AI說話<span>破解迷思，學會問問題</span></li>
+      <li><b>第2堂 10:30–12:00</b> 工作場景實戰<span>公文、會議紀錄、通知信，動手做</span></li>
+      <li><b>第3堂 13:00–14:30</b> 三工具PK：ChatGPT / Gemini / Manus<span>認識會自己做事的 AI</span></li>
+      <li><b>第4堂 14:30–16:00</b> 生活場景 + AI的紅線<span>把AI用在家裡，也搞懂什麼不能用</span></li>
+    </ul>
+    <img src="assets/generated/auditorium-ai-workshop.svg" alt="大演講廳AI工作坊" style="width:100%;max-height:280px;object-fit:contain;border-radius:12px">
+  </div>
 </section>
 
 <!-- 5. sbreak 第1堂 -->
@@ -273,7 +312,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <!-- ══════ 暖身分組：AI圈最近在吵什麼 ══════ -->
 
 <!-- 6. divider: AI圈在吵什麼 -->
-<section class="slide divider">
+<section class="slide divider" style="background:linear-gradient(90deg,rgba(15,10,7,.92) 30%,rgba(15,10,7,.55) 100%),url('assets/generated/ai-discourse-bg.svg') center/cover no-repeat">
   <span class="s-tag">暖身 · 開場話題</span>
   <h2>AI 圈最近<br><span class="hi">在吵什麼</span></h2>
   <div class="sub">三個常上新聞的話題，接下來一個一個聊</div>
@@ -480,19 +519,12 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 </section>
 
 <!-- 18b. 時事：台積電，AI是整個產業鏈 -->
-<section class="slide">
+<section class="slide quote-bg no-auto" style="--bg-img:url('assets/generated/ai-infrastructure-bg.svg')">
   <div class="slide-tag">時事 · 台積電就在我們身邊</div>
   <h2>AI 不是聊天機器人，<br>是整個產業鏈</h2>
-  <div class="slide-sub">這幾天的新聞，跟台灣特別有關</div>
-  <div class="viz-strip">
-    <div class="viz-step"><div class="ico">晶</div><div class="t">晶片</div><div class="d">台積電、NVIDIA、先進製程</div></div>
-    <div class="viz-step"><div class="ico">電</div><div class="t">資料中心</div><div class="d">機房、電力、冷卻與網路</div></div>
-    <div class="viz-step"><div class="ico">模</div><div class="t">模型</div><div class="d">ChatGPT、Gemini、Claude</div></div>
-    <div class="viz-step"><div class="ico">工</div><div class="t">工具</div><div class="d">Manus、NotebookLM、Copilot</div></div>
-    <div class="viz-step"><div class="ico">務</div><div class="t">工作</div><div class="d">摘要、草稿、查核、流程整理</div></div>
-  </div>
+  <div class="quote-line"></div>
+  <div class="quote-note">聊天視窗背後，是晶片、資料中心、電力與模型能力撐起來的。這不只是軟體圈話題，而是台灣正在參與的產業布局。</div>
   <div class="cite">來源：Bloomberg、Taipei Times、Fortune，2026/7/16–17</div>
-  <div class="hl" style="margin-top:16px">聊天視窗背後，是晶片、資料中心、電力撐起來的——這不只是軟體圈話題，是國家級產業布局，台灣正站在核心。</div>
 </section>
 
 <!-- 19. 現場開帳號 -->
@@ -923,6 +955,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <span class="s-tag">觀念 · 素養不是名詞</span>
   <h2>AI 素養，<br><span class="hi">不是背名詞</span></h2>
   <div class="sub">今天這堂課真正要練的，是這三種能力</div>
+  <img src="assets/generated/public-sector-ai-safety.svg" alt="公部門AI安全治理" style="position:absolute;right:6vw;top:10vh;width:min(300px,26vw);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.4)">
   <div class="count">A / B / C</div>
 </section>
 
@@ -991,7 +1024,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <!-- ══════ 分組：台北市政府真實案例 ══════ -->
 
 <!-- 52b. divider: 已經有機關真的在做 -->
-<section class="slide divider">
+<section class="slide divider" style="background:linear-gradient(90deg,rgba(7,10,18,.92) 30%,rgba(7,10,18,.5) 100%),url('assets/generated/civiclaw-case-bg.svg') center/cover no-repeat">
   <span class="s-tag">真實案例 · 就在台灣</span>
   <h2>已經有機關<br><span class="hi">真的在做</span></h2>
   <div class="sub">台北市政府自己開發的政府版AI助理</div>
@@ -1081,12 +1114,12 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 </section>
 
 <!-- 56a. 數位發展部公部門AI手冊 -->
-<section class="slide">
+<section class="slide quote-bg no-auto" style="--bg-img:url('assets/generated/public-sector-safety-bg.svg')">
   <div class="slide-tag">數位發展部 · 官方指南</div>
   <h2>公部門不是不能用AI，<br>而是要會安全地用</h2>
-  <div class="cd" style="font-size:clamp(1.3rem,1.9vw,1.6rem);line-height:1.65;margin-top:10px">數位發展部已經出版《公部門人工智慧應用參考手冊》，從基本概念、應用場景、技術限制到維運步驟都有指引。</div>
+  <div class="quote-line"></div>
+  <div class="quote-note">重點不是「可不可以用」，而是「用在哪裡、資料怎麼分級、誰做最後把關」。</div>
   <div class="cite">來源：數位發展部（MODA），2025年</div>
-  <div class="hl" style="margin-top:16px">公部門用AI的關鍵，不是「能不能用」，而是「用在哪裡、誰來把關」——今天下午會更深入聊這件事。</div>
 </section>
 
 <!-- 56b. 法規背景：台灣AI基本法 -->
@@ -1127,9 +1160,60 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <script>
 const slides=document.querySelectorAll('.slide');
 let cur=0;
+function visual(type,items){return items.map((it,i)=>`<div class="mini-card"><div class="sym">${it[0]}</div><div class="mt">${it[1]}</div><div class="md">${it[2]||''}</div></div>`).join('')}
+function rail(items){return `<div class="process-rail">${items.map((it,i)=>`<div class="process-node"><div class="pn">STEP ${i+1}</div><div class="pt">${it[0]}</div><div class="pd">${it[1]}</div></div>`).join('')}</div>`}
+function enrichSlides(){
+  const rules=[
+    ['今天的遊戲規則','row4',[['09','上午觀念','先知道 AI 能做什麼'],['10','提問技巧','把需求說清楚'],['11','工作實作','直接產出草稿'],['13','下午工具','Agent 與風險']]],
+    ['AI會不會取代工作','row3',[['不','取代整個人','先取代部分重複任務'],['會','放大差距','會用的人速度更快'],['要','重新分工','人保留判斷與責任']]],
+    ['AI生成內容能不能用','row3',[['草','可當草稿','先拿來改，不直接發'],['核','查來源','數字與法規回原文'],['責','人負責','最後署名的人負責']]],
+    ['AI詐騙、深偽、假新聞','row3',[['看','影像可假','不要只信眼睛'],['聽','聲音可仿','重要事改用第二管道'],['核','先確認','人名金額時間都要查']]],
+    ['NotebookLM 改名了','row3',[['放','上傳資料','讓 AI 讀指定文件'],['問','追問內容','答案回到文件脈絡'],['引','看出處','知道答案從哪裡來']]],
+    ['ChatGPT 出了新版本','row3',[['快','簡單問答','速度優先'],['穩','日常工作','多數情境夠用'],['深','複雜推理','重要任務才用']]],
+    ['Deep Research','row3',[['查','找資料'],['比','比來源'],['寫','整理報告']]],
+    ['2026 的關鍵字','row3',[['Agent','會跑流程'],['資安','守住資料'],['責任','人類把關']]],
+    ['AI 不是被「寫」出來','row3',[['規則','傳統軟體','工程師寫明確流程'],['訓練','AI 模型','從大量資料學模式'],['湧現','新能力','結果要測，不只看說明']]],
+    ['AI 現在能做到什麼程度','row4',[['快','省時間'],['省','成本下降'],['廣','企業導入'],['難','效益要設計']]],
+    ['AI公司自己員工怎麼用','row3',[['寫','草稿與摘要'],['想','新任務'],['查','內部知識']]],
+    ['第一次跟 AI 對話','rail',[['打開 App','先用手機，不卡在工具'],['輸入一句話','用熟悉情境開始'],['看第一版','不要急著追求完美'],['追問修改','把答案調成能用']]],
+    ['同一件事，問法差一點','row3',[['短','結果普通'],['清','結果可用'],['補','越像同事交辦越好']]],
+    ['先告訴 AI「你是誰」','row3',[['身分','我是誰'],['任務','我要做什麼'],['對象','給誰看']]],
+    ['講清楚你要什麼樣子','row3',[['格式','表格/條列/信件'],['語氣','正式/白話/親切'],['長度','三點/一頁/100字']]],
+    ['一步一步說','rail',[['背景','先說發生什麼事'],['目標','說清楚要完成什麼'],['限制','列出不能踩的線'],['輸出','指定格式與長度']]],
+    ['再厲害一點：給 AI 一個範例','row3',[['看','範例語氣'],['學','套用格式'],['產','生成新版']]],
+    ['今天先學會這 4 件事','row4',[['信','Email'],['會','會議紀錄'],['文','公文摘要'],['報','簡報大綱']]],
+    ['聽過、裝過，但沒真的改變','row3',[['知道','聽過工具'],['下載','有帳號'],['卡住','不知道放哪用']]],
+    ['個人開始用，但還沒擴散','row3',[['個人','自己省時間'],['同事','做法不一致'],['單位','還沒變流程']]],
+    ['AI 真正融入日常流程','row3',[['規則','哪些可用'],['模板','固定提示語'],['稽核','結果可追溯']]],
+    ['AI 主動跑流程，人負責把關','row3',[['任務','交辦清楚'],['執行','AI跑步驟'],['審核','人決定']]],
+    ['AI 素養，正在變成基本能力','row3',[['安全','知道紅線'],['效率','知道場景'],['判斷','知道何時不用']]],
+    ['承辦人的計畫案困擾','row3',[['案多','同時並行'],['格式','每件都要正確'],['急件','先有草稿再修']]],
+    ['從會議紀錄到民眾陳情','row3',[['收','整理來文'],['分','分類重點'],['回','草擬回覆']]],
+    ['CiviClaw：政府版 AI 助理','row3',[['市政','新聞轉譯'],['內部','資料治理'],['把關','政府規則']]],
+    ['ChatGPT vs Gemini','row3',[['ChatGPT','寫作語氣'],['Gemini','Google生態'],['原則','看任務選工具']]],
+    ['執行層的事，AI 做得又快又好','row3',[['整理','摘要與分類'],['改寫','語氣與格式'],['初稿','先完成第一版']]],
+    ['價值判斷，AI 沒辦法替你決定','row3',[['公平','利害衡量'],['承諾','對外責任'],['裁量','行政判斷']]],
+    ['公部門不是不能用AI','row3',[['場景','先小範圍'],['資料','先分級'],['人','最後審核']]],
+    ['台灣已經有《人工智慧基本法》了','row3',[['治理','風險管理'],['資料','保護與透明'],['責任','人類監督']]]
+  ];
+  slides.forEach(slide=>{
+    const h=slide.querySelector('h2');
+    if(slide.classList.contains('no-auto') || !h || slide.querySelector('.mini-visual,.process-rail,.decision-map,.evo-road,.hallucination-flow,.viz-strip,.guard-grid'))return;
+    const text=h.textContent.replace(/\s+/g,'');
+    const rule=rules.find(r=>text.includes(r[0].replace(/\s+/g,'')));
+    if(!rule)return;
+    const wrap=document.createElement('div');
+    if(rule[1]==='rail'){wrap.innerHTML=rail(rule[2]);}
+    else{wrap.className=`mini-visual ${rule[1]}`;if(slide.style.background.includes('#0f0d0c'))wrap.classList.add('dark');wrap.innerHTML=visual(rule[1],rule[2]);}
+    const hl=slide.querySelector('.hl,.cite');
+    slide.insertBefore(wrap,hl||null);
+  });
+}
 function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
 function move(d){show(cur+d)}
-show(0);
+function initialSlide(){const p=new URLSearchParams(location.search);const s=Number(p.get('slide')||location.hash.replace('#',''));return Number.isFinite(s)&&s>0?s-1:0}
+enrichSlides();
+show(initialSlide());
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);

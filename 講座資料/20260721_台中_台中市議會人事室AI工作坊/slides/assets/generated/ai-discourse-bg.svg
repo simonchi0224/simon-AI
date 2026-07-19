@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract AI discourse background">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f0d0c"/>
+      <stop offset=".52" stop-color="#11101c"/>
+      <stop offset="1" stop-color="#1e1835"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx=".78" cy=".38" r=".55">
+      <stop offset="0" stop-color="#7c6af7" stop-opacity=".34"/>
+      <stop offset=".42" stop-color="#0066cc" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#pulse)"/>
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M1005 160h290c38 0 68 30 68 68v100c0 38-30 68-68 68h-112l-72 70v-70h-106c-38 0-68-30-68-68V228c0-38 30-68 68-68z" stroke="#7c6af7" stroke-width="8" opacity=".84"/>
+    <path d="M840 360h235c31 0 56 25 56 56v82c0 31-25 56-56 56h-93l-59 58v-58h-83c-31 0-56-25-56-56v-82c0-31 25-56 56-56z" stroke="#e8541e" stroke-width="7" opacity=".78"/>
+    <path d="M1165 485h235c31 0 56 25 56 56v82c0 31-25 56-56 56h-82l-58 57v-57h-95c-31 0-56-25-56-56v-82c0-31 25-56 56-56z" stroke="#0066cc" stroke-width="7" opacity=".76"/>
+    <path d="M1265 90h112c20 0 36 16 36 36v44c0 20-16 36-36 36h-42l-34 33v-33h-36c-20 0-36-16-36-36v-44c0-20 16-36 36-36z" stroke="#e8541e" stroke-width="5" opacity=".5"/>
+  </g>
+  <g fill="#f0b45d" opacity=".42">
+    <circle cx="300" cy="180" r="3"/><circle cx="440" cy="275" r="2"/><circle cx="585" cy="190" r="3"/><circle cx="690" cy="730" r="2"/>
+    <circle cx="1375" cy="790" r="3"/><circle cx="1480" cy="300" r="2"/>
+  </g>
+  <g stroke="#fff" stroke-width="2" opacity=".06">
+    <path d="M150 650c210-90 390-93 540-10s315 95 492 35"/>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Public sector AI safety and governance">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fbfaf7"/><stop offset="1" stop-color="#f5efe7"/></linearGradient>
+    <linearGradient id="shield" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#e8541e"/><stop offset="1" stop-color="#0066cc"/></linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <g fill="#fff" stroke="#e6e3dd" stroke-width="4">
+    <rect x="120" y="110" width="270" height="420" rx="18"/><rect x="810" y="110" width="270" height="420" rx="18"/>
+  </g>
+  <g stroke="#c8c2b8" stroke-width="8" stroke-linecap="round">
+    <path d="M170 190h160M170 240h120M170 290h165M170 340h140M860 190h160M860 240h110M860 290h170M860 340h130"/>
+  </g>
+  <g transform="translate(455 95)">
+    <path d="M145 0c52 48 105 65 160 70v148c0 126-78 209-160 247C63 427-15 344-15 218V70C40 65 93 48 145 0z" fill="url(#shield)"/>
+    <path d="M145 54c36 30 72 43 110 48v112c0 84-48 142-110 178C83 356 35 298 35 214V102c38-5 74-18 110-48z" fill="#fff" opacity=".18"/>
+    <path d="M74 228l48 48 102-130" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g stroke="#1d1d1f" stroke-width="5" opacity=".16">
+    <path d="M390 320h130M680 320h130M255 530v60h690v-60"/>
+  </g>
+  <g fill="#1d1d1f">
+    <circle cx="255" cy="602" r="28"/><circle cx="945" cy="602" r="28"/><circle cx="600" cy="602" r="28"/>
+  </g>
+  <g fill="#e8541e">
+    <rect x="209" y="585" width="92" height="74" rx="22"/><rect x="554" y="585" width="92" height="74" rx="22"/><rect x="899" y="585" width="92" height="74" rx="22"/>
+  </g>
+</svg>

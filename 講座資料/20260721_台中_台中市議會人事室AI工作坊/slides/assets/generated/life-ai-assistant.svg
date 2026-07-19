@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="AI assistant for everyday family tasks">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fbfaf7"/><stop offset="1" stop-color="#edf4ff"/></linearGradient>
+    <linearGradient id="card" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f9fafb"/></linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <rect x="450" y="74" width="300" height="572" rx="42" fill="#101010"/>
+  <rect x="475" y="120" width="250" height="478" rx="24" fill="#fbfaf7"/>
+  <circle cx="600" cy="623" r="12" fill="#4b5563"/>
+  <g transform="translate(508 165)">
+    <circle cx="92" cy="75" r="62" fill="#e8541e"/>
+    <path d="M92 30v90M47 75h90" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="92" cy="75" r="82" fill="none" stroke="#e8541e" stroke-width="4" opacity=".35"/>
+  </g>
+  <g fill="url(#card)" stroke="#e6e3dd" stroke-width="4">
+    <rect x="115" y="130" width="285" height="130" rx="20"/><rect x="115" y="302" width="285" height="130" rx="20"/><rect x="115" y="474" width="285" height="130" rx="20"/>
+    <rect x="800" y="130" width="285" height="130" rx="20"/><rect x="800" y="302" width="285" height="130" rx="20"/><rect x="800" y="474" width="285" height="130" rx="20"/>
+  </g>
+  <g fill="#e8541e">
+    <circle cx="173" cy="195" r="26"/><circle cx="173" cy="367" r="26"/><circle cx="173" cy="539" r="26"/>
+    <circle cx="858" cy="195" r="26"/><circle cx="858" cy="367" r="26"/><circle cx="858" cy="539" r="26"/>
+  </g>
+  <g stroke="#1d1d1f" stroke-width="9" stroke-linecap="round" opacity=".75">
+    <path d="M225 176h118M225 210h86M225 348h126M225 382h70M225 520h118M225 554h90"/>
+    <path d="M910 176h118M910 210h72M910 348h126M910 382h86M910 520h118M910 554h96"/>
+  </g>
+  <g stroke="#0066cc" stroke-width="6" fill="none" opacity=".55">
+    <path d="M400 195h75M725 195h75M400 367h75M725 367h75M400 539h75M725 539h75"/>
+  </g>
+</svg>

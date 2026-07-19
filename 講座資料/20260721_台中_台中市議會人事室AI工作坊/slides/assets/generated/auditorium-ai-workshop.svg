@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="AI workshop in a large auditorium">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#120f0d"/>
+      <stop offset="1" stop-color="#2b160c"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" x2="1">
+      <stop offset="0" stop-color="#fbfaf7"/>
+      <stop offset="1" stop-color="#f4ded2"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <path d="M110 115h980v455H110z" fill="#0b0b0b" opacity=".5"/>
+  <rect x="190" y="92" width="820" height="360" rx="24" fill="url(#screen)"/>
+  <path d="M250 332c120-115 230-115 350 0s230 115 350 0" fill="none" stroke="#e8541e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="394" cy="238" r="44" fill="#111"/>
+  <circle cx="600" cy="238" r="64" fill="#e8541e"/>
+  <circle cx="806" cy="238" r="44" fill="#111"/>
+  <path d="M340 238h156M704 238h156M600 302v74" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#fbfaf7" opacity=".88">
+    <circle cx="600" cy="238" r="20"/>
+    <circle cx="394" cy="238" r="14"/>
+    <circle cx="806" cy="238" r="14"/>
+  </g>
+  <g filter="url(#glow)" fill="#f59e0b">
+    <circle cx="286" cy="156" r="6"/><circle cx="925" cy="151" r="7"/><circle cx="742" cy="118" r="5"/><circle cx="474" cy="134" r="5"/>
+  </g>
+  <g fill="#2f2f2f">
+    <path d="M130 628c140-62 300-90 470-90s330 28 470 90v58H130z"/>
+    <path d="M155 548c120-45 270-67 445-67s325 22 445 67v42H155z" opacity=".85"/>
+    <path d="M200 496c102-28 236-42 400-42s298 14 400 42v34H200z" opacity=".75"/>
+  </g>
+  <g fill="#0f0d0c" opacity=".9">
+    <circle cx="235" cy="531" r="17"/><circle cx="320" cy="512" r="17"/><circle cx="410" cy="501" r="17"/><circle cx="512" cy="493" r="17"/>
+    <circle cx="625" cy="493" r="17"/><circle cx="736" cy="501" r="17"/><circle cx="835" cy="514" r="17"/><circle cx="936" cy="535" r="17"/>
+  </g>
+</svg>

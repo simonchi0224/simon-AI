@@ -138,8 +138,43 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 .tool-card{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;min-height:230px}
 .tool-card:nth-child(1){border-top:5px solid var(--orange)}.tool-card:nth-child(2){border-top:5px solid var(--blue)}.tool-card:nth-child(3){border-top:5px solid var(--purple)}
 .tool-card .name{font-size:1.55rem;font-weight:900;margin-bottom:10px;color:var(--ink)}
+.visual-wrap{margin-top:18px;background:white;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:center;align-items:center;min-height:250px}
+.visual-wrap.dark{background:#111;border-color:rgba(255,255,255,.14)}
+.visual-wrap img{width:100%;height:auto;max-height:360px;object-fit:contain;display:block}
+.visual-split{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch;margin-top:18px}
+.visual-split .visual-wrap{margin-top:0;min-height:280px}
+.quote-bg{background:#0f0d0c;color:white;padding:7vh 9vw;justify-content:flex-end}
+.quote-bg::before{content:'';position:absolute;inset:0;background:var(--bg-img) center/cover no-repeat;opacity:.96}
+.quote-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.78) 38%,rgba(5,5,5,.28) 72%,rgba(5,5,5,.1) 100%)}
+.quote-bg>*{position:relative;z-index:1}
+.quote-bg .slide-tag{color:#f59e0b;margin-bottom:18px}
+.quote-bg h2{border:none;padding:0;color:white;font-size:clamp(2.5rem,5.2vw,4.5rem);line-height:1.12;font-weight:900;max-width:900px;margin-bottom:22px}
+.quote-bg .quote-line{width:120px;height:5px;background:#e8541e;border-radius:999px;margin-bottom:20px}
+.quote-bg .quote-note{font-size:clamp(1.25rem,1.9vw,1.58rem);line-height:1.7;color:rgba(255,255,255,.82);max-width:880px}
+.quote-bg .cite{border-top-color:rgba(255,255,255,.18);color:rgba(255,255,255,.52);max-width:880px}
 .tool-card .role{font-size:1.05rem;font-weight:800;color:var(--dim);margin-bottom:12px}
 .tool-card .best{font-size:.95rem;line-height:1.6;color:var(--dim)}
+.mini-visual{margin-top:14px;display:grid;gap:10px}
+.mini-visual.row3{grid-template-columns:repeat(3,1fr)}
+.mini-visual.row4{grid-template-columns:repeat(4,1fr)}
+.mini-card{background:white;border:1px solid var(--line);border-radius:10px;padding:16px 14px;min-height:118px}
+.mini-card .sym{font-size:1.7rem;font-weight:900;color:var(--orange);line-height:1;margin-bottom:10px}
+.mini-card .mt{font-size:1.02rem;font-weight:900;color:var(--ink);margin-bottom:5px}
+.mini-card .md{font-size:.86rem;line-height:1.45;color:var(--dim)}
+.mini-visual.dark .mini-card{background:#111;color:white;border-color:rgba(255,255,255,.12)}
+.mini-visual.dark .mini-card .mt{color:white}
+.mini-visual.dark .mini-card .md{color:rgba(255,255,255,.62)}
+.process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.process-node{background:white;padding:16px 14px;min-height:120px;border-right:1px solid var(--line)}
+.process-node:last-child{border-right:0}
+.process-node .pn{font-size:.78rem;font-weight:900;color:var(--orange);letter-spacing:2px;margin-bottom:8px}
+.process-node .pt{font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:5px}
+.process-node .pd{font-size:.86rem;line-height:1.42;color:var(--dim)}
+.scenario-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.scenario-card{background:#111;color:white;border-radius:10px;padding:16px 12px;min-height:126px;border:1px solid rgba(232,84,30,.25)}
+.scenario-card .sicon{font-size:1.55rem;font-weight:900;color:var(--orange);margin-bottom:9px}
+.scenario-card .st{font-size:.98rem;font-weight:900;margin-bottom:5px}
+.scenario-card .sd{font-size:.78rem;line-height:1.45;color:rgba(255,255,255,.62)}
 #nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
 #counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
 .nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
@@ -154,7 +189,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <a href="index.html" class="home-btn">← 返回</a>
 
 <!-- 1. Cover -->
-<section class="slide cover">
+<section class="slide cover" style="background:linear-gradient(rgba(5,5,5,.55),rgba(5,5,5,.8)),url('assets/generated/taichung-auditorium-bg.svg') center/cover no-repeat">
   <span class="s-tag">叫 AI 來幫我 · 下午場 / 13:00–16:00</span>
   <h1>換工具，<br><span class="hi">換場景，換角度</span></h1>
   <div class="sub">看 Manus 怎麼自動幫你做事 · 把 AI 用在生活裡 · 最後聊清楚 AI 的紅線在哪</div>
@@ -231,20 +266,12 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 </section>
 
 <!-- 5b. 時事：NVIDIA AI工廠 -->
-<section class="slide" style="background:#0f0d0c">
+<section class="slide quote-bg no-auto" style="--bg-img:url('assets/generated/ai-infrastructure-bg.svg')">
   <div class="slide-tag" style="color:var(--purple)">時事 · AI Agent背後需要什麼</div>
   <h2 style="color:white;border-left-color:var(--purple)">AI 工廠：<br>黃仁勳的比喻</h2>
-  <div class="factory">
-    <div class="factory-core"><div class="huge">AI</div><div class="label">新的生產線</div><div class="desc">以前工廠生產汽車與衣服；AI 工廠生產答案、影像、模型與自動化能力。</div></div>
-    <div class="factory-grid">
-      <div class="factory-chip"><div class="t">算力</div><div class="d">GPU、資料中心、電力與冷卻，是 Agent 能跑多步驟任務的底座。</div></div>
-      <div class="factory-chip"><div class="t">資料</div><div class="d">公開資料、上傳文件、工具連結，決定輸出的品質。</div></div>
-      <div class="factory-chip"><div class="t">模型</div><div class="d">ChatGPT、Gemini、Manus 背後都是模型能力的商品化。</div></div>
-      <div class="factory-chip"><div class="t">人類審核</div><div class="d">越自動化，越需要清楚規則與人工把關。</div></div>
-    </div>
-  </div>
+  <div class="quote-line"></div>
+  <div class="quote-note">Agent 會自己跑任務，不是因為介面變漂亮，而是背後的算力、資料、模型與工具串接都到位了。</div>
   <div class="cite" style="color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.15)">來源：<b>Data Center Frontier</b>〈Jensen Huang Maps the AI Factory Era at NVIDIA GTC 2026〉、<b>SiliconANGLE</b>，2026年6月</div>
-  <div class="hl bl" style="margin-top:16px;background:rgba(124,106,247,.15);color:rgba(255,255,255,.85)">這正好解釋了為什麼 Manus 這種「自己會做事」的 AI 現在才普及——背後需要的運算能力，是這一兩年才真正到位的。</div>
 </section>
 
 <!-- ══════ 分組：Agent的兩個界線 ══════ -->
@@ -254,6 +281,7 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
   <span class="s-tag">觀念 · 劃清界線</span>
   <h2>Agent 能做什麼，<br><span class="hi">不能做什麼</span></h2>
   <div class="sub">先劃清界線，才不會期待錯方向</div>
+  <img src="assets/generated/ai-factory-infrastructure.svg" alt="AI基礎設施示意圖" style="position:absolute;right:6vw;top:10vh;width:min(300px,26vw);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.4)">
   <div class="count">A / B</div>
 </section>
 
@@ -454,13 +482,14 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <section class="slide">
   <div class="slide-tag">SCENARIOS · 挑一個，等一下自己試</div>
   <h2>AI 也能是家人的備用大腦</h2>
-  <div class="cgrid g3" style="margin-top:14px">
-    <div class="card o"><div class="ct">🧳 旅遊行程規劃</div><div class="cd">「幫我排一個台中兩天一夜親子行程，帶6歲小孩，不要走太多路」</div></div>
-    <div class="card b"><div class="ct">🍚 假日食譜與購物清單</div><div class="cd">「用冰箱剩下的[食材]，設計三道家常菜，順便列購物清單」</div></div>
-    <div class="card g"><div class="ct">🧒 親子活動安排</div><div class="cd">「週末在台中，適合國小低年級的室內活動，天氣不好也能去」</div></div>
-    <div class="card o"><div class="ct">💌 節日賀詞 / 祝福文字</div><div class="cd">「幫我寫一段給長輩的中秋祝福文字，要有禮貌又不生硬」</div></div>
-    <div class="card b"><div class="ct">💰 家庭預算問答</div><div class="cd">「幫我列一份四口之家每月基本開銷試算表，含教育與保險」</div></div>
-    <div class="card g"><div class="ct">📸 AI證件照</div><div class="cd">用生活照生成一張證件照規格的照片，最後一堂會示範</div></div>
+  <div class="visual-split">
+    <div class="cgrid g2" style="margin-top:0">
+      <div class="card o"><div class="ct">旅遊行程規劃</div><div class="cd">帶小孩、不走太多路、雨天備案</div></div>
+      <div class="card b"><div class="ct">食譜與購物清單</div><div class="cd">用冰箱食材，順便列採買</div></div>
+      <div class="card g"><div class="ct">家庭預算問答</div><div class="cd">把開銷變成可討論表格</div></div>
+      <div class="card p"><div class="ct">照護提醒</div><div class="cd">就醫問題、用藥時間、長輩提醒</div></div>
+    </div>
+    <div class="visual-wrap"><img src="assets/generated/life-ai-assistant.svg" alt="生活 AI 助手示意圖"></div>
   </div>
 </section>
 
@@ -663,21 +692,17 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 </section>
 
 <!-- 38b. 公部門用AI先守住三條線 -->
-<section class="slide" style="background:#0f0d0c">
+<section class="slide quote-bg no-auto" style="--bg-img:url('assets/generated/public-sector-safety-bg.svg')">
   <div class="slide-tag" style="color:var(--orange)">最後一段 · 先記住這頁就夠</div>
   <h2 style="color:white;border-left-color:var(--orange)">公部門用 AI，<br>先守住三條線</h2>
-  <div class="risk-board">
-    <div class="risk-card"><div class="num">01</div><div class="title">資料線</div><div class="desc">個資、未公開公文、內部簽呈，不貼進公開 AI 工具。</div></div>
-    <div class="risk-card"><div class="num">02</div><div class="title">事實線</div><div class="desc">數字、日期、法規、單位名稱，回到原始文件核對。</div></div>
-    <div class="risk-card"><div class="num">03</div><div class="title">責任線</div><div class="desc">AI 可以幫你起草，但不能替你判斷、承諾或負責。</div></div>
-  </div>
-  <div class="hl" style="margin-top:20px;background:rgba(232,84,30,.15);color:white">AI 可以幫你加速，但不能替你負責。</div>
+  <div class="quote-line"></div>
+  <div class="quote-note">資料線、事實線、責任線。AI 可以幫你加速，但不能替你負責。</div>
 </section>
 
 <!-- ══════ 分組：AI會自信地說錯話 ══════ -->
 
 <!-- 39. divider -->
-<section class="slide divider">
+<section class="slide divider" style="background:linear-gradient(90deg,rgba(7,7,7,.92) 30%,rgba(7,7,7,.5) 100%),url('assets/generated/deepfake-risk-bg.svg') center/cover no-repeat">
   <span class="s-tag">RISK 1 · 幻覺與假訊息</span>
   <h2>AI 會<br><span class="hi">自信地說錯話</span></h2>
   <div class="sub">兩種你要提防的錯誤內容</div>
@@ -711,9 +736,12 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <section class="slide">
   <div class="slide-tag">RISK 2 · 個資隱私與著作權</div>
   <h2>什麼不能貼給 AI</h2>
-  <div class="mistake-list">
-    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">個資隱私</div><div class="mistake-fix">民眾姓名、身分證號、機敏資料不要貼進去；用「某甲」代替，處理完再填回實際內容</div></div></div>
-    <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">著作權</div><div class="mistake-fix">AI 產出不等於可以直接使用，尤其是對外發布的圖片、文案，要再確認授權與原創性</div></div></div>
+  <div class="visual-split">
+    <div class="mistake-list">
+      <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">個資隱私</div><div class="mistake-fix">民眾姓名、身分證號、機敏資料不要貼進去；用「某甲」代替，處理完再填回實際內容</div></div></div>
+      <div class="mistake-row"><span class="mistake-x">✕</span><div><div class="mistake-title">著作權</div><div class="mistake-fix">AI 產出不等於可以直接使用，尤其是對外發布的圖片、文案，要再確認授權與原創性</div></div></div>
+    </div>
+    <div class="visual-wrap"><img src="assets/generated/data-privacy-guard.svg" alt="資料保護三層防護"></div>
   </div>
 </section>
 
@@ -818,9 +846,11 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 </section>
 
 <!-- 51. 結尾金句 -->
-<section class="slide bqslide">
-  <div class="bq">你的判斷，<br>是 <span class="accent">AI 最後的防線</span>。</div>
-  <div class="bq-src">謝謝台中市議會人事室，今天辛苦了 —— 季祥 Simon</div>
+<section class="slide quote-bg no-auto" style="--bg-img:url('assets/generated/closing-quote-bg.svg')">
+  <h2>你的判斷，<br>是<span style="color:var(--orange)"> AI 最後的防線</span>。</h2>
+  <div class="quote-line"></div>
+  <div class="quote-note">謝謝台中市議會人事室，今天辛苦了。</div>
+  <div class="cite">季祥 Simon</div>
 </section>
 
 <!-- nav -->
@@ -833,9 +863,67 @@ h2{font-size:clamp(2.2rem,3.8vw,3rem);font-weight:700;color:var(--ink);border-le
 <script>
 const slides=document.querySelectorAll('.slide');
 let cur=0;
+function visual(type,items){return items.map(it=>`<div class="mini-card"><div class="sym">${it[0]}</div><div class="mt">${it[1]}</div><div class="md">${it[2]||''}</div></div>`).join('')}
+function rail(items){return `<div class="process-rail">${items.map((it,i)=>`<div class="process-node"><div class="pn">STEP ${i+1}</div><div class="pt">${it[0]}</div><div class="pd">${it[1]}</div></div>`).join('')}</div>`}
+function scenarios(items){return `<div class="scenario-strip">${items.map(it=>`<div class="scenario-card"><div class="sicon">${it[0]}</div><div class="st">${it[1]}</div><div class="sd">${it[2]}</div></div>`).join('')}</div>`}
+function enrichSlides(){
+  const rules=[
+    ['不只 Manus，大家都在做 Agent','row4',[['MS','Office 任務'],['G','跨 App'],['OA','工作助理'],['M','任務平台']]],
+    ['需要花時間、多步驟的事','row3',[['查','多來源搜尋'],['整','比較整理'],['報','輸出報告']]],
+    ['需要你當場判斷的事','row3',[['密','機敏資料'],['責','對外承諾'],['判','價值裁量']]],
+    ['你問，它根據知識回答','rail',[['提出問題','先問大方向'],['取得草稿','得到流程概念'],['補限制','加入在地條件'],['人工查核','確認最新公告']]],
+    ['可以順便幫你查最新資料','rail',[['搜尋','找公開資訊'],['摘要','抓重點'],['比對','看不同來源'],['引用','留下來源']]],
+    ['你下任務，它自己整理成表格','rail',[['交辦任務','說明目標'],['自動搜尋','跑多步驟'],['整理表格','產出比較'],['你審核','確認能否使用']]],
+    ['換你比比看，ChatGPT 跟 Gemini','row3',[['同題','同一任務'],['同表','同欄位比較'],['同標準','看誰更可用']]],
+    ['整理三家廠商報價比較','row3',[['價格','總價與單價'],['規格','交付內容'],['風險','保固與條件']]],
+    ['換你整理一份比較表','row3',[['欄位','先定比較條件'],['資料','貼入公開資訊'],['結論','請 AI 先排序']]],
+    ['Manus 跑完一個任務','row4',[['任務','它知道要做什麼'],['步驟','它會拆流程'],['檔案','它會整理輸出'],['回報','你回來看成果']]],
+    ['自動彙整跨部門資料','row3',[['收件','跨部門資料'],['統一','整理成同格式'],['追蹤','列出缺漏']]],
+    ['加快跨縣市政策研究','row3',[['查','找各縣市'],['比','比制度'],['摘','產出摘要']]],
+    ['你不是被取代','row3',[['指揮','設定任務'],['監督','看過程'],['負責','做判斷']]],
+    ['今天已經走了一大半','row4',[['問','會下指令'],['寫','會改草稿'],['查','會找脈絡'],['守','會避風險']]],
+    ['AI 也能是家人的備用大腦','row3',[['醫','就醫提問'],['家','長輩照護'],['行','生活安排']]],
+    ['示範一次給你看','rail',[['說情境','要去哪裡'],['給限制','時間/預算/偏好'],['要格式','表格或清單'],['再追問','改成可執行']]],
+    ['①換你排一趟行程','row3',[['時間','幾天幾夜'],['對象','家人/朋友'],['限制','預算與交通']]],
+    ['②換你想今晚吃什麼','row3',[['口味','想吃什麼'],['距離','附近多久'],['限制','預算/忌口']]],
+    ['③換你排一個週末活動','row3',[['天氣','室內外'],['人數','誰一起去'],['備案','下雨怎麼辦']]],
+    ['④換你寫一段祝福','row3',[['對象','給誰'],['關係','熟不熟'],['語氣','正式或溫暖']]],
+    ['⑤換你列一份試算表','row3',[['欄位','先列欄'],['資料','補內容'],['公式','請 AI 建議']]],
+    ['AI 也能幫你生成證件照','row3',[['拍','先拍清楚'],['改','生成版本'],['核','確認規格']]],
+    ['幫長輩整理用藥時間表','row3',[['時間','早中晚'],['提醒','注意事項'],['確認','問醫師藥師']]],
+    ['用孩子聽得懂的方式解釋','row3',[['比喻','換成生活例子'],['短句','少術語'],['確認','請他復述']]],
+    ['先問AI，再決定要不要叫師傅','row3',[['描述','故障狀況'],['檢查','安全可做項目'],['停手','危險就找專業']]],
+    ['你今晚就能用的 5 件事','scenario',[['食','晚餐選擇','快速比較餐廳'],['行','行程安排','把限制講清楚'],['家','長輩照護','整理提醒'],['寫','祝福訊息','調整語氣'],['算','家庭表格','先做欄位']]],
+    ['還有時間？挑一個自己的情境','row3',[['選','真實問題'],['寫','套今天格式'],['改','追問一次']]],
+    ['今天想完成的一件事','row3',[['小','任務要小'],['真','跟自己有關'],['帶','成果帶回家']]],
+    ['它不會告訴你「我不確定」','row3',[['自信','錯也很像對'],['來源','沒有來源先懷疑'],['核對','重要資訊回原文']]],
+    ['眼見不一定為憑','row3',[['臉','影像可合成'],['聲','聲音可複製'],['錢','匯款先確認']]],
+    ['什麼不能貼給 AI','row3',[['個資','姓名身分證'],['內文','未公開公文'],['承諾','對外決策']]],
+    ['執行層、非最終決定的事','row3',[['草稿','先寫第一版'],['摘要','整理重點'],['格式','轉成表格']]],
+    ['機敏、最終負責的事','row3',[['個案','裁量判斷'],['法規','正式解釋'],['外發','對外發布']]],
+    ['如果 AI 真的幫你省了時間','row3',[['量','處理更多案子'],['質','做更細判斷'],['人','留給溝通']]],
+    ['回去後，你可以試試看的三件事','row3',[['一份文件','這週就試'],['一個社群','持續問'],['一位同事','教一次']]],
+    ['今天最好用的 5 句話','row3',[['身分','我是誰'],['背景','發生什麼事'],['格式','要輸出什麼']]]
+  ];
+  slides.forEach(slide=>{
+    const h=slide.querySelector('h2');
+    if(slide.classList.contains('no-auto') || !h || slide.querySelector('.mini-visual,.process-rail,.scenario-strip,.agent-map,.factory,.risk-board,.truth-steps,.tool-lane'))return;
+    const text=h.textContent.replace(/\s+/g,'');
+    const rule=rules.find(r=>text.includes(r[0].replace(/\s+/g,'')));
+    if(!rule)return;
+    const wrap=document.createElement('div');
+    if(rule[1]==='rail')wrap.innerHTML=rail(rule[2]);
+    else if(rule[1]==='scenario')wrap.innerHTML=scenarios(rule[2]);
+    else{wrap.className=`mini-visual ${rule[1]}`;if(slide.style.background.includes('#0f0d0c'))wrap.classList.add('dark');wrap.innerHTML=visual(rule[1],rule[2]);}
+    const anchor=slide.querySelector('.hl,.cite');
+    slide.insertBefore(wrap,anchor||null);
+  });
+}
 function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
 function move(d){show(cur+d)}
-show(0);
+function initialSlide(){const p=new URLSearchParams(location.search);const s=Number(p.get('slide')||location.hash.replace('#',''));return Number.isFinite(s)&&s>0?s-1:0}
+enrichSlides();
+show(initialSlide());
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);

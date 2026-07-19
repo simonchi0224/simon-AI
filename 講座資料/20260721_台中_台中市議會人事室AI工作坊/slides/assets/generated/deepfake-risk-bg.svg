@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract deepfake risk background">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#070707"/>
+      <stop offset=".55" stop-color="#1d1015"/>
+      <stop offset="1" stop-color="#2a1007"/>
+    </linearGradient>
+    <radialGradient id="warn" cx=".78" cy=".46" r=".5">
+      <stop offset="0" stop-color="#e8541e" stop-opacity=".28"/>
+      <stop offset=".48" stop-color="#7c6af7" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="scan" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0 1h12" stroke="#fff" stroke-opacity=".045" stroke-width="1"/>
+      <circle cx="2" cy="8" r=".9" fill="#fff" fill-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#warn)"/>
+  <rect width="1600" height="900" fill="url(#scan)" opacity=".9"/>
+  <g transform="translate(940 105)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M185 72c92 31 139 106 128 214-8 82-44 147-104 196-46 37-95 56-147 57-79 1-142-39-178-111-32-64-32-136 0-216 44-108 141-163 301-140z" stroke="#e8541e" stroke-width="8" opacity=".78"/>
+    <path d="M140 94c93 19 151 84 154 187 2 84-27 153-86 208-47 44-101 70-162 77-75 9-139-23-184-91-39-60-48-131-25-213 31-113 125-178 303-168z" stroke="#7c6af7" stroke-width="8" opacity=".68"/>
+    <path d="M35 280c55-24 109-22 162 6M64 408c57 28 113 28 169-2" stroke="#fff" stroke-width="5" opacity=".16"/>
+    <path d="M110 128c-42 50-62 107-60 171M231 153c46 55 61 124 45 207" stroke="#fff" stroke-width="4" opacity=".13"/>
+  </g>
+  <g opacity=".28" stroke="#e8541e" stroke-width="5" fill="none">
+    <path d="M1300 662l92 158h-184z"/>
+    <path d="M1324 742h-48"/>
+  </g>
+  <g stroke="#fff" stroke-width="2" opacity=".06">
+    <path d="M0 210h1600M0 398h1600M0 586h1600M0 774h1600"/>
+  </g>
+</svg>
