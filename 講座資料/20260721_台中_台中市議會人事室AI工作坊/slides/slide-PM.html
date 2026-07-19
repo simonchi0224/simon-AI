@@ -930,13 +930,13 @@ function enrichSlides(){
     else if(rule[1]==='scenario')wrap.innerHTML=scenarios(rule[2]);
     else{wrap.className=`mini-visual ${rule[1]}`;if(slide.style.background.includes('#0f0d0c'))wrap.classList.add('dark');wrap.innerHTML=visual(rule[1],rule[2]);}
     const anchor=slide.querySelector('.hl,.cite');
-    slide.insertBefore(wrap,anchor||null);
+    (anchor?anchor.parentNode:slide).insertBefore(wrap,anchor||null);
   });
 }
 function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
 function move(d){show(cur+d)}
 function initialSlide(){const p=new URLSearchParams(location.search);const s=Number(p.get('slide')||location.hash.replace('#',''));return Number.isFinite(s)&&s>0?s-1:0}
-enrichSlides();
+try{enrichSlides();}catch(e){console.error('enrichSlides failed:',e);}
 show(initialSlide());
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
 let tx=0;
