@@ -135,6 +135,17 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 #prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
 .home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
 .home-btn:hover{color:white}
+/* sticky-note workshop activity */
+.slide.sticky-activity{background:#fffbeb;border:3px dashed #f59e0b}
+.sticky-banner{display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:white;font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:14px}
+.sticky-meta{font-size:.85rem;color:#92400e;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
+.sticky-meta span{background:rgba(245,158,11,.15);padding:3px 12px;border-radius:10px;font-weight:600}
+.sticky-steps{list-style:none;counter-reset:sn;margin-top:10px}
+.sticky-steps li{counter-increment:sn;font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink);padding:9px 0 9px 42px;position:relative;border-bottom:1px solid rgba(245,158,11,.25)}
+.sticky-steps li:last-child{border-bottom:none}
+.sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
+.sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+.hl.amber{border-color:#f59e0b;background:rgba(245,158,11,.08)}
 </style>
 </head>
 <body>
@@ -231,6 +242,19 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl" style="margin-top:10px">這件事AI可以幫忙整理數據（誰在哪一週被排了幾件事），但「怎麼調整、跟誰談」，還是你的判斷。</div>
 </section>
 
+<!-- 4d. 便利貼：週曆排班 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 把團隊任務貼上週曆</div>
+  <h2>用便利貼，<br>看出誰的負荷卡在哪一週</h2>
+  <div class="sticky-meta"><span>白板畫四週格線＋便利貼（一人一色最好）</span><span>個人或小組</span><span>6分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>白板畫出橫向四週的格線<span>本月第1週到第4週</span></li>
+    <li>想你團隊裡的成員，每人選一個顏色的便利貼<span>沒有分色便利貼，就在角落寫名字縮寫</span></li>
+    <li>把每個人這個月的任務，寫便利貼貼到對應的週次<span>家訪、課後輔導、會議準備都算</span></li>
+    <li>看哪一週同一顏色貼得特別密集<span>那就是負荷過高的那一週，需要調整</span></li>
+  </ol>
+</section>
+
 <!-- 5. Demo：逐字稿轉行動清單 -->
 <section class="slide">
   <div class="slide-tag">DEMO · 會議後</div>
@@ -248,6 +272,33 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     </div>
   </div>
   <div class="hl" style="margin-top:10px">貼進去之前，記得把真實姓名先換成代號——這是上午第2堂練過的去識別化習慣，下午開始正式上場。</div>
+</section>
+
+<!-- 5b. 多人會議：分開摘要每個人的重點 -->
+<section class="slide">
+  <div class="slide-tag">進階技巧 · 多人發言怎麼分開整理</div>
+  <h2>ABCD 一起開會，<br>怎麼分別看出每個人說了什麼</h2>
+  <div class="slide-sub">學員實際問過的問題：AI 常常把整段對話混在一起摘要，看不出「B 說了什麼、C 又回應了什麼」</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">關鍵在來源，不是在提示語</div>
+      <div class="cd">如果逐字稿本身沒有標記「誰在說話」，AI 猜不出發言者是誰——先確認逐字稿或錄音轉出來的文字，有沒有標好 A／B／C／D 或姓名代號。</div>
+    </div>
+    <div class="card b">
+      <div class="ct">Gemini Notebook 比對話型AI更適合</div>
+      <div class="cd">把有標記發言者的逐字稿當作來源上傳，之後可以個別問「代號A對這個提案的意見是什麼」「代號B跟代號D的看法有沒有衝突」，它會回到原文找答案，不是整段猜。</div>
+    </div>
+  </div>
+  <div class="chat-ui" style="margin-top:10px">
+    <div class="chat-bar"><div class="chat-dot r"></div><div class="chat-dot y"></div><div class="chat-dot g"></div><span class="chat-appname">ChatGPT / Gemini（沒有Notebook時的替代做法）</span></div>
+    <div class="chat-body">
+      <span class="chat-who">Prompt 範例</span>
+      <div class="chat-text">以下是逐字稿，發言者已標記為代號A、B、C、D：[貼上逐字稿]
+請依照發言者分別整理：每個人各自的重點主張是什麼，
+最後再另外整理一段「共識與分歧」，標出誰跟誰意見一致、誰跟誰看法不同。</div>
+    </div>
+  </div>
+  <div class="hl dim" style="margin-top:10px">沒有標記發言者的逐字稿，先用語音轉文字工具（很多學員已經在用）轉出來時就標好代號，比事後請AI猜準確得多。</div>
 </section>
 
 <!-- 6. 換你打字：你的逐字稿 -->
@@ -389,6 +440,19 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl" style="margin-top:8px">接下來的工作追蹤表，就是這三欄的概念——差別是，AI 幫你把資料維護起來，你只要看「進行中」那一欄有沒有卡住。</div>
 </section>
 
+<!-- 12b2. 便利貼：畫出你的看板 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 畫出你自己的看板</div>
+  <h2>白板畫三欄，<br>把手上的任務便利貼分類貼上</h2>
+  <div class="sticky-meta"><span>白板畫三欄＋便利貼</span><span>個人或小組</span><span>5分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>白板畫出三欄：待處理／進行中／已完成</li>
+    <li>把你手上（或團隊）目前的任務，一件一件寫便利貼<span>可以用上午寫過的清單，也可以想新的</span></li>
+    <li>貼到對應的欄位<span>「進行中」的便利貼，額外標上負責人跟卡點</span></li>
+    <li>看看「進行中」那欄有沒有便利貼卡了很久<span>這通常就是團隊裡沒被注意到的問題</span></li>
+  </ol>
+</section>
+
 <!-- 12c. RACI矩陣 -->
 <section class="slide">
   <div class="slide-tag">FRAMEWORK · RACI 責任矩陣</div>
@@ -402,6 +466,19 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
   <div class="src-note" style="margin-top:8px">資料來源：PMI《PMBOK Guide》責任分配矩陣（Responsibility Assignment Matrix）</div>
   <div class="hl" style="margin-top:8px">給團隊每件任務標上這四個角色，很多「以為交辦了、其實沒人真的負責」的狀況就會消失。</div>
+</section>
+
+<!-- 12c2. 便利貼：填RACI表格 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 把名字貼進RACI表格</div>
+  <h2>白板畫表格，<br>幫一件任務指派四種角色</h2>
+  <div class="sticky-meta"><span>白板畫表格＋寫好團隊成員名字的便利貼</span><span>個人或小組</span><span>5分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>挑一件你手上正在做的專案或活動<span>例如：董事會報告、跨單位活動籌備</span></li>
+    <li>白板畫一個表格，橫軸寫 R／A／C／I 四欄</li>
+    <li>把團隊成員名字各寫一張便利貼，貼進對應的欄位<span>同一個人可以同時出現在不同欄</span></li>
+    <li>檢查每一列：A（負責人）那欄是不是都只有一個人<span>兩個人同時「負責」，通常代表沒人真的負責</span></li>
+  </ol>
 </section>
 
 <!-- 12d. 要徑法 -->
@@ -421,6 +498,19 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     </div>
   </div>
   <div class="hl" style="margin-top:10px">開會追進度時，先問「要徑上的任務」進度如何，比平均關心每一件事更有效率。</div>
+</section>
+
+<!-- 12d2. 便利貼：畫出相依關係 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 畫出任務相依關係</div>
+  <h2>用便利貼＋箭頭，<br>找出你的要徑</h2>
+  <div class="sticky-meta"><span>白板/海報紙＋便利貼＋筆（畫箭頭連線）</span><span>個人或小組</span><span>6分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>想一個你正在籌備、有好幾個步驟的專案<span>可以用「跨單位活動籌備」練習，也可以換自己的</span></li>
+    <li>每個步驟寫一張便利貼，先不管順序</li>
+    <li>把便利貼依照「誰要等誰完成才能開始」排好，畫箭頭連起來</li>
+    <li>找出從頭到尾串起來最長的那一條線，就是要徑<span>沒有連在這條線上的便利貼，代表有緩衝空間</span></li>
+  </ol>
 </section>
 
 <!-- 12e. 時程緩衝 -->
@@ -471,6 +561,17 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     </div>
   </div>
   <div class="hl" style="margin-top:10px">固定欄位、固定格式，之後每次新專案都能重複套用同一套——這就是「系統」跟「臨時整理」的差別。</div>
+</section>
+
+<!-- 13b. debrief：看板哪一欄卡最多 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 小組互看 3 分鐘</div>
+  <h2>你的看板，<br>卡在哪一欄最多？</h2>
+  <div class="slide-sub">回頭看看剛才畫的看板便利貼</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o"><div class="ct">如果「進行中」卡了很多張</div><div class="cd">代表任務啟動了卻推不動——通常是沒有明確的下一步，或在等別人回覆</div></div>
+    <div class="card b"><div class="ct">如果「待處理」堆得像座山</div><div class="cd">代表接的任務比實際能做的多——這時候要回頭用4D決策法篩一次</div></div>
+  </div>
 </section>
 
 <!-- 14. Demo：週報自動彙整 -->
@@ -552,6 +653,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
 </section>
 
+<!-- 18b. debrief：AI排序vs你的直覺 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 兩人一組 3 分鐘</div>
+  <h2>AI排的順序，<br>跟你原本想的一樣嗎？</h2>
+  <div class="slide-sub">跟旁邊的人比較一下</div>
+  <ul class="blist" style="margin-top:10px">
+    <li>如果一樣——代表你的直覺已經很準，AI是幫你節省判斷時間</li>
+    <li>如果不一樣——看AI給的理由，是它漏了什麼你知道的資訊，還是你自己的直覺有盲點</li>
+  </ul>
+  <div class="hl dim" style="margin-top:10px">排序的最終決定權，永遠是你——AI只是先幫你跑一版草稿。</div>
+</section>
+
 <!-- 19. 建立每天可執行的工作節奏 -->
 <section class="slide">
   <div class="slide-tag">SYSTEM · 每日工作節奏</div>
@@ -602,6 +715,20 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
 </section>
 
+<!-- 20b. 便利貼：寫出你的WOOP -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 寫出你的WOOP四格</div>
+  <h2>用四張便利貼，<br>拆解一件你一直拖延的事</h2>
+  <div class="sticky-meta"><span>四張便利貼＋筆</span><span>個人</span><span>4分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>第一張：寫下你的願望（Wish）<span>一件你想推進、卻一直拖延的事</span></li>
+    <li>第二張：寫下期待成果（Outcome）<span>如果做到了，具體會有什麼不一樣</span></li>
+    <li>第三張：寫下內在障礙（Obstacle）<span>誠實面對——是什麼讓你每次都卡住</span></li>
+    <li>第四張：寫下應對計畫（Plan）<span>「如果[障礙出現]，我就[具體行動]」</span></li>
+  </ol>
+  <div class="hl amber" style="margin-top:10px">四張便利貼排成一排，貼在你看得到的地方——跟今天早上那隻「青蛙」便利貼放在一起。</div>
+</section>
+
 <!-- 21. If-Then行動計畫 -->
 <section class="slide">
   <div class="slide-tag">FRAMEWORK · If-Then 行動計畫</div>
@@ -623,6 +750,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <div class="sop-row"><div class="sop-label">我就</div><div class="sop-blank">具體行動：_______________</div></div>
   </div>
   <div class="hl dim" style="margin-top:10px">挑一件你這週最容易拖延的事來練習——通常是「重要但不緊急」象限裡的那些。</div>
+</section>
+
+<!-- 22b. debrief：貼在看得到的地方 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 帶回辦公室的動作</div>
+  <h2>寫完，實際貼在<br>你回去會看到的地方</h2>
+  <div class="slide-sub">今天寫的所有便利貼——青蛙、WOOP、If-Then——現在做最後一件事</div>
+  <ul class="nlist" style="margin-top:10px">
+    <li>把今天寫的關鍵便利貼收好<span>拍照存手機備份一份</span></li>
+    <li>回辦公室後，實際貼在螢幕邊框、桌墊、筆記本封面<span>眼睛看得到，才會真的去做</span></li>
+    <li>做完就撕掉<span>撕掉的動作本身，就是完成的獎勵感</span></li>
+  </ul>
 </section>
 
 <!-- 23. 工作流程四層次 -->

@@ -147,6 +147,17 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 #prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
 .home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
 .home-btn:hover{color:white}
+/* sticky-note workshop activity */
+.slide.sticky-activity{background:#fffbeb;border:3px dashed #f59e0b}
+.sticky-banner{display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:white;font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:14px}
+.sticky-meta{font-size:.85rem;color:#92400e;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
+.sticky-meta span{background:rgba(245,158,11,.15);padding:3px 12px;border-radius:10px;font-weight:600}
+.sticky-steps{list-style:none;counter-reset:sn;margin-top:10px}
+.sticky-steps li{counter-increment:sn;font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink);padding:9px 0 9px 42px;position:relative;border-bottom:1px solid rgba(245,158,11,.25)}
+.sticky-steps li:last-child{border-bottom:none}
+.sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
+.sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+.hl.amber{border-color:#f59e0b;background:rgba(245,158,11,.08)}
 </style>
 </head>
 <body>
@@ -260,16 +271,30 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 </section>
 
 <!-- 7. 看懂忙碌一天裡有哪些工作 -->
-<section class="slide">
-  <div class="slide-tag">HANDS-ON · 現在就寫</div>
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 把一天倒進便利貼裡</div>
   <h2>看懂「忙了一天」裡面<br>到底有哪些工作</h2>
-  <div class="slide-sub">回想最近一個真實的工作日，全部寫下來，先不排序</div>
-  <ul class="nlist" style="margin-top:10px">
-    <li>從上班到下班，實際處理過的每一件事<span>大事小事都算，不用篩選</span></li>
-    <li>區分：例行工作 / 專案工作 / 主管臨時交辦 / 突發事件<span>四個類別，先貼標籤就好</span></li>
-    <li>找出隱藏耗時：等待回覆、重複輸入、查找資料、來回修改<span>這些通常是最容易被AI省掉的部分</span></li>
+  <div class="sticky-meta"><span>準備：便利貼＋筆</span><span>個人</span><span>5分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>回想最近一個真實的工作日<span>從上班到下班，實際處理過的每一件事，大事小事都算</span></li>
+    <li>一件事一張便利貼，寫下來就好<span>先不排序、不分類，寫滿為止</span></li>
+    <li>寫完後，在便利貼角落標一個記號分類<span>例行工作／專案工作／主管臨時交辦／突發事件，四選一</span></li>
+  </ol>
+  <div class="hl amber" style="margin-top:10px">先寫完再往下看——等一下的矩陣練習，會直接把這些便利貼貼到白板上。</div>
+</section>
+
+<!-- 7b. debrief：隱藏耗時 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 看著你的便利貼</div>
+  <h2>找出隱藏耗時的那幾張</h2>
+  <div class="slide-sub">看著剛才寫的便利貼，有沒有這些類型？</div>
+  <ul class="blist" style="margin-top:10px">
+    <li>等待回覆——等別人回訊息、等審核</li>
+    <li>重複輸入——同樣的資料要打好幾次</li>
+    <li>查找資料——花時間找檔案、找資訊</li>
+    <li>來回修改——一份文件改了又改</li>
   </ul>
-  <div class="hl dim" style="margin-top:10px">先寫完再往下看——等一下的矩陣練習，會直接用到你現在寫的清單。</div>
+  <div class="hl dim" style="margin-top:10px">這幾類通常是最容易被AI省掉的部分——先在心裡圈出來，下午會直接示範怎麼交給AI。</div>
 </section>
 
 <!-- 8. 時間、注意力與工作容量 -->
@@ -308,6 +333,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl" style="margin-top:10px">跟今天下午會學到的「番茄鐘」是同一個邏輯——先決定「現在只做這一類事」，再開始做。</div>
 </section>
 
+<!-- 8c. 便利貼：同類事分堆 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 把同類的事收在一起</div>
+  <h2>把你的便利貼，<br>按性質分成幾堆</h2>
+  <div class="sticky-meta"><span>用第 7 頁寫的便利貼</span><span>個人</span><span>3分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>把便利貼攤開，找出性質相近的<span>例如：都是回訊息、都是審核表單、都是寫文件</span></li>
+    <li>相同性質的疊在一起或並排放<span>看看總共分出幾堆</span></li>
+    <li>數一數哪一堆最多張<span>那通常就是你今天最適合批次處理的類別</span></li>
+  </ol>
+</section>
+
 <!-- 9. 單純急迫效應 -->
 <section class="slide">
   <div class="slide-tag">觀念 · 為什麼你老是先做「急」的事</div>
@@ -342,14 +379,28 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 </section>
 
 <!-- 11. 換你操作：矩陣分類 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 貼到白板四象限</div>
+  <h2>把你的便利貼，<br>貼進白板上的四個象限</h2>
+  <div class="sticky-meta"><span>準備：白板/海報紙畫好十字線＋剛才寫的便利貼</span><span>個人</span><span>5分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>拿出第 7 頁寫的所有便利貼<span>沒有寫滿也沒關係，先用手上有的</span></li>
+    <li>白板或海報紙上畫一個十字，分出四格<span>橫軸：緊急程度／縱軸：重要程度</span></li>
+    <li>一張一張決定要貼在哪一格<span>不用想太久，憑直覺先貼，等一下再調整</span></li>
+  </ol>
+  <div class="hl amber" style="margin-top:10px">練習素材（沒有自己清單時可套用）：主管交辦簡報、核銷期限、例行報表、同事詢問、活動企畫、群組訊息</div>
+</section>
+
+<!-- 11b. debrief：矩陣分享 -->
 <section class="slide">
-  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 5 分鐘</div>
-  <h2>把你的清單，貼進四個象限</h2>
-  <div class="slide-sub">用第 7 頁寫下的工作清單來練習</div>
+  <div class="slide-tag">回顧 · 看著白板上的便利貼</div>
+  <h2>哪一格的便利貼最多？</h2>
+  <div class="slide-sub">兩人一組，互相看看彼此的四象限</div>
   <div class="cgrid g2" style="margin-top:12px">
-    <div class="card"><div class="ct">練習素材（可套用）</div><div class="cd">主管交辦簡報、核銷期限、例行報表、同事詢問、活動企畫、群組訊息——把這些拿去分類，也可以換成你自己清單裡的項目</div></div>
-    <div class="card o"><div class="ct">分類完，先別急著動手</div><div class="cd">下一步是把「重要但尚未緊急」的事排進行事曆——這一類最容易被急事擠掉，卻常常是影響最大的工作</div></div>
+    <div class="card o"><div class="ct">如果「重要又緊急」貼滿了</div><div class="cd">代表你常常在救火——這通常是前面事情沒有排好行程累積出來的</div></div>
+    <div class="card b"><div class="ct">如果「重要但尚未緊急」空空的</div><div class="cd">這才是要注意的警訊——這一格最容易被忽略，卻是影響最大的工作</div></div>
   </div>
+  <div class="hl dim" style="margin-top:10px">先別急著動手——下一步是把「重要但尚未緊急」那格的便利貼，排進今天稍後的行事曆練習。</div>
 </section>
 
 <!-- 12. GTD Lite -->
@@ -405,6 +456,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     </div>
   </div>
   <div class="hl" style="margin-top:10px">今天回去，先問自己一句話：明天的那隻青蛙是什麼？</div>
+</section>
+
+<!-- 12d. 便利貼：圈出你的青蛙 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 圈出你的青蛙</div>
+  <h2>從白板上的便利貼，<br>挑出那隻青蛙</h2>
+  <div class="sticky-meta"><span>用白板上「重要但尚未緊急」那格的便利貼</span><span>個人</span><span>2分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>看著白板「重要但尚未緊急」那一格<span>裡面通常就藏著你的青蛙</span></li>
+    <li>選出一張你最容易拖延的便利貼<span>不用想太久，通常你心裡已經有答案</span></li>
+    <li>把它從白板上拿下來，貼在你看得到的地方<span>筆電螢幕邊框、桌上、手機殼——今天回去就看得到</span></li>
+  </ol>
 </section>
 
 <!-- 13. 換你打字：改寫模糊待辦 -->
@@ -466,6 +529,17 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <div class="sop-row"><div class="sop-label">保留空白</div><div class="sop-blank">給臨時交辦與突發狀況的緩衝時間：_______________</div></div>
   </div>
   <div class="hl dim" style="margin-top:10px">今天最需要推進的一件事，是哪一件？先在心裡標記起來。</div>
+</section>
+
+<!-- 16b. debrief：留白夠不夠 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 小組分享 3 分鐘</div>
+  <h2>你的明日行事曆，<br>留白夠嗎？</h2>
+  <div class="slide-sub">跟旁邊的人互相看一下彼此寫的三格</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o"><div class="ct">如果三格都排滿</div><div class="cd">代表完全沒有緩衝——明天只要有一件臨時交辦，整個計畫就會被打亂</div></div>
+    <div class="card b"><div class="ct">如果「保留空白」那格是空的</div><div class="cd">回頭補上——這格不是「還沒想到要排什麼」，是刻意留給意外用的</div></div>
+  </div>
 </section>
 
 <!-- 16b. 第1堂方法論總表 -->
@@ -616,6 +690,20 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl" style="margin-top:10px">跟GTD Lite的差別：GTD處理你每天的雜項，WBS處理「這個月要交的大項目」——兩個一起用。</div>
 </section>
 
+<!-- 21b3. 便利貼：WBS階梯 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 拆出你的WBS階梯</div>
+  <h2>用便利貼，<br>把一個大項目拆到底</h2>
+  <div class="sticky-meta"><span>準備：便利貼三種顏色（或用不同位置區分）＋白板/牆面</span><span>個人或兩人一組</span><span>6分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>想一個你這個月要交的大項目<span>例如董事會報告、下季活動企畫</span></li>
+    <li>最上面貼一張便利貼，寫項目名稱<span>這是WBS最頂層</span></li>
+    <li>下一排貼幾張便利貼，寫「交付成果」<span>例如：數據、初稿、簡報、核准</span></li>
+    <li>每個交付成果下面，再貼便利貼寫「具體活動」<span>拆到每一項都能明確估時間、指派給一個人</span></li>
+  </ol>
+  <div class="hl amber" style="margin-top:10px">拆到最底層時，問自己：這件事我能自己做、交給團隊、還是可以先讓AI跑一輪？</div>
+</section>
+
 <!-- 21c. 80/20法則 -->
 <section class="slide">
   <div class="slide-tag">FRAMEWORK · 80/20 法則</div>
@@ -635,6 +723,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl" style="margin-top:10px">80/20不是要你忽略80%的工作，是提醒你：不能把最重要的20%，跟其他事情平均分配時間。</div>
 </section>
 
+<!-- 21c2. 便利貼：標出關鍵20% -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 標出你的關鍵20%</div>
+  <h2>在白板上，<br>圈出真正重要的那幾張</h2>
+  <div class="sticky-meta"><span>白板上的便利貼＋一支不同顏色的筆</span><span>個人</span><span>2分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>看著白板上所有的便利貼<span>矩陣、4D分類完的都算</span></li>
+    <li>用不同顏色的筆，在便利貼角落畫一個星號或圈起來<span>選出你覺得影響最大的20%左右</span></li>
+    <li>數一數圈了幾張，跟總數比一比<span>是不是真的接近20%？</span></li>
+  </ol>
+</section>
+
 <!-- 21d. 4D任務決策法 -->
 <section class="slide">
   <div class="slide-tag">FRAMEWORK · 4D 任務決策法</div>
@@ -647,6 +747,49 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <div class="card dim"><div class="ct">Delete 刪除</div><div class="cd">問自己：不做這件事，真的會怎樣嗎？</div></div>
   </div>
   <div class="hl" style="margin-top:10px">以前 Delegate 只能交給人；現在你多了一個選項——把交辦對象換成AI，人力留給只有人能做的事。</div>
+</section>
+
+<!-- 21d2. 便利貼：4D分類 -->
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 分類貼進四欄</div>
+  <h2>把手上的便利貼，<br>分類貼進 Do／Delegate／Defer／Delete</h2>
+  <div class="sticky-meta"><span>白板畫四欄＋你手上剩下的便利貼</span><span>個人</span><span>5分鐘</span></div>
+  <ol class="sticky-steps">
+    <li>白板畫出四欄，寫上 Do／Delegate／Defer／Delete<span>可以用中文：自己做／交辦／延後／刪除</span></li>
+    <li>把手上還沒處理過的便利貼，一張一張決定放哪一欄<span>特別看「重要又緊急」那格搬過來的便利貼</span></li>
+    <li>Delegate那欄，再進一步標記：交給人、還是交給AI<span>用兩種顏色的筆做記號，或畫不同符號</span></li>
+  </ol>
+  <div class="hl amber" style="margin-top:10px">下一個練習會直接用Delegate欄裡「標記給AI」的便利貼，去選對應的工具。</div>
+</section>
+
+<!-- 21e. 交辦是雙向的 -->
+<section class="slide">
+  <div class="slide-tag">主管的真實處境 · 交辦是雙向的</div>
+  <h2>上面交辦下來的事，<br>跟你自己原本的事，很容易卡在一起</h2>
+  <div class="slide-sub">這是學員實際反映的困擾——4D決策法對兩個方向都適用</div>
+  <div class="cgrid g2" style="margin-top:10px">
+    <div class="card o">
+      <div class="ct">往下：你交辦給團隊或AI</div>
+      <div class="cd">用今天學的4D、RACI（下午會教），把工作分出去，你的時間才能留給真正需要你判斷的事</div>
+    </div>
+    <div class="card b">
+      <div class="ct">往上：主管臨時交辦給你</div>
+      <div class="cd">先套用今天早上的矩陣——這件臨時交辦是不是真的「重要又緊急」？如果是，其他事跟著調整；如果只是「緊急但影響較低」，可以問清楚期限、看能不能安排在批次時段處理</div>
+    </div>
+  </div>
+  <div class="hl" style="margin-top:10px">卡住的感覺通常來自「兩邊的事沒有放進同一張清單裡比較」——把上面交辦的、自己原本要做的，都丟進同一個矩陣，才看得出真正的優先順序。</div>
+</section>
+
+<!-- 21f. debrief：小組討論Delegate -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 小組討論 3 分鐘</div>
+  <h2>Delegate那欄，<br>哪些要給人、哪些可以給AI？</h2>
+  <div class="slide-sub">看著白板上四欄的便利貼，跟旁邊的人討論</div>
+  <ul class="blist" style="margin-top:10px">
+    <li>草稿、整理、摘要類——通常AI可以先跑一版</li>
+    <li>需要人情/關係/現場判斷的——還是要交給人</li>
+    <li>如果一張便利貼你猶豫不決——先問自己：這件事出錯的代價是什麼</li>
+  </ul>
 </section>
 
 <!-- 22. 換你打字：幫任務選工具 -->
@@ -710,6 +853,18 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="hl g" style="margin-top:10px">最後一句「標出不確定的地方」很關鍵——這是等一下要講的資料安全與查核習慣的第一步。</div>
 </section>
 
+<!-- 25b. 兩人一組：互猜提示語 -->
+<section class="slide">
+  <div class="slide-tag">回顧 · 兩人一組 3 分鐘</div>
+  <h2>唸出你的提示語，<br>請對方猜你想要什麼結果</h2>
+  <div class="slide-sub">不看AI的回答，先看提示語本身夠不夠清楚</div>
+  <ol class="nlist" style="margin-top:10px">
+    <li>唸出你剛才寫的提示語給旁邊的人聽<span>不用給他看AI的答案</span></li>
+    <li>請對方憑提示語內容，猜猜看你想要的輸出長什麼樣子</li>
+    <li>猜得準，代表你的六要素給得夠清楚；猜不準，回頭補</li>
+  </ol>
+</section>
+
 <!-- 26. 資料安全與人工查核 -->
 <section class="slide">
   <div class="slide-tag">RISK · 資料安全與人工查核</div>
@@ -732,15 +887,19 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 </section>
 
 <!-- 27. 換你做：去識別化練習 -->
-<section class="slide">
-  <div class="slide-tag" style="color:var(--green)">✏️ 換你做 · 給自己 2 分鐘</div>
-  <h2>把一段真實資料改成安全版本</h2>
-  <div class="slide-sub">在紙上或手機備忘錄練習就好，不用真的送出</div>
+<section class="slide sticky-activity">
+  <div class="sticky-banner">🗒️ 便利貼活動 · 寫出安全版本</div>
+  <h2>把一段真實資料，<br>改成一張安全的便利貼</h2>
+  <div class="sticky-meta"><span>便利貼＋筆，不用打字</span><span>個人</span><span>3分鐘</span></div>
   <div class="card o" style="margin-top:8px">
     <div class="ct">原始版本（不能直接貼給AI）</div>
     <div class="cd">「王小明，就讀OO國小三年級，單親家庭，母親從事臨時工，需要加強數學輔導與心理支持。」</div>
   </div>
-  <div class="hl g" style="margin-top:10px">改寫成：「學生A，國小中年級，經濟弱勢單親家庭，需要加強數學輔導與心理支持。」——保留判斷需要的資訊，拿掉可以指認個人的部分。</div>
+  <ol class="sticky-steps">
+    <li>想一個你手上真實會遇到的個案/同仁情境</li>
+    <li>在便利貼上寫出安全版本<span>參考範例：「學生A，國小中年級，經濟弱勢單親家庭，需要加強數學輔導與心理支持」</span></li>
+    <li>檢查：保留判斷需要的資訊，拿掉可以指認個人的部分</li>
+  </ol>
 </section>
 
 <!-- 27b. 第2堂方法論總表 -->

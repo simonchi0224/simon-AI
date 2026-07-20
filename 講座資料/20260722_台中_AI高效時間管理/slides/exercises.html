@@ -23,6 +23,8 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 .task-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .task-num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .task-title{font-size:1.05rem;font-weight:700;color:var(--ink)}
+.task-map{font-size:.76rem;font-weight:700;color:var(--orange);margin-bottom:6px;padding-left:38px}
+.task-goal{font-size:.86rem;color:var(--ink);line-height:1.55;margin-bottom:10px;padding-left:38px;background:rgba(232,84,30,.04);border-left:2px solid var(--orange);padding:6px 0 6px 12px;margin-left:38px}
 .task-context{font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:10px;padding-left:38px}
 .prompt-box{position:relative;background:#1c1c28;border-radius:10px;overflow:hidden}
 .prompt-header{background:#141420;padding:8px 14px;display:flex;align-items:center;justify-content:space-between}
@@ -65,6 +67,8 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 
     <div class="task">
       <div class="task-header"><span class="task-num">1</span><span class="task-title">把模糊待辦改寫成下一步</span></div>
+      <div class="task-map">📍 上午 第1堂 · 演練①　｜　對應投影片：〈換你打字：改寫模糊待辦〉</div>
+      <div class="task-goal">🎯 演練目標：練習把一件模糊的大任務，拆解成具體、能立刻開始的下一步行動，降低啟動門檻</div>
       <div class="task-context">GTD Lite 的核心動作：把「一件模糊的大事」拆成具體、能立刻開始的行動。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">拆解下一步</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -80,6 +84,8 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 
     <div class="task">
       <div class="task-header"><span class="task-num">2</span><span class="task-title">工作提示六要素萬用模板</span></div>
+      <div class="task-map">📍 上午 第2堂 · 演練①　｜　對應投影片：〈換你打字：改寫你的模糊待辦〉</div>
+      <div class="task-goal">🎯 演練目標：練習用六要素（交付物/背景/素材/限制/格式/檢查）寫出AI能準確理解的完整提示語</div>
       <div class="task-context">交付物、背景、素材、限制、格式、檢查——套用在任何情境。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">六要素模板</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -97,6 +103,8 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 
     <div class="task">
       <div class="task-header"><span class="task-num">3</span><span class="task-title">逐字稿 / 會議紀錄 → 行動清單</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練②　｜　對應投影片：〈換你打字：你的逐字稿〉</div>
+      <div class="task-goal">🎯 演練目標：把零散的會議內容轉換成有負責人與期限的行動清單，減少會後追蹤空窗</div>
       <div class="task-context">會後把逐字稿或零散筆記貼給 AI，五分鐘內有一份可以轉發的行動清單。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">會議紀錄</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -110,7 +118,22 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     </div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">4</span><span class="task-title">多份舊資料比較重點</span></div>
+      <div class="task-header"><span class="task-num">4</span><span class="task-title">多人會議：依發言者分別摘要</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練①　｜　對應投影片：〈進階技巧：ABCD一起開會，怎麼分別看出每個人說了什麼〉</div>
+      <div class="task-goal">🎯 演練目標：解決AI整理多人會議只能整體摘要、無法個別呈現發言者重點的問題</div>
+      <div class="task-context">逐字稿要先標好發言者代號（A/B/C/D），AI才分得出誰說了什麼。</div>
+      <div class="prompt-box">
+        <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">分發言者摘要</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
+        <div class="prompt-body"><div class="prompt-text">以下是逐字稿，發言者已標記為代號A、B、C、D：[貼上逐字稿]
+請依照發言者分別整理：每個人各自的重點主張是什麼，
+最後再另外整理一段「共識與分歧」，標出誰跟誰意見一致、誰跟誰看法不同。</div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header"><span class="task-num">5</span><span class="task-title">多份舊資料比較重點</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練③　｜　對應投影片：〈Demo：Gemini Notebook · 把三份舊資料丟進去，直接問重點〉</div>
+      <div class="task-goal">🎯 演練目標：用Gemini Notebook整合多份既有文件，快速找出重複出現的問題與差異，附來源出處</div>
       <div class="task-context">用 Gemini Notebook（原 NotebookLM）上傳多份來源文件後使用。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">資料比較</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -120,7 +143,9 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     </div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">5</span><span class="task-title">Manus 跨機構研究任務</span></div>
+      <div class="task-header"><span class="task-num">6</span><span class="task-title">Manus 跨機構研究任務</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練④　｜　對應投影片：〈Demo：Manus跨機構研究〉</div>
+      <div class="task-goal">🎯 演練目標：體驗代理型AI（Agent）自主執行跨來源研究任務的完整流程，感受跟對話型AI的差異</div>
       <div class="task-context">跟資料比較不一樣：這是要 Manus 自己去外部搜尋、彙整的任務，不是分析你上傳的檔案。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">Manus 任務</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -129,7 +154,9 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     </div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">6</span><span class="task-title">活動通知信</span></div>
+      <div class="task-header"><span class="task-num">7</span><span class="task-title">活動通知信</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練⑤　｜　對應投影片：〈Demo+換你打字：通知信〉</div>
+      <div class="task-goal">🎯 演練目標：把讀者、情境、行動要求講清楚，讓AI一次產出可直接用的通知信草稿</div>
       <div class="task-context">先想清楚讀者、情境、希望對方採取的行動，再交給AI寫。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">通知信</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -139,7 +166,9 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     </div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">7</span><span class="task-title">給主管／董事會的簡報大綱</span></div>
+      <div class="task-header"><span class="task-num">8</span><span class="task-title">給主管／董事會的簡報大綱</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練⑥　｜　對應投影片：〈Demo+換你打字：簡報大綱〉</div>
+      <div class="task-goal">🎯 演練目標：把零散資料轉換成有邏輯架構（現況/問題/做法/效益）的簡報大綱</div>
       <div class="task-context">先想清楚這份簡報要解決的問題，再讓AI搭架構。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">簡報大綱</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -150,7 +179,9 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     </div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">8</span><span class="task-title">工作追蹤表 → 週報彙整</span></div>
+      <div class="task-header"><span class="task-num">9</span><span class="task-title">工作追蹤表 → 週報彙整</span></div>
+      <div class="task-map">📍 下午 第3堂 · 演練⑦　｜　對應投影片：〈Demo：週報自動彙整〉</div>
+      <div class="task-goal">🎯 演練目標：用同一份工作追蹤表資料，換提示語就能產出給不同對象看的彙整版本</div>
       <div class="task-context">同一份原始資料，換提示就能產出不同用途的版本。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">週報彙整</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>
@@ -165,7 +196,9 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     <div class="session-header"><h2>第 4 堂 · 完成我的AI時間管理計劃書</h2><span class="session-badge">下午</span></div>
 
     <div class="task">
-      <div class="task-header"><span class="task-num">9</span><span class="task-title">讓AI協助排序這週任務</span></div>
+      <div class="task-header"><span class="task-num">10</span><span class="task-title">讓AI協助排序這週任務</span></div>
+      <div class="task-map">📍 下午 第4堂 · 演練①　｜　對應投影片：〈換你打字：排你的清單〉</div>
+      <div class="task-goal">🎯 演練目標：請AI依影響、急迫性、相依關係排序任務並說明理由，練習判斷這個排序合不合理</div>
       <div class="task-context">請AI說明排序理由，你才能判斷合不合理，最終順序由你決定。</div>
       <div class="prompt-box">
         <div class="prompt-header"><div class="prompt-dots"><span class="prompt-dot r"></span><span class="prompt-dot y"></span><span class="prompt-dot g"></span></div><span class="prompt-label">任務排序</span><button class="copy-btn" onclick="copyPrompt(this)">複製</button></div>

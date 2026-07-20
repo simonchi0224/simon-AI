@@ -1,3 +1,6 @@
 .DS_Store
 **/.DS_Store
 Thumbs.db
+
+# Contains real student names/emails from pre-course surveys — never publish
+講座資料/課前問卷調查/

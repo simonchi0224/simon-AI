@@ -94,14 +94,32 @@ Organization Science 2026（BCG顧問實驗）等正式研究，公務資料安�
   16:20–16:30  課後問卷 + 結尾
 
 ═══════════════════════════════
-講座網站（已完成）
+三個對外網址（給不同對象）
 ═══════════════════════════════
-slides/index.html      → 入口頁，含今日投影片連結、提示語QR、工具手冊連結
-slides/slide-AM.html   → 上午場投影片（第1–2堂，共29頁）
-slides/slide-PM.html   → 下午場投影片（第3–4堂，共28頁）
-slides/exercises.html  → 提示語全集（8組可複製Prompt）
-slides/handout.html    → AI工具速查手冊（任務×工具地圖、方法論、完整引用清單）
-slides/assets/qr/      → Manus申請、課後問卷、學員社群 QR（沿用歷次課程共用碼）
+講師入口（Simon自己用，投影＋所有資源）
+  https://simon-chi.com/講座資料/20260722_台中_AI高效時間管理/slides/index.html
+學員課前講義
+  https://simon-chi.com/lectures/20260722.html
+學員上課中提示語專區（只放exercises/method-prompts/handout三個連結）
+  https://simon-chi.com/lectures/20260722-live.html
+
+═══════════════════════════════
+講座網站（已完成，2026-07-20更新）
+═══════════════════════════════
+slides/index.html        → 講師入口頁，含投影片連結、提示語QR、給講師的網址提示框
+slides/slide-AM.html     → 上午場投影片（第1–2堂，共50頁，含8個便利貼實體活動）
+slides/slide-PM.html     → 下午場投影片（第3–4堂，共52頁，含8個便利貼實體活動）
+slides/exercises.html    → 提示語全集（10組可複製Prompt，每組標明對應堂次/演練序號/演練目標）
+slides/method-prompts.html → 方法論提示語庫（25個方法論，各附案例版+挖空版，標明對應堂次）
+slides/handout.html      → AI工具速查手冊（任務×工具地圖、方法論、完整引用清單）
+slides/assets/qr/        → Manus申請、課後問卷、學員社群 QR（沿用歷次課程共用碼）
+slides/IMAGE_SPEC_FOR_CODEX.md → 11張SVG視覺素材生成規格，待Codex產出後由Claude Code整合
+lectures/20260722.html      → 學員課前講義（獨立頁面，非slides/一部分）
+lectures/20260722-live.html → 學員上課中提示語專區（獨立頁面）
+
+備註：上午/下午投影片內容已依17人課前問卷回覆調整（多人會議分開摘要技巧、
+交辦雙向性），每堂結尾都有📋方法論總表可拍照，遇到便利貼活動投影片會有
+明顯的🗒️黃色便利貼標籤與虛線邊框，方便老師辨識段落。
 
 ═══════════════════════════════
 上台前再確認一次

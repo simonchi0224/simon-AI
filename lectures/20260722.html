@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課前講義｜AI 高效時間管理 · 季祥 Simon</title>
+<meta name="description" content="2026年7月22日 博幼社會福利基金會 主管課程 課前講義。AI 高效時間管理：把一天，活成一天半。">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEH2H2N5QG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EEH2H2N5QG');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #E8541E;
+  --ink: #1a1a1a;
+  --dim: #64748b;
+  --line: #e2e8f0;
+  --paper: #f8fafc;
+  --green: #16a34a;
+  --blue: #2563eb;
+  --yellow: #f59e0b;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ── Top Banner ── */
+.top-banner {
+  background: var(--orange);
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.hero .event-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.hero h1 span { color: var(--orange); }
+.hero .subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.hero-meta .meta-chip {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
+
+/* ── Main container ── */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Section ── */
+.section {
+  padding: 40px 0 8px;
+}
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section h2 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+/* ── Prepare Box ── */
+.app-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.app-row {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+}
+.app-row.manus-row {
+  border-color: var(--orange);
+  background: #fff7ed;
+}
+.app-row .app-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+.app-row .app-info { flex: 1; min-width: 0; }
+.app-row .app-name { font-size: 0.97rem; font-weight: 900; color: var(--ink); }
+.app-row .app-by { font-size: 0.75rem; color: var(--dim); margin-bottom: 8px; }
+.app-row.manus-row .app-name { color: var(--orange); }
+.store-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.store-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.72rem; font-weight: 800;
+  padding: 5px 10px; border-radius: 7px;
+  text-decoration: none; transition: opacity 0.15s;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+.store-btn:hover { opacity: 0.75; }
+.store-btn.ios {
+  background: #000; color: #fff; border-color: #000;
+}
+.store-btn.ios i { font-size: 0.95rem; }
+.store-btn.android {
+  background: #fff; color: #3ddc84; border-color: #3ddc84;
+}
+.store-btn.android i { font-size: 0.95rem; color: #3ddc84; }
+.store-btn.web {
+  background: #fff; color: var(--blue); border-color: var(--blue);
+}
+.store-btn.referral {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+  font-size: 0.78rem; padding: 6px 14px;
+}
+.notice-box {
+  background: #fff7ed;
+  border: 1.5px solid #fed7aa;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: #92400e;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.notice-box .notice-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Schedule ── */
+.schedule-block {
+  margin-bottom: 12px;
+}
+.schedule-am, .schedule-pm {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  margin-bottom: 16px;
+}
+.schedule-header {
+  padding: 14px 20px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.schedule-am .schedule-header { background: #1e3a5f; color: #fff; }
+.schedule-pm .schedule-header { background: var(--orange); color: #fff; }
+.schedule-row {
+  display: flex;
+  border-top: 1px solid var(--line);
+  padding: 16px 20px;
+  gap: 16px;
+  align-items: flex-start;
+  background: #fff;
+}
+.schedule-row:first-child { border-top: none; }
+.schedule-time {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--dim);
+  min-width: 90px;
+  flex-shrink: 0;
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.schedule-content {}
+.schedule-title {
+  font-size: 0.97rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.schedule-desc {
+  font-size: 0.82rem;
+  color: var(--dim);
+  line-height: 1.55;
+}
+.schedule-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.stag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--dim);
+  border: 1px solid var(--line);
+}
+.stag.hot { background: rgba(232,84,30,0.08); color: var(--orange); border-color: rgba(232,84,30,0.2); }
+.lunch-row {
+  text-align: center;
+  padding: 14px;
+  font-size: 0.85rem;
+  color: var(--dim);
+  font-weight: 600;
+  border: 1.5px dashed var(--line);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+/* ── Key Concepts ── */
+.concept-grid {
+  display: grid;
+  gap: 14px;
+}
+.concept-card {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+.concept-card .c-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+.concept-card .c-title { font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+.concept-card .c-body { font-size: 0.88rem; color: var(--dim); line-height: 1.65; }
+.concept-card .c-example {
+  margin-top: 12px;
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--ink);
+  border-left: 3px solid var(--orange);
+}
+.concept-card .c-example strong { color: var(--orange); }
+
+/* ── Prompt Preview ── */
+.prompt-preview {
+  background: #1a1a1a;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.prompt-bar {
+  background: #2d2d2d;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.prompt-dots { display: flex; gap: 5px; }
+.prompt-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.prompt-dots span:nth-child(1) { background: #ff5f57; }
+.prompt-dots span:nth-child(2) { background: #febc2e; }
+.prompt-dots span:nth-child(3) { background: #28c840; }
+.prompt-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); font-weight: 600; margin-left: 4px; }
+.prompt-body { padding: 18px 20px; }
+.prompt-body .p-q { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; }
+.prompt-body .p-text { color: #fff; font-size: 0.9rem; line-height: 1.6; }
+.prompt-body .p-blank {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 4px;
+}
+.prompt-caption {
+  font-size: 0.78rem;
+  color: var(--dim);
+  text-align: center;
+  padding: 0 0 8px;
+}
+
+/* ── Method Strip ── */
+.method-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.method-pill {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.method-pill.pmi { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.2); color: var(--blue); }
+
+/* ── Risk Cards ── */
+.risk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.risk-card {
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+.risk-card .r-icon { font-size: 1.3rem; margin-bottom: 8px; display: block; }
+.risk-card .r-title { font-size: 0.88rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.risk-card .r-body { font-size: 0.78rem; color: var(--dim); line-height: 1.55; }
+.risk-card.red-border { border-color: #fca5a5; background: #fff5f5; }
+.risk-card.red-border .r-title { color: #dc2626; }
+
+/* ── Instructor ── */
+.instructor-card {
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.instructor-avatar {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--orange), #c0392b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
+.instructor-info .i-name { font-size: 1.05rem; font-weight: 900; color: var(--ink); margin-bottom: 2px; }
+.instructor-info .i-title { font-size: 0.8rem; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
+.instructor-info .i-bio { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+
+/* ── Divider ── */
+.divider { border: none; border-top: 1px solid var(--line); margin: 32px 0; }
+
+/* ── Big Quote ── */
+.big-quote {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin: 32px 0;
+  text-align: center;
+}
+.big-quote .q-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.big-quote .q-text span { color: var(--orange); }
+.big-quote .q-sub { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+/* ── Footer ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px;
+  font-size: 0.8rem;
+}
+footer a { color: var(--orange); text-decoration: none; }
+
+/* ── RWD ── */
+@media (max-width: 480px) {
+  .app-row { flex-wrap: nowrap; }
+  .store-btns { flex-direction: column; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .instructor-card { flex-direction: column; align-items: center; text-align: center; }
+  .hero h1 { font-size: 1.45rem; }
+}
+
+@media print {
+  .top-banner { display: none; }
+  .hero { background: #1a1a1a !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">📋 課前講義 · 2026年7月22日（三）博幼社會福利基金會 主管課程</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <span class="event-tag">課前講義 · Pre-class Handout</span>
+    <h1>AI 高效時間管理：<br>把一天，<span>活成一天半</span></h1>
+    <p class="subtitle">交辦、排序、追蹤進度、寫報告——這堂課用有研究根據的時間管理方法，加上讓 AI 接手一半的具體做法</p>
+    <div class="hero-meta">
+      <span class="meta-chip">📅 2026年7月22日（三）</span>
+      <span class="meta-chip">🕘 09:30 – 16:30</span>
+      <span class="meta-chip">📍 台中（場地確認後另行通知）</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 課前準備 -->
+  <div class="section">
+    <div class="section-label">Step 0 · 上課前</div>
+    <h2>先確認這四個工具的帳號</h2>
+    <p style="font-size:0.88rem;color:var(--dim);margin-bottom:20px;">從課前問卷看到，很多人已經在用 ChatGPT、Gemini，甚至 NotebookLM——今天不是重新教你怎麼用，是教你怎麼結合時間管理方法，讓 AI 真正幫你省下時間。建議自備筆電，手機也能操作。</p>
+
+    <div class="app-list">
+
+      <div class="app-row">
+        <span class="app-icon">💬</span>
+        <div class="app-info">
+          <div class="app-name">ChatGPT</div>
+          <div class="app-by">OpenAI 出品 · 已有帳號的人請先登入</div>
+          <div class="store-btns">
+            <a class="store-btn web" href="https://chatgpt.com" target="_blank"><i class="fa-solid fa-globe"></i> chatgpt.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-row">
+        <span class="app-icon">✨</span>
+        <div class="app-info">
+          <div class="app-name">Gemini</div>
+          <div class="app-by">Google 出品</div>
+          <div class="store-btns">
+            <a class="store-btn web" href="https://gemini.google.com" target="_blank"><i class="fa-solid fa-globe"></i> gemini.google.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-row">
+        <span class="app-icon">📓</span>
+        <div class="app-info">
+          <div class="app-name">Gemini Notebook（原 NotebookLM）</div>
+          <div class="app-by">Google 出品 · 下午整理會議與資料會重點用到</div>
+          <div class="store-btns">
+            <a class="store-btn web" href="https://notebooklm.google.com" target="_blank"><i class="fa-solid fa-globe"></i> notebooklm.google.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-row manus-row">
+        <span class="app-icon">🤖</span>
+        <div class="app-info">
+          <div class="app-name">Manus</div>
+          <div class="app-by">AI Agent 工具 · 下午會示範，建議課前先申請（審核需要一點時間）</div>
+          <div class="store-btns">
+            <a class="store-btn referral" href="https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link" target="_blank">🔗 點我加入（推薦連結）</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="notice-box">
+      <span class="notice-icon">💻</span>
+      <div>
+        <strong>建議自備筆電</strong>——今天有幾個練習需要複製貼上長文字（會議紀錄、報告草稿），筆電操作比較順手；沒有筆電用手機也能跟上。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 今日課程 -->
+  <div class="section">
+    <div class="section-label">Today's Schedule · 今日課程</div>
+    <h2>六小時，四堂課</h2>
+
+    <!-- AM -->
+    <div class="schedule-am">
+      <div class="schedule-header">🌅 上午場 · 學會用</div>
+      <div class="schedule-row">
+        <div class="schedule-time">09:30–09:50</div>
+        <div class="schedule-content">
+          <div class="schedule-title">開場 + 破冰</div>
+          <div class="schedule-desc">先想一件事：你上次「忙到沒時間喘氣」是哪一天？帶出今天要解決的核心問題。</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">09:50–11:10</div>
+        <div class="schedule-content">
+          <div class="schedule-title">第 1 堂：時間管理的重要與 AI 導入</div>
+          <div class="schedule-desc">時間都去哪了？重要/緊急矩陣、GTD Lite、兩分鐘原則、Eat That Frog、Timeboxing——把你的一天看懂，排出明日行程草稿。</div>
+          <div class="schedule-tags">
+            <span class="stag">方法論</span>
+            <span class="stag hot">帶走一句話：時間管理不是把行事曆填滿，是把時間留給只有你能做的判斷</span>
+          </div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">11:20–12:30</div>
+        <div class="schedule-content">
+          <div class="schedule-title">第 2 堂：AI 助攻的工作優先排序</div>
+          <div class="schedule-desc">WBS拆解大項目、80/20法則、4D任務決策法（Do/Delegate/Defer/Delete）、任務×工具地圖、提示六要素、資料安全與去識別化。</div>
+          <div class="schedule-tags">
+            <span class="stag">PMI框架</span>
+            <span class="stag hot">帶走一句話：不是每件事都值得你的時間，先讓AI幫你篩一次</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lunch -->
+    <div class="lunch-row">🍱 午休 12:30–13:30</div>
+
+    <!-- PM -->
+    <div class="schedule-pm">
+      <div class="schedule-header">☀️ 下午場 · 用得準</div>
+      <div class="schedule-row">
+        <div class="schedule-time">13:30–14:50</div>
+        <div class="schedule-content">
+          <div class="schedule-title">第 3 堂：AI掌控進度與時間規劃／提升成果效率</div>
+          <div class="schedule-desc">會議前中後AI應用（含多人發言分別摘要技巧）、Gemini Notebook整理舊資料、Manus跨機構研究、簡報大綱、工作追蹤表、資源撫平、要徑法、看板、RACI矩陣。</div>
+          <div class="schedule-tags">
+            <span class="stag">PMI框架</span>
+            <span class="stag hot">帶走一句話：進度不會自己被追蹤，但你可以讓AI幫你追</span>
+          </div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">15:00–16:20</div>
+        <div class="schedule-content">
+          <div class="schedule-title">第 4 堂：完成我的 AI 時間管理計劃書</div>
+          <div class="schedule-desc">AI協助任務排序、番茄鐘、WOOP、If-Then行動計畫、SMART、OKR——收成一份自己真的會照著做的時間管理方案。</div>
+          <div class="schedule-tags">
+            <span class="stag">個人實作</span>
+            <span class="stag hot">帶走一句話：你的判斷，是AI最後的防線</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 三個關鍵概念 -->
+  <div class="section">
+    <div class="section-label">Before Class · 先懂這三件事</div>
+    <h2>今天你會一直聽到這三個詞</h2>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="c-icon">🤝</span>
+        <div class="c-title">對話型 AI vs 代理型 AI（Agent）</div>
+        <div class="c-body">ChatGPT、Gemini 是<strong>對話型</strong>：你問，它答，你自己執行。Manus 是<strong>代理型</strong>：你下一個任務，它自己開瀏覽器搜尋、整理、存檔，你回來拿成果。</div>
+        <div class="c-example"><strong>今天的安排：</strong>上午主要用對話型，下午登場的 Manus 是代理型。</div>
+      </div>
+      <div class="concept-card">
+        <span class="c-icon">💬</span>
+        <div class="c-title">提示六要素</div>
+        <div class="c-body">交付物、背景、素材、限制、格式、檢查——六項資訊給得越完整，AI 猜得越準，不用每次都全部給，但越完整結果越好。</div>
+        <div class="c-example"><strong>差別在哪：</strong>「幫我整理會議紀錄」vs「我是主管，要處理[背景]，以下是逐字稿：[素材]，請產出行動清單，格式是條列，最後標出不確定的地方」</div>
+      </div>
+      <div class="concept-card">
+        <span class="c-icon">⚠️</span>
+        <div class="c-title">幻覺（Hallucination）</div>
+        <div class="c-body">AI 有時候會用很有自信的語氣，說出聽起來合理但其實是錯的答案。這是它的結構特性，不是惡意。<strong>重要資訊永遠需要你核實。</strong></div>
+        <div class="c-example"><strong>記住：</strong>AI 給草稿，你做最後決定。數字、日期、負責人，送出前一定要核對。</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 提問技巧預覽 -->
+  <div class="section">
+    <div class="section-label">Prompt Tips · 課堂會練習</div>
+    <h2>怎麼問 AI 才問得好？</h2>
+    <p style="font-size:0.9rem;color:var(--dim);margin-bottom:20px;">這是今天的核心技能之一。先預習一下，課堂上我們會一起練習。</p>
+
+    <div class="prompt-preview">
+      <div class="prompt-bar">
+        <div class="prompt-dots"><span></span><span></span><span></span></div>
+        <span class="prompt-label">提示六要素 · 快速版</span>
+      </div>
+      <div class="prompt-body">
+        <div class="p-q">① 說清楚你是誰、背景是什麼</div>
+        <div class="p-text" style="margin-bottom:14px;">我是 <span class="p-blank">拾光教育中心主管</span>，要處理 <span class="p-blank">跨單位協調會的逐字稿</span>。</div>
+        <div class="p-q">② 附上素材，說清楚要什麼格式</div>
+        <div class="p-text" style="margin-bottom:14px;">以下是內容：<span class="p-blank">[貼上逐字稿]</span>，請整理成 <span class="p-blank">決議事項＋行動清單＋待追蹤問題</span>，條列格式。</div>
+        <div class="p-q">③ 請它標出不確定的地方</div>
+        <div class="p-text">最後標出你<span class="p-blank">不確定、需要我確認</span>的地方。</div>
+      </div>
+    </div>
+    <div class="prompt-caption">填入自己的情況，就是你的第一個 Prompt</div>
+
+    <div class="method-strip" style="margin-top:16px">
+      <span class="method-pill">重要/緊急矩陣</span>
+      <span class="method-pill">GTD Lite</span>
+      <span class="method-pill">80/20法則</span>
+      <span class="method-pill">4D任務決策法</span>
+      <span class="method-pill pmi">WBS</span>
+      <span class="method-pill pmi">資源撫平</span>
+      <span class="method-pill pmi">要徑法</span>
+      <span class="method-pill pmi">RACI矩陣</span>
+      <span class="method-pill">番茄鐘</span>
+      <span class="method-pill">WOOP／If-Then</span>
+      <span class="method-pill">SMART／OKR</span>
+    </div>
+    <p style="font-size:0.78rem;color:var(--dim);margin-top:8px;text-align:center;">今天總共會用到 25 個時間管理方法論，每一堂結尾都有一張總表可以拍照帶走</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 使用注意事項 -->
+  <div class="section">
+    <div class="section-label">Important · 使用注意事項</div>
+    <h2>這四件事，開始用之前要知道</h2>
+
+    <div class="risk-grid">
+      <div class="risk-card red-border">
+        <span class="r-icon">🔒</span>
+        <div class="r-title">個資與機敏資料不貼入</div>
+        <div class="r-body">學生／個案／同仁的真實姓名、家庭狀況——一律用代號處理（例如「學生A」），這是課前問卷裡最多人擔心的事。</div>
+      </div>
+      <div class="risk-card red-border">
+        <span class="r-icon">🧐</span>
+        <div class="r-title">答案要自己核對</div>
+        <div class="r-body">AI 說的不一定對，數字、日期、負責人、法規——使用前都要核實，AI 給草稿，你做最終判斷。</div>
+      </div>
+      <div class="risk-card">
+        <span class="r-icon">🧭</span>
+        <div class="r-title">不確定哪些情境適合用？</div>
+        <div class="r-body">今天的「任務×工具地圖」會直接告訴你：什麼任務找 ChatGPT/Gemini，什麼任務找 Gemini Notebook，什麼任務找 Manus。</div>
+      </div>
+      <div class="risk-card">
+        <span class="r-icon">©️</span>
+        <div class="r-title">著作權觀念</div>
+        <div class="r-body">AI 產出的內容不等於你可以直接當作定稿發布，尤其是對外的報告或文案，要經過你的編輯與確認。</div>
+      </div>
+    </div>
+
+    <div class="big-quote">
+      <div class="q-text">AI 提供草稿，你做最後決定。<br><span>你的判斷，是 AI 最後的防線。</span></div>
+      <div class="q-sub">— 今天課程最重要的一句話</div>
+    </div>
+
+    <div class="notice-box" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">
+      <span class="notice-icon">📱</span>
+      <div>
+        <strong>上課當天，把這個網址存起來：</strong> <a href="https://simon-chi.com/lectures/20260722-live.html" style="color:#166534;font-weight:800;">simon-chi.com/lectures/20260722-live.html</a>——今天所有可複製的提示語、方法論總表、工具手冊都在那一頁。
+      </div>
+    </div>
+  </div>
+
+  <!-- Instructor -->
+  <div class="section">
+    <div class="section-label">Instructor · 今天的講師</div>
+    <h2>我是誰</h2>
+    <div class="instructor-card">
+      <div class="instructor-avatar">季</div>
+      <div class="instructor-info">
+        <div class="i-name">季祥 Simon Chi</div>
+        <div class="i-title">AI 實戰顧問 · PMP／PMI-ACP 專案管理師 · 企業創辦人</div>
+        <div class="i-bio">曾任職 HP、Trend Micro，負責資安顧問與雲端架構超過十年，後轉型為 AI 專案經理，2023 年起從事 AI 顧問與企業培訓。具備 PMP、PMI-ACP、AWS、Google Cloud、Azure 等多項國際認證。<br><br>
+        今天這堂課的時間管理方法，不是心靈雞湯，是專案管理裡真的在用的框架，加上 AI 怎麼接手一半。</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>© 2026 季祥 Simon Chi · AI 實戰顧問 · <a href="https://simon-chi.com">simon-chi.com</a></p>
+  <p style="margin-top:6px;">更多 AI 實戰文章，課後歡迎到網站繼續學習 →</p>
+</footer>
+
+</body>
+</html>
