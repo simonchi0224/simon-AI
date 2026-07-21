@@ -93,7 +93,11 @@ body {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.9);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
+.hero-meta .meta-chip i { color: var(--orange); font-size: 0.8rem; }
 
 /* ── Main container ── */
 .container {
@@ -142,7 +146,8 @@ body {
   border-color: var(--orange);
   background: #fff7ed;
 }
-.app-row .app-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+.app-row .app-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--paper); color: var(--dim); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.app-row.manus-row .app-icon { background: rgba(232,84,30,0.1); color: var(--orange); }
 .app-row .app-info { flex: 1; min-width: 0; }
 .app-row .app-name { font-size: 0.97rem; font-weight: 900; color: var(--ink); }
 .app-row .app-by { font-size: 0.75rem; color: var(--dim); margin-bottom: 8px; }
@@ -184,7 +189,18 @@ body {
   align-items: flex-start;
   margin-bottom: 8px;
 }
-.notice-box .notice-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.notice-box .notice-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 2px; }
+
+/* ── Timeline Chart ── */
+.timeline-chart { margin-bottom: 24px; }
+.timeline-bar { display: flex; height: 40px; border-radius: 10px; overflow: hidden; }
+.timeline-seg { display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; }
+.timeline-seg.am1 { background: #1e3a5f; flex: 80; }
+.timeline-seg.am2 { background: #2d5580; flex: 70; }
+.timeline-seg.lunch { background: var(--line); color: var(--dim); flex: 60; }
+.timeline-seg.pm1 { background: var(--orange); flex: 80; }
+.timeline-seg.pm2 { background: #f2895f; flex: 80; }
+.timeline-labels { display: flex; justify-content: space-between; margin-top: 6px; font-size: 0.68rem; color: var(--dim); font-variant-numeric: tabular-nums; }
 
 /* ── Schedule ── */
 .schedule-block {
@@ -275,7 +291,7 @@ body {
   border-radius: 14px;
   padding: 20px;
 }
-.concept-card .c-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+.concept-card .c-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--paper); color: var(--orange); font-size: 0.95rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; }
 .concept-card .c-title { font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
 .concept-card .c-body { font-size: 0.88rem; color: var(--dim); line-height: 1.65; }
 .concept-card .c-example {
@@ -358,7 +374,8 @@ body {
   border-radius: 12px;
   padding: 16px;
 }
-.risk-card .r-icon { font-size: 1.3rem; margin-bottom: 8px; display: block; }
+.risk-card .r-icon { width: 30px; height: 30px; border-radius: 8px; background: var(--paper); color: var(--dim); font-size: 0.85rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; }
+.risk-card.red-border .r-icon { background: #fee2e2; color: #dc2626; }
 .risk-card .r-title { font-size: 0.88rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
 .risk-card .r-body { font-size: 0.78rem; color: var(--dim); line-height: 1.55; }
 .risk-card.red-border { border-color: #fca5a5; background: #fff5f5; }
@@ -439,7 +456,7 @@ footer a { color: var(--orange); text-decoration: none; }
 </head>
 <body>
 
-<div class="top-banner">📋 課前講義 · 2026年7月22日（三）博幼社會福利基金會 主管課程</div>
+<div class="top-banner">課前講義 · 2026年7月22日（三）博幼社會福利基金會 主管課程</div>
 
 <!-- Hero -->
 <div class="hero">
@@ -448,9 +465,9 @@ footer a { color: var(--orange); text-decoration: none; }
     <h1>AI 高效時間管理：<br>把一天，<span>活成一天半</span></h1>
     <p class="subtitle">交辦、排序、追蹤進度、寫報告——這堂課用有研究根據的時間管理方法，加上讓 AI 接手一半的具體做法</p>
     <div class="hero-meta">
-      <span class="meta-chip">📅 2026年7月22日（三）</span>
-      <span class="meta-chip">🕘 09:30 – 16:30</span>
-      <span class="meta-chip">📍 台中（場地確認後另行通知）</span>
+      <span class="meta-chip"><i class="fa-solid fa-calendar-day"></i> 2026年7月22日（三）</span>
+      <span class="meta-chip"><i class="fa-solid fa-clock"></i> 09:30 – 16:30</span>
+      <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> 台中（場地確認後另行通知）</span>
     </div>
   </div>
 </div>
@@ -466,7 +483,7 @@ footer a { color: var(--orange); text-decoration: none; }
     <div class="app-list">
 
       <div class="app-row">
-        <span class="app-icon">💬</span>
+        <span class="app-icon"><i class="fa-solid fa-comment-dots"></i></span>
         <div class="app-info">
           <div class="app-name">ChatGPT</div>
           <div class="app-by">OpenAI 出品 · 已有帳號的人請先登入</div>
@@ -477,7 +494,7 @@ footer a { color: var(--orange); text-decoration: none; }
       </div>
 
       <div class="app-row">
-        <span class="app-icon">✨</span>
+        <span class="app-icon"><i class="fa-solid fa-star"></i></span>
         <div class="app-info">
           <div class="app-name">Gemini</div>
           <div class="app-by">Google 出品</div>
@@ -488,7 +505,7 @@ footer a { color: var(--orange); text-decoration: none; }
       </div>
 
       <div class="app-row">
-        <span class="app-icon">📓</span>
+        <span class="app-icon"><i class="fa-solid fa-book"></i></span>
         <div class="app-info">
           <div class="app-name">Gemini Notebook（原 NotebookLM）</div>
           <div class="app-by">Google 出品 · 下午整理會議與資料會重點用到</div>
@@ -499,12 +516,12 @@ footer a { color: var(--orange); text-decoration: none; }
       </div>
 
       <div class="app-row manus-row">
-        <span class="app-icon">🤖</span>
+        <span class="app-icon"><i class="fa-solid fa-robot"></i></span>
         <div class="app-info">
           <div class="app-name">Manus</div>
           <div class="app-by">AI Agent 工具 · 下午會示範，建議課前先申請（審核需要一點時間）</div>
           <div class="store-btns">
-            <a class="store-btn referral" href="https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link" target="_blank">🔗 點我加入（推薦連結）</a>
+            <a class="store-btn referral" href="https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link" target="_blank"><i class="fa-solid fa-link"></i> 點我加入（推薦連結）</a>
           </div>
         </div>
       </div>
@@ -512,7 +529,7 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
 
     <div class="notice-box">
-      <span class="notice-icon">💻</span>
+      <span class="notice-icon"><i class="fa-solid fa-laptop"></i></span>
       <div>
         <strong>建議自備筆電</strong>——今天有幾個練習需要複製貼上長文字（會議紀錄、報告草稿），筆電操作比較順手；沒有筆電用手機也能跟上。
       </div>
@@ -526,9 +543,25 @@ footer a { color: var(--orange); text-decoration: none; }
     <div class="section-label">Today's Schedule · 今日課程</div>
     <h2>六小時，四堂課</h2>
 
+    <div class="timeline-chart">
+      <div class="timeline-bar">
+        <div class="timeline-seg am1">第1堂</div>
+        <div class="timeline-seg am2">第2堂</div>
+        <div class="timeline-seg lunch">午休</div>
+        <div class="timeline-seg pm1">第3堂</div>
+        <div class="timeline-seg pm2">第4堂</div>
+      </div>
+      <div class="timeline-labels">
+        <span>09:30</span>
+        <span>12:30</span>
+        <span>13:30</span>
+        <span>16:30</span>
+      </div>
+    </div>
+
     <!-- AM -->
     <div class="schedule-am">
-      <div class="schedule-header">🌅 上午場 · 學會用</div>
+      <div class="schedule-header">上午場 · 學會用</div>
       <div class="schedule-row">
         <div class="schedule-time">09:30–09:50</div>
         <div class="schedule-content">
@@ -561,11 +594,11 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
 
     <!-- Lunch -->
-    <div class="lunch-row">🍱 午休 12:30–13:30</div>
+    <div class="lunch-row">午休 12:30–13:30</div>
 
     <!-- PM -->
     <div class="schedule-pm">
-      <div class="schedule-header">☀️ 下午場 · 用得準</div>
+      <div class="schedule-header">下午場 · 用得準</div>
       <div class="schedule-row">
         <div class="schedule-time">13:30–14:50</div>
         <div class="schedule-content">
@@ -600,19 +633,19 @@ footer a { color: var(--orange); text-decoration: none; }
 
     <div class="concept-grid">
       <div class="concept-card">
-        <span class="c-icon">🤝</span>
+        <span class="c-icon"><i class="fa-solid fa-people-arrows"></i></span>
         <div class="c-title">對話型 AI vs 代理型 AI（Agent）</div>
         <div class="c-body">ChatGPT、Gemini 是<strong>對話型</strong>：你問，它答，你自己執行。Manus 是<strong>代理型</strong>：你下一個任務，它自己開瀏覽器搜尋、整理、存檔，你回來拿成果。</div>
         <div class="c-example"><strong>今天的安排：</strong>上午主要用對話型，下午登場的 Manus 是代理型。</div>
       </div>
       <div class="concept-card">
-        <span class="c-icon">💬</span>
+        <span class="c-icon"><i class="fa-solid fa-list-check"></i></span>
         <div class="c-title">提示六要素</div>
         <div class="c-body">交付物、背景、素材、限制、格式、檢查——六項資訊給得越完整，AI 猜得越準，不用每次都全部給，但越完整結果越好。</div>
         <div class="c-example"><strong>差別在哪：</strong>「幫我整理會議紀錄」vs「我是主管，要處理[背景]，以下是逐字稿：[素材]，請產出行動清單，格式是條列，最後標出不確定的地方」</div>
       </div>
       <div class="concept-card">
-        <span class="c-icon">⚠️</span>
+        <span class="c-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
         <div class="c-title">幻覺（Hallucination）</div>
         <div class="c-body">AI 有時候會用很有自信的語氣，說出聽起來合理但其實是錯的答案。這是它的結構特性，不是惡意。<strong>重要資訊永遠需要你核實。</strong></div>
         <div class="c-example"><strong>記住：</strong>AI 給草稿，你做最後決定。數字、日期、負責人，送出前一定要核對。</div>
@@ -669,22 +702,22 @@ footer a { color: var(--orange); text-decoration: none; }
 
     <div class="risk-grid">
       <div class="risk-card red-border">
-        <span class="r-icon">🔒</span>
+        <span class="r-icon"><i class="fa-solid fa-lock"></i></span>
         <div class="r-title">個資與機敏資料不貼入</div>
         <div class="r-body">學生／個案／同仁的真實姓名、家庭狀況——一律用代號處理（例如「學生A」），這是課前問卷裡最多人擔心的事。</div>
       </div>
       <div class="risk-card red-border">
-        <span class="r-icon">🧐</span>
+        <span class="r-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         <div class="r-title">答案要自己核對</div>
         <div class="r-body">AI 說的不一定對，數字、日期、負責人、法規——使用前都要核實，AI 給草稿，你做最終判斷。</div>
       </div>
       <div class="risk-card">
-        <span class="r-icon">🧭</span>
+        <span class="r-icon"><i class="fa-solid fa-compass"></i></span>
         <div class="r-title">不確定哪些情境適合用？</div>
         <div class="r-body">今天的「任務×工具地圖」會直接告訴你：什麼任務找 ChatGPT/Gemini，什麼任務找 Gemini Notebook，什麼任務找 Manus。</div>
       </div>
       <div class="risk-card">
-        <span class="r-icon">©️</span>
+        <span class="r-icon"><i class="fa-solid fa-copyright"></i></span>
         <div class="r-title">著作權觀念</div>
         <div class="r-body">AI 產出的內容不等於你可以直接當作定稿發布，尤其是對外的報告或文案，要經過你的編輯與確認。</div>
       </div>
@@ -696,9 +729,9 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
 
     <div class="notice-box" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">
-      <span class="notice-icon">📱</span>
+      <span class="notice-icon"><i class="fa-solid fa-mobile-screen"></i></span>
       <div>
-        <strong>上課當天，把這個網址存起來：</strong> <a href="https://simon-chi.com/lectures/20260722-live.html" style="color:#166534;font-weight:800;">simon-chi.com/lectures/20260722-live.html</a>——今天所有可複製的提示語、方法論總表、工具手冊都在那一頁。
+        <strong>上課當天，把這個網址存起來：</strong> <a href="https://simon-chi.com/w/20260722-exercises.html" style="color:#166534;font-weight:800;">simon-chi.com/w/20260722-exercises.html</a>——今天所有可複製的提示語跟25個方法論都在這一頁。
       </div>
     </div>
   </div>
