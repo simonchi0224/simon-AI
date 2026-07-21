@@ -885,7 +885,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <div class="slide-tag" style="color:var(--orange)">課後問卷 · 花 1 分鐘</div>
   <h2 style="color:white;border-left-color:var(--orange)">最後，掃這個給我一點回饋</h2>
   <div style="display:flex;align-items:center;justify-content:center;gap:40px;margin-top:24px;flex-wrap:wrap">
-    <img src="assets/qr/post-course-survey.png" alt="課後問卷" style="width:190px;height:190px;border-radius:14px;border:3px solid rgba(232,84,30,.5)">
+    <div id="survey-qr" style="width:190px;height:190px;background:white;border-radius:14px;border:3px solid rgba(232,84,30,.5);display:flex;align-items:center;justify-content:center;padding:10px"></div>
     <div style="max-width:340px">
       <div style="font-size:1rem;color:rgba(255,255,255,.75);line-height:1.75">今天哪一段最有用？哪一段太快或太難？<br>你的回饋會直接影響下一場課怎麼調整。</div>
     </div>
@@ -938,6 +938,13 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')mov
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+const _sc = document.createElement('canvas');
+QRCode.toCanvas(_sc, 'https://forms.gle/5ibW7ijqCR3ZgWfEA', {width:168,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}}, function(err){
+  if(!err){_sc.style.cssText='width:168px;height:168px';document.getElementById('survey-qr').appendChild(_sc);}
+});
 </script>
 </body>
 </html>
