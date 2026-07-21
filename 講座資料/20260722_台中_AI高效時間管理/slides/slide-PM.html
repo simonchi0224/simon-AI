@@ -940,11 +940,13 @@ let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
 </script>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-const _sc = document.createElement('canvas');
-QRCode.toCanvas(_sc, 'https://forms.gle/5ibW7ijqCR3ZgWfEA', {width:168,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}}, function(err){
-  if(!err){_sc.style.cssText='width:168px;height:168px';document.getElementById('survey-qr').appendChild(_sc);}
+new QRCode(document.getElementById('survey-qr'), {
+  text: 'https://forms.gle/5ibW7ijqCR3ZgWfEA',
+  width: 168, height: 168,
+  colorDark: '#1d1d1f', colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.M
 });
 </script>
 </body>

@@ -966,12 +966,13 @@ let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
 </script>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 function drawQR(elId, url){
-  const c = document.createElement('canvas');
-  QRCode.toCanvas(c, url, {width:124,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}}, function(err){
-    if(!err){c.style.cssText='width:124px;height:124px';document.getElementById(elId).appendChild(c);}
+  new QRCode(document.getElementById(elId), {
+    text: url, width: 124, height: 124,
+    colorDark: '#1d1d1f', colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
   });
 }
 drawQR('cover-qr-preclass', 'https://simon-chi.com/lectures/20260722.html');

@@ -71,7 +71,7 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
 .qr-link:hover{color:var(--orange-d);text-decoration:underline}
 @media(max-width:480px){.qr-banner{justify-content:center;text-align:center}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -138,7 +138,7 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
 
   <div class="qr-banner">
     <div class="qr-box">
-      <canvas id="qr-canvas"></canvas>
+      <div id="qr-canvas"></div>
     </div>
     <div class="qr-info">
       <span class="qr-eyebrow">掃描直接開啟</span>
@@ -182,11 +182,12 @@ html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg
 
 </div>
 <script>
-QRCode.toCanvas(document.getElementById('qr-canvas'),
-  'https://simon-chi.com/講座資料/20260722_台中_AI高效時間管理/slides/exercises.html',
-  {width:124,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}},
-  function(err){if(err)console.error(err)}
-);
+new QRCode(document.getElementById('qr-canvas'), {
+  text: 'https://simon-chi.com/w/20260722-exercises.html',
+  width: 124, height: 124,
+  colorDark: '#1d1d1f', colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.M
+});
 </script>
 </body>
 </html>
