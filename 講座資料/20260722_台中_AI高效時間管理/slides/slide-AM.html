@@ -175,6 +175,20 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <span class="pill">台中世貿中心 303教室</span>
     <span class="pill">2026.07.22</span>
   </div>
+  <div style="display:flex;gap:34px;margin-top:34px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div id="cover-qr-preclass" style="width:140px;height:140px;border-radius:10px;background:white;padding:6px;display:flex;align-items:center;justify-content:center"></div>
+      <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.5">課前準備<br><span style="color:white;font-weight:700;font-size:1rem">先確認帳號</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div id="cover-qr-prompts" style="width:140px;height:140px;border-radius:10px;background:white;padding:6px;display:flex;align-items:center;justify-content:center"></div>
+      <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.5">提示語全集<br><span style="color:white;font-weight:700;font-size:1rem">直接複製貼上</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div id="cover-qr-handbook" style="width:140px;height:140px;border-radius:10px;background:white;padding:6px;display:flex;align-items:center;justify-content:center"></div>
+      <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.5">工具速查手冊<br><span style="color:white;font-weight:700;font-size:1rem">任務×工具地圖</span></div>
+    </div>
+  </div>
   <div class="ghost">AM</div>
 </section>
 
@@ -199,7 +213,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
       <div class="intro-bio">HP → 趨勢科技 → 外商 AI 專案主管 → 創業。身為 PMP / PMI-ACP 持證者，今天這堂課的時間管理方法，不是心靈雞湯，是專案管理裡真的在用的框架，加上 AI 怎麼接手一半。<br><br>
       我設計課程的標準只有一個：<b style="color:white">你今天離開的時候，手上要有一份自己真的會用的時間管理方案。</b></div>
       <div style="margin-top:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:16px">
-        <img src="assets/qr/simon-ai-community.jpg" alt="Simon AI 學員社群" style="width:88px;height:88px;border-radius:8px;flex-shrink:0">
+        <img src="assets/qr/simon-ai-community.jpg" alt="Simon AI 學員社群" style="width:120px;height:120px;border-radius:8px;flex-shrink:0">
         <div>
           <div style="font-size:.92rem;font-weight:700;color:white">加入「Simon AI 學員社群」</div>
           <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.6">今天的投影片、提示語、後續問題都會放在這裡，掃碼先加入</div>
@@ -215,7 +229,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <h2 style="color:white;border-left-color:var(--orange)">先把帳號打開，今天要用到四個工具</h2>
   <div style="display:flex;align-items:center;justify-content:center;gap:52px;margin-top:24px;flex-wrap:wrap">
     <div style="text-align:center">
-      <img src="assets/qr/manus-invitation.png" alt="Manus 申請" style="width:180px;height:180px;border-radius:14px;border:3px solid rgba(124,106,247,.5)">
+      <img src="assets/qr/manus-invitation.png" alt="Manus 申請" style="width:200px;height:200px;border-radius:14px;border:3px solid rgba(124,106,247,.5)">
       <div style="margin-top:12px;font-size:.98rem;font-weight:700;color:white">Manus 申請</div>
       <div style="font-size:.85rem;color:rgba(255,255,255,.4);margin-top:6px">下午會用到，現在先申請</div>
     </div>
@@ -951,6 +965,18 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')mov
 let tx=0;
 document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+function drawQR(elId, url){
+  const c = document.createElement('canvas');
+  QRCode.toCanvas(c, url, {width:124,margin:1,color:{dark:'#1d1d1f',light:'#ffffff'}}, function(err){
+    if(!err){c.style.cssText='width:124px;height:124px';document.getElementById(elId).appendChild(c);}
+  });
+}
+drawQR('cover-qr-preclass', 'https://simon-chi.com/lectures/20260722.html');
+drawQR('cover-qr-prompts', 'https://simon-chi.com/w/20260722-exercises.html');
+drawQR('cover-qr-handbook', 'https://simon-chi.com/w/20260722-handout.html');
 </script>
 </body>
 </html>
