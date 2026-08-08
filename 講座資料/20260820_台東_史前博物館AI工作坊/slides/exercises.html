@@ -25,6 +25,10 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 .security-box li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0}
 .todo-box{background:#fffbeb;border:1px dashed #f59e0b;border-radius:14px;padding:18px 22px;margin-top:12px}
 .todo-box p{font-size:.9rem;color:#92400e;line-height:1.6}
+.prompt-card{background:white;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:14px}
+.prompt-card h3{font-size:1rem;color:var(--ink);margin-bottom:9px}
+.prompt-card pre{white-space:pre-wrap;font:inherit;font-size:.88rem;line-height:1.68;color:var(--ink)}
+.prompt-note{font-size:.84rem;color:var(--dim);line-height:1.55;margin-top:9px}
 </style>
 </head>
 <body>
@@ -38,32 +42,74 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
     <ul>
       <li>同仁、民眾的真實姓名、聯絡方式，一律用代號處理（例如「同仁A」）</li>
       <li>AI 給的是草稿，數字、日期、負責人、公文格式，送出前一定要人工核對</li>
-      <li>公務資料是否能貼給 AI，先確認單位的資安規範與待補的「行政院生成式AI參考指引」引用</li>
+      <li>公務資料是否能貼給 AI，請先依單位的資安規範與生成式 AI 使用指引辦理</li>
     </ul>
   </div>
 
   <!-- 第1堂 -->
   <div class="session-block">
     <div class="session-header"><h2>第 1 堂 · 把模糊交辦，變成可執行的任務</h2><span class="session-badge">上午</span></div>
-    <div class="todo-box"><p>TODO：待第1堂投影片內容定稿後，補入對應的任務地圖／確認信提示語（案例版＋挖空版）。</p></div>
+    <p class="session-goal">用途：把信件、筆記與舊資料整理成「已知／待確認／下一步」。</p>
+    <div class="prompt-card"><h3>任務地圖初稿</h3><pre>你是【單位／專案】的行政協作人員。以下是主管交辦信、背景資料與會議筆記。請只根據我提供的資料整理，不要自行補人數、預算、日期或活動內容。
+
+請輸出：
+1. 目前目的與對象
+2. 已確認條件
+3. 待確認問題（問題／為什麼要確認／建議詢問對象）
+4. 接下來 10 個工作天要先做的工作，依優先順序排列
+
+資料如下：
+【貼上你們先整理過的資料】</pre><p class="prompt-note">先由小組整理資料再貼入；每個數字都要能指出來源。</p></div>
+    <div class="prompt-card"><h3>主管確認信</h3><pre>請根據以下任務地圖，寫一封寄給主管的確認信。主旨要清楚；內文依序寫背景、目前已知條件、3 個需要裁示的問題、方向確認後的下一步。語氣專業簡潔，不要把待確認事項寫成已定案。</pre></div>
   </div>
 
   <!-- 第2堂 -->
   <div class="session-block">
     <div class="session-header"><h2>第 2 堂 · 讓不同對象，都收到清楚而合適的文字</h2><span class="session-badge">上午</span></div>
-    <div class="todo-box"><p>TODO：待第2堂投影片內容定稿後，補入信件／公文／公告／常見問答提示語。</p></div>
+    <p class="session-goal">用途：先說清楚對象與下一步，再讓 AI 寫信、公告或 FAQ 初稿。</p>
+    <div class="prompt-card"><h3>正式信件</h3><pre>請依照下面資料，寫一封寄給【對象】的正式電子郵件。語氣清楚、禮貌、不要太長，也不要自行補資料。
+
+信件目的：＿＿＿＿
+對方需要回覆／執行：＿＿＿＿
+已知條件：＿＿＿＿
+尚待確認或需要對方說明：＿＿＿＿
+
+請輸出主旨、完整信件，最後列出寄出前必須確認的 3 件事。</pre></div>
+    <div class="prompt-card"><h3>公告與 FAQ</h3><pre>請把以下「已確認資訊」改寫成給【受眾】看的活動公告，語氣清楚、友善、150 字內。另列出 3 題常見問答。
+
+限制：未確認的日期、地點、預算、報名方式不得自行補寫；需要保留時請寫「後續公告」。</pre></div>
   </div>
 
   <!-- 第3堂 -->
   <div class="session-block">
     <div class="session-header"><h2>第 3 堂 · 會議結束後，讓事情真的往下走</h2><span class="session-badge">下午</span></div>
-    <div class="todo-box"><p>TODO：待第3堂投影片內容定稿後，補入會議摘要／追蹤表／確認信提示語。</p></div>
+    <p class="session-goal">用途：把速記與信件整理成決議、待辦、風險與會後確認信。</p>
+    <div class="prompt-card"><h3>會議摘要與追蹤表</h3><pre>以下是會議筆記與後續信件。請只整理資料裡明確出現的內容，不要推測或補人名、期限。
+
+請輸出：
+1. 100 字內會議摘要
+2. 已確認決議
+3. 待確認／需要主管裁示
+4. 工作追蹤表：工作項目｜負責人｜期限｜目前狀態｜依據或備註
+5. 最多 3 項風險提醒
+
+資料如下：【貼上資料】</pre></div>
+    <div class="prompt-card"><h3>會後確認信</h3><pre>請根據以下會議摘要與工作追蹤表，寫一封會後確認信。請分開列出已確認事項、待確認事項、各項工作；請與會者在【期限】前回覆修正或認領未定工作。</pre></div>
   </div>
 
   <!-- 第4堂 -->
   <div class="session-block">
     <div class="session-header"><h2>第 4 堂 · 把工作成果，整理成簡報與對外視覺</h2><span class="session-badge">下午</span></div>
-    <div class="todo-box"><p>TODO：待第4堂投影片內容定稿後，補入簡報大綱／海報文案提示語。</p></div>
+    <p class="session-goal">用途：把前面成果換成主管能決策的簡報，以及受眾看得懂的海報內容。</p>
+    <div class="prompt-card"><h3>五頁主管簡報大綱</h3><pre>你是【單位】的專案承辦人。請根據以下已確認資料與待決策事項，整理一份 5 頁主管簡報大綱。
+
+每一頁請輸出：頁面標題、這頁要回答的問題、3–5 點內容、建議使用的圖表或資料呈現方式。
+
+限制：未確認資訊請標示「需決策／待確認」，不要寫成定案。
+資料如下：【貼上小組整理內容】</pre></div>
+    <div class="prompt-card"><h3>海報與 150 字對外說明</h3><pre>請根據以下已確認資訊，產出一張活動海報的內容稿與 150 字內對外說明。海報至少有：活動名稱、對象、時間／地點／報名方式（僅在已確認時）、一句說明、聯絡窗口。
+
+沒有資料時請標示「後續公告」，不得自行補寫。</pre></div>
   </div>
 
 </div>

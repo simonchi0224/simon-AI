@@ -62,7 +62,7 @@ document.getElementById("content").innerHTML = `
           <div class="res-title">${escapeHtml(r.title)} ${lockBadge(r.revealSession, 4)}</div>
           <div class="res-desc">${escapeHtml(r.description)}</div>
         </div>
-        <div class="res-actions"><a class="btn sm ghost" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">開啟 ↗</a></div>
+        <div class="res-actions">${r.url ? `<a class="btn sm ghost" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">開啟 ↗</a>` : `<span class="res-desc">授課前補上</span>`}</div>
       </div>`).join("")}
   </div>
 
@@ -71,7 +71,7 @@ document.getElementById("content").innerHTML = `
     <div class="unit-row">
       <div class="unit-head">
         <span class="unit-title">${escapeHtml(s.title)}</span>
-        <span class="unit-time">${s.durationMinutes} 分鐘</span>
+        <span class="unit-time">${s.timeLabel ? escapeHtml(s.timeLabel) + " · " : ""}${s.durationMinutes} 分鐘</span>
       </div>
       <div class="unit-obj">${escapeHtml(s.objective)}</div>
       <div class="unit-outputs">${s.outputs.map(o => `<span class="out-pill">${escapeHtml(o)}</span>`).join("")}</div>

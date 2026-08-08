@@ -33,7 +33,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
 .blist li b{font-weight:700}
 .cgrid{display:grid;gap:14px}
-.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
 .card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
 .card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
 .ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
@@ -80,7 +80,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <h1>把成果，<br><span class="hi">整理成看得懂的東西</span></h1>
   <div class="sub">會議結束後讓事情真的往下走，再把前三堂的成果整合成主管簡報與對外海報。</div>
   <div class="bar">
-    <span class="pill">時間待確認</span>
+    <span class="pill">13:00–15:50</span>
     <span class="pill">國立臺灣史前文化博物館</span>
     <span class="pill">2026.08.20</span>
   </div>
@@ -89,55 +89,177 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 
 <!-- 2. sbreak 第3堂 -->
 <section class="slide sbreak">
-  <span class="s-tag">第 3 堂 · 時間待確認</span>
+  <span class="s-tag">第 3 堂 · 13:00–14:20</span>
   <h2>會議結束後，<br>讓事情真的往下走</h2>
   <div class="sub">會開完了，但決議、負責人與期限散在各自的筆記裡</div>
 </section>
 
-<!-- 3. TODO：第3堂內容 -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 第3堂內容待撰寫</div>
-  <h2>會議結束後，讓事情真的往下走</h2>
-  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
-  <ul class="todo-list">
-    <li>會議紀錄應保留哪些事實／如何從逐字稿、筆記或錄音整理出決議</li>
-    <li>如何區分討論、結論、待辦與風險／如何建立負責人、期限與追蹤欄位</li>
-    <li>如何寫出主管一眼能看懂的會議摘要／如何用 AI 協助產出後續追蹤信</li>
-    <li>講師示範：雜亂會議筆記 → 會議摘要/決議事項/待辦清單/負責人期限/待裁示問題/會後追蹤信</li>
-    <li>分組實作：一頁式會議摘要／工作追蹤表／會後確認信／一項待主管決定的風險事項</li>
+<!-- 3. 第3堂：讓會議真的推動工作 -->
+<section class="slide">
+  <div class="slide-tag">第 3 堂 · 整理不是逐字抄寫</div>
+  <h2>會議後，先把內容分成四類</h2>
+  <div class="cgrid g4" style="margin-top:16px">
+    <div class="card o"><div class="ct">討論</div><div class="cd">有人提出的意見，不等於共識。</div></div>
+    <div class="card b"><div class="ct">決議</div><div class="cd">明確拍板、可立即執行的事。</div></div>
+    <div class="card g"><div class="ct">待辦</div><div class="cd">工作、負責人、期限、狀態。</div></div>
+    <div class="card p"><div class="ct">風險／待裁示</div><div class="cd">會卡住，但資料尚不足或要主管決定。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">會議紀錄的價值，不是證明誰講了什麼；是讓沒到場的人也知道下一步怎麼做。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">DEMO · 原始筆記裡的陷阱</div>
+  <h2>「好像是行政跟人資」不能變成負責人</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o"><div class="ct">資料明確寫到的</div><div class="cd">10/17 暫定、預算先不超過 48 萬、先做兩案比較、下週一給主管一頁比較。</div></div>
+    <div class="card b"><div class="ct">資料沒有寫清楚的</div><div class="cd">比較表到底誰主責、場地網路何時測、手作材料如何估算。</div></div>
+  </div>
+  <div class="hl bl" style="margin-top:18px">正確寫法：<b>負責人：待確認（行政／人資協作，需於會後確認主責）。</b><br>不是替組織亂派工作。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">TRACKER · 每一列都要能追</div>
+  <h2>一張不會失效的工作追蹤表</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">工作內容</div><div class="cd">寫動詞＋交付物<br>例：完成兩案場地成本比較</div></div>
+    <div class="card b"><div class="ct">責任與期限</div><div class="cd">負責人、協作人、期限；沒有就寫待確認。</div></div>
+    <div class="card g"><div class="ct">狀態與依據</div><div class="cd">未開始／進行中／待回覆；連回會議或信件來源。</div></div>
+  </div>
+  <div class="hl" style="margin-top:18px">每一列再加一欄「卡點／下一步」；主管看到的就不只是清單，而是需要協助的地方。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">PROMPT · 先要求格式，再貼資料</div>
+  <h2>請 AI 整理會議，不要讓它替你下結論</h2>
+  <div class="hl bl" style="margin-top:12px">以下是會議筆記與後續信件。請<b>只整理明確出現的內容</b>，不要推測或補人名、期限。請輸出：① 100 字會議摘要 ② 已確認決議 ③ 待確認／待裁示 ④ 工作追蹤表（工作｜負責人｜期限｜狀態｜依據）⑤ 最多 3 項風險。</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card g"><div class="ct">AI 做初稿</div><div class="cd">先把散亂段落轉成可檢查的結構，節省整理時間。</div></div>
+    <div class="card o"><div class="ct">人做確認</div><div class="cd">逐列核對原文，尤其是人名、期限、金額與「是否決議」。</div></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">FOLLOW-UP · 讓大家有機會修正</div>
+  <h2>會後確認信，是追蹤的起點</h2>
+  <ul class="blist" style="margin-top:8px">
+    <li><b>開頭：</b>說明本信用途與回覆期限。</li>
+    <li><b>中段：</b>分開列「已確認事項」「待確認事項」「各項工作」。</li>
+    <li><b>結尾：</b>請與會者修正內容、認領未定負責人或補充期限。</li>
   </ul>
-  <div class="hl amber" style="margin-top:10px">本堂產出：「會議紀錄＋工作追蹤表＋會後確認信」</div>
+  <div class="hl amber" style="margin-top:16px">一封好信不會假裝已經定案，而是讓錯誤在執行前被抓出來。</div>
+</section>
+
+<section class="slide sticky-activity">
+  <div class="sticky-banner">分組實作 · 30 分鐘</div>
+  <h2>把速記，整理成下一步</h2>
+  <div class="sticky-meta"><span>資料：第一次籌備會原始筆記</span><span>先分四類</span><span>完成一頁摘要＋追蹤表＋確認信</span></div>
+  <ol class="sticky-steps">
+    <li>圈出事實與意見 <span>每段先標示：討論、決議、待辦或風險。</span></li>
+    <li>建立追蹤表 <span>沒有負責人或期限的列，標示待確認並寫出要問誰。</span></li>
+    <li>寫 100 字摘要 <span>讓主管一眼看見目前方向與卡點。</span></li>
+    <li>寄出前的確認信 <span>請大家在指定期限前修正紀錄或認領工作。</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">CHECK · 第3堂交件</div>
+  <h2>資料被整理後，有沒有變得可執行？</h2>
+  <ul class="blist" style="margin-top:10px">
+    <li>討論、決議、待辦與風險有沒有混在一起？</li>
+    <li>每一個待辦都有負責人與期限，或誠實標成待確認嗎？</li>
+    <li>有沒有至少一項會影響預算、場地或時程的風險？</li>
+    <li>沒參加會議的人讀完，能不能接著完成工作？</li>
+  </ul>
 </section>
 
 <!-- 4. sbreak 第4堂 -->
 <section class="slide sbreak">
-  <span class="s-tag">第 4 堂 · 時間待確認</span>
+  <span class="s-tag">第 4 堂 · 14:30–15:50</span>
   <h2>把工作成果，<br>整理成簡報與對外視覺</h2>
   <div class="sub">主管看得懂、外部對象也看得懂的內容</div>
 </section>
 
-<!-- 5. TODO：第4堂內容 -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 第4堂內容待撰寫</div>
-  <h2>把工作成果，整理成簡報與對外視覺</h2>
-  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
-  <ul class="todo-list">
-    <li>如何將零散資料整理成簡報敘事／主管簡報應該保留哪些頁面</li>
-    <li>如何請 AI 協助產出簡報大綱與頁面內容</li>
-    <li>海報需要先想清楚的資訊層級／如何產出海報文案、標題、活動資訊與視覺方向</li>
-    <li>發布前如何檢查日期、地點、對象、聯絡方式與事實正確性</li>
-    <li>講師示範：前三堂成果 → 五頁主管簡報架構/一頁海報文字與視覺規格/對外說明段落</li>
-    <li>分組實作：五頁主管簡報大綱／一張海報初稿或版型／150字以內對外宣傳文字</li>
-    <li>最後10分鐘：各組1分鐘分享，其他組用「資料正確／訊息清楚／下一步能否執行」回饋</li>
-  </ul>
-  <div class="hl amber" style="margin-top:10px">本堂產出：「專案成果包：簡報架構＋海報初稿＋對外說明」</div>
+<!-- 5. 第4堂：把成果轉譯給不同讀者 -->
+<section class="slide">
+  <div class="slide-tag">第 4 堂 · 一份資料，兩種成果</div>
+  <h2>主管要決策；同仁要知道下一步</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o"><div class="ct">五頁主管簡報</div><div class="cd">只留下能支持決策的資訊：規模、方案、成本、風險、要主管拍板的事。</div></div>
+    <div class="card b"><div class="ct">海報／對外說明</div><div class="cd">只留下已確認、和受眾有關的資訊：這是什麼、何時何地、怎麼參加、找誰。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">同一份資料不能原封不動搬過去。<b>先換讀者，再決定留什麼。</b></div>
 </section>
 
-<!-- 6. 收尾（待補：真實問卷QR） -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 課後問卷連結待補</div>
-  <h2>課程結束</h2>
-  <div class="slide-sub">待有真實 Google 表單連結後，換成即時產生 QR（比照 0721/0722 場作法）</div>
+<section class="slide">
+  <div class="slide-tag">DECK · 五頁就夠開始決策</div>
+  <h2>主管簡報的建議骨架</h2>
+  <div class="cgrid g5" style="margin-top:16px">
+    <div class="card o"><div class="ct">01</div><div class="cd">目的與對象</div></div>
+    <div class="card b"><div class="ct">02</div><div class="cd">規模與兩案比較</div></div>
+    <div class="card g"><div class="ct">03</div><div class="cd">預算與詢價差異</div></div>
+    <div class="card p"><div class="ct">04</div><div class="cd">待決策事項與風險</div></div>
+    <div class="card dim"><div class="ct">05</div><div class="cd">時程與需要的支援</div></div>
+  </div>
+  <div class="hl" style="margin-top:18px">每一頁先問：<b>這頁要讓主管回答哪一個問題？</b>答不出來，就不是主管簡報的核心頁。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">CHANGE CARD · 現在方案改了</div>
+  <h2>場地 A 取消，預算也下修到 42 萬</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">先停什麼？</div><div class="cd">原戶外場地 A 的後續洽談，以及依其條件做的預設。</div></div>
+    <div class="card b"><div class="ct">重算什麼？</div><div class="cd">河岸基地、餐飲、活動執行、保險、抽獎是否能在含稅 42 萬內。</div></div>
+    <div class="card g"><div class="ct">請主管決定什麼？</div><div class="cd">保留哪些體驗、可縮減哪些內容、可接受哪些風險與條件。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">這不是要你立刻給完美答案；而是把「影響、選項、需要決定」整理出來。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">POSTER · 資訊層級先於美工</div>
+  <h2>海報先寫對，再談好看</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">第一層：吸引注意</div><div class="cd">活動名稱＋一句不誇大的說明。</div></div>
+    <div class="card b"><div class="ct">第二層：必要資訊</div><div class="cd">對象、時間、地點、報名方式；僅限已確認。</div></div>
+    <div class="card g"><div class="ct">第三層：下一步</div><div class="cd">報名連結、截止日、聯絡窗口與注意事項。</div></div>
+  </div>
+  <div class="hl bl" style="margin-top:18px">未確定的內容不是拿小字藏起來，而是暫時不公開，或明確寫「後續公告」。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">PROMPT · 先給已確認資料</div>
+  <h2>用 AI 產出大綱，不讓它包辦決策</h2>
+  <div class="hl bl" style="margin-top:12px">請根據以下<b>已確認資料與待決策事項</b>，為主管整理 5 頁簡報大綱。每頁輸出：標題、要回答的問題、3–5 點內容、建議的圖表。<b>未確認資訊請標「需決策／待確認」，不要寫成定案。</b></div>
+  <div class="hl g" style="margin-top:12px">對外文字版本：請在 150 字內說明「這是什麼、跟誰有關、下一步怎麼做」；找不到日期／地點／報名方式時，請保留待公告，不得自行補寫。</div>
+</section>
+
+<section class="slide sticky-activity">
+  <div class="sticky-banner">最後實作 · 30 分鐘＋分享 10 分鐘</div>
+  <h2>完成一套能拿去討論的成果包</h2>
+  <div class="sticky-meta"><span>資料：前三堂成果＋活動變更通知</span><span>先完成內容稿</span><span>不比美工，比可執行</span></div>
+  <ol class="sticky-steps">
+    <li>更新任務地圖與追蹤表 <span>列出取消場地、預算下修後的影響與下一步。</span></li>
+    <li>完成五頁主管簡報大綱 <span>至少有一頁清楚寫出「需要主管決定什麼」。</span></li>
+    <li>完成海報內容稿與 150 字說明 <span>只用已確認資訊；沒有的就標待公告。</span></li>
+    <li>一分鐘分享 <span>另一組用「資料正確／訊息清楚／下一步能否執行」給回饋。</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">FINAL CHECK · 專案成果包</div>
+  <h2>今天練的是一種可重複使用的工作方式</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">先釐清</div><div class="cd">已知、矛盾、缺漏；把問題攤出來。</div></div>
+    <div class="card b"><div class="ct">再產出</div><div class="cd">請 AI 做有格式的初稿，而不是替你猜答案。</div></div>
+    <div class="card g"><div class="ct">最後核對</div><div class="cd">回原始資料檢查，讓不同讀者都知道下一步。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">你不需要從明天開始把所有工作都交給 AI；先挑一件「資料亂、要整理、要交件」的任務，照今天流程跑一次。</div>
+</section>
+
+<!-- 6. 收尾（問卷連結待補） -->
+<section class="slide sbreak">
+  <span class="s-tag">課程結束 · 下一步</span>
+  <h2>讓 AI 幫你加速，<br>但把判斷留在自己手上</h2>
+  <div class="sub">謝謝今天的投入。離開前，請記下你下一件想用這套流程處理的真實工作任務。<br><br><span style="color:var(--orange)">課後問卷 QR 待補</span></div>
 </section>
 
 <!-- nav -->

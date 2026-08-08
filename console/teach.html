@@ -119,7 +119,7 @@ function render() {
   const segNum = currentSessionNumber();
 
   document.getElementById("tt-course").textContent = course.title;
-  document.getElementById("tt-session").textContent = session.title;
+  document.getElementById("tt-session").textContent = session.title + (session.timeLabel ? "　" + session.timeLabel : "");
   document.getElementById("tt-session-switch").innerHTML = course.sessions.map(s =>
     `<a href="#" data-id="${s.id}" class="${s.id === session.id ? "active" : ""}">${escapeHtml(s.title.split("．")[0])}</a>`
   ).join("");
@@ -169,7 +169,7 @@ function render() {
       ${resourcesForSeg.length ? resourcesForSeg.map(r => `
         <div class="side-res">
           <span>${iconFor[r.type] || "🔗"} ${escapeHtml(r.title)} ${lockBadge(r.revealSession, segNum)}</span>
-          <a class="btn sm ghost" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">開啟</a>
+          ${r.url ? `<a class="btn sm ghost" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">開啟</a>` : `<span class="res-desc">授課前補上</span>`}
         </div>`).join("") : `<p style="font-size:.8rem;color:var(--ink3)">本段無額外資源。</p>`}
     </div>
     <div class="side-box">

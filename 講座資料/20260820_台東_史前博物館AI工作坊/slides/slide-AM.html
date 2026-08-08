@@ -89,6 +89,26 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .sticky-steps li:last-child{border-bottom:none}
 .sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
 .sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+/* AI趨勢素材：stat-box / myth-row（取自過去場次投影片，沿用同一套視覺語言） */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:white;border-radius:12px;padding:18px 14px;border:1px solid var(--line);text-align:center}
+.stat-box .big{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;color:var(--orange);line-height:1}
+.stat-box .label{font-size:.78rem;color:var(--dim);margin-top:6px;line-height:1.4}
+.stat-box .src{font-size:.64rem;color:rgba(110,110,115,.6);margin-top:4px}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.myth-bad{background:#fef2f2;border-radius:10px;padding:14px 16px;border:1px solid #fca5a5}
+.myth-good{background:#f0fdf4;border-radius:10px;padding:14px 16px;border:1px solid #86efac}
+.myth-tag{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
+.myth-bad .myth-tag{color:#dc2626}
+.myth-good .myth-tag{color:#16a34a}
+.myth-text{font-size:1rem;color:var(--ink);line-height:1.55}
+.tool-lane{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media(max-width:700px){.tool-lane{grid-template-columns:1fr}}
+.tool-card{background:white;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:16px 18px}
+.tool-card .name{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.tool-card .role{font-size:.82rem;font-weight:700;color:var(--orange);margin-bottom:8px}
+.tool-card .best{font-size:.9rem;color:var(--dim);line-height:1.55}
 </style>
 </head>
 <body>
@@ -101,7 +121,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <h1>從交辦任務，<br><span class="hi">到可交付成果</span></h1>
   <div class="sub">今天透過遠景科技「2026員工家庭日」的練習情境，走一遍把模糊交辦變成可執行任務地圖、再轉成不同對象都看得懂的文字的完整流程。</div>
   <div class="bar">
-    <span class="pill">時間待確認</span>
+    <span class="pill">09:00–12:00</span>
     <span class="pill">國立臺灣史前文化博物館</span>
     <span class="pill">地點待確認</span>
     <span class="pill">2026.08.20</span>
@@ -133,15 +153,16 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
 </section>
 
-<!-- 3. 課前準備（待補：確認要用哪些AI工具、筆電狀況） -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 課前準備頁待補</div>
+<!-- 3. 課前準備 -->
+<section class="slide">
+  <div class="slide-tag">課前準備 · START HERE</div>
   <h2>課前準備</h2>
-  <div class="slide-sub">內容待確認後填入</div>
-  <ul class="todo-list">
-    <li>確認今天要用哪些 AI 工具（ChatGPT／Gemini／其他），是否需要 Manus</li>
-    <li>確認每組筆電狀況，決定要不要放「申請帳號」QR</li>
-    <li>確認地點/場地資訊，是否需要無線網路提醒</li>
+  <div class="slide-sub">今天先用一個可登入的生成式 AI 工具；每組至少一台筆電最佳</div>
+  <ul class="blist">
+    <li>每組選出任務主責、資料查核、文字編輯與成果整合；每堂輪換一位操作 AI。</li>
+    <li>使用 ChatGPT、Gemini 或單位允許的工具皆可；不需要所有人使用同一個工具。</li>
+    <li>真實個資、未公開採購／合約內容與可辨識當事人的資料，不要貼入公開 AI。</li>
+    <li>若網路或筆電不足，先用紙本完成「已知／矛盾／待確認」，再由一位代表輸入。</li>
   </ul>
 </section>
 
@@ -151,10 +172,10 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   <h2>今天的遊戲規則</h2>
   <div class="slide-sub">四堂課，每堂都帶走一個做得出來的東西</div>
   <ul class="nlist" style="margin-top:10px">
-    <li><b>第1堂（時間待確認）</b> 把模糊交辦，變成可執行的任務<span>本堂產出：專案任務地圖＋主管確認信</span></li>
-    <li><b>第2堂（時間待確認）</b> 讓不同對象，都收到清楚而合適的文字<span>本堂產出：公務溝通文字包</span></li>
-    <li><b>第3堂（時間待確認）</b> 會議結束後，讓事情真的往下走<span>本堂產出：會議紀錄＋工作追蹤表＋會後確認信</span></li>
-    <li><b>第4堂（時間待確認）</b> 把工作成果，整理成簡報與對外視覺<span>本堂產出：簡報架構＋海報初稿＋對外說明</span></li>
+    <li><b>第1堂 09:10–10:30</b> 把模糊交辦，變成可執行的任務<span>本堂產出：專案任務地圖＋主管確認信</span></li>
+    <li><b>第2堂 10:40–12:00</b> 讓不同對象，都收到清楚而合適的文字<span>本堂產出：公務溝通文字包</span></li>
+    <li><b>第3堂 13:00–14:20</b> 會議結束後，讓事情真的往下走<span>本堂產出：會議紀錄＋工作追蹤表＋會後確認信</span></li>
+    <li><b>第4堂 14:30–15:50</b> 把工作成果，整理成簡報與對外視覺<span>本堂產出：簡報架構＋海報初稿＋對外說明</span></li>
   </ul>
 </section>
 
@@ -171,52 +192,205 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 
 <!-- 6. sbreak 第1堂 -->
 <section class="slide sbreak">
-  <span class="s-tag">第 1 堂 · 時間待確認</span>
+  <span class="s-tag">第 1 堂 · 09:10–10:30</span>
   <h2>把模糊交辦，<br>變成可執行的任務</h2>
   <div class="sub">AI最適合介入的第一步：資料很亂、任務還不清楚的時候</div>
 </section>
 
-<!-- 7. TODO：第1堂內容 -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 第1堂內容待撰寫</div>
-  <h2>把模糊交辦，變成可執行的任務</h2>
-  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
-  <ul class="todo-list">
-    <li>AI 能協助哪些日常工作／哪些資料不能直接丟進 AI</li>
-    <li>怎麼提供背景資料，讓 AI 理解工作脈絡</li>
-    <li>怎麼要求 AI 用需要的格式輸出／如何檢查 AI 是否漏掉重點或自行補內容</li>
-    <li>講師示範：主管交辦信＋去年活動資料 → 任務目標/對象/工作項目/時程/待確認問題/確認信初稿</li>
-    <li>分組實作：一頁式任務地圖／工作項目與優先順序／三個待主管確認的問題／確認信初稿</li>
+<!-- 6b. AI趨勢：常見誤解 -->
+<section class="slide">
+  <div class="slide-tag">迷思破解 · MYTH VS FACT</div>
+  <h2>先破解一個誤解，<br>再開始今天的練習</h2>
+  <div class="slide-sub">你可能也聽過這句話</div>
+  <div class="myth-row">
+    <div class="myth-bad"><span class="myth-tag">迷思</span><div class="myth-text">「AI 講的話都經過查證，很聰明」</div></div>
+    <div class="myth-good"><span class="myth-tag">事實</span><div class="myth-text">AI 是用「猜」的，不是用「查」的——它預測最可能的下一句話，不是從資料庫撈出正確答案</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:14px">這正是今天整堂課的核心工作習慣：AI 先幫你整理初稿，日期、數字、負責人、承諾——送出前永遠要回到原始資料核對一次。</div>
+</section>
+
+<!-- 7. 第1堂：把交辦拆開 -->
+<section class="slide">
+  <div class="slide-tag">第 1 堂 · 先拆任務，再請 AI 幫忙</div>
+  <h2>一封交辦信，不能直接變成工作計畫</h2>
+  <div class="slide-sub">先把「有來源的事實」與「還要主管決定的事」分開</div>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o"><div class="ct">AI 可以先幫的</div><div class="cd">抓重點、歸類、比對不同資料、整理成任務地圖初稿、把口語筆記改成可讀文字。</div></div>
+    <div class="card b"><div class="ct">人一定要決定的</div><div class="cd">資料能不能使用、哪個數字可信、優先順序、是否對外承諾、誰負責與何時完成。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:16px">今天的安全句型：<b>資料沒有寫，就標示「待確認」；不要請 AI 幫我們猜。</b></div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">WORKFLOW · 四步驟</div>
+  <h2>把亂資料變成能做的事</h2>
+  <div class="cgrid g4" style="margin-top:16px">
+    <div class="card o"><div class="ct">1. 讀</div><div class="cd">圈出日期、數字、條件、誰說的。</div></div>
+    <div class="card b"><div class="ct">2. 分</div><div class="cd">已知／矛盾／缺漏，先不要急著下結論。</div></div>
+    <div class="card g"><div class="ct">3. 問</div><div class="cd">指定角色、資料範圍與輸出格式，請 AI 做初稿。</div></div>
+    <div class="card p"><div class="ct">4. 核</div><div class="cd">逐項回原文核對；不確定就保留待確認。</div></div>
+  </div>
+  <div class="hl bl" style="margin-top:18px">不是「把一堆附件丟進去問：幫我做企劃」；而是先定義這一輪要交出什麼。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">DEMO · 先看出矛盾</div>
+  <h2>同一個活動，資料已經有三個版本</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">活動日期</div><div class="cd">主管信：<b>10/17</b><br>第一次會議：<b>先卡 10/17</b><br>→ 可寫「暫定」，不是已定案。</div></div>
+    <div class="card b"><div class="ct">預算</div><div class="cd">主管信：<b>48 萬內</b><br>財務曾提醒：定義未清<br>→ 要問「含稅、保險、抽獎嗎？」</div></div>
+    <div class="card g"><div class="ct">人數</div><div class="cd">人資：<b>約 200</b><br>其他意見可能更高<br>→ 寫不同估法與影響，不選一個猜。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">好工作不是把衝突藏起來，而是讓主管一眼看見「現在需要決定什麼」。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">PROMPT · 讓 AI 做對第一版</div>
+  <h2>提示語要有四個零件</h2>
+  <div class="cgrid g4" style="margin-top:16px">
+    <div class="card o"><div class="ct">角色</div><div class="cd">你是專案行政協作人員</div></div>
+    <div class="card b"><div class="ct">範圍</div><div class="cd">只使用我提供的資料</div></div>
+    <div class="card g"><div class="ct">任務</div><div class="cd">整理已知、缺漏與近期工作</div></div>
+    <div class="card p"><div class="ct">格式</div><div class="cd">用表格；找不到就填待確認</div></div>
+  </div>
+  <div class="hl" style="margin-top:18px">關鍵限制：<b>不要自行補人數、預算、日期或活動內容。</b>這句會讓初稿可靠很多。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">DEMO · 任務地圖的最低格式</div>
+  <h2>一頁地圖，讓主管能做決定</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card o"><div class="ct">左半：目前已知</div><div class="cd">活動目的與對象<br>暫定日期與已知限制<br>去年要避免重演的問題<br>接下來 10 個工作天優先工作</div></div>
+    <div class="card b"><div class="ct">右半：需要確認</div><div class="cd">人數估法與影響<br>預算定義與上限<br>場地／雨備條件<br>每題的建議詢問對象與時限</div></div>
+  </div>
+  <div class="hl g" style="margin-top:18px">最後再把右半濃縮成一封信：<b>背景 → 目前判斷 → 3 個請主管裁示的問題 → 下一步。</b></div>
+</section>
+
+<section class="slide sticky-activity">
+  <div class="sticky-banner">分組實作 · 30 分鐘</div>
+  <h2>做出「任務地圖＋主管確認信」</h2>
+  <div class="sticky-meta"><span>資料：第一堂原始資料</span><span>角色：四人輪流操作</span><span>交件：一頁＋一封信</span></div>
+  <ol class="sticky-steps">
+    <li>先讀資料 3 分鐘 <span>每人找 3 個已知條件，再找 1 個矛盾或缺漏。</span></li>
+    <li>先在小組整理再問 AI <span>不要直接貼整包資料；先決定你們要它整理什麼。</span></li>
+    <li>完成任務地圖 <span>至少含目的、已知條件、待確認、近期工作。</span></li>
+    <li>寫確認信 <span>讓主管能直接回答或裁示 3 件事。</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">CHECK · 交件前 90 秒</div>
+  <h2>請另一位組員當資料查核員</h2>
+  <ul class="blist" style="margin-top:10px">
+    <li>每個數字、日期、價格，有沒有回得去原始資料？</li>
+    <li>不確定的事，有沒有誠實寫成「待確認」？</li>
+    <li>工作項目有沒有優先順序，而不是一長串待辦？</li>
+    <li>主管讀完這封信，能不能知道自己要回覆什麼？</li>
   </ul>
-  <div class="hl amber" style="margin-top:10px">本堂產出：「專案任務地圖＋主管確認信」</div>
+  <div class="hl amber" style="margin-top:14px">這一堂的成功標準：不是 AI 寫得多漂亮，而是下一個人接手也知道怎麼往下做。</div>
 </section>
 
 <!-- 8. sbreak 第2堂 -->
 <section class="slide sbreak">
-  <span class="s-tag">第 2 堂 · 時間待確認</span>
+  <span class="s-tag">第 2 堂 · 10:40–12:00</span>
   <h2>讓不同對象，<br>都收到清楚而合適的文字</h2>
   <div class="sub">同一件事，對主管、合作單位與民眾要怎麼寫</div>
 </section>
 
-<!-- 9. TODO：第2堂內容 -->
-<section class="slide todo">
-  <div class="slide-tag">TODO · 第2堂內容待撰寫</div>
-  <h2>讓不同對象，都收到清楚而合適的文字</h2>
-  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
-  <ul class="todo-list">
-    <li>同一件事，對主管、合作單位與民眾要怎麼寫</li>
-    <li>如何用 AI 協助整理長篇資料與抓取重點</li>
-    <li>電子郵件的正式語氣與溝通重點／公文主旨說明辦法等文字初稿</li>
-    <li>公告、活動通知與常見問答如何快速建立／AI 產出文字後哪些地方一定要人確認</li>
-    <li>講師示範：同一份活動資料 → 合作單位信件/公文或簽核說明/對外公告/常見問答</li>
-    <li>分組實作：合作單位電子郵件／公文文字初稿或主管簽核說明／對外公告與三題常見問答</li>
+<!-- 8b. AI趨勢：工具選型 -->
+<section class="slide">
+  <div class="slide-tag">TOOL MAP · 先知道工具性格</div>
+  <h2>不同的文字任務，<br>先選對工具</h2>
+  <div class="slide-sub">今天先用一句話記住差異</div>
+  <div class="tool-lane">
+    <div class="tool-card"><div class="name">ChatGPT</div><div class="role">最會寫草稿</div><div class="best">適合改語氣、寫摘要、整理邏輯、把口語變成正式文字——今天的信件/公告很適合它。</div></div>
+    <div class="tool-card"><div class="name">Gemini</div><div class="role">最像 Google 工作流</div><div class="best">適合搭配文件、表單、搜尋脈絡，做資料整理與簡潔輸出。</div></div>
+    <div class="tool-card"><div class="name">Manus</div><div class="role">最像任務代理人</div><div class="best">適合交辦一個多步驟任務，讓它搜尋、比較、整理成成果。</div></div>
+  </div>
+  <div class="hl" style="margin-top:14px">選工具的問題不是「哪個最強」，而是「這件事是寫作、查資料，還是跑流程」。</div>
+</section>
+
+<!-- 9. 第2堂：文字依對象改寫 -->
+<section class="slide">
+  <div class="slide-tag">第 2 堂 · 同一件事，不同寫法</div>
+  <h2>寫之前，先回答三個問題</h2>
+  <div class="cgrid g3" style="margin-top:16px">
+    <div class="card o"><div class="ct">寫給誰？</div><div class="cd">主管、廠商、同仁，各自需要的資訊不同。</div></div>
+    <div class="card b"><div class="ct">要他做什麼？</div><div class="cd">裁示、報價、確認、報名，動作要寫清楚。</div></div>
+    <div class="card g"><div class="ct">什麼能公開？</div><div class="cd">未核定預算、人數、場地，不為了完整而外傳。</div></div>
+  </div>
+  <div class="hl" style="margin-top:18px">先把這三題寫在提示語裡，AI 產出的文字才會像真正的工作文件。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">AUDIENCE MAP · 同一個家庭日</div>
+  <h2>內容相同，重點完全不同</h2>
+  <div class="cgrid g3" style="margin-top:12px">
+    <div class="card o"><div class="ct">給主管</div><div class="cd">現在怎麼判斷？<br>需要裁示什麼？<br>不做會有什麼影響？</div></div>
+    <div class="card b"><div class="ct">給廠商／場地</div><div class="cd">需求是什麼？<br>報價是否含稅與人力？<br>何時要回覆？</div></div>
+    <div class="card g"><div class="ct">給全體同仁</div><div class="cd">跟我有什麼關係？<br>何時／如何參加？<br>只有已確認資訊。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">對外公告不能出現「預算還在談」「場地還沒定」這類內部討論。</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">EMAIL · 不只是禮貌</div>
+  <h2>一封讓對方能回覆的信</h2>
+  <ul class="nlist" style="margin-top:8px">
+    <li><b>主旨先說動作</b><span>例：詢問 10/17 家庭日場地與雨備條件</span></li>
+    <li><b>第一段交代脈絡</b><span>我是誰、活動是什麼、為何現在聯絡。</span></li>
+    <li><b>中段列出具體問題</b><span>用條列，讓對方逐題答；保留回覆期限。</span></li>
+    <li><b>結尾確認下一步</b><span>收到後怎麼處理、聯絡窗口是誰。</span></li>
   </ul>
-  <div class="hl amber" style="margin-top:10px">本堂產出：「一組可直接修改使用的公務溝通文字包」</div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">PROMPT · 把格式一次說清楚</div>
+  <h2>請 AI 寫信，不等於叫它「幫我寫」</h2>
+  <div class="hl bl" style="margin-top:12px">請依下列資料寫一封寄給【對象】的正式電子郵件。信件目的是＿＿；對方需要回覆／執行＿＿；已知條件＿＿；尚待確認＿＿。<b>不要自行補資料。</b>請輸出主旨、完整信件，以及寄出前必查的 3 件事。</div>
+  <div class="cgrid g2" style="margin-top:14px">
+    <div class="card o"><div class="ct">好輸入</div><div class="cd">「河岸基地是否能獨立動線？餐車超過 4 台如何安排？請週五前回覆。」</div></div>
+    <div class="card dim"><div class="ct">壞輸入</div><div class="cd">「幫我寫一封專業的場地詢問信。」<br>→ AI 只好自行補活動條件。</div></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">PUBLIC COPY · 對外文字的底線</div>
+  <h2>公告與 FAQ，只寫已確認的事</h2>
+  <div class="cgrid g2" style="margin-top:12px">
+    <div class="card g"><div class="ct">可以寫</div><div class="cd">活動目的、已定日期、已定地點、報名方式、聯絡窗口、已確認的注意事項。</div></div>
+    <div class="card o"><div class="ct">先不要寫</div><div class="cd">未核定預算、備選場地、尚未確認的人數、廠商報價、可能但未決定的收費方式。</div></div>
+  </div>
+  <div class="hl amber" style="margin-top:18px">資訊還沒定，不是留白，而是寫「後續公告」並標示由誰、何時補上。</div>
+</section>
+
+<section class="slide sticky-activity">
+  <div class="sticky-banner">分組實作 · 30 分鐘</div>
+  <h2>做出一組可用的溝通文字包</h2>
+  <div class="sticky-meta"><span>資料：第二至四堂補充資料</span><span>先選一個情境</span><span>完成後互相核對</span></div>
+  <ol class="sticky-steps">
+    <li>先選對象與目的 <span>主管／場地或廠商／全體同仁，三者至少完成兩種。</span></li>
+    <li>寫出對方下一步 <span>裁示、回覆報價、確認條件或等待公告，不能含糊。</span></li>
+    <li>用 AI 生初稿再改寫 <span>確認語氣、資訊範圍與待確認的標示。</span></li>
+    <li>交件 <span>一封正式信＋一段主管摘要或公告＋三題 FAQ。</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="slide-tag">CHECK · 送出前</div>
+  <h2>文字可以流暢，事實不能模糊</h2>
+  <ul class="blist" style="margin-top:10px">
+    <li>收信人讀完，知道自己下一步要做什麼嗎？</li>
+    <li>有沒有把「正在討論」寫成「已決定」？</li>
+    <li>日期、數字、名稱、期限是否逐一核對原始資料？</li>
+    <li>語氣符合對象，但沒有為了客氣而失去重點嗎？</li>
+  </ul>
+  <div class="hl amber" style="margin-top:14px">上午帶走的不是一篇文案，而是「把資料轉成可被下一個人採取行動的文字」的方法。</div>
 </section>
 
 <!-- 10. 上午收尾／轉場 -->
 <section class="slide sbreak">
-  <span class="s-tag">上午場結束 · 午休</span>
+  <span class="s-tag">上午場結束 · 午休 12:00–13:00</span>
   <h2>下午<br>把事情真的往下推進</h2>
   <div class="sub">下午會處理會議結束後最常卡住的地方，再把前三堂的成果整合成簡報與海報。<br><br>現在去休息，下午見。</div>
 </section>

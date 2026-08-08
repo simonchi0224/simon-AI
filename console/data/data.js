@@ -4,7 +4,8 @@
  * 型別說明（純 JS 註解，非真正 TypeScript，方便直接在瀏覽器載入不需編譯）：
  *
  * Course   { id, title, audience, date, time, location, tags[], version, updatedAt, summary, resources[], sessions[] }
- * Session  { id, title, durationMinutes, objective, outputs[], resources[], segments[] }
+ * Session  { id, title, timeLabel, durationMinutes, objective, outputs[], resources[], segments[] }
+ *   timeLabel：這堂課的實際鐘點時間（例如 "09:10–10:30"），選填，未定案時可省略。
  * Segment  { title, minutes, range, mode('intro'|'lecture'|'demo'|'exercise'|'review'), speakerNotes, studentInstruction, resources[], promptIds[], checklist[] }
  * Resource { title, type('slides'|'doc'|'folder'|'sheet'|'site'|'tool'), description, url, openMode('newtab'), revealSession }
  *   revealSession：這個資源最早在第幾堂才可以對學員公開／發放。1 代表課前或第一堂即可用。
@@ -15,7 +16,6 @@
 const SLIDES_BASE = "../講座資料/20260820_台東_史前博物館AI工作坊/slides/";
 const TEMPLATE_BASE = "../講座資料/AI工作流程實作工作坊_通用教案模板/";
 const DRIVE_SESSION1 = "https://drive.google.com/drive/folders/1VLrTNJwRaWPwKsxELfYEqnpJMe20ju_y";
-const DRIVE_SESSION2PLUS = "https://drive.google.com/drive/folders/170TPUIDsWRxZz8zZjO13pTCS3OUJlsWY";
 
 const PROMPT_PREFIX = {
   id: "prefix",
@@ -145,7 +145,7 @@ const COURSES = [
     title: "AI 公務效率實作工作坊：從交辦任務到可交付成果",
     audience: "國立臺灣史前文化博物館場（人數/職務待確認；課堂練習情境為虛構企業「遠景科技」，與史前館本身業務無關）",
     date: "2026-08-20（四）",
-    time: "上午 2 堂（各 80–85 分）／下午 2 堂（各 80 分），15:50 結束（確切鐘點待確認）",
+    time: "09:00–12:00（上午場）／13:00–15:50（下午場）",
     location: "待確認",
     tags: ["AI工作坊", "公務效率", "通用版教案"],
     version: "V1",
@@ -158,18 +158,19 @@ const COURSES = [
       { title: "學員實作手冊 SOP（範例版）", type: "doc", description: "遠景科技情境的操作 SOP 草稿，實際內容以 Drive 任務包為準", url: TEMPLATE_BASE + "學員實作手冊SOP_遠景科技範例.md", openMode: "newtab", revealSession: 1 },
       { title: "課程總覽", type: "doc", description: "本場次的行政資訊、待確認事項清單", url: "../講座資料/20260820_台東_史前博物館AI工作坊/課程總覽.txt", openMode: "newtab", revealSession: 1 },
       { title: "Drive｜第一堂原始資料", type: "folder", description: "主管交辦信、去年紀錄、場地資訊、會議筆記、預算表——第一堂課前發給學員下載", url: DRIVE_SESSION1, openMode: "newtab", revealSession: 1 },
-      { title: "Drive｜第二堂起補充資料", type: "folder", description: "主管與部門來信串、報名人數、廠商詢價、抽獎品、預算草稿，含第三堂後才發放的變更通知", url: DRIVE_SESSION2PLUS, openMode: "newtab", revealSession: 2 }
+      { title: "Drive｜第二堂起補充資料", type: "folder", description: "主管與部門來信串、報名人數、廠商詢價、抽獎品、預算草稿；連結暫不公開，授課前再由講師補上", url: "", openMode: "newtab", revealSession: 2 }
     ],
     sessions: [
       {
         id: "s1",
         title: "第1堂．把模糊交辦，變成可執行的任務",
+        timeLabel: "09:10–10:30",
         durationMinutes: 80,
         objective: "能辨識主管交辦中的目標、受眾、交付物、期限、限制與未知問題；能要求 AI 依指定欄位整理資料；能完成任務地圖與向主管確認的正式信件初稿。",
         outputs: ["一頁式任務地圖", "工作優先順序（立即處理／等待確認／可後續處理）", "主管確認信"],
         resources: [
           { title: "上午場投影片", type: "slides", description: "第1–2堂投影片", url: SLIDES_BASE + "slide-AM.html", openMode: "newtab", revealSession: 1 },
-          { title: "提示語全集", type: "site", description: "本堂提示語（待內容補齊後上線）", url: SLIDES_BASE + "exercises.html", openMode: "newtab", revealSession: 1 }
+          { title: "提示語全集", type: "site", description: "本堂可直接複製的提示語與交件格式", url: SLIDES_BASE + "exercises.html", openMode: "newtab", revealSession: 1 }
         ],
         segments: [
           {
@@ -215,6 +216,7 @@ const COURSES = [
       {
         id: "s2",
         title: "第2堂．讓不同對象，都收到清楚而合適的文字",
+        timeLabel: "10:40–12:00",
         durationMinutes: 80,
         objective: "能區分內部確認、跨單位合作與對外公告的訊息重點與語氣；能運用 AI 將長資料轉成電子郵件、公文或簽核說明、公告與常見問答；能對 AI 產出的承諾、名稱、規則、時間與數字進行人工核對。",
         outputs: ["合作單位電子郵件", "公文／簽核說明初稿", "對外公告＋三題常見問答"],
@@ -246,7 +248,7 @@ const COURSES = [
             speakerNotes: "完成後互換給另一組用「讀者看不看得懂」檢查。",
             studentInstruction: "完成三份文字成果，並互換另一組檢查。",
             resources: [
-              { title: "Drive｜第二堂起補充資料", type: "folder", description: "主管與部門來信串、廠商詢價等", url: DRIVE_SESSION2PLUS, openMode: "newtab", revealSession: 2 }
+              { title: "Drive｜第二堂起補充資料", type: "folder", description: "主管與部門來信串、廠商詢價等；連結暫不公開", url: "", openMode: "newtab", revealSession: 2 }
             ],
             promptIds: ["prefix", "p4-vendor-email", "p5-memo-draft", "p6-announcement-faq"],
             checklist: ["合作單位信主旨清楚，有目的／要對方做什麼／回覆期限或待確認欄位", "公文／簽核初稿保留可調整的事實文字", "公告與FAQ讀者一眼找到參加對象、內容、方式、聯絡窗口"]
@@ -262,6 +264,7 @@ const COURSES = [
       {
         id: "s3",
         title: "第3堂．會議結束後，讓事情真的往下走",
+        timeLabel: "13:00–14:20",
         durationMinutes: 80,
         objective: "能將模糊會議筆記整理成會議摘要、決議、待辦、負責人、期限與待裁示事項；能做出可持續更新的工作追蹤表；能以會後確認信降低認知落差與責任不清。",
         outputs: ["一頁式會議摘要", "工作追蹤表", "會後確認信", "一項待主管決定的風險事項"],
@@ -293,7 +296,7 @@ const COURSES = [
             speakerNotes: "整理模擬會議筆記，完成一頁摘要、追蹤表、會後信與一項待主管裁示的風險。中途發下變更卡，要求更新一項待辦。",
             studentInstruction: "完成一頁式會議摘要、工作追蹤表、會後確認信、一項風險事項；拿到變更卡後更新追蹤表。",
             resources: [
-              { title: "Drive｜活動變更通知（本堂後發放）", type: "folder", description: "場地取消＋預算下修的中途變更卡，本堂尾聲才公開給學員", url: DRIVE_SESSION2PLUS, openMode: "newtab", revealSession: 3 }
+              { title: "Drive｜活動變更通知（本堂後發放）", type: "folder", description: "場地取消＋預算下修的中途變更卡；連結暫不公開", url: "", openMode: "newtab", revealSession: 3 }
             ],
             promptIds: ["prefix", "p7-meeting-tracker", "p8-followup-letter"],
             checklist: ["討論與決議有分開", "每個待辦有負責人與期限，或清楚標示待確認", "列出至少一項可能影響預算、場地或時程的風險"]
@@ -309,6 +312,7 @@ const COURSES = [
       {
         id: "s4",
         title: "第4堂．把工作成果，整理成簡報與對外視覺",
+        timeLabel: "14:30–15:50",
         durationMinutes: 80,
         objective: "能把任務地圖、溝通文字與會議追蹤資訊整理成清楚的簡報敘事；能使用 AI 協助產出簡報大綱、每頁重點、海報文字與視覺方向；能在發布前檢查事實、資訊層級與行動指引。",
         outputs: ["五頁主管簡報大綱", "海報初稿內容", "150 字以內對外說明"],
