@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提示語庫 | 講師控制台</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="data/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="brand">講師<span>控制台</span></a>
+    <div class="topnav">
+      <a href="index.html">首頁</a>
+      <a href="courses.html">我的課程</a>
+      <a href="prompts.html" class="active">提示語庫</a>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="theme-toggle" title="切換深淺色">🌙</button>
+  </div>
+</div>
+
+<div class="wrap narrow">
+  <span class="page-eyebrow">Prompt Library</span>
+  <h1 class="page-title">提示語庫</h1>
+  <p class="page-sub">搜尋、篩選、複製。複製會保留原始換行，可直接貼到 ChatGPT 或 Gemini。</p>
+
+  <div class="search-box" style="max-width:340px;margin-bottom:16px">
+    <span>🔍</span>
+    <input type="text" id="q" placeholder="搜尋標題、內容或標籤…">
+  </div>
+  <div class="prompt-toolbar" id="tag-filters"></div>
+
+  <div id="prompt-list"></div>
+</div>
+
+<footer class="foot">講師控制台 · 僅供 Simon 自己使用</footer>
+
+<script src="data/data.js"></script>
+<script src="data/app.js"></script>
+<script>
+initTheme();
+
+const params = new URLSearchParams(location.search);
+let query = params.get("q") || "";
+let activeTag = null;
+document.getElementById("q").value = query;
+
+function allTags() {
+  const s = new Set();
+  PROMPTS.forEach(p => p.tags.forEach(t => s.add(t)));
+  return [...s];
+}
+
+function renderFilters() {
+  const box = document.getElementById("tag-filters");
+  box.innerHTML = [`<button class="tag-filter ${!activeTag ? "active" : ""}" data-tag="">全部</button>`]
+    .concat(allTags().map(t => `<button class="tag-filter ${activeTag === t ? "active" : ""}" data-tag="${escapeHtml(t)}">${escapeHtml(t)}</button>`))
+    .join("");
+  box.querySelectorAll(".tag-filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeTag = btn.dataset.tag || null;
+      renderFilters();
+      renderList();
+    });
+  });
+}
+
+function matches(p) {
+  const q = query.trim().toLowerCase();
+  const tagOk = !activeTag || p.tags.includes(activeTag);
+  if (!tagOk) return false;
+  if (!q) return true;
+  return (p.title + " " + p.body + " " + p.tags.join(" ") + " " + p.usageNote).toLowerCase().includes(q);
+}
+
+function renderList() {
+  const list = PROMPTS.filter(matches);
+  document.getElementById("prompt-list").innerHTML = list.map(p => `
+    <div class="prompt-card">
+      <div class="prompt-head">
+        <span class="prompt-title">${escapeHtml(p.title)}</span>
+        <button class="copy-btn" data-body="${encodeURIComponent(p.body)}">複製提示語</button>
+      </div>
+      <div class="prompt-tags">${p.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}<span class="tag" style="background:var(--bg2);color:var(--ink3)">${escapeHtml(p.tool)}</span></div>
+      <div class="prompt-body">${escapeHtml(p.body)}</div>
+      <div class="prompt-usage">${escapeHtml(p.usageNote)}</div>
+    </div>`).join("") || `<p style="color:var(--ink3);font-size:.9rem">沒有符合的提示語。</p>`;
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => copyToClipboard(decodeURIComponent(btn.dataset.body), btn));
+  });
+}
+
+document.getElementById("q").addEventListener("input", e => { query = e.target.value; renderList(); });
+
+renderFilters();
+renderList();
+</script>
+</body>
+</html>

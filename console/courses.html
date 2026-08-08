@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的課程 | 講師控制台</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="data/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="brand">講師<span>控制台</span></a>
+    <div class="topnav">
+      <a href="index.html">首頁</a>
+      <a href="courses.html" class="active">我的課程</a>
+      <a href="prompts.html">提示語庫</a>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="theme-toggle" title="切換深淺色">🌙</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <span class="page-eyebrow">Courses</span>
+  <h1 class="page-title">我的課程</h1>
+  <p class="page-sub">依標籤篩選，找到要備課或要上台的那一門。</p>
+
+  <div class="prompt-toolbar" id="tag-filters"></div>
+  <div class="course-grid" id="course-grid"></div>
+</div>
+
+<footer class="foot">講師控制台 · 僅供 Simon 自己使用</footer>
+
+<script src="data/data.js"></script>
+<script src="data/app.js"></script>
+<script>
+initTheme();
+let activeTag = null;
+
+function allTags() {
+  const s = new Set();
+  COURSES.forEach(c => c.tags.forEach(t => s.add(t)));
+  return [...s];
+}
+
+function renderFilters() {
+  const box = document.getElementById("tag-filters");
+  box.innerHTML = [`<button class="tag-filter ${!activeTag ? "active" : ""}" data-tag="">全部</button>`]
+    .concat(allTags().map(t => `<button class="tag-filter ${activeTag === t ? "active" : ""}" data-tag="${escapeHtml(t)}">${escapeHtml(t)}</button>`))
+    .join("");
+  box.querySelectorAll(".tag-filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeTag = btn.dataset.tag || null;
+      renderFilters();
+      renderCourses();
+    });
+  });
+}
+
+function renderCourses() {
+  const grid = document.getElementById("course-grid");
+  const list = COURSES.filter(c => !activeTag || c.tags.includes(activeTag));
+  grid.innerHTML = list.map(c => `
+    <a class="course-card" href="course.html?id=${c.id}">
+      <div class="course-tags">${c.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+      <div class="course-title">${escapeHtml(c.title)}</div>
+      <div class="course-meta">${escapeHtml(c.audience)}<br>${escapeHtml(c.date)} · 更新於 ${escapeHtml(c.updatedAt)} · 版本 ${escapeHtml(c.version)}</div>
+    </a>`).join("") || `<p style="color:var(--ink3);font-size:.9rem">沒有符合的課程。</p>`;
+}
+
+renderFilters();
+renderCourses();
+</script>
+</body>
+</html>

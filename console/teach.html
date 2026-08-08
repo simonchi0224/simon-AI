@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講師模式 | 講師控制台</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="data/styles.css">
+<style>
+body.focus .side-panel,body.focus .timeline,body.focus .topbar{display:none}
+body.focus .teach-main{grid-template-columns:1fr;max-width:820px}
+body.focus .seg-title{font-size:clamp(1.8rem,4vw,2.6rem)}
+body.focus .seg-block-body{font-size:1.15rem}
+.session-switch{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.session-switch a{font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);text-decoration:none;border:1px solid rgba(255,255,255,.1)}
+.session-switch a.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+</style>
+</head>
+<body class="teach-body">
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="brand">講師<span>控制台</span></a>
+    <div class="topnav">
+      <a href="index.html">首頁</a>
+      <a href="courses.html">我的課程</a>
+      <a href="prompts.html">提示語庫</a>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="theme-toggle" title="切換深淺色">🌙</button>
+  </div>
+</div>
+
+<div class="teach-top">
+  <div class="teach-top-inner">
+    <div>
+      <div class="teach-course" id="tt-course"></div>
+      <div class="teach-session" id="tt-session"></div>
+      <div class="session-switch" id="tt-session-switch"></div>
+    </div>
+    <div class="teach-controls">
+      <button class="nav-btn" id="prev-btn" title="上一段">‹</button>
+      <span class="timer" id="timer">--:--</span>
+      <button class="nav-btn" id="next-btn" title="下一段">›</button>
+      <button class="btn sm" id="focus-btn" style="margin-left:6px">專注模式</button>
+    </div>
+  </div>
+</div>
+
+<div class="teach-main">
+  <div id="main-col"></div>
+  <div class="side-panel" id="side-panel"></div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 20px 60px">
+  <div class="timeline" id="timeline"></div>
+</div>
+
+<script src="data/data.js"></script>
+<script src="data/app.js"></script>
+<script>
+initTheme();
+
+const params = new URLSearchParams(location.search);
+const course = findCourse(params.get("course")) || COURSES[0];
+setLastCourse(course.id);
+let sessionId = params.get("session") || course.sessions[0].id;
+let segIndex = parseInt(params.get("seg") || "0", 10);
+let timerInterval = null;
+let timerSeconds = 0;
+let timerRunning = false;
+
+function currentSession() {
+  return course.sessions.find(s => s.id === sessionId) || course.sessions[0];
+}
+function currentSessionNumber() {
+  return course.sessions.findIndex(s => s.id === currentSession().id) + 1;
+}
+
+function switchSession(id) {
+  sessionId = id;
+  segIndex = 0;
+  render();
+}
+function switchSeg(i) {
+  const segs = currentSession().segments;
+  if (i < 0 || i >= segs.length) return;
+  segIndex = i;
+  render();
+}
+
+function startTimer(minutes) {
+  clearInterval(timerInterval);
+  timerSeconds = minutes * 60;
+  timerRunning = true;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    if (!timerRunning) return;
+    timerSeconds--;
+    if (timerSeconds <= 0) { timerSeconds = 0; timerRunning = false; }
+    updateTimerDisplay();
+  }, 1000);
+}
+function updateTimerDisplay() {
+  const m = Math.floor(Math.max(timerSeconds, 0) / 60).toString().padStart(2, "0");
+  const s = Math.max(timerSeconds, 0) % 60;
+  document.getElementById("timer").textContent = m + ":" + s.toString().padStart(2, "0");
+  document.getElementById("timer").style.color = timerSeconds <= 30 && timerSeconds > 0 ? "#f59e0b" : (timerSeconds === 0 ? "#dc2626" : "");
+}
+document.getElementById("timer").addEventListener("click", () => { timerRunning = !timerRunning; });
+
+const iconFor = { site: "🖥️", doc: "📄", folder: "📁", sheet: "📊", slides: "📽️", tool: "🔧" };
+
+function render() {
+  const session = currentSession();
+  const seg = session.segments[segIndex];
+  const segNum = currentSessionNumber();
+
+  document.getElementById("tt-course").textContent = course.title;
+  document.getElementById("tt-session").textContent = session.title;
+  document.getElementById("tt-session-switch").innerHTML = course.sessions.map(s =>
+    `<a href="#" data-id="${s.id}" class="${s.id === session.id ? "active" : ""}">${escapeHtml(s.title.split("．")[0])}</a>`
+  ).join("");
+  document.querySelectorAll(".session-switch a").forEach(a => {
+    a.addEventListener("click", e => { e.preventDefault(); switchSession(a.dataset.id); });
+  });
+
+  document.getElementById("prev-btn").disabled = segIndex === 0;
+  document.getElementById("next-btn").disabled = segIndex === session.segments.length - 1;
+
+  const resourcesForSeg = [...(seg.resources || []), ...(session.resources || [])];
+  const promptsForSeg = (seg.promptIds || []).map(findPrompt).filter(Boolean);
+
+  document.getElementById("main-col").innerHTML = `
+    <span class="mode-badge ${seg.mode}">${MODE_LABEL[seg.mode]}</span>
+    <div class="seg-title">${escapeHtml(seg.title)}</div>
+    <div class="seg-range">第 ${range_or(seg)} 分鐘 · 預計 ${seg.minutes} 分鐘</div>
+
+    <div class="seg-block">
+      <span class="seg-block-label">講師講解重點</span>
+      <div class="seg-block-body notes">${escapeHtml(seg.speakerNotes)}</div>
+    </div>
+    <div class="seg-block">
+      <span class="seg-block-label">學員現在該做的事</span>
+      <div class="seg-block-body student">${escapeHtml(seg.studentInstruction)}</div>
+    </div>
+    ${seg.checklist && seg.checklist.length ? `
+    <div class="check-box">
+      <div class="check-title">完成標準／自我檢查</div>
+      ${seg.checklist.map(c => `<div class="check-item">${escapeHtml(c)}</div>`).join("")}
+    </div>` : ""}
+    <div style="margin-top:20px">
+      <label style="font-size:.84rem;color:var(--ink2);display:flex;align-items:center;gap:8px;cursor:pointer">
+        <input type="checkbox" id="done-check" ${isSegmentDone(course.id, session.id, segIndex) ? "checked" : ""}>
+        這一段已完成，標記進度
+      </label>
+    </div>
+  `;
+  document.getElementById("done-check").addEventListener("change", e => {
+    setSegmentDone(course.id, session.id, segIndex, e.target.checked);
+    renderTimeline();
+  });
+
+  document.getElementById("side-panel").innerHTML = `
+    <div class="side-box">
+      <h3>此刻需要的資源</h3>
+      ${resourcesForSeg.length ? resourcesForSeg.map(r => `
+        <div class="side-res">
+          <span>${iconFor[r.type] || "🔗"} ${escapeHtml(r.title)} ${lockBadge(r.revealSession, segNum)}</span>
+          <a class="btn sm ghost" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">開啟</a>
+        </div>`).join("") : `<p style="font-size:.8rem;color:var(--ink3)">本段無額外資源。</p>`}
+    </div>
+    <div class="side-box">
+      <h3>可複製提示語</h3>
+      ${promptsForSeg.length ? promptsForSeg.map(p => `
+        <div class="side-prompt">
+          <div class="side-prompt-title">${escapeHtml(p.title)}</div>
+          <div class="side-prompt-body">${escapeHtml(p.body)}</div>
+          <button class="copy-btn" data-body="${encodeURIComponent(p.body)}">複製提示語</button>
+        </div>`).join("") : `<p style="font-size:.8rem;color:var(--ink3)">本段無提示語。</p>`}
+    </div>
+  `;
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => copyToClipboard(decodeURIComponent(btn.dataset.body), btn));
+  });
+
+  renderTimeline();
+  startTimer(seg.minutes);
+
+  const url = new URL(location);
+  url.searchParams.set("course", course.id);
+  url.searchParams.set("session", session.id);
+  url.searchParams.set("seg", segIndex);
+  history.replaceState(null, "", url);
+}
+
+function range_or(seg) { return seg.range || "?"; }
+
+function renderTimeline() {
+  const session = currentSession();
+  document.getElementById("timeline").innerHTML = session.segments.map((s, i) => {
+    const done = isSegmentDone(course.id, session.id, i);
+    return `<div class="tl-item ${i === segIndex ? "current" : ""} ${done ? "done" : ""}" data-i="${i}">
+      <div class="tl-mode">${MODE_LABEL[s.mode]} · ${s.minutes}分</div>
+      <div class="tl-title">${escapeHtml(s.title)}</div>
+      ${done ? `<div class="tl-status">✓ 完成</div>` : ""}
+    </div>`;
+  }).join("");
+  document.querySelectorAll(".tl-item").forEach(el => {
+    el.addEventListener("click", () => switchSeg(parseInt(el.dataset.i, 10)));
+  });
+}
+
+document.getElementById("prev-btn").addEventListener("click", () => switchSeg(segIndex - 1));
+document.getElementById("next-btn").addEventListener("click", () => switchSeg(segIndex + 1));
+document.getElementById("focus-btn").addEventListener("click", () => document.body.classList.toggle("focus"));
+
+render();
+</script>
+</body>
+</html>

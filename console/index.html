@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>講師控制台 | Simon Chi</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="data/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="brand">講師<span>控制台</span></a>
+    <div class="topnav">
+      <a href="index.html" class="active">首頁</a>
+      <a href="courses.html">我的課程</a>
+      <a href="prompts.html">提示語庫</a>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="global-search" placeholder="搜尋課程或提示語…">
+    </div>
+    <button class="icon-btn" id="theme-toggle" title="切換深淺色">🌙</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <span class="page-eyebrow">今日教學</span>
+  <h1 class="page-title">Simon 講師控制台</h1>
+  <p class="page-sub">10 秒內找到現在要教的那一堂。</p>
+
+  <span class="sec-label">下一場課</span>
+  <div id="next-course-slot"></div>
+
+  <span class="sec-label">快速開啟</span>
+  <div class="quick-grid" id="quick-grid"></div>
+
+  <span class="sec-label">我的課程</span>
+  <div class="course-grid" id="course-grid"></div>
+</div>
+
+<footer class="foot">講師控制台 · 僅供 Simon 自己使用 · 資料全部來自 <code>console/data/data.js</code></footer>
+
+<script src="data/data.js"></script>
+<script src="data/app.js"></script>
+<script>
+initTheme();
+
+function render() {
+  const course = findCourse(getLastCourse()) || COURSES[0];
+
+  // next course hero
+  const nextSlot = document.getElementById("next-course-slot");
+  nextSlot.innerHTML = `
+    <div class="next-card">
+      <span class="next-eyebrow">${escapeHtml(course.date)}</span>
+      <div class="next-title">${escapeHtml(course.title)}</div>
+      <div class="next-meta">
+        <span class="next-pill">${escapeHtml(course.time)}</span>
+        <span class="next-pill">${escapeHtml(course.location)}</span>
+        <span class="next-pill">版本 ${escapeHtml(course.version)}</span>
+      </div>
+      <a class="btn" href="teach.html?course=${course.id}">進入講師模式 →</a>
+      <a class="btn ghost" href="course.html?id=${course.id}" style="margin-left:8px">課程詳情</a>
+    </div>`;
+
+  // quick open — course-level resources marked revealSession 1 (always usable now)
+  const quickGrid = document.getElementById("quick-grid");
+  const iconFor = { site: "🖥️", doc: "📄", folder: "📁", sheet: "📊", slides: "📽️", tool: "🔧" };
+  quickGrid.innerHTML = course.resources.map(r => `
+    <a class="quick-card" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">
+      <span class="quick-icon">${iconFor[r.type] || "🔗"}</span>
+      <div class="quick-title">${escapeHtml(r.title)}</div>
+      <div class="quick-desc">${escapeHtml(r.description)}</div>
+    </a>`).join("");
+
+  // course grid
+  const courseGrid = document.getElementById("course-grid");
+  courseGrid.innerHTML = COURSES.map(c => `
+    <a class="course-card" href="course.html?id=${c.id}">
+      <div class="course-tags">${c.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+      <div class="course-title">${escapeHtml(c.title)}</div>
+      <div class="course-meta">${escapeHtml(c.audience)}<br>更新於 ${escapeHtml(c.updatedAt)} · 版本 ${escapeHtml(c.version)}</div>
+    </a>`).join("");
+}
+
+render();
+
+// global search: simple redirect-to-prompts-with-query for now
+document.getElementById("global-search").addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.value.trim()) {
+    location.href = "prompts.html?q=" + encodeURIComponent(e.target.value.trim());
+  }
+});
+</script>
+</body>
+</html>

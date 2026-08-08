@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下午場｜AI 公務效率實作工作坊：第3堂 會議結束後讓事情往下走 · 第4堂 把成果整理成簡報與視覺</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
+.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide.active{display:flex;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cover{background:#0f0d0c;color:white;padding:6vh 9vw}
+.cover .s-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:block}
+.cover h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:24px;color:white}
+.cover h1 .hi{color:var(--orange)}
+.cover .sub{font-size:clamp(.95rem,1.6vw,1.15rem);color:rgba(255,255,255,.55);line-height:1.7;max-width:660px}
+.cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
+.cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.sbreak{background:#1a0d07;color:white}
+.sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
+.sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
+.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
+.slide-sub{font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--dim);margin-bottom:18px;padding-left:18px}
+.blist{list-style:none}
+.blist li{font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
+.blist li b{font-weight:700}
+.cgrid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
+.card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
+.ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cd{font-size:.96rem;color:var(--dim);line-height:1.55}
+.hl{border-left:3px solid var(--orange);padding:12px 16px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.1rem,1.6vw,1.32rem);color:var(--ink);line-height:1.6;margin:8px 0}
+.hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
+.hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
+.hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
+.hl.amber{border-color:#f59e0b;background:rgba(245,158,11,.08)}
+.bqslide{background:var(--paper);align-items:center;text-align:center}
+.bq{font-size:clamp(1.6rem,3.3vw,2.5rem);font-weight:800;color:var(--ink);line-height:1.35;max-width:860px}
+.bq .accent{color:var(--orange)}
+.bq-src{font-size:.9rem;color:var(--dim);margin-top:20px}
+#nav{position:fixed;bottom:20px;right:28px;display:flex;align-items:center;gap:10px;z-index:999}
+#counter{font-size:.72rem;color:white;background:rgba(0,0,0,.6);padding:5px 14px;border-radius:20px}
+.nb{background:rgba(255,255,255,.9);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .15s}
+.nb:hover{transform:scale(1.1)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--orange);transition:width .3s;z-index:999}
+.home-btn{position:fixed;top:16px;left:20px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;z-index:999;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.4)}
+.home-btn:hover{color:white}
+.todo{background:#fffbeb;border:3px dashed #f59e0b}
+.todo .slide-tag{color:#b45309}
+.todo-list{list-style:none;margin-top:10px}
+.todo-list li{font-size:1.05rem;color:#92400e;padding:6px 0 6px 22px;position:relative;line-height:1.6}
+.todo-list li::before{content:'□';position:absolute;left:0}
+.slide.sticky-activity{background:#fffbeb;border:3px dashed #f59e0b}
+.sticky-banner{display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:white;font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:14px}
+.sticky-meta{font-size:.85rem;color:#92400e;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
+.sticky-meta span{background:rgba(245,158,11,.15);padding:3px 12px;border-radius:10px;font-weight:600}
+.sticky-steps{list-style:none;counter-reset:sn;margin-top:10px}
+.sticky-steps li{counter-increment:sn;font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink);padding:9px 0 9px 42px;position:relative;border-bottom:1px solid rgba(245,158,11,.25)}
+.sticky-steps li:last-child{border-bottom:none}
+.sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
+.sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<a href="index.html" class="home-btn">← 返回</a>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <span class="s-tag">AI 公務效率實作工作坊 · 下午場</span>
+  <h1>把成果，<br><span class="hi">整理成看得懂的東西</span></h1>
+  <div class="sub">會議結束後讓事情真的往下走，再把前三堂的成果整合成主管簡報與對外海報。</div>
+  <div class="bar">
+    <span class="pill">時間待確認</span>
+    <span class="pill">國立臺灣史前文化博物館</span>
+    <span class="pill">2026.08.20</span>
+  </div>
+  <div class="ghost">PM</div>
+</section>
+
+<!-- 2. sbreak 第3堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 3 堂 · 時間待確認</span>
+  <h2>會議結束後，<br>讓事情真的往下走</h2>
+  <div class="sub">會開完了，但決議、負責人與期限散在各自的筆記裡</div>
+</section>
+
+<!-- 3. TODO：第3堂內容 -->
+<section class="slide todo">
+  <div class="slide-tag">TODO · 第3堂內容待撰寫</div>
+  <h2>會議結束後，讓事情真的往下走</h2>
+  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
+  <ul class="todo-list">
+    <li>會議紀錄應保留哪些事實／如何從逐字稿、筆記或錄音整理出決議</li>
+    <li>如何區分討論、結論、待辦與風險／如何建立負責人、期限與追蹤欄位</li>
+    <li>如何寫出主管一眼能看懂的會議摘要／如何用 AI 協助產出後續追蹤信</li>
+    <li>講師示範：雜亂會議筆記 → 會議摘要/決議事項/待辦清單/負責人期限/待裁示問題/會後追蹤信</li>
+    <li>分組實作：一頁式會議摘要／工作追蹤表／會後確認信／一項待主管決定的風險事項</li>
+  </ul>
+  <div class="hl amber" style="margin-top:10px">本堂產出：「會議紀錄＋工作追蹤表＋會後確認信」</div>
+</section>
+
+<!-- 4. sbreak 第4堂 -->
+<section class="slide sbreak">
+  <span class="s-tag">第 4 堂 · 時間待確認</span>
+  <h2>把工作成果，<br>整理成簡報與對外視覺</h2>
+  <div class="sub">主管看得懂、外部對象也看得懂的內容</div>
+</section>
+
+<!-- 5. TODO：第4堂內容 -->
+<section class="slide todo">
+  <div class="slide-tag">TODO · 第4堂內容待撰寫</div>
+  <h2>把工作成果，整理成簡報與對外視覺</h2>
+  <div class="slide-sub">課程內容大綱（待展開成完整投影片）</div>
+  <ul class="todo-list">
+    <li>如何將零散資料整理成簡報敘事／主管簡報應該保留哪些頁面</li>
+    <li>如何請 AI 協助產出簡報大綱與頁面內容</li>
+    <li>海報需要先想清楚的資訊層級／如何產出海報文案、標題、活動資訊與視覺方向</li>
+    <li>發布前如何檢查日期、地點、對象、聯絡方式與事實正確性</li>
+    <li>講師示範：前三堂成果 → 五頁主管簡報架構/一頁海報文字與視覺規格/對外說明段落</li>
+    <li>分組實作：五頁主管簡報大綱／一張海報初稿或版型／150字以內對外宣傳文字</li>
+    <li>最後10分鐘：各組1分鐘分享，其他組用「資料正確／訊息清楚／下一步能否執行」回饋</li>
+  </ul>
+  <div class="hl amber" style="margin-top:10px">本堂產出：「專案成果包：簡報架構＋海報初稿＋對外說明」</div>
+</section>
+
+<!-- 6. 收尾（待補：真實問卷QR） -->
+<section class="slide todo">
+  <div class="slide-tag">TODO · 課後問卷連結待補</div>
+  <h2>課程結束</h2>
+  <div class="slide-sub">待有真實 Google 表單連結後，換成即時產生 QR（比照 0721/0722 場作法）</div>
+</section>
+
+<!-- nav -->
+<div id="nav">
+  <span id="counter">1 / 1</span>
+  <button class="nb" onclick="move(-1)">‹</button>
+  <button class="nb" onclick="move(1)">›</button>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let cur=0;
+function show(n){slides[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');document.getElementById('counter').textContent=(cur+1)+' / '+slides.length;document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%'}
+function move(d){show(cur+d)}
+show(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+</script>
+</body>
+</html>

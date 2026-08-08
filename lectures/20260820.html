@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課前講義｜AI 公務效率實作工作坊 · 季祥 Simon</title>
+<meta name="description" content="2026年8月20日 國立臺灣史前文化博物館 課前講義。AI 公務效率實作工作坊：從交辦任務到可交付成果。">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #E8541E; --ink: #1a1a1a; --dim: #64748b;
+  --line: #e2e8f0; --paper: #f8fafc; --green: #16a34a; --blue: #2563eb; --yellow: #f59e0b;
+}
+body { font-family: 'Noto Sans TC', sans-serif; color: var(--ink); background: #fff; line-height: 1.7; font-size: 1rem; }
+.top-banner { background: var(--orange); color: #fff; text-align: center; padding: 10px 16px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; }
+.hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: #fff; padding: 48px 24px 40px; text-align: center; }
+.hero .event-tag { display: inline-block; background: var(--orange); color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; padding: 4px 14px; border-radius: 999px; margin-bottom: 20px; text-transform: uppercase; }
+.hero h1 { font-size: clamp(1.5rem, 4.5vw, 2.4rem); font-weight: 900; line-height: 1.25; margin-bottom: 16px; }
+.hero h1 span { color: var(--orange); }
+.hero .subtitle { font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 28px; }
+.hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; }
+.hero-meta .meta-chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; color: rgba(255,255,255,0.9); font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+.hero-meta .meta-chip i { color: var(--orange); font-size: 0.8rem; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 40px 0 8px; }
+.section-label { font-size: 0.68rem; font-weight: 800; color: var(--orange); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; }
+.section h2 { font-size: 1.35rem; font-weight: 900; color: var(--ink); margin-bottom: 20px; line-height: 1.3; }
+.section p.lead { font-size: 0.88rem; color: var(--dim); margin-bottom: 20px; }
+.todo-box { background: #fffbeb; border: 1.5px solid #fed7aa; border-radius: 12px; padding: 16px 18px; font-size: 0.88rem; color: #92400e; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px; }
+.todo-box .notice-icon { flex-shrink: 0; margin-top: 2px; }
+.scenario-card { border: 1.5px solid var(--line); border-radius: 14px; padding: 20px; background: var(--paper); margin-bottom: 8px; }
+.scenario-card .c-title { font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+.scenario-card ul { list-style: none; }
+.scenario-card li { font-size: 0.88rem; color: var(--dim); padding: 5px 0 5px 18px; position: relative; line-height: 1.6; }
+.scenario-card li::before { content: '→'; color: var(--orange); position: absolute; left: 0; font-weight: 700; }
+.instructor-card { display: flex; gap: 18px; align-items: center; border: 1.5px solid var(--line); border-radius: 14px; padding: 20px; }
+.instructor-card .i-name { font-size: 1.1rem; font-weight: 900; color: var(--ink); }
+.instructor-card .i-title { font-size: 0.82rem; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
+.instructor-card .i-bio { font-size: 0.85rem; color: var(--dim); line-height: 1.6; }
+footer { background: var(--ink); color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.8rem; }
+footer a { color: var(--orange); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="top-banner">課前講義 · 2026年8月20日（四）國立臺灣史前文化博物館</div>
+
+<div class="hero">
+  <div class="container">
+    <span class="event-tag">課前講義 · Pre-class Handout</span>
+    <h1>AI 公務效率實作工作坊：<br>從交辦任務到<span>可交付成果</span></h1>
+    <p class="subtitle">兩週後要推出一項史前文化推廣活動——四堂課走完工作規劃、公務文字、會議追蹤、簡報與海報</p>
+    <div class="hero-meta">
+      <span class="meta-chip"><i class="fa-solid fa-calendar-day"></i> 2026年8月20日（四）</span>
+      <span class="meta-chip"><i class="fa-solid fa-clock"></i> 時間待確認（15:50 結束）</span>
+      <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> 地點待確認</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 課前準備 -->
+  <div class="section">
+    <div class="section-label">Step 0 · 上課前</div>
+    <h2>先確認今天要用的工具帳號</h2>
+    <div class="todo-box"><span class="notice-icon"><i class="fa-solid fa-circle-info"></i></span>TODO：待確認今天實際使用的 AI 工具（ChatGPT／Gemini／其他）與每組筆電狀況後，補入帳號申請清單。</div>
+  </div>
+
+  <!-- 今天的情境 -->
+  <div class="section">
+    <div class="section-label">Scenario · 今天的專案</div>
+    <h2>兩週後，單位要推出一項史前文化推廣活動</h2>
+    <p class="lead">你們是專案小組，手上拿到一包零散資料，從主管交辦開始，逐步完成工作規劃、文字文件、會議追蹤、簡報與海報。</p>
+    <div class="scenario-card">
+      <div class="c-title">四堂課結束前，你的小組要交出</div>
+      <ul>
+        <li>任務地圖與工作規劃</li>
+        <li>電子郵件、公文文字初稿或公告內容</li>
+        <li>會議紀錄、待辦清單與追蹤表</li>
+        <li>一份主管簡報架構</li>
+        <li>一張活動海報或宣傳視覺初稿</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 四堂課時間表 -->
+  <div class="section">
+    <div class="section-label">Schedule · 今天的四堂課</div>
+    <h2>上午2堂、下午2堂</h2>
+    <div class="todo-box"><span class="notice-icon"><i class="fa-solid fa-circle-info"></i></span>TODO：待確認各堂確切起訖時鐘時間後補入完整時間表（目前只知：上午2堂各80–85分／下午2堂各80分，15:50結束）。</div>
+    <div class="scenario-card">
+      <ul>
+        <li>第1堂．把模糊交辦，變成可執行的任務 → 專案任務地圖＋主管確認信</li>
+        <li>第2堂．讓不同對象，都收到清楚而合適的文字 → 公務溝通文字包</li>
+        <li>第3堂．會議結束後，讓事情真的往下走 → 會議紀錄＋工作追蹤表＋會後確認信</li>
+        <li>第4堂．把工作成果，整理成簡報與對外視覺 → 簡報架構＋海報初稿＋對外說明</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 講師介紹 -->
+  <div class="section">
+    <div class="section-label">Instructor · 我是誰</div>
+    <h2>季祥 Simon Chi</h2>
+    <div class="instructor-card">
+      <div>
+        <div class="i-name">季祥 Simon Chi</div>
+        <div class="i-title">AI 實戰顧問 · 企業 / 公部門培訓講師</div>
+        <div class="i-bio">HP → 趨勢科技 → 外商 AI 專案主管 → 創業，PMP／PMI-ACP 持證。40+ 場企業與公部門 AI 培訓經驗，這堂課不是工具導覽，是帶大家走一次真實的公務工作流程。</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  課前講義 · <a href="https://simon-chi.com">simon-chi.com</a>
+</footer>
+
+</body>
+</html>

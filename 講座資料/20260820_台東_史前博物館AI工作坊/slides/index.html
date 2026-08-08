@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 公務效率實作工作坊 · 國立臺灣史前文化博物館場 2026.08.20</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;
+  --bg:#ffffff;--bg2:#f5f5f7;
+  --border:#d2d2d7;--border2:#e8e8ed;
+  --orange:#e8541e;--orange-d:#c94316;
+  --blue:#0066cc;
+  --shadow:0 2px 16px rgba(0,0,0,.07);
+  --shadow-h:0 8px 32px rgba(0,0,0,.12);
+  --sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html,body{width:100%;min-height:100%;font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.ribbon{background:var(--bg2);border-bottom:1px solid var(--border2);padding:9px 0;text-align:center}
+.ribbon-inner{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.ribbon-inner span{font-size:.72rem;font-weight:600;color:var(--ink2);letter-spacing:.3px}
+.ribbon-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:6px;vertical-align:middle}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08);padding:0 5%;display:flex;align-items:center;height:54px}
+.nav-logo{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px}
+.nav-logo span{color:var(--orange)}
+.nav-badge{font-size:.64rem;font-weight:700;color:white;background:var(--orange);padding:2px 8px;border-radius:20px;margin-left:10px;letter-spacing:1px;text-transform:uppercase}
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 80px}
+.hero{margin-bottom:52px}
+.hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+.hero-h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:14px}
+.hero-h1 span{color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--ink2);line-height:1.75;margin-bottom:20px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap}
+.hero-pill{font-size:.78rem;font-weight:600;color:var(--ink2);padding:5px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg2)}
+.sec-label{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;display:block;padding-bottom:8px;border-bottom:1px solid var(--border2)}
+.slides-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:44px}
+@media(max-width:580px){.slides-grid{grid-template-columns:1fr}}
+.session-card{background:var(--bg);border:1px solid var(--border2);border-radius:16px;padding:26px 24px;text-decoration:none;transition:all .2s;display:block;box-shadow:var(--shadow)}
+.session-card:hover{border-color:rgba(232,84,30,.3);box-shadow:var(--shadow-h);transform:translateY(-2px)}
+.sc-tag{font-size:.64rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;display:block}
+.sc-time{font-size:.76rem;color:var(--ink3);margin-bottom:12px;display:block}
+.sc-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:7px;line-height:1.3}
+.sc-desc{font-size:.86rem;color:var(--ink2);line-height:1.6}
+.sc-btn{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--orange)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
+@media(max-width:580px){.res-grid{grid-template-columns:1fr}}
+.res-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:22px 22px;text-decoration:none;transition:all .2s;display:block}
+.res-card:hover{background:var(--bg);border-color:var(--border);box-shadow:var(--shadow)}
+.res-icon{font-size:1.5rem;margin-bottom:10px;display:block}
+.res-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.res-desc{font-size:.84rem;color:var(--ink2);line-height:1.6}
+.res-btn{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.76rem;font-weight:700;color:var(--ink3)}
+.strip{background:var(--orange);border-radius:14px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.strip-label{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap}
+.strip-pills{display:flex;gap:8px;flex-wrap:wrap}
+.strip-pill{font-size:.82rem;font-weight:600;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white}
+.meta{padding-top:20px;border-top:1px solid var(--border2);display:flex;gap:24px;flex-wrap:wrap}
+.meta-item{font-size:.75rem;color:var(--ink3);letter-spacing:.3px}
+.meta-item b{color:var(--ink2);font-weight:600}
+.qr-banner{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin-bottom:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.qr-box{width:140px;height:140px;flex-shrink:0;background:white;border-radius:10px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;padding:8px}
+#qr-canvas{width:124px;height:124px}
+.qr-info{flex:1;min-width:180px}
+.qr-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.qr-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.qr-desc{font-size:.88rem;color:var(--ink2);line-height:1.6;margin-bottom:12px}
+.qr-link{font-size:.78rem;font-weight:600;color:var(--orange);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.qr-link:hover{color:var(--orange-d);text-decoration:underline}
+.todo-box{background:#fffbeb;border:1px dashed #f59e0b;border-radius:14px;padding:20px 24px;margin-bottom:44px}
+.todo-box .qr-eyebrow{color:#b45309}
+.todo-box ul{list-style:none;margin-top:8px}
+.todo-box li{font-size:.86rem;color:#92400e;padding:4px 0 4px 18px;position:relative;line-height:1.6}
+.todo-box li::before{content:'—';position:absolute;left:0;font-weight:700}
+@media(max-width:480px){.qr-banner{justify-content:center;text-align:center}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<div class="ribbon">
+  <div class="ribbon-inner">
+    <span><span class="ribbon-dot"></span>2026.08.20（四）· 地點待確認</span>
+    <span>上午 2 堂（各80–85分）／下午 2 堂（各80分）· 15:50 結束</span>
+    <span>國立臺灣史前文化博物館</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <span class="nav-logo">AI<span>.</span>Workshop</span>
+  <span class="nav-badge">史前館場</span>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="hero-eyebrow">AI 公務效率實作工作坊</span>
+    <h1 class="hero-h1">從交辦任務，<br>到<span>可交付成果</span></h1>
+    <p class="hero-sub">不是工具導覽課。各組拿到一包零散資料，從主管交辦開始，兩週後要推出「史前文化推廣活動」——四堂課走完工作規劃、公務文字、會議追蹤、簡報與海報，AI 在每個節點加速草稿，資料判斷與最後決定仍在人手上。</p>
+    <div class="hero-meta">
+      <span class="hero-pill">講師：季祥 Simon Chi</span>
+      <span class="hero-pill">學員人數待確認</span>
+      <span class="hero-pill">全天實作課</span>
+    </div>
+  </div>
+
+  <div class="strip">
+    <span class="strip-label">四堂課帶走</span>
+    <div class="strip-pills">
+      <span class="strip-pill">任務地圖＋主管確認信</span>
+      <span class="strip-pill">公務溝通文字包</span>
+      <span class="strip-pill">會議紀錄＋追蹤表</span>
+      <span class="strip-pill">主管簡報架構</span>
+      <span class="strip-pill">海報初稿</span>
+    </div>
+  </div>
+
+  <span class="sec-label">今日投影片</span>
+  <div class="slides-grid">
+    <a href="slide-AM.html" class="session-card">
+      <span class="sc-tag">上午場 · 第 1–2 堂</span>
+      <span class="sc-time">時間待確認</span>
+      <div class="sc-title">把模糊交辦變成可執行任務<br>讓不同對象都收到清楚的文字</div>
+      <div class="sc-desc">任務釐清、背景資料處理、AI輸出格式與檢查 → 公務溝通文字（信件/公文/公告/問答）</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+    <a href="slide-PM.html" class="session-card">
+      <span class="sc-tag">下午場 · 第 3–4 堂</span>
+      <span class="sc-time">時間待確認</span>
+      <div class="sc-title">會議結束後讓事情真的往下走<br>把工作成果整理成簡報與視覺</div>
+      <div class="sc-desc">會議紀錄與追蹤表、後續追蹤信 → 簡報大綱、海報初稿、對外宣傳文字</div>
+      <div class="sc-btn">開始上課 →</div>
+    </a>
+  </div>
+
+  <div class="qr-banner">
+    <div class="qr-box">
+      <div id="qr-canvas"></div>
+    </div>
+    <div class="qr-info">
+      <span class="qr-eyebrow">掃描直接開啟</span>
+      <div class="qr-title">提示語全集 · 一鍵複製</div>
+      <div class="qr-desc">今天所有 Prompt 範本，手機掃描直接開，不用打字，複製貼入 ChatGPT / Gemini 就能用。</div>
+      <a href="exercises.html" class="qr-link">直接點這裡開啟 →</a>
+    </div>
+  </div>
+
+  <span class="sec-label">課程資源</span>
+  <div class="res-grid">
+    <a href="exercises.html" class="res-card">
+      <span class="res-icon">✏️</span>
+      <div class="res-title">提示語全集</div>
+      <div class="res-desc">四堂課的 Prompt 範本，可直接複製貼上（內容待補）</div>
+      <div class="res-btn">查看提示語 →</div>
+    </a>
+    <a href="handout.html" class="res-card">
+      <span class="res-icon">📋</span>
+      <div class="res-title">AI 工具速查手冊</div>
+      <div class="res-desc">任務 × 工具地圖、公務資料安全提醒（內容待補）</div>
+      <div class="res-btn">查看手冊 →</div>
+    </a>
+  </div>
+
+  <div class="todo-box">
+    <span class="qr-eyebrow">骨架階段 · 待確認才能定稿</span>
+    <div class="qr-title" style="font-size:1rem">開始寫逐堂內容前，這些會影響深度</div>
+    <ul>
+      <li>主情境是否定為「史前文化推廣活動」</li>
+      <li>各組是否確定至少 1 台筆電（影響第4堂簡報/海報要現場上機或手寫草稿）</li>
+      <li>各堂確切起訖時鐘時間（目前只知：上午2堂各80–85分＋下午2堂各80分，15:50結束）</li>
+      <li>場地全名、地址、教室、聯絡窗口</li>
+      <li>學員人數與職務背景</li>
+    </ul>
+  </div>
+
+  <div class="qr-banner" style="background:#fff9f5;border-color:rgba(232,84,30,.2)">
+    <div class="qr-info">
+      <span class="qr-eyebrow">給講師 · 這頁是你自己用的入口</span>
+      <div class="qr-title">學員要給的是另外兩個網址</div>
+      <div class="qr-desc">課前發給學員：<a href="https://simon-chi.com/lectures/20260820.html" style="color:var(--orange);font-weight:600">simon-chi.com/lectures/20260820.html</a></div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="meta-item">講師 <b>季祥 Simon Chi</b></div>
+    <div class="meta-item">對象 <b>國立臺灣史前文化博物館（人數/職務待確認）</b></div>
+    <div class="meta-item">課程主軸 <b>AI 公務效率 × 從交辦到可交付成果</b></div>
+    <div class="meta-item">地點 <b>待確認</b></div>
+    <div class="meta-item">聯絡窗口 <b>待確認</b></div>
+  </div>
+
+</div>
+<script>
+new QRCode(document.getElementById('qr-canvas'), {
+  text: 'https://simon-chi.com/w/20260820-exercises.html',
+  width: 124, height: 124,
+  colorDark: '#1d1d1f', colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.M
+});
+</script>
+</body>
+</html>
