@@ -3,126 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>課前講義｜AI 公務效率實作工作坊 · 季祥 Simon</title>
-<meta name="description" content="2026年8月20日 國立臺灣史前文化博物館 課前講義。AI 公務效率實作工作坊：從交辦任務到可交付成果。">
+<title>課前準備｜AI 工作流程實作工作坊 · 季祥 Simon</title>
+<meta name="description" content="2026年8月20日 國立臺灣史前文化博物館 AI 工作流程實作工作坊課前準備：從收到交辦，到完成可交付成果。">
 <meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --orange: #E8541E; --ink: #1a1a1a; --dim: #64748b;
-  --line: #e2e8f0; --paper: #f8fafc; --green: #16a34a; --blue: #2563eb; --yellow: #f59e0b;
-}
-body { font-family: 'Noto Sans TC', sans-serif; color: var(--ink); background: #fff; line-height: 1.7; font-size: 1rem; }
-.top-banner { background: var(--orange); color: #fff; text-align: center; padding: 10px 16px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; }
-.hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: #fff; padding: 48px 24px 40px; text-align: center; }
-.hero .event-tag { display: inline-block; background: var(--orange); color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; padding: 4px 14px; border-radius: 999px; margin-bottom: 20px; text-transform: uppercase; }
-.hero h1 { font-size: clamp(1.5rem, 4.5vw, 2.4rem); font-weight: 900; line-height: 1.25; margin-bottom: 16px; }
-.hero h1 span { color: var(--orange); }
-.hero .subtitle { font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 28px; }
-.hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; }
-.hero-meta .meta-chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 16px; font-size: 0.85rem; color: rgba(255,255,255,0.9); font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
-.hero-meta .meta-chip i { color: var(--orange); font-size: 0.8rem; }
-.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-.section { padding: 40px 0 8px; }
-.section-label { font-size: 0.68rem; font-weight: 800; color: var(--orange); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; }
-.section h2 { font-size: 1.35rem; font-weight: 900; color: var(--ink); margin-bottom: 20px; line-height: 1.3; }
-.section p.lead { font-size: 0.88rem; color: var(--dim); margin-bottom: 20px; }
-.todo-box { background: #fffbeb; border: 1.5px solid #fed7aa; border-radius: 12px; padding: 16px 18px; font-size: 0.88rem; color: #92400e; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px; }
-.todo-box .notice-icon { flex-shrink: 0; margin-top: 2px; }
-.scenario-card { border: 1.5px solid var(--line); border-radius: 14px; padding: 20px; background: var(--paper); margin-bottom: 8px; }
-.scenario-card .c-title { font-size: 1rem; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
-.scenario-card ul { list-style: none; }
-.scenario-card li { font-size: 0.88rem; color: var(--dim); padding: 5px 0 5px 18px; position: relative; line-height: 1.6; }
-.scenario-card li::before { content: '→'; color: var(--orange); position: absolute; left: 0; font-weight: 700; }
-.instructor-card { display: flex; gap: 18px; align-items: center; border: 1.5px solid var(--line); border-radius: 14px; padding: 20px; }
-.instructor-card .i-name { font-size: 1.1rem; font-weight: 900; color: var(--ink); }
-.instructor-card .i-title { font-size: 0.82rem; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
-.instructor-card .i-bio { font-size: 0.85rem; color: var(--dim); line-height: 1.6; }
-footer { background: var(--ink); color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.8rem; }
-footer a { color: var(--orange); text-decoration: none; }
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--orange:#e8541e;--ink:#17191d;--muted:#64748b;--line:#e5e7eb;--paper:#f8fafc;--warm:#fff7f3;--green:#15803d;--blue:#2563eb;--sans:'Noto Sans TC','PingFang TC',sans-serif}
+html{scroll-behavior:smooth}body{font-family:var(--sans);background:#fff;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}.top{background:var(--orange);color:white;text-align:center;padding:10px 16px;font-size:.82rem;font-weight:800;letter-spacing:.4px}.hero{background:linear-gradient(128deg,#141518 0%,#25211f 62%,#71301c 145%);color:white;padding:clamp(48px,8vw,92px) 24px 58px}.inner{width:min(860px,100%);margin:auto}.eyebrow{display:inline-block;color:#ffb59b;font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-size:clamp(2rem,5vw,3.65rem);line-height:1.16;letter-spacing:-.045em;margin:14px 0 16px}.hero h1 em{color:#ff7548;font-style:normal}.hero p{max-width:690px;color:rgba(255,255,255,.72);font-size:clamp(.98rem,1.8vw,1.14rem)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chips span{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;font-size:.78rem;color:rgba(255,255,255,.82);font-weight:700}.nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav .inner{display:flex;gap:14px;padding:11px 20px;overflow:auto}.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.8rem;font-weight:800}.nav a:hover{color:var(--orange)}main{width:min(860px,100%);margin:auto;padding:20px 24px 80px}.section{padding-top:56px}.kicker{font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}.section h2{font-size:clamp(1.65rem,3.3vw,2.35rem);letter-spacing:-.035em;line-height:1.28;margin-bottom:12px}.lead{font-size:1rem;color:var(--muted);max-width:700px}.ready{margin-top:22px;background:var(--warm);border:1px solid #fed7aa;border-radius:18px;padding:22px}.ready strong{display:block;font-size:1.08rem;margin-bottom:4px;color:#7c2d12}.ready p{font-size:.9rem;color:#92400e}.ready p b{color:#7c2d12}.prep-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}.prep{border:1px solid var(--line);border-radius:16px;padding:20px;background:white}.prep .num{font-size:.76rem;color:var(--orange);font-weight:900;letter-spacing:.12em}.prep h3{font-size:1.08rem;margin:6px 0}.prep p{font-size:.89rem;color:var(--muted)}.prep.full{grid-column:span 2;background:#f8fafc}.schedule{margin-top:22px;border:1px solid var(--line);border-radius:18px;overflow:hidden}.part{padding:12px 20px;font-size:.78rem;font-weight:900;letter-spacing:.12em;color:white;background:#233b58}.part.pm{background:var(--orange)}.row{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:17px 20px;border-top:1px solid var(--line)}.time{font-size:.82rem;font-weight:900;color:var(--orange);font-variant-numeric:tabular-nums}.row h3{font-size:1rem;line-height:1.35;margin-bottom:3px}.row p{font-size:.86rem;color:var(--muted)}.lunch{padding:12px 20px;background:#fffaf7;text-align:center;color:#9a5b43;font-size:.82rem;font-weight:800;border-top:1px dashed #f3c3ae}.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.outcome{border-radius:16px;padding:18px;background:var(--paper);border:1px solid var(--line)}.outcome b{display:block;color:var(--orange);font-size:1.45rem;line-height:1;margin-bottom:8px}.outcome span{font-size:.88rem;color:var(--muted);line-height:1.55}.safe{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.safe>div{border-radius:16px;padding:20px}.yes{background:#f0fdf4;border:1px solid #bbf7d0}.no{background:#fff7ed;border:1px solid #fed7aa}.safe h3{font-size:1rem;margin-bottom:6px}.safe p{font-size:.88rem;color:var(--muted)}.resource{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.resource a{display:block;padding:21px;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink);transition:.18s}.resource a:hover{transform:translateY(-2px);border-color:#f2a082;box-shadow:0 10px 22px rgba(232,84,30,.09)}.resource i{color:var(--orange);font-size:1.25rem;margin-bottom:10px}.resource b{display:block;font-size:1.02rem;margin-bottom:5px}.resource span{font-size:.86rem;color:var(--muted);line-height:1.55}.speaker{margin-top:22px;background:var(--ink);color:white;border-radius:20px;padding:28px}.speaker .kicker{color:#ffab8b}.speaker h2{margin-bottom:8px}.speaker p{color:rgba(255,255,255,.68);font-size:.94rem;max-width:680px}.speaker a{display:inline-flex;margin-top:16px;color:#ffab8b;font-size:.86rem;font-weight:900;text-decoration:none}footer{margin-top:64px;background:#111317;color:rgba(255,255,255,.55);padding:28px 24px;text-align:center;font-size:.8rem}footer a{color:#ffab8b;text-decoration:none}@media(max-width:620px){.prep-grid,.safe,.resource{grid-template-columns:1fr}.prep.full{grid-column:auto}.outcomes{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr;gap:3px;padding:15px}.hero{padding-bottom:46px}}@media(max-width:390px){.outcomes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<div class="top-banner">課前講義 · 2026年8月20日（四）國立臺灣史前文化博物館</div>
-
-<div class="hero">
-  <div class="container">
-    <span class="event-tag">課前講義 · Pre-class Handout</span>
-    <h1>AI 公務效率實作工作坊：<br>從交辦任務到<span>可交付成果</span></h1>
-    <p class="subtitle">透過遠景科技「2026員工家庭日」的練習情境，四堂課走完工作規劃、溝通文字、會議追蹤、簡報與海報</p>
-    <div class="hero-meta">
-      <span class="meta-chip"><i class="fa-solid fa-calendar-day"></i> 2026年8月20日（四）</span>
-      <span class="meta-chip"><i class="fa-solid fa-clock"></i> 09:00–12:00／13:00–15:50</span>
-      <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> 地點待確認</span>
+<div class="top">課前準備 · 2026 年 8 月 20 日（四）· 國立臺灣史前文化博物館</div>
+<header class="hero"><div class="inner">
+  <span class="eyebrow">Pre-class guide · AI workflow workshop</span>
+  <h1>收到交辦後，<br>把事情做成<em>可交付成果</em></h1>
+  <p>這不是一堂工具導覽課。你會和小組承接一個虛構專案，把零散資料整理成任務、信件、會議追蹤表、主管簡報與對外文字。</p>
+  <div class="chips"><span><i class="fa-regular fa-calendar"></i> 8/20（四）</span><span><i class="fa-regular fa-clock"></i> 09:00–12:00／13:00–15:50</span><span><i class="fa-solid fa-users"></i> 小組實作</span><span><i class="fa-solid fa-laptop"></i> 每組 1 台筆電最佳</span></div>
+</div></header>
+<nav class="nav"><div class="inner"><a href="#prepare">課前準備</a><a href="#schedule">今天怎麼上</a><a href="#outcomes">你會帶走什麼</a><a href="#safety">資料安全</a><a href="#simon">講師介紹</a></div></nav>
+<main>
+  <section class="section" id="prepare"><div class="kicker">Step 0 · 課前準備</div><h2>不需要先懂 AI；<br>只要帶著可登入的工具來</h2><p class="lead">現場會使用 ChatGPT、Gemini 或同類型對話式 AI。小組共同操作即可，重點是把資料與任務講清楚，不是比誰最會下指令。</p>
+    <div class="ready"><strong>先放心：不需要帶真實、敏感的工作資料。</strong><p>課堂提供的是虛構的「遠景科技員工家庭日」任務包。你只要帶著自己的工作情境思考，就能把方法帶回去用。</p></div>
+    <div class="prep-grid">
+      <article class="prep"><div class="num">01 · 必做</div><h3>完成一個 AI 帳號登入</h3><p>建議先登入 ChatGPT 或 Gemini。若忘記密碼，請在上課前處理，避免現場花掉實作時間。</p></article>
+      <article class="prep"><div class="num">02 · 最佳</div><h3>每組至少一台筆電</h3><p>手機可跟上前半段；筆電能更順利完成表格、簡報大綱與成果整合。</p></article>
+      <article class="prep full"><div class="num">03 · 想一件真實工作</div><h3>帶一個你常遇到、但容易卡住的工作情境</h3><p>例如：整理主管交辦、寫對外信件、會議後追待辦、把資料做成簡報。<b>不用把真實檔案帶進 AI</b>，只要知道自己想改善哪一步即可。</p></article>
     </div>
-  </div>
-</div>
+  </section>
 
-<div class="container">
-
-  <!-- 課前準備 -->
-  <div class="section">
-    <div class="section-label">Step 0 · 上課前</div>
-    <h2>先確認今天要用的工具帳號</h2>
-    <div class="todo-box"><span class="notice-icon"><i class="fa-solid fa-circle-info"></i></span>課前請確認現場可使用的 AI 工具（ChatGPT／Gemini／其他）與每組筆電狀況；若需個人帳號，請先完成登入。</div>
-  </div>
-
-  <!-- 今天的情境 -->
-  <div class="section">
-    <div class="section-label">Scenario · 今天的專案</div>
-    <h2>遠景科技籌備小組，要辦一場員工家庭日</h2>
-    <p class="lead">你們扮演遠景科技的跨部門籌備小組，手上拿到一包零散資料，從主管交辦開始，逐步完成工作規劃、文字文件、會議追蹤、簡報與海報。</p>
-    <div class="scenario-card">
-      <div class="c-title">四堂課結束前，你的小組要交出</div>
-      <ul>
-        <li>任務地圖與工作規劃</li>
-        <li>電子郵件、公文文字初稿或公告內容</li>
-        <li>會議紀錄、待辦清單與追蹤表</li>
-        <li>一份主管簡報架構</li>
-        <li>一張活動海報或宣傳視覺初稿</li>
-      </ul>
+  <section class="section" id="schedule"><div class="kicker">Schedule · 全天四堂</div><h2>同一個專案，跑完一條工作流程</h2><p class="lead">每堂都有短講、示範、分組實作與成果檢查；前一堂的內容會成為下一堂的材料。</p>
+    <div class="schedule">
+      <div class="part">上午 · 把事情說清楚</div>
+      <div class="row"><div class="time">09:10–10:30</div><div><h3>第 1 堂｜把模糊交辦變成可執行任務</h3><p>整理已知、矛盾與待確認事項，完成任務地圖與主管確認信。</p></div></div>
+      <div class="row"><div class="time">10:40–12:00</div><div><h3>第 2 堂｜讓不同對象收到清楚文字</h3><p>把同一份資料轉成主管、合作方與同仁各自看得懂的溝通文字。</p></div></div>
+      <div class="lunch">12:00–13:00 · 午休</div>
+      <div class="part pm">下午 · 讓成果推動下一步</div>
+      <div class="row"><div class="time">13:00–14:20</div><div><h3>第 3 堂｜會議結束後，讓事情真的往下走</h3><p>分清討論、決議、待辦與風險，完成會議摘要、追蹤表與確認信。</p></div></div>
+      <div class="row"><div class="time">14:30–15:50</div><div><h3>第 4 堂｜把工作成果整理成簡報與對外視覺</h3><p>整理五頁主管簡報骨架、海報內容稿與對外說明；最後一起核對事實。</p></div></div>
     </div>
-  </div>
+  </section>
 
-  <!-- 四堂課時間表 -->
-  <div class="section">
-    <div class="section-label">Schedule · 今天的四堂課</div>
-    <h2>上午2堂、下午2堂</h2>
-    <div class="scenario-card">
-      <ul>
-        <li>09:00–09:10 開場</li>
-        <li>第1堂 09:10–10:30．把模糊交辦，變成可執行的任務 → 專案任務地圖＋主管確認信</li>
-        <li>10:30–10:40 休息</li>
-        <li>第2堂 10:40–12:00．讓不同對象，都收到清楚而合適的文字 → 公務溝通文字包</li>
-        <li>12:00–13:00 午休</li>
-        <li>第3堂 13:00–14:20．會議結束後，讓事情真的往下走 → 會議紀錄＋工作追蹤表＋會後確認信</li>
-        <li>14:20–14:30 休息</li>
-        <li>第4堂 14:30–15:50．把工作成果，整理成簡報與對外視覺 → 簡報架構＋海報初稿＋對外說明</li>
-      </ul>
-    </div>
-  </div>
+  <section class="section" id="outcomes"><div class="kicker">Outcomes · 今天帶走</div><h2>不是帶走一堆工具名稱，<br>而是一套能重複用的工作方法</h2>
+    <div class="outcomes"><div class="outcome"><b>01</b><span>任務地圖與主管確認信</span></div><div class="outcome"><b>02</b><span>正式信件、公告與常見問答</span></div><div class="outcome"><b>03</b><span>會議摘要與工作追蹤表</span></div><div class="outcome"><b>04</b><span>五頁主管簡報大綱</span></div><div class="outcome"><b>05</b><span>海報內容稿與對外說明</span></div><div class="outcome"><b>06</b><span>可留下來重複用的提示詞模板</span></div></div>
+  </section>
 
-  <!-- 講師介紹 -->
-  <div class="section">
-    <div class="section-label">Instructor · 我是誰</div>
-    <h2>季祥 Simon Chi</h2>
-    <div class="instructor-card">
-      <div>
-        <div class="i-name">季祥 Simon Chi</div>
-        <div class="i-title">AI 實戰顧問 · 企業 / 公部門培訓講師</div>
-        <div class="i-bio">HP → 趨勢科技 → 外商 AI 專案主管 → 創業，PMP／PMI-ACP 持證。40+ 場企業與公部門 AI 培訓經驗，這堂課不是工具導覽，是帶大家走一次真實的公務工作流程。</div>
-      </div>
-    </div>
-  </div>
+  <section class="section" id="safety"><div class="kicker">Safety · 很重要</div><h2>AI 先做初稿，<br>事實、資料與決定仍由人負責</h2><p class="lead">這也是本課最重要的習慣：資料不夠就標「待確認」，不讓看起來流暢的文字取代原始資料。</p>
+    <div class="safe"><div class="yes"><h3>可以帶進練習的</h3><p>公開資料、虛構案例、去識別化文字、通用格式需求與已公開的範例。</p></div><div class="no"><h3>請不要輸入公開 AI</h3><p>個資、帳密、病歷、未公開採購、合約、敏感人事與未對外的正式文件。</p></div></div>
+  </section>
 
-</div>
+  <section class="section"><div class="kicker">Optional · 先逛逛</div><h2>想先熟悉，可以從這裡開始</h2><p class="lead">不必先讀完；上課時會帶著大家操作。若你想先看一眼，這兩頁是最適合的入口。</p>
+    <div class="resource"><a href="https://simon-chi.com/w/20260820-handout.html"><i class="fa-regular fa-map"></i><b>AI 工具速查手冊</b><span>先理解任務 × 工具、資料安全與本課的工作流程。</span></a><a href="https://simon-chi.com/w/20260820-exercises.html"><i class="fa-regular fa-pen-to-square"></i><b>提示語範本</b><span>看看本課會用到的任務釐清、信件、會議與簡報提示語。</span></a></div>
+  </section>
 
-<footer>
-  課前講義 · <a href="https://simon-chi.com">simon-chi.com</a>
-</footer>
-
+  <section class="section speaker" id="simon"><div class="kicker">Instructor · Simon Chi</div><h2>季祥 Simon Chi</h2><p>AI 實戰顧問、企業與公部門培訓講師。從 HP、趨勢科技、外商 AI 專案到創業，已完成 40+ 場企業與公部門 AI 培訓。這堂課不追求炫技，而是陪你走一遍「資料很亂時，怎麼把事做對、交出去」的真實流程。</p><a href="https://simon-chi.com">認識 Simon 與其他課程 →</a></section>
+</main>
+<footer>AI 工作流程實作工作坊 · 課前準備　｜　<a href="https://simon-chi.com">simon-chi.com</a></footer>
 </body>
 </html>
