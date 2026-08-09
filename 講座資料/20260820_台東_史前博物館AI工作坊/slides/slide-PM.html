@@ -68,6 +68,17 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .sticky-steps li:last-child{border-bottom:none}
 .sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
 .sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+.photo-slide{background-image:linear-gradient(90deg,rgba(15,13,12,.92) 0%,rgba(15,13,12,.74) 42%,rgba(15,13,12,.12) 74%),var(--bg-img);background-position:center;background-size:cover;color:white}
+.photo-slide h2{color:white;border-left-color:var(--orange)}
+.photo-slide .slide-sub,.photo-slide .sub{color:rgba(255,255,255,.72)}
+.photo-slide .hl{background:rgba(255,255,255,.10);color:white;border-left-color:var(--orange)}
+.photo-slide .card{background:rgba(255,255,255,.94)}
+.photo-slide .blist li,.photo-slide .nlist li{color:white;border-bottom-color:rgba(255,255,255,.18)}
+.budget-chart{margin-top:14px;max-width:720px}
+.budget-row{display:grid;grid-template-columns:120px 1fr 78px;gap:10px;align-items:center;margin:12px 0;font-size:.9rem;color:var(--ink)}
+.budget-track{height:22px;border-radius:20px;background:#ece9e4;overflow:hidden}
+.budget-fill{height:100%;border-radius:20px;background:var(--blue)}.budget-fill.new{background:var(--orange)}
+.budget-row b{text-align:right;font-size:1.02rem}
 </style>
 </head>
 <body>
@@ -88,7 +99,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 </section>
 
 <!-- 2. sbreak 第3堂 -->
-<section class="slide sbreak">
+<section class="slide sbreak photo-slide" style="--bg-img:url('assets/generated/meeting-action-whiteboard.png')">
   <span class="s-tag">第 3 堂 · 13:00–14:20</span>
   <h2>會議結束後，<br>讓事情真的往下走</h2>
   <div class="sub">會開完了，但決議、負責人與期限散在各自的筆記裡</div>
@@ -189,7 +200,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
 </section>
 
-<section class="slide">
+<section class="slide photo-slide" style="--bg-img:url('assets/generated/human-oversight-decision.png')">
   <div class="slide-tag">HUMAN CHECK · AI 整理後，誰來確認？</div>
   <h2>至少安排一位「資料查核角色」</h2>
   <ul class="blist" style="margin-top:10px">
@@ -443,10 +454,14 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <div class="card b"><div class="ct">重算什麼？</div><div class="cd">河岸基地、餐飲、活動執行、保險、抽獎是否能在含稅 42 萬內。</div></div>
     <div class="card g"><div class="ct">請主管決定什麼？</div><div class="cd">保留哪些體驗、可縮減哪些內容、可接受哪些風險與條件。</div></div>
   </div>
+  <div class="budget-chart" aria-label="預算上限從48萬調降至42萬的比較圖">
+    <div class="budget-row"><span>原先上限</span><div class="budget-track"><div class="budget-fill" style="width:100%"></div></div><b>48 萬</b></div>
+    <div class="budget-row"><span>調整後上限</span><div class="budget-track"><div class="budget-fill new" style="width:87.5%"></div></div><b>42 萬</b></div>
+  </div>
   <div class="hl amber" style="margin-top:18px">這不是要你立刻給完美答案；而是把「影響、選項、需要決定」整理出來。</div>
 </section>
 
-<section class="slide">
+<section class="slide photo-slide" style="--bg-img:url('assets/generated/public-communication-design.png')">
   <div class="slide-tag">POSTER · 資訊層級先於美工</div>
   <h2>海報先寫對，再談好看</h2>
   <div class="cgrid g3" style="margin-top:12px">

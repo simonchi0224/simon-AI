@@ -109,6 +109,15 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .tool-card .name{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
 .tool-card .role{font-size:.82rem;font-weight:700;color:var(--orange);margin-bottom:8px}
 .tool-card .best{font-size:.9rem;color:var(--dim);line-height:1.55}
+.photo-slide{background-image:linear-gradient(90deg,rgba(15,13,12,.92) 0%,rgba(15,13,12,.76) 40%,rgba(15,13,12,.12) 72%),var(--bg-img);background-position:center;background-size:cover;color:white}
+.photo-slide h2{color:white;border-left-color:var(--orange)}
+.photo-slide .slide-sub{color:rgba(255,255,255,.72)}
+.photo-slide .hl{background:rgba(255,255,255,.10);color:white;border-left-color:var(--orange)}
+.photo-slide .card{background:rgba(255,255,255,.94)}
+.step-bars{display:flex;align-items:flex-end;gap:18px;height:150px;margin:12px 0 4px;padding:0 12px;border-bottom:1px solid var(--line)}
+.step-bar{width:28%;border-radius:10px 10px 0 0;padding:10px 12px;color:white;font-weight:800;font-size:.92rem;display:flex;align-items:flex-start;justify-content:center;text-align:center}
+.step-bar small{font-weight:500;font-size:.72rem;line-height:1.35;display:block;margin-top:3px}
+.step-bar.one{height:46%;background:var(--dim)}.step-bar.two{height:68%;background:var(--blue)}.step-bar.three{height:92%;background:var(--orange)}
 </style>
 </head>
 <body>
@@ -180,7 +189,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 </section>
 
 <!-- 5. 破冰 / 大情境介紹 -->
-<section class="slide">
+<section class="slide photo-slide" style="--bg-img:url('assets/generated/workflow-team-planning.png')">
   <div class="slide-tag">SCENARIO · 今天的專案小組</div>
   <h2>遠景科技籌備小組，<br>要辦一場員工家庭日</h2>
   <div class="slide-sub">你們是跨部門籌備小組，手上資料很多而且零散、彼此還有點矛盾</div>
@@ -403,7 +412,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 
 <!-- 9. 第2堂：文字依對象改寫 -->
 <!-- 第2堂補充：提示技巧與安全界線 -->
-<section class="slide">
+<section class="slide photo-slide" style="--bg-img:url('assets/generated/prompt-human-review.png')">
   <div class="slide-tag">PROMPT TECHNIQUE · 給一個好範例</div>
   <h2>想要固定語氣，<br>給 AI 看一個去識別化範例</h2>
   <div class="cgrid g2" style="margin-top:14px">
@@ -435,7 +444,7 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
   </div>
 </section>
 
-<section class="slide">
+<section class="slide photo-slide" style="--bg-img:url('assets/generated/data-safety-redaction.png')">
   <div class="slide-tag">SAFETY · 資料先分級</div>
   <h2>不確定能不能貼時，<br>先不要貼</h2>
   <div class="cgrid g3" style="margin-top:14px">
