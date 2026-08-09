@@ -29,6 +29,8 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
 .takeaway-list li{font-size:1rem;color:rgba(255,255,255,.8);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
 .takeaway-list li:last-child{border-bottom:none}
 .takeaway-list li::before{content:'→';color:var(--orange);position:absolute;left:0;font-weight:700}
+.directory-intro{background:#fff7f3;border:1px solid rgba(232,84,30,.2);border-radius:14px;padding:17px 20px;font-size:.92rem;color:#6b4538;line-height:1.65;margin:0 0 18px}.directory-intro b{color:var(--orange)}
+.tool-group{margin:30px 0}.tool-group-title{font-size:1.08rem;font-weight:900;color:var(--ink);margin-bottom:4px}.tool-group-sub{font-size:.84rem;color:var(--dim);margin-bottom:12px}.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.tool-card{background:white;border:1px solid var(--line);border-radius:12px;padding:15px 16px;min-width:0}.tool-card h3{font-size:1rem;color:var(--ink);margin-bottom:4px;line-height:1.3}.tool-card p{font-size:.83rem;color:var(--dim);line-height:1.55;margin-bottom:9px}.tool-card .tool-link{font-size:.78rem;font-weight:800;color:var(--blue);text-decoration:none;overflow-wrap:anywhere}.tool-card .tool-link:hover{color:var(--orange);text-decoration:underline}.tool-tag{display:inline-block;font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:5px}.tool-caution{font-size:.8rem;color:#92400e;background:#fffbeb;border-left:3px solid #f59e0b;padding:10px 12px;border-radius:0 7px 7px 0;margin-top:16px;line-height:1.6}@media(max-width:560px){.tool-grid{grid-template-columns:1fr}.wrap{padding:40px 20px 64px}}
 </style>
 </head>
 <body>
@@ -71,6 +73,89 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);line-heig
       <tr><td>第3堂</td><td>會議事實保留、決議/待辦/風險分類</td><td>會議紀錄＋工作追蹤表＋會後確認信</td></tr>
       <tr><td>第4堂</td><td>簡報敘事整理、海報資訊層級、發布前檢查</td><td>簡報架構＋海報初稿＋對外說明</td></tr>
     </table>
+  </div>
+
+  <!-- 四、AI 工具查找地圖 -->
+  <div class="hd-section">
+    <span class="hd-section-title">AI 工具查找地圖 · 官方入口</span>
+    <div class="directory-intro"><b>先選任務，再選工具。</b>以下是常見 AI 工具的官方入口與最適合的第一個用途；不是每個都要註冊。免費額度、功能、地區與資料政策都會變動，使用前請查看該服務最新規則與單位規範。</div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">一、聊天、寫作與搜尋</div>
+      <div class="tool-group-sub">適合整理想法、寫第一版、改寫語氣，或從公開網頁找來源。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">通用對話</span><h3>ChatGPT</h3><p>寫草稿、整理長文、分析檔案、角色扮演與多步驟工作規劃。</p><a class="tool-link" href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">通用對話</span><h3>Claude</h3><p>適合長文閱讀、清楚改寫、文件討論與較完整的文字推理。</p><a class="tool-link" href="https://claude.ai" target="_blank" rel="noopener">claude.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">Google 生態</span><h3>Gemini</h3><p>適合 Google 帳號使用者做日常對話、文件與多模態內容處理。</p><a class="tool-link" href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">AI 搜尋</span><h3>Perplexity</h3><p>先搜尋公開網頁，再以引用連結協助你回到原始來源核對。</p><a class="tool-link" href="https://www.perplexity.ai" target="_blank" rel="noopener">perplexity.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">Microsoft 生態</span><h3>Microsoft Copilot</h3><p>適合已使用 Microsoft 365／Windows 的人處理工作草稿與摘要。</p><a class="tool-link" href="https://copilot.microsoft.com" target="_blank" rel="noopener">copilot.microsoft.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">多模型入口</span><h3>Poe</h3><p>在同一個服務中體驗不同模型與社群建立的聊天機器人。</p><a class="tool-link" href="https://poe.com" target="_blank" rel="noopener">poe.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">即時討論</span><h3>Grok</h3><p>偏向即時資訊與社群脈絡的問答；重要資訊仍須查原始來源。</p><a class="tool-link" href="https://grok.com" target="_blank" rel="noopener">grok.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">Google 模型實驗</span><h3>Google AI Studio</h3><p>想更直接體驗 Gemini 模型、提示設定與原型開發時可使用。</p><a class="tool-link" href="https://aistudio.google.com" target="_blank" rel="noopener">aistudio.google.com ↗</a></article>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">二、資料閱讀、研究與任務代理</div>
+      <div class="tool-group-sub">適合「我有一批來源或一個可拆解任務」；尤其要注意能否上傳資料。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">以來源為主</span><h3>NotebookLM／Gemini Notebook</h3><p>把可使用的文件、網址或影音放進筆記本，再針對來源問答與整理。</p><a class="tool-link" href="https://notebooklm.google.com" target="_blank" rel="noopener">notebooklm.google.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">任務代理</span><h3>Manus</h3><p>適合公開資料比較、研究、整理與交付物初稿；要設好範圍與人工檢查點。</p><a class="tool-link" href="https://manus.im" target="_blank" rel="noopener">manus.im ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">知識工作</span><h3>Notion AI</h3><p>適合在 Notion 筆記、專案頁與文件庫中做摘要、改寫與整理。</p><a class="tool-link" href="https://www.notion.com/product/ai" target="_blank" rel="noopener">notion.com/product/ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">研究代理</span><h3>Genspark</h3><p>以研究與產出報告為導向的 AI 工作空間；先確認引用與資料範圍。</p><a class="tool-link" href="https://www.genspark.ai" target="_blank" rel="noopener">genspark.ai ↗</a></article>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">三、簡報、圖解與設計</div>
+      <div class="tool-group-sub">適合先把已確認的內容變成大綱、資訊層級或視覺草稿；不是用來掩蓋內容不完整。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">簡報</span><h3>Gamma</h3><p>將文字快速轉為簡報、文件或網頁草稿，再由人調整敘事與事實。</p><a class="tool-link" href="https://gamma.app" target="_blank" rel="noopener">gamma.app ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">設計整合</span><h3>Canva Magic Studio</h3><p>在 Canva 中使用 AI 生成文字、圖片與版面，適合宣傳素材與簡易視覺。</p><a class="tool-link" href="https://www.canva.com/magic-studio/" target="_blank" rel="noopener">canva.com/magic-studio ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">文字轉圖解</span><h3>Napkin AI</h3><p>把既有文字轉成圖解、流程圖與簡報可用的視覺元素。</p><a class="tool-link" href="https://www.napkin.ai" target="_blank" rel="noopener">napkin.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">白板協作</span><h3>Miro AI</h3><p>用於腦力激盪、便利貼分群、工作流程與團隊協作白板。</p><a class="tool-link" href="https://miro.com/ai/" target="_blank" rel="noopener">miro.com/ai ↗</a></article>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">四、AI 圖像</div>
+      <div class="tool-group-sub">適合製作概念圖、社群視覺與草稿素材；公開使用前請看授權、肖像、商標與事實暗示。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">視覺風格</span><h3>Midjourney</h3><p>偏向高風格化與藝術感圖像，也提供網站端的生成與編輯功能。</p><a class="tool-link" href="https://www.midjourney.com" target="_blank" rel="noopener">midjourney.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">Adobe 生態</span><h3>Adobe Firefly</h3><p>整合 Adobe 創作流程的生成與編輯工具；適合既有設計工作者。</p><a class="tool-link" href="https://firefly.adobe.com" target="_blank" rel="noopener">firefly.adobe.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">文字與排版</span><h3>Ideogram</h3><p>適合需要在圖像中處理較清楚文字與版面概念的視覺草稿。</p><a class="tool-link" href="https://ideogram.ai" target="_blank" rel="noopener">ideogram.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">向量與品牌</span><h3>Recraft</h3><p>適合產生向量感圖形、圖示與品牌視覺方向的初稿。</p><a class="tool-link" href="https://www.recraft.ai" target="_blank" rel="noopener">recraft.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">圖像生成</span><h3>Leonardo.Ai</h3><p>提供多種圖像生成與編輯工作流程，適合探索不同視覺風格。</p><a class="tool-link" href="https://leonardo.ai" target="_blank" rel="noopener">leonardo.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">影像靈感</span><h3>Krea</h3><p>適合即時視覺探索、圖像生成與創意方向發散。</p><a class="tool-link" href="https://www.krea.ai" target="_blank" rel="noopener">krea.ai ↗</a></article>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">五、AI 影片、音樂與聲音</div>
+      <div class="tool-group-sub">適合概念驗證與創意草稿。服務供應、方案與地區支援變動很快，發布前尤其要確認權利與真實性。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">影片模型</span><h3>Sora</h3><p>OpenAI 的影片生成模型；可用方式、地區與方案以官方最新公告為準。</p><a class="tool-link" href="https://openai.com/sora" target="_blank" rel="noopener">openai.com/sora ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">影片生成</span><h3>Kling AI／可靈</h3><p>文字或圖片生成影片，也有影像創作功能；常用於短片概念與動態視覺。</p><a class="tool-link" href="https://kling.ai" target="_blank" rel="noopener">kling.ai ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">影片模型</span><h3>Seedance</h3><p>ByteDance Seed 的影音生成模型；官方頁適合查模型資訊與最新支援方式。</p><a class="tool-link" href="https://seed.bytedance.com/en/seedance2_0" target="_blank" rel="noopener">seed.bytedance.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">中文創作</span><h3>即夢 AI／Dreamina</h3><p>字節跳動系的圖像、影片與創作平台；可從國際版入口確認可用功能。</p><a class="tool-link" href="https://dreamina.capcut.com" target="_blank" rel="noopener">dreamina.capcut.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">AI 音樂</span><h3>Suno</h3><p>從文字、歌詞或情緒描述生成歌曲與配樂；商用與權利條件請先確認。</p><a class="tool-link" href="https://suno.com" target="_blank" rel="noopener">suno.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">AI 聲音</span><h3>ElevenLabs</h3><p>語音生成、配音與語音設計工具；不要未經同意模仿可辨識真人聲音。</p><a class="tool-link" href="https://elevenlabs.io" target="_blank" rel="noopener">elevenlabs.io ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">影片製作</span><h3>Runway</h3><p>提供影片生成與編輯工作流程，適合動態素材與創意短片製作。</p><a class="tool-link" href="https://runwayml.com" target="_blank" rel="noopener">runwayml.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">數位人物</span><h3>HeyGen</h3><p>適合簡易講解影片、翻譯配音與數位人物呈現；使用真人肖像須取得同意。</p><a class="tool-link" href="https://www.heygen.com" target="_blank" rel="noopener">heygen.com ↗</a></article>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <div class="tool-group-title">六、寫程式與快速做原型</div>
+      <div class="tool-group-sub">適合需要做網站、表單、資料處理或小工具的人；產出程式碼仍要測試與審核。</div>
+      <div class="tool-grid">
+        <article class="tool-card"><span class="tool-tag">AI 程式編輯器</span><h3>Cursor</h3><p>在程式編輯器中協助閱讀、改寫與建立程式；適合已有開發任務的人。</p><a class="tool-link" href="https://cursor.com" target="_blank" rel="noopener">cursor.com ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">開發協作</span><h3>GitHub Copilot</h3><p>在程式碼、命令列與開發流程中協助建議、解釋與撰寫程式。</p><a class="tool-link" href="https://github.com/features/copilot" target="_blank" rel="noopener">github.com/features/copilot ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">自然語言做網站</span><h3>Lovable</h3><p>用自然語言快速建立網站或應用程式原型，適合驗證想法。</p><a class="tool-link" href="https://lovable.dev" target="_blank" rel="noopener">lovable.dev ↗</a></article>
+        <article class="tool-card"><span class="tool-tag">快速原型</span><h3>Bolt</h3><p>用文字描述快速產生網頁與應用程式原型，完成後仍需測試功能。</p><a class="tool-link" href="https://bolt.new" target="_blank" rel="noopener">bolt.new ↗</a></article>
+      </div>
+    </div>
+    <div class="tool-caution"><b>共同底線：</b>不要因為工具有「上傳」「搜尋」「自動執行」功能，就把個資、帳密、未公開文件、採購或敏感工作資料交出去。對外發布前，仍要回到來源、確認授權與人工核准。</div>
   </div>
 
   <div class="takeaway">
