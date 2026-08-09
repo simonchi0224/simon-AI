@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
 html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
-.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide{position:fixed;inset:0;display:none;padding:5.8vh 8.8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
 .slide.active{display:flex;animation:fi .25s ease}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .cover{background:#0f0d0c;color:white;padding:6vh 9vw}
@@ -24,21 +24,22 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
 .sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
 .sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
 .sbreak .sub{font-size:clamp(.95rem,1.55vw,1.15rem);color:rgba(255,255,255,.6);line-height:1.7;max-width:680px}
-.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
-.slide-sub{font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--dim);margin-bottom:18px;padding-left:18px}
+.slide-tag{font-size:.76rem;font-weight:800;letter-spacing:3.2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);border-left:4px solid var(--orange);padding-left:16px;line-height:1.2;margin-bottom:10px;letter-spacing:-.025em}
+.slide-sub{font-size:clamp(1.18rem,1.75vw,1.45rem);color:var(--dim);margin-bottom:20px;padding-left:20px;line-height:1.55}
 .blist{list-style:none}
-.blist li{font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li{font-size:clamp(1.28rem,1.95vw,1.58rem);color:var(--ink);padding:11px 0 11px 32px;position:relative;border-bottom:1px solid var(--line);line-height:1.45}
 .blist li:last-child{border-bottom:none}
 .blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
 .blist li b{font-weight:700}
 .cgrid{display:grid;gap:14px}
 .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
-.card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
+.card{background:white;border-radius:12px;padding:21px 22px;border:1px solid var(--line);box-shadow:0 2px 10px rgba(29,29,31,.035)}
 .card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
-.ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
-.cd{font-size:.96rem;color:var(--dim);line-height:1.55}
-.hl{border-left:3px solid var(--orange);padding:12px 16px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.1rem,1.6vw,1.32rem);color:var(--ink);line-height:1.6;margin:8px 0}
+.ct{font-size:clamp(1.14rem,1.55vw,1.32rem);font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.28}
+.cd{font-size:clamp(1rem,1.32vw,1.13rem);color:var(--dim);line-height:1.62}
+.g4 .card{padding:18px}.g4 .cd{font-size:clamp(.94rem,1.18vw,1.05rem)}.g5 .card{padding:16px}.g5 .cd{font-size:clamp(.86rem,1.04vw,.98rem)}
+.hl{border-left:4px solid var(--orange);padding:15px 18px;background:rgba(232,84,30,.05);border-radius:0 10px 10px 0;font-size:clamp(1.17rem,1.72vw,1.42rem);font-weight:500;color:var(--ink);line-height:1.58;margin:10px 0}
 .hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
 .hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
 .hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
@@ -64,21 +65,26 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .sticky-meta{font-size:.85rem;color:#92400e;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
 .sticky-meta span{background:rgba(245,158,11,.15);padding:3px 12px;border-radius:10px;font-weight:600}
 .sticky-steps{list-style:none;counter-reset:sn;margin-top:10px}
-.sticky-steps li{counter-increment:sn;font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink);padding:9px 0 9px 42px;position:relative;border-bottom:1px solid rgba(245,158,11,.25)}
+.sticky-steps li{counter-increment:sn;font-size:clamp(1.18rem,1.7vw,1.38rem);color:var(--ink);padding:10px 0 10px 44px;position:relative;border-bottom:1px solid rgba(245,158,11,.25);line-height:1.42}
 .sticky-steps li:last-child{border-bottom:none}
 .sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
-.sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+.sticky-steps li span{font-size:.98rem;color:#92400e;display:block;margin-top:3px;line-height:1.45}
 .photo-slide{background-image:linear-gradient(90deg,rgba(15,13,12,.92) 0%,rgba(15,13,12,.74) 42%,rgba(15,13,12,.12) 74%),var(--bg-img);background-position:center;background-size:cover;color:white}
 .photo-slide h2{color:white;border-left-color:var(--orange)}
 .photo-slide .slide-sub,.photo-slide .sub{color:rgba(255,255,255,.72)}
 .photo-slide .hl{background:rgba(255,255,255,.10);color:white;border-left-color:var(--orange)}
 .photo-slide .card{background:rgba(255,255,255,.94)}
 .photo-slide .blist li,.photo-slide .nlist li{color:white;border-bottom-color:rgba(255,255,255,.18)}
+.photo-slide .process-step h3{color:white}.photo-slide .process-step p{color:rgba(255,255,255,.78)}
 .budget-chart{margin-top:14px;max-width:720px}
 .budget-row{display:grid;grid-template-columns:120px 1fr 78px;gap:10px;align-items:center;margin:12px 0;font-size:.9rem;color:var(--ink)}
 .budget-track{height:22px;border-radius:20px;background:#ece9e4;overflow:hidden}
 .budget-fill{height:100%;border-radius:20px;background:var(--blue)}.budget-fill.new{background:var(--orange)}
 .budget-row b{text-align:right;font-size:1.02rem}
+/* 投影版視覺語言：提示語像可操作介面；流程像單一路徑，不做密集儀表板。 */
+.prompt-window{margin-top:16px;max-width:1040px;background:#17191e;border:1px solid #30343c;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(20,20,24,.16);color:#f7f4ef}.prompt-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#24272e;border-bottom:1px solid #353942;color:#b8bec9;font-size:.78rem;font-weight:700;letter-spacing:1.3px}.prompt-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:14px 0 0 #f59e0b,28px 0 0 #4ade80;margin-right:30px}.prompt-body{padding:18px 22px;font-size:clamp(1.08rem,1.52vw,1.3rem);line-height:1.68;white-space:pre-line}.prompt-body b{color:#ffb99c}.prompt-body .key{color:#9dd8ff;font-weight:800}.prompt-foot{padding:11px 18px;background:rgba(255,255,255,.045);border-top:1px solid #30343c;color:#c4cad3;font-size:.92rem;line-height:1.5}
+.process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-top:24px}.process-rail:before{content:'';position:absolute;left:7%;right:7%;top:31px;height:2px;background:linear-gradient(90deg,var(--orange),var(--blue),var(--green),var(--purple));opacity:.36}.process-step{position:relative;padding-top:4px}.process-n{position:relative;z-index:1;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:white;border:3px solid var(--orange);font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:13px}.process-step:nth-child(2) .process-n{border-color:var(--blue);color:var(--blue)}.process-step:nth-child(3) .process-n{border-color:var(--green);color:var(--green)}.process-step:nth-child(4) .process-n{border-color:var(--purple);color:var(--purple)}.process-step h3{font-size:1.3rem;color:var(--ink);margin-bottom:5px}.process-step p{font-size:1.05rem;color:var(--dim);line-height:1.55}
+@media(max-width:700px){.slide{padding:5vh 7vw}.process-rail{gap:10px}.process-n{width:42px;height:42px;font-size:1rem}.process-step h3{font-size:1rem}.process-step p{font-size:.8rem}.prompt-body{padding:14px;font-size:.95rem}}
 </style>
 </head>
 <body>
@@ -248,7 +254,14 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide">
   <div class="slide-tag">PROMPT · 先要求格式，再貼資料</div>
   <h2>請 AI 整理會議，不要讓它替你下結論</h2>
-  <div class="hl bl" style="margin-top:12px">以下是會議筆記與後續信件。請<b>只整理明確出現的內容</b>，不要推測或補人名、期限。請輸出：① 100 字會議摘要 ② 已確認決議 ③ 待確認／待裁示 ④ 工作追蹤表（工作｜負責人｜期限｜狀態｜依據）⑤ 最多 3 項風險。</div>
+  <div class="prompt-window">
+    <div class="prompt-top"><span class="prompt-dot"></span>會議整理提示語</div>
+    <div class="prompt-body">以下是會議筆記與後續信件。請<b>只整理明確出現的內容</b>，不要推測或補人名、期限。
+
+請輸出：① 100 字摘要　② 已確認決議　③ 待確認／待裁示
+④ 追蹤表（工作｜負責人｜期限｜狀態｜依據）　⑤ 最多 3 項風險</div>
+    <div class="prompt-foot">把「討論」與「決議」分開，是這段提示語最重要的品質要求。</div>
+  </div>
   <div class="cgrid g2" style="margin-top:14px">
     <div class="card g"><div class="ct">AI 做初稿</div><div class="cd">先把散亂段落轉成可檢查的結構，節省整理時間。</div></div>
     <div class="card o"><div class="ct">人做確認</div><div class="cd">逐列核對原文，尤其是人名、期限、金額與「是否決議」。</div></div>
@@ -312,11 +325,11 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide photo-slide" style="--bg-img:url('assets/generated/decision-options-review.png')">
   <div class="slide-tag">DECISION · AI 輔助決策的四個步驟</div>
   <h2>AI 可以整理選項，<br>不能替你承擔取捨</h2>
-  <div class="cgrid g4" style="margin-top:16px">
-    <div class="card dim"><div class="ct">1. 收集</div><div class="cd">資料、限制、關係人與不確定點。</div></div>
-    <div class="card b"><div class="ct">2. 整理</div><div class="cd">比較方案、成本、利弊與風險。</div></div>
-    <div class="card o"><div class="ct">3. 提示</div><div class="cd">標出缺口、衝突與需要裁示的問題。</div></div>
-    <div class="card g"><div class="ct">4. 決定</div><div class="cd">由有權責的人選擇並承擔後果。</div></div>
+  <div class="process-rail">
+    <div class="process-step"><div class="process-n">01</div><h3>收集</h3><p>資料、限制、關係人與不確定點。</p></div>
+    <div class="process-step"><div class="process-n">02</div><h3>整理</h3><p>比較方案、成本、利弊與風險。</p></div>
+    <div class="process-step"><div class="process-n">03</div><h3>提示</h3><p>標出缺口、衝突與待裁示問題。</p></div>
+    <div class="process-step"><div class="process-n">04</div><h3>決定</h3><p>由有權責的人選擇並承擔後果。</p></div>
   </div>
 </section>
 
@@ -475,8 +488,14 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide">
   <div class="slide-tag">PROMPT · 先給已確認資料</div>
   <h2>用 AI 產出大綱，不讓它包辦決策</h2>
-  <div class="hl bl" style="margin-top:12px">請根據以下<b>已確認資料與待決策事項</b>，為主管整理 5 頁簡報大綱。每頁輸出：標題、要回答的問題、3–5 點內容、建議的圖表。<b>未確認資訊請標「需決策／待確認」，不要寫成定案。</b></div>
-  <div class="hl g" style="margin-top:12px">對外文字版本：請在 150 字內說明「這是什麼、跟誰有關、下一步怎麼做」；找不到日期／地點／報名方式時，請保留待公告，不得自行補寫。</div>
+  <div class="prompt-window">
+    <div class="prompt-top"><span class="prompt-dot"></span>主管簡報提示語</div>
+    <div class="prompt-body">請根據以下<b>已確認資料與待決策事項</b>，為主管整理 5 頁簡報大綱。
+每頁輸出：標題、要回答的問題、3–5 點內容、建議的圖表。
+
+<b>未確認資訊請標「需決策／待確認」，不要寫成定案。</b></div>
+    <div class="prompt-foot">對外文字則控制在 150 字內；日期、地點、報名方式未定時，保留「後續公告」。</div>
+  </div>
 </section>
 
 <section class="slide sticky-activity">

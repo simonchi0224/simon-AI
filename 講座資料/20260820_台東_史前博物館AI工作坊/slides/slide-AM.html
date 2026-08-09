@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--paper:#fbfaf7;--ink:#1d1d1f;--dim:#6e6e73;--line:#e6e3dd;--orange:#e8541e;--blue:#0066cc;--green:#16a34a;--purple:#7c6af7;--sans:'Noto Sans TC','PingFang TC',-apple-system,sans-serif}
 html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);background:#111;-webkit-font-smoothing:antialiased}
-.slide{position:fixed;inset:0;display:none;padding:5vh 8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
+.slide{position:fixed;inset:0;display:none;padding:5.8vh 8.8vw;flex-direction:column;justify-content:center;background:var(--paper);overflow:hidden}
 .slide.active{display:flex;animation:fi .25s ease}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .cover{background:#0f0d0c;color:white;padding:6vh 9vw}
@@ -27,25 +27,26 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
 .tag-break{background:#fff9f5;border:1px dashed rgba(232,84,30,.4);border-radius:14px;padding:5vh 8vw}
 .tag-break .s-tag{color:var(--orange)}
 .tag-break h2{color:var(--ink);border:none;padding:0}
-.slide-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-left:3px solid var(--orange);padding-left:14px;line-height:1.25;margin-bottom:6px}
-.slide-sub{font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--dim);margin-bottom:18px;padding-left:18px}
+.slide-tag{font-size:.76rem;font-weight:800;letter-spacing:3.2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);border-left:4px solid var(--orange);padding-left:16px;line-height:1.2;margin-bottom:10px;letter-spacing:-.025em}
+.slide-sub{font-size:clamp(1.18rem,1.75vw,1.45rem);color:var(--dim);margin-bottom:20px;padding-left:20px;line-height:1.55}
 .blist{list-style:none}
-.blist li{font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.blist li{font-size:clamp(1.28rem,1.95vw,1.58rem);color:var(--ink);padding:11px 0 11px 32px;position:relative;border-bottom:1px solid var(--line);line-height:1.45}
 .blist li:last-child{border-bottom:none}
 .blist li::before{content:'—';color:var(--orange);font-weight:700;position:absolute;left:0;top:9px}
 .blist li b{font-weight:700}
 .nlist{list-style:none;counter-reset:n}
-.nlist li{counter-increment:n;font-size:clamp(1.3rem,1.9vw,1.5rem);color:var(--ink);padding:10px 0 10px 44px;position:relative;border-bottom:1px solid var(--line)}
+.nlist li{counter-increment:n;font-size:clamp(1.28rem,1.95vw,1.58rem);color:var(--ink);padding:12px 0 12px 46px;position:relative;border-bottom:1px solid var(--line);line-height:1.45}
 .nlist li::before{content:counter(n);width:26px;height:26px;border-radius:50%;background:var(--orange);color:white;font-size:.74rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:9px}
 .nlist li span{font-size:.86rem;color:var(--dim)}
 .cgrid{display:grid;gap:14px}
 .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
-.card{background:white;border-radius:10px;padding:18px 20px;border:1px solid var(--line)}
+.card{background:white;border-radius:12px;padding:21px 22px;border:1px solid var(--line);box-shadow:0 2px 10px rgba(29,29,31,.035)}
 .card.o{border-top:3px solid var(--orange)}.card.b{border-top:3px solid var(--blue)}.card.dim{border-top:3px solid var(--dim)}.card.g{border-top:3px solid var(--green)}.card.p{border-top:3px solid var(--purple)}
-.ct{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
-.cd{font-size:.96rem;color:var(--dim);line-height:1.55}
-.hl{border-left:3px solid var(--orange);padding:12px 16px;background:rgba(232,84,30,.05);border-radius:0 8px 8px 0;font-size:clamp(1.1rem,1.6vw,1.32rem);color:var(--ink);line-height:1.6;margin:8px 0}
+.ct{font-size:clamp(1.14rem,1.55vw,1.32rem);font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.28}
+.cd{font-size:clamp(1rem,1.32vw,1.13rem);color:var(--dim);line-height:1.62}
+.g4 .card{padding:18px}.g4 .cd{font-size:clamp(.94rem,1.18vw,1.05rem)}.g5 .card{padding:16px}.g5 .cd{font-size:clamp(.86rem,1.04vw,.98rem)}
+.hl{border-left:4px solid var(--orange);padding:15px 18px;background:rgba(232,84,30,.05);border-radius:0 10px 10px 0;font-size:clamp(1.17rem,1.72vw,1.42rem);font-weight:500;color:var(--ink);line-height:1.58;margin:10px 0}
 .hl.bl{border-color:var(--blue);background:rgba(0,102,204,.05)}
 .hl.dim{border-color:var(--dim);background:rgba(110,110,115,.05)}
 .hl.g{border-color:var(--green);background:rgba(22,163,74,.05)}
@@ -85,10 +86,10 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .sticky-meta{font-size:.85rem;color:#92400e;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
 .sticky-meta span{background:rgba(245,158,11,.15);padding:3px 12px;border-radius:10px;font-weight:600}
 .sticky-steps{list-style:none;counter-reset:sn;margin-top:10px}
-.sticky-steps li{counter-increment:sn;font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink);padding:9px 0 9px 42px;position:relative;border-bottom:1px solid rgba(245,158,11,.25)}
+.sticky-steps li{counter-increment:sn;font-size:clamp(1.18rem,1.7vw,1.38rem);color:var(--ink);padding:10px 0 10px 44px;position:relative;border-bottom:1px solid rgba(245,158,11,.25);line-height:1.42}
 .sticky-steps li:last-child{border-bottom:none}
 .sticky-steps li::before{content:counter(sn);width:27px;height:27px;border-radius:6px;background:#f59e0b;color:white;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:8px}
-.sticky-steps li span{font-size:.85rem;color:#92400e;display:block;margin-top:2px}
+.sticky-steps li span{font-size:.98rem;color:#92400e;display:block;margin-top:3px;line-height:1.45}
 /* AI趨勢素材：stat-box / myth-row（取自過去場次投影片，沿用同一套視覺語言） */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
 @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
@@ -102,22 +103,29 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 .myth-tag{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
 .myth-bad .myth-tag{color:#dc2626}
 .myth-good .myth-tag{color:#16a34a}
-.myth-text{font-size:1rem;color:var(--ink);line-height:1.55}
+.myth-text{font-size:clamp(1.08rem,1.45vw,1.22rem);color:var(--ink);line-height:1.58}
 .tool-lane{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
 @media(max-width:700px){.tool-lane{grid-template-columns:1fr}}
 .tool-card{background:white;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:16px 18px}
-.tool-card .name{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
-.tool-card .role{font-size:.82rem;font-weight:700;color:var(--orange);margin-bottom:8px}
-.tool-card .best{font-size:.9rem;color:var(--dim);line-height:1.55}
+.tool-card .name{font-size:1.28rem;font-weight:800;color:var(--ink);margin-bottom:5px}.tool-card .role{font-size:.95rem;font-weight:800;color:var(--orange);margin-bottom:10px}.tool-card .best{font-size:1.05rem;color:var(--dim);line-height:1.58}
 .photo-slide{background-image:linear-gradient(90deg,rgba(15,13,12,.92) 0%,rgba(15,13,12,.76) 40%,rgba(15,13,12,.12) 72%),var(--bg-img);background-position:center;background-size:cover;color:white}
 .photo-slide h2{color:white;border-left-color:var(--orange)}
 .photo-slide .slide-sub{color:rgba(255,255,255,.72)}
 .photo-slide .hl{background:rgba(255,255,255,.10);color:white;border-left-color:var(--orange)}
 .photo-slide .card{background:rgba(255,255,255,.94)}
+.photo-slide .process-step h3{color:white}.photo-slide .process-step p{color:rgba(255,255,255,.78)}
 .step-bars{display:flex;align-items:flex-end;gap:18px;height:150px;margin:12px 0 4px;padding:0 12px;border-bottom:1px solid var(--line)}
 .step-bar{width:28%;border-radius:10px 10px 0 0;padding:10px 12px;color:white;font-weight:800;font-size:.92rem;display:flex;align-items:flex-start;justify-content:center;text-align:center}
 .step-bar small{font-weight:500;font-size:.72rem;line-height:1.35;display:block;margin-top:3px}
 .step-bar.one{height:46%;background:var(--dim)}.step-bar.two{height:68%;background:var(--blue)}.step-bar.three{height:92%;background:var(--orange)}
+/* 投影版視覺語言：提示語像可操作介面；流程像單一路徑，不做密集儀表板。 */
+.prompt-window{margin-top:16px;max-width:1040px;background:#17191e;border:1px solid #30343c;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(20,20,24,.16);color:#f7f4ef}
+.prompt-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#24272e;border-bottom:1px solid #353942;color:#b8bec9;font-size:.78rem;font-weight:700;letter-spacing:1.3px}
+.prompt-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:14px 0 0 #f59e0b,28px 0 0 #4ade80;margin-right:30px}
+.prompt-body{padding:18px 22px;font-size:clamp(1.08rem,1.52vw,1.3rem);line-height:1.68;white-space:pre-line}
+.prompt-body b{color:#ffb99c}.prompt-body .key{color:#9dd8ff;font-weight:800}.prompt-foot{padding:11px 18px;background:rgba(255,255,255,.045);border-top:1px solid #30343c;color:#c4cad3;font-size:.92rem;line-height:1.5}
+.process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-top:24px}.process-rail:before{content:'';position:absolute;left:7%;right:7%;top:31px;height:2px;background:linear-gradient(90deg,var(--orange),var(--blue),var(--green),var(--purple));opacity:.36}.process-step{position:relative;padding-top:4px}.process-n{position:relative;z-index:1;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:white;border:3px solid var(--orange);font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:13px}.process-step:nth-child(2) .process-n{border-color:var(--blue);color:var(--blue)}.process-step:nth-child(3) .process-n{border-color:var(--green);color:var(--green)}.process-step:nth-child(4) .process-n{border-color:var(--purple);color:var(--purple)}.process-step h3{font-size:1.3rem;color:var(--ink);margin-bottom:5px}.process-step p{font-size:1.05rem;color:var(--dim);line-height:1.55}
+@media(max-width:700px){.slide{padding:5vh 7vw}.process-rail{gap:10px}.process-n{width:42px;height:42px;font-size:1rem}.process-step h3{font-size:1rem}.process-step p{font-size:.8rem}.prompt-body{padding:14px;font-size:.95rem}}
 </style>
 </head>
 <body>
@@ -324,11 +332,11 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide">
   <div class="slide-tag">WORKFLOW · 四步驟</div>
   <h2>把亂資料變成能做的事</h2>
-  <div class="cgrid g4" style="margin-top:16px">
-    <div class="card o"><div class="ct">1. 讀</div><div class="cd">圈出日期、數字、條件、誰說的。</div></div>
-    <div class="card b"><div class="ct">2. 分</div><div class="cd">已知／矛盾／缺漏，先不要急著下結論。</div></div>
-    <div class="card g"><div class="ct">3. 問</div><div class="cd">指定角色、資料範圍與輸出格式，請 AI 做初稿。</div></div>
-    <div class="card p"><div class="ct">4. 核</div><div class="cd">逐項回原文核對；不確定就保留待確認。</div></div>
+  <div class="process-rail">
+    <div class="process-step"><div class="process-n">01</div><h3>讀</h3><p>圈出日期、數字、條件與來源。</p></div>
+    <div class="process-step"><div class="process-n">02</div><h3>分</h3><p>已知／矛盾／缺漏，先不下結論。</p></div>
+    <div class="process-step"><div class="process-n">03</div><h3>問</h3><p>限定資料與格式，請 AI 做初稿。</p></div>
+    <div class="process-step"><div class="process-n">04</div><h3>核</h3><p>回到原文；不確定就保留待確認。</p></div>
   </div>
   <div class="hl bl" style="margin-top:18px">不是「把一堆附件丟進去問：幫我做企劃」；而是先定義這一輪要交出什麼。</div>
 </section>
@@ -347,13 +355,16 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide">
   <div class="slide-tag">PROMPT · 讓 AI 做對第一版</div>
   <h2>提示語要有四個零件</h2>
-  <div class="cgrid g4" style="margin-top:16px">
-    <div class="card o"><div class="ct">角色</div><div class="cd">你是專案行政協作人員</div></div>
-    <div class="card b"><div class="ct">範圍</div><div class="cd">只使用我提供的資料</div></div>
-    <div class="card g"><div class="ct">任務</div><div class="cd">整理已知、缺漏與近期工作</div></div>
-    <div class="card p"><div class="ct">格式</div><div class="cd">用表格；找不到就填待確認</div></div>
+  <div class="prompt-window">
+    <div class="prompt-top"><span class="prompt-dot"></span>可直接示範的提示語</div>
+    <div class="prompt-body"><span class="key">角色</span>：你是專案行政協作人員。
+<span class="key">範圍</span>：只使用我提供的資料。
+<span class="key">任務</span>：整理已知、缺漏與近期工作。
+<span class="key">格式</span>：用表格；找不到就填「待確認」。
+
+<b>限制：不要自行補人數、預算、日期或活動內容。</b></div>
+    <div class="prompt-foot">先交代四件事，再貼資料；AI 才有明確工作邊界。</div>
   </div>
-  <div class="hl" style="margin-top:18px">關鍵限制：<b>不要自行補人數、預算、日期或活動內容。</b>這句會讓初稿可靠很多。</div>
 </section>
 
 <section class="slide">
@@ -419,7 +430,10 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
     <div class="card b"><div class="ct">可以提供</div><div class="cd">已公開或去識別化的舊公告、自己寫過且喜歡的信件結構、可公開的格式規範。</div></div>
     <div class="card o"><div class="ct">不應直接提供</div><div class="cd">未公開的完整公文、內部簽呈、合約、名冊、含個資或帳密的原始檔。</div></div>
   </div>
-  <div class="hl">提示寫法：<b>「請參考這份已去識別化範例的語氣與格式；不要沿用其中的姓名、日期與數字。」</b></div>
+  <div class="prompt-window">
+    <div class="prompt-top"><span class="prompt-dot"></span>語氣範例提示寫法</div>
+    <div class="prompt-body">請參考這份<span class="key">已去識別化範例</span>的語氣與格式；<b>不要沿用其中的姓名、日期與數字。</b></div>
+  </div>
 </section>
 
 <section class="slide">
@@ -531,7 +545,14 @@ h2{font-size:clamp(2.1rem,3.6vw,2.9rem);font-weight:700;color:var(--ink);border-
 <section class="slide">
   <div class="slide-tag">PROMPT · 把格式一次說清楚</div>
   <h2>請 AI 寫信，不等於叫它「幫我寫」</h2>
-  <div class="hl bl" style="margin-top:12px">請依下列資料寫一封寄給【對象】的正式電子郵件。信件目的是＿＿；對方需要回覆／執行＿＿；已知條件＿＿；尚待確認＿＿。<b>不要自行補資料。</b>請輸出主旨、完整信件，以及寄出前必查的 3 件事。</div>
+  <div class="prompt-window">
+    <div class="prompt-top"><span class="prompt-dot"></span>寄信提示語範本</div>
+    <div class="prompt-body">請依下列資料寫一封寄給【<span class="key">對象</span>】的正式電子郵件。
+目的：＿＿＿　對方要回覆／執行：＿＿＿
+已知條件：＿＿＿　尚待確認：＿＿＿
+
+<b>不要自行補資料。</b>請輸出主旨、完整信件，以及寄出前必查的 3 件事。</div>
+  </div>
   <div class="cgrid g2" style="margin-top:14px">
     <div class="card o"><div class="ct">好輸入</div><div class="cd">「河岸基地是否能獨立動線？餐車超過 4 台如何安排？請週五前回覆。」</div></div>
     <div class="card dim"><div class="ct">壞輸入</div><div class="cd">「幫我寫一封專業的場地詢問信。」<br>→ AI 只好自行補活動條件。</div></div>
