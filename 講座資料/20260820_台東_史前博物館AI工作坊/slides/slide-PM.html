@@ -20,6 +20,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
 .cover .bar{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
 .cover .pill{font-size:.76rem;color:rgba(255,255,255,.45);padding:5px 14px;border:1px solid rgba(255,255,255,.12);border-radius:20px}
 .cover .ghost{font-size:clamp(8rem,18vw,15rem);font-weight:900;color:rgba(255,255,255,.03);position:absolute;right:5vw;bottom:4vh;line-height:1;pointer-events:none}
+.cover-qr{display:flex;align-items:center;gap:13px;margin-top:22px;position:relative;z-index:1}.cover-qr img{width:92px;height:92px;background:white;padding:5px;border-radius:10px}.cover-qr small{display:block;color:var(--orange);font-size:.72rem;font-weight:800;letter-spacing:2px;margin-bottom:4px}.cover-qr strong{display:block;font-size:1.05rem;color:white;margin-bottom:3px}.cover-qr span{font-size:.82rem;color:rgba(255,255,255,.56);line-height:1.45}
 .sbreak{background:#1a0d07;color:white}
 .sbreak .s-tag,.sbreak .slide-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
 .sbreak h2{font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;color:white;margin-bottom:14px;border:none;padding:0}
@@ -81,6 +82,7 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
 .budget-track{height:22px;border-radius:20px;background:#ece9e4;overflow:hidden}
 .budget-fill{height:100%;border-radius:20px;background:var(--blue)}.budget-fill.new{background:var(--orange)}
 .budget-row b{text-align:right;font-size:1.02rem}
+.survey-close{justify-content:center}.survey-wrap{display:flex;align-items:center;gap:28px;margin-top:18px}.survey-wrap img{width:188px;height:188px;background:white;padding:8px;border-radius:14px;border:3px solid rgba(232,84,30,.58)}.survey-copy{max-width:440px}.survey-copy strong{display:block;font-size:1.35rem;color:white;margin-bottom:8px}.survey-copy p{font-size:1.04rem;color:rgba(255,255,255,.7);line-height:1.65}@media(max-width:700px){.cover-qr{margin-top:14px}.cover-qr img{width:70px;height:70px}.survey-wrap{gap:16px}.survey-wrap img{width:132px;height:132px}.survey-copy strong{font-size:1.08rem}.survey-copy p{font-size:.86rem}}
 /* 投影版視覺語言：提示語像可操作介面；流程像單一路徑，不做密集儀表板。 */
 .prompt-window{margin-top:16px;max-width:1040px;background:#17191e;border:1px solid #30343c;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(20,20,24,.16);color:#f7f4ef}.prompt-top{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#24272e;border-bottom:1px solid #353942;color:#b8bec9;font-size:.78rem;font-weight:700;letter-spacing:1.3px}.prompt-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:14px 0 0 #f59e0b,28px 0 0 #4ade80;margin-right:30px}.prompt-body{padding:18px 22px;font-size:clamp(1.08rem,1.52vw,1.3rem);line-height:1.68;white-space:pre-line}.prompt-body b{color:#ffb99c}.prompt-body .key{color:#9dd8ff;font-weight:800}.prompt-foot{padding:11px 18px;background:rgba(255,255,255,.045);border-top:1px solid #30343c;color:#c4cad3;font-size:.92rem;line-height:1.5}
 .process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-top:24px}.process-rail:before{content:'';position:absolute;left:7%;right:7%;top:31px;height:2px;background:linear-gradient(90deg,var(--orange),var(--blue),var(--green),var(--purple));opacity:.36}.process-step{position:relative;padding-top:4px}.process-n{position:relative;z-index:1;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:white;border:3px solid var(--orange);font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:13px}.process-step:nth-child(2) .process-n{border-color:var(--blue);color:var(--blue)}.process-step:nth-child(3) .process-n{border-color:var(--green);color:var(--green)}.process-step:nth-child(4) .process-n{border-color:var(--purple);color:var(--purple)}.process-step h3{font-size:1.3rem;color:var(--ink);margin-bottom:5px}.process-step p{font-size:1.05rem;color:var(--dim);line-height:1.55}
@@ -100,6 +102,10 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
     <span class="pill">13:00–15:50</span>
     <span class="pill">國立臺灣史前文化博物館</span>
     <span class="pill">2026.08.20</span>
+  </div>
+  <div class="cover-qr">
+    <img src="assets/qr/manus-invitation.png" alt="Manus 邀請 QR Code">
+    <div><small>下午加碼工具</small><strong>掃碼申請 Manus，認識任務代理型 AI</strong><span>今天先用公開或模擬資料練習；是否適合真實工作，仍須由人確認資料與輸出。</span></div>
   </div>
   <div class="ghost">PM</div>
 </section>
@@ -521,11 +527,14 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
   <div class="hl amber" style="margin-top:18px">你不需要從明天開始把所有工作都交給 AI；先挑一件「資料亂、要整理、要交件」的任務，照今天流程跑一次。</div>
 </section>
 
-<!-- 6. 收尾（問卷連結待補） -->
-<section class="slide sbreak">
+<!-- 6. 收尾／課後問卷 -->
+<section class="slide sbreak survey-close">
   <span class="s-tag">課程結束 · 下一步</span>
   <h2>讓 AI 幫你加速，<br>但把判斷留在自己手上</h2>
-  <div class="sub">謝謝今天的投入。離開前，請記下你下一件想用這套流程處理的真實工作任務。<br><br><span style="color:var(--orange)">課後問卷 QR 待補</span></div>
+  <div class="survey-wrap">
+    <img src="assets/qr/post-course-survey.png" alt="課後問卷 QR Code">
+    <div class="survey-copy"><strong>最後，掃碼花 1 分鐘給我回饋</strong><p>哪一段最有用？哪一段太快或太難？你的回饋會直接影響下一次課程怎麼調整。<br><br>也請記下：你下一件想用這套流程處理的真實工作任務。</p></div>
+  </div>
 </section>
 
 <!-- nav -->
