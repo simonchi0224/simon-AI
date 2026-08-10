@@ -317,7 +317,7 @@ const COURSES = [
             title: "成果分享與互評", minutes: 10, range: "70–80", mode: "review",
             speakerNotes: "每組一分鐘，依『資料正確、訊息清楚、下一步可執行』互評。最後回到三條工作紅線：安全、正確、負責；請學員選一件非敏感的真實工作，未來一週照今天流程跑一次。最後引導掃課後問卷 QR Code。",
             studentInstruction: "1 分鐘分享＋互評；寫下下週要試的一件真實工作，以及你會保留的提示語模板。最後完成課後問卷。",
-            resources: [], promptIds: ["p11-fact-check", "p12-personal-template"], checklist: ["完成最終事實核對", "留下可重複使用的個人工作模板", "完成課後問卷"]
+            resources: [], promptIds: [], checklist: ["完成最終事實核對", "留下可重複使用的個人工作模板", "完成課後問卷"]
           }
         ]
       }
