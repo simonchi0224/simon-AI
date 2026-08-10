@@ -120,6 +120,7 @@ const COURSES = [
     resources: [
       { title: "講師入口｜投影片站", type: "site", description: "AM/PM 投影片、提示語全集、工具手冊的總入口", url: SLIDES_BASE + "index.html", openMode: "newtab", revealSession: 1 },
       { title: "學員課前網站", type: "site", description: "課前發給學員的頁面", url: "../lectures/20260820.html", openMode: "newtab", revealSession: 1 },
+      { title: "AI 工具速查手冊", type: "site", description: "34 個 AI 工具＋官方連結、任務×工具地圖、公務資料安全提醒", url: SLIDES_BASE + "handout.html", openMode: "newtab", revealSession: 1 },
       { title: "通用版完整教案 V1", type: "doc", description: "四堂課完整教學設計、講師示範提示詞、評量標準", url: TEMPLATE_BASE + "通用版完整教案V1.md", openMode: "newtab", revealSession: 1 },
       { title: "學員實作手冊 SOP（範例版）", type: "doc", description: "遠景科技情境的操作 SOP 草稿，實際內容以 Drive 任務包為準", url: TEMPLATE_BASE + "學員實作手冊SOP_遠景科技範例.md", openMode: "newtab", revealSession: 1 },
       { title: "課程總覽", type: "doc", description: "本場次的行政資訊、待確認事項清單", url: "../講座資料/20260820_台東_史前博物館AI工作坊/課程總覽.txt", openMode: "newtab", revealSession: 1 },
@@ -157,7 +158,7 @@ const COURSES = [
             title: "示範：任務地圖＋確認信", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "用主管信、去年紀錄與會議筆記示範四步：讀、分、問、核。先找 10/17、48 萬、人數約 200 等矛盾或暫定資訊；再用「角色／範圍／任務／格式」提示語輸出任務地圖；最後把過度武斷的句子改成「暫定」或「待確認」，再濃縮成主管確認信。",
             studentInstruction: "看四個畫面：原始資料、提示語、AI 初稿、人工核對。留意 AI 是否把暫定日期、預算與人數寫成定案。",
-            resources: [], promptIds: ["prefix", "p1-task-map", "p3-confirm-letter"],
+            resources: [], promptIds: ["prefix", "p1-task-map", "p2-confirm-letter"],
             checklist: []
           },
           {
@@ -167,7 +168,7 @@ const COURSES = [
             resources: [
               { title: "Drive｜第一堂原始資料", type: "folder", description: "本堂唯一資料來源", url: DRIVE_SESSION1, openMode: "newtab", revealSession: 1 }
             ],
-            promptIds: ["prefix", "p1-task-map", "p3-confirm-letter"],
+            promptIds: ["prefix", "p1-task-map", "p2-confirm-letter"],
             checklist: ["六格皆有內容，待確認項目不得被 AI 虛構答案取代", "工作優先順序至少三個層次", "確認信讓主管能快速回覆或裁示"]
           },
           {
@@ -206,7 +207,7 @@ const COURSES = [
             title: "示範：同一份資料轉三種文字", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "以同一份家庭日資料示範三種讀者：主管要判斷與裁示、廠商要需求與回覆期限、同仁只要已確認的參加資訊。示範合作信的主旨、脈絡、條列問題與下一步；再請 AI 輸出寄出前必查 3 件事。示範把未核定資訊改成「後續公告」。",
             studentInstruction: "觀察同一份資料如何因讀者不同而取捨，也檢查 AI 是否自行補上場地、人數、預算或承諾。",
-            resources: [], promptIds: ["prefix", "p4-vendor-email", "p5-memo-draft", "p6-announcement-faq"],
+            resources: [], promptIds: ["prefix", "p3-formal-email", "p4-announcement-faq"],
             checklist: []
           },
           {
@@ -216,7 +217,7 @@ const COURSES = [
             resources: [
               { title: "Drive｜第二堂起補充資料", type: "folder", description: "主管與部門來信串、廠商詢價等；連結暫不公開", url: "", openMode: "newtab", revealSession: 2 }
             ],
-            promptIds: ["prefix", "p4-vendor-email", "p5-memo-draft", "p6-announcement-faq"],
+            promptIds: ["prefix", "p3-formal-email", "p4-announcement-faq"],
             checklist: ["合作單位信有主旨、目的、具體問題與下一步", "主管摘要保留可調整的事實文字，不替主管做決定", "公告與 FAQ 只使用已確認資訊，未定內容標示後續公告", "未貼入個資、帳密、未公開合約、敏感人事或採購資料"]
           },
           {
@@ -254,7 +255,7 @@ const COURSES = [
             title: "示範：會議摘要＋追蹤表＋會後信", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "以原始筆記示範陷阱：10/17 只是暫定、48 萬有條件、行政與人資未必已被指派。先要求 AI 只整理明確內容，再輸出 100 字摘要、決議、待確認、追蹤表與三項風險；逐列保留『依據』欄。最後草擬可讓與會者修正的確認信。",
             studentInstruction: "跟著看示範，檢查 AI 有沒有把『好像是行政跟人資』誤寫成主責；請記下正確寫法：負責人待確認，並寫清楚要問誰。",
-            resources: [], promptIds: ["prefix", "p7-meeting-tracker", "p8-followup-letter"],
+            resources: [], promptIds: ["prefix", "p5-meeting-tracker", "p6-followup-letter"],
             checklist: []
           },
           {
@@ -264,7 +265,7 @@ const COURSES = [
             resources: [
               { title: "第一次籌備會原始筆記", type: "folder", description: "本堂以原始會議筆記和後續信件為資料來源；連結暫不公開", url: "", openMode: "newtab", revealSession: 3 }
             ],
-            promptIds: ["prefix", "p7-meeting-tracker", "p8-followup-letter"],
+            promptIds: ["prefix", "p5-meeting-tracker", "p6-followup-letter"],
             checklist: ["討論與決議有分開", "每個待辦有負責人與期限，或清楚標示待確認", "列出至少一項可能影響預算、場地或時程的風險"]
           },
           {
@@ -302,14 +303,14 @@ const COURSES = [
             title: "示範：簡報大綱＋海報規格", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "發出變更情境：場地 A 取消，預算從 48 萬下修為 42 萬。示範先停止哪些假設、重算哪些成本、要主管決定什麼；再將前三堂已確認資料與待決策事項轉成五頁簡報。接著示範海報三層資訊與 150 字短文，只保留已確認內容。",
             studentInstruction: "跟著看示範：先整理影響、選項、待決策，再請 AI 產出有格式的大綱；留意未確認資訊必須標為待確認或後續公告。",
-            resources: [], promptIds: ["prefix", "p9-exec-deck", "p10-poster-spec"],
+            resources: [], promptIds: ["prefix", "p7-exec-deck", "p8-poster-summary"],
             checklist: []
           },
           {
             title: "分組實作：簡報＋海報＋對外說明", minutes: 30, range: "40–70", mode: "exercise",
             speakerNotes: "提供變更卡後，要求各組先更新任務地圖與追蹤表，再做成果呈現。不比美工，比內容是否能支持決策與下一步。",
             studentInstruction: "先更新取消場地與預算下修的影響；完成五頁主管簡報大綱、海報內容稿與 150 字內對外說明。每組準備一分鐘說明：主管現在需要決定什麼？",
-            resources: [], promptIds: ["prefix", "p9-exec-deck", "p10-poster-spec"],
+            resources: [], promptIds: ["prefix", "p7-exec-deck", "p8-poster-summary"],
             checklist: ["五頁簡報清楚呈現規模／方案／成本／風險／需要主管決定的事", "海報只使用已確認資訊，並有對象、必要資訊與下一步", "對外說明 150 字內，讀者知道是什麼、與誰有關、下一步怎麼做", "圖片、引用、數據與權利已被標記為需確認或已確認"]
           },
           {
