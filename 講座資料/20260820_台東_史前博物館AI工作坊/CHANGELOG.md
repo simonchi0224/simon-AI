@@ -32,3 +32,4 @@
 
 - 學員課前網站新增工具入口：ChatGPT、Gemini、Perplexity、NotebookLM、Claude 與 Manus 推薦連結。
 - 補充登入提醒與跨工具一致的資料安全警語。
+- Manus 移至工具入口第一張，以醒目推薦卡補充 Agent 任務情境、推薦原因與人工核對邊界。
