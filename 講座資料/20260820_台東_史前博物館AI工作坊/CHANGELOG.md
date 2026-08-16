@@ -33,3 +33,8 @@
 - 學員課前網站新增工具入口：ChatGPT、Gemini、Perplexity、NotebookLM、Claude 與 Manus 推薦連結。
 - 補充登入提醒與跨工具一致的資料安全警語。
 - Manus 移至工具入口第一張，以醒目推薦卡補充 Agent 任務情境、推薦原因與人工核對邊界。
+
+## 2026-08-16｜下午場補充 AI 通用工作觀念
+
+- 在下午第 3 堂工具地圖後新增 7 張投影片：一次性提示語與工作系統、ChatGPT 自訂 GPT／Gemini Gem、Project、NotebookLM、連接器權限、模型選擇與先快後深的兩輪工作法。
+- 模型頁以目前 ChatGPT 的 GPT‑5.5 Instant、GPT‑5.6 Sol 推理層級為例，並標註實際選項依帳號方案與介面為準，避免版本名稱被誤用為固定規則。

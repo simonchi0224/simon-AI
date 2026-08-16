@@ -312,26 +312,26 @@ const COURSES = [
         ],
         segments: [
           {
-            title: "引導：找出討論／定案／沒負責人", minutes: 10, range: "0–10", mode: "intro",
+            title: "引導：找出討論／定案／沒負責人", minutes: 8, range: "0–8", mode: "intro",
             speakerNotes: "先複習：對話式 AI 適合草稿、帶來源 AI 適合讀資料、代理型 AI 適合可撤回的多步驟公開／模擬任務。接著用混亂會議筆記問大家：哪些只是討論、哪些已定案、哪些沒有主責？",
             studentInstruction: "從筆記中找出一個討論、一個決議、一個待辦與一個缺少負責人的地方。",
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "方法：會議整理五欄", minutes: 15, range: "10–25", mode: "lecture",
-            speakerNotes: "先談副駕駛與代理人的人類審核關卡：目標、資料範圍、步驟格式、停止條件。再帶會前 10 分鐘與會後 10 分鐘流程；會後先切四類：討論／決議／待辦／風險或待裁示。強調每一句要找得到來源與狀態。",
-            studentInstruction: "先聽方法。記下原則：『有人提議』不等於『已決議』；沒有主責、期限或權責，就寫待確認。",
+            title: "方法：AI 工作系統＋會議整理五欄", minutes: 22, range: "8–30", mode: "lecture",
+            speakerNotes: "先用新增的七張通用觀念投影片快速建立系統觀：單次 Prompt 與可重複模板、ChatGPT 自訂 GPT／Gemini Gem、Project、NotebookLM、連接器權限，以及模型的先快後深。核心講法是：先把資料和規則做對，再升模型；Project 不是檔案垃圾桶，外掛先看權限。時間不足時優先講 GPT／Gem、NotebookLM、模型兩輪工作法，其餘作為課後閱讀。接著帶回會前／會後流程與會議五欄：討論、決議、待辦、風險或待裁示；每一句都要找得到來源與狀態。",
+            studentInstruction: "記下兩條原則：『有人提議』不等於『已決議』；模型更強也不能補足錯的資料。沒有主責、期限或權責，就寫待確認。",
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "示範：會議摘要＋追蹤表＋會後信", minutes: 15, range: "25–40", mode: "demo",
+            title: "示範：會議摘要＋追蹤表＋會後信", minutes: 12, range: "30–42", mode: "demo",
             speakerNotes: "以原始筆記示範陷阱：10/17 只是暫定、48 萬有條件、行政與人資未必已被指派。先要求 AI 只整理明確內容，再輸出 100 字摘要、決議、待確認、追蹤表與三項風險；逐列保留『依據』欄。最後草擬可讓與會者修正的確認信。",
             studentInstruction: "跟著看示範，檢查 AI 有沒有把『好像是行政跟人資』誤寫成主責；請記下正確寫法：負責人待確認，並寫清楚要問誰。",
             resources: [], promptIds: ["prefix", "p5-meeting-tracker", "p6-followup-letter"],
             checklist: []
           },
           {
-            title: "分組實作：整理會議＋處理變更卡", minutes: 35, range: "40–75", mode: "exercise",
+            title: "分組實作：整理會議＋處理變更卡", minutes: 33, range: "42–75", mode: "exercise",
             speakerNotes: "提醒錄音、逐字稿與會議資料不一定能上傳；本堂只用任務包。巡組時由資料查核角色問每列來源，避免任意補人名與期限。",
             studentInstruction: "完成一頁式會議摘要、工作追蹤表、會後確認信與至少一項待主管裁示的風險。追蹤表每列都要有工作、負責人、期限、狀態、依據與卡點／下一步。",
             resources: [
