@@ -26,3 +26,9 @@
 - 修改 `slide-AM.html`、`slide-PM.html` 的教學流程時，必須同步更新 `console/data/data.js` 的四堂課段落說明。
 - 對外網址使用英文／數字路徑；中文資料夾僅作為本地教材整理用途。
 - 更新後只提交與本場相關的檔案，並確認公開入口可使用。
+# 台東場｜Change Log
+
+## 2026-08-16｜課前網站工具入口擴充
+
+- 學員課前網站新增工具入口：ChatGPT、Gemini、Perplexity、NotebookLM、Claude 與 Manus 推薦連結。
+- 補充登入提醒與跨工具一致的資料安全警語。
