@@ -394,6 +394,43 @@ const COURSES = [
         ]
       }
     ]
+  },
+  {
+    id: "coach-ai-0902",
+    title: "AI 教練工作術：運用 Claude 協助訓練規劃與行政工作",
+    audience: "高雄國訓中心退役教練約 50 人（講述與現場示範為主）",
+    date: "2026-09-02（三）",
+    time: "10:45–12:45",
+    location: "高雄市左營區世運大道 399 號",
+    tags: ["教練", "Claude", "生成式AI", "示範講座"],
+    version: "V1",
+    updatedAt: "2026-08-12",
+    summary: "以虛構高中田徑短跑隊的匿名案例，示範 ChatGPT、Gemini 與 Claude 在任務拆解、資料整理、訓練週計畫、行政公告與安全審核上的分工；不輸入任何真實選手、傷病或可識別資料。",
+    resources: [
+      { title: "講師入口", type: "site", description: "本場次總入口與課程資訊", url: "../w/20260902-index.html", openMode: "newtab", revealSession: 1 },
+      { title: "講師控制台", type: "site", description: "三欄講師模式、計時、講稿與示範備援", url: "../w/20260902-presenter.html", openMode: "newtab", revealSession: 1 },
+      { title: "50 頁投影片", type: "slides", description: "投影模式；可用鍵盤翻頁、黑幕、總覽與備援結果", url: "../w/20260902-slides.html", openMode: "newtab", revealSession: 1 },
+      { title: "學員提示語與案例資料", type: "site", description: "可複製提示語、匿名案例檔與工具入口", url: "../w/20260902-resources.html", openMode: "newtab", revealSession: 1 },
+      { title: "學員課前入口", type: "site", description: "可於課前分享給學員的簡明頁面", url: "../lectures/20260902.html", openMode: "newtab", revealSession: 1 }
+    ],
+    sessions: [
+      {
+        id: "coach-0902-main",
+        title: "兩小時講座．AI 教練工作術",
+        timeLabel: "10:45–12:45",
+        durationMinutes: 120,
+        objective: "知道三類 AI 的工作邊界，能用匿名虛構案例觀察 Claude 的整理、規劃與檢核流程，並保留教練的專業判斷與資料安全責任。",
+        outputs: ["一套可重複使用的工作提示語", "一份經人工審核的訓練規劃草稿"],
+        resources: [],
+        segments: [
+          { title: "開場與安全邊界", minutes: 15, range: "10:45–11:00", mode: "intro", speakerNotes: "先建立 AI 是副駕駛、真實選手與傷病資料不輸入的原則；以匿名短跑隊案例帶入。", studentInstruction: "辨識哪些資料可當練習素材、哪些必須留在單位內部。", resources: [], promptIds: [], checklist: ["不輸入姓名、醫療、成績或可識別選手資料"] },
+          { title: "AI 工具分工與提示語", minutes: 30, range: "11:00–11:30", mode: "lecture", speakerNotes: "比較對話、資料閱讀與長文件工作空間的適用情境；帶 Prompt 四要素與人工核對關卡。", studentInstruction: "觀察同一任務如何用目的、資料、限制與輸出格式講清楚。", resources: [], promptIds: [], checklist: [] },
+          { title: "Claude 現場示範", minutes: 35, range: "11:30–12:05", mode: "demo", speakerNotes: "依 D01–D09 示範資料整理、微週期、場地替代、行政公告與品質檢核；網路或工具不穩時切到備援結果。", studentInstruction: "記錄 AI 哪些地方需要補資料、哪些結論必須由教練判斷。", resources: [], promptIds: [], checklist: ["每個建議都回到原始資料與訓練原理檢查"] },
+          { title: "休息", minutes: 15, range: "12:05–12:20", mode: "review", speakerNotes: "投影休息倒數；講師檢查下一段示範素材與網路。", studentInstruction: "休息後回座。", resources: [], promptIds: [], checklist: [] },
+          { title: "工作空間、Q&A 與下一步", minutes: 25, range: "12:20–12:45", mode: "review", speakerNotes: "以 D10 收束，回到安全、正確、負責三件事；讓學員帶走一個低風險、可嘗試的真實工作。", studentInstruction: "寫下下週想先用 AI 處理的一件非敏感工作與人工檢查點。", resources: [], promptIds: [], checklist: ["確定人工最終審核者"] }
+        ]
+      }
+    ]
   }
 ];
 

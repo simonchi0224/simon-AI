@@ -1,0 +1,3 @@
+/* Presentational helpers for live demo fallback and the break timer. */
+.demo-state,.break-clock{margin-top:24px;max-width:920px;background:#162119;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--muted);font-size:clamp(.95rem,1.3vw,1.15rem)}
+.demo-state b{color:var(--lime);margin-right:12px}.demo-state .btn{float:right;padding:6px 10px;font-size:.78rem}.demo-state p{clear:both;margin:12px 0 0}.break-clock{color:var(--lime);font-size:1.2rem}.break-clock strong{font-size:2rem;margin-left:8px}.break-clock small{color:var(--muted)}
