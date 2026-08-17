@@ -54,7 +54,8 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
 .src-note{font-size:.76rem;color:var(--ink3);font-style:italic;line-height:1.5;margin-top:6px}
 .src-note b{font-style:normal;color:var(--dim)}
 .intro{background:#0f0d0c;color:white}
-.intro-inner{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.intro-inner{display:grid;grid-template-columns:.8fr 1.15fr 1.35fr;gap:30px;align-items:center}
+.intro-portrait{width:100%;max-height:min(56vh,430px);object-fit:cover;object-position:center top;border-radius:18px;display:block;border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 36px rgba(0,0,0,.28)}
 .intro-name{font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:900;color:white;margin-bottom:6px}
 .intro-title{font-size:clamp(.9rem,1.4vw,1.1rem);color:var(--orange);font-weight:600;margin-bottom:20px}
 .intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
@@ -125,7 +126,7 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
 .prompt-body{padding:18px 22px;font-size:clamp(1.08rem,1.52vw,1.3rem);line-height:1.68;white-space:pre-line}
 .prompt-body b{color:#ffb99c}.prompt-body .key{color:#9dd8ff;font-weight:800}.prompt-foot{padding:11px 18px;background:rgba(255,255,255,.045);border-top:1px solid #30343c;color:#c4cad3;font-size:.92rem;line-height:1.5}
 .process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-top:24px}.process-rail:before{content:'';position:absolute;left:7%;right:7%;top:31px;height:2px;background:linear-gradient(90deg,var(--orange),var(--blue),var(--green),var(--purple));opacity:.36}.process-step{position:relative;padding-top:4px}.process-n{position:relative;z-index:1;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:white;border:3px solid var(--orange);font-size:1.3rem;font-weight:900;color:var(--orange);margin-bottom:13px}.process-step:nth-child(2) .process-n{border-color:var(--blue);color:var(--blue)}.process-step:nth-child(3) .process-n{border-color:var(--green);color:var(--green)}.process-step:nth-child(4) .process-n{border-color:var(--purple);color:var(--purple)}.process-step h3{font-size:1.3rem;color:var(--ink);margin-bottom:5px}.process-step p{font-size:1.05rem;color:var(--dim);line-height:1.55}
-@media(max-width:700px){.slide{padding:5vh 7vw}.process-rail{gap:10px}.process-n{width:42px;height:42px;font-size:1rem}.process-step h3{font-size:1rem}.process-step p{font-size:.8rem}.prompt-body{padding:14px;font-size:.95rem}}
+@media(max-width:700px){.slide{padding:5vh 7vw}.process-rail{gap:10px}.process-n{width:42px;height:42px;font-size:1rem}.process-step h3{font-size:1rem}.process-step p{font-size:.8rem}.prompt-body{padding:14px;font-size:.95rem}.intro-inner{grid-template-columns:1fr;gap:18px}.intro-portrait{width:min(220px,58vw);max-height:280px}}
 </style>
 </head>
 <body>
@@ -149,6 +150,7 @@ h2{font-size:clamp(2.35rem,4.05vw,3.45rem);font-weight:800;color:var(--ink);bord
 <!-- 2. 講師介紹 -->
 <section class="slide intro">
   <div class="intro-inner">
+    <div><img class="intro-portrait" src="../../../Simon_形象照/Simon形象照2.png" alt="季祥 Simon Chi 講師形象照"></div>
     <div>
       <div class="intro-name">季祥<br>Simon Chi</div>
       <div class="intro-title">AI 實戰顧問 · 企業 / 公部門培訓講師</div>
