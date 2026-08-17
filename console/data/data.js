@@ -245,7 +245,7 @@ const COURSES = [
           },
           {
             title: "收束：資料查核員的 90 秒", minutes: 5, range: "75–80", mode: "review",
-            speakerNotes: "以投影片交件前 90 秒檢查收尾：數字日期能否回原文、不確定是否標待確認、優先順序是否清楚、主管是否知道要回覆什麼。請各組分享一個最容易忽略的風險。",
+            speakerNotes: "以投影片交件前 90 秒檢查收尾：數字日期能否回原文、不確定是否標待確認、優先順序是否清楚、主管是否知道要回覆什麼。接著切到本堂固定的 FAQ 與 Q&A 兩頁，留 2 分鐘處理任務地圖、待確認與確認信的問題，再進下一堂。",
             studentInstruction: "請非主要操作的人當資料查核員，完成 90 秒檢查；一句話分享風險並存檔。",
             resources: [], promptIds: [],
             checklist: []
@@ -294,7 +294,7 @@ const COURSES = [
           },
           {
             title: "收束：AI寫太滿或太空的地方", minutes: 5, range: "75–80", mode: "review",
-            speakerNotes: "以五關檢查收束：來源、名稱日期數字規則、待確認、讀者適切性、最終責任。請各組分享一處 AI 寫得太滿或太空，以及精準怎麼修。",
+            speakerNotes: "以五關檢查收束：來源、名稱日期數字規則、待確認、讀者適切性、最終責任。請各組分享一處 AI 寫得太滿或太空，以及精準怎麼修；再用本堂 FAQ／Q&A 兩頁收問題，最後轉入下午。",
             studentInstruction: "一句話分享：AI 哪裡寫錯或寫太空？你加了哪一項背景、限制或格式讓它變得可用？",
             resources: [], promptIds: [], checklist: []
           }
@@ -342,7 +342,7 @@ const COURSES = [
           },
           {
             title: "收束：最可能延誤專案的是什麼", minutes: 5, range: "75–80", mode: "review",
-            speakerNotes: "請各組用一句話說明最可能延誤專案的風險、它的依據，以及應由誰決定或協助。提醒下午下一堂會收到場地取消、預算下修的變更情境。",
+            speakerNotes: "請各組用一句話說明最可能延誤專案的風險、它的依據，以及應由誰決定或協助。接著切到本堂 FAQ／Q&A 兩頁，處理討論與決議、追蹤表與資料安全的問題，再進下一堂。",
             studentInstruction: "一句話分享：最可能延誤的是什麼？依據在哪裡？誰應決定？",
             resources: [], promptIds: [], checklist: []
           }
@@ -427,7 +427,7 @@ const COURSES = [
           { title: "AI 工具分工與提示語", minutes: 30, range: "11:00–11:30", mode: "lecture", speakerNotes: "比較對話、資料閱讀與長文件工作空間的適用情境；帶 Prompt 四要素與人工核對關卡。", studentInstruction: "觀察同一任務如何用目的、資料、限制與輸出格式講清楚。", resources: [], promptIds: [], checklist: [] },
           { title: "Claude 現場示範", minutes: 35, range: "11:30–12:05", mode: "demo", speakerNotes: "依 D01–D09 示範資料整理、微週期、場地替代、行政公告與品質檢核；網路或工具不穩時切到備援結果。", studentInstruction: "記錄 AI 哪些地方需要補資料、哪些結論必須由教練判斷。", resources: [], promptIds: [], checklist: ["每個建議都回到原始資料與訓練原理檢查"] },
           { title: "休息", minutes: 15, range: "12:05–12:20", mode: "review", speakerNotes: "投影休息倒數；講師檢查下一段示範素材與網路。", studentInstruction: "休息後回座。", resources: [], promptIds: [], checklist: [] },
-          { title: "工作空間、Q&A 與下一步", minutes: 25, range: "12:20–12:45", mode: "review", speakerNotes: "以 D10 收束，回到安全、正確、負責三件事；讓學員帶走一個低風險、可嘗試的真實工作。", studentInstruction: "寫下下週想先用 AI 處理的一件非敏感工作與人工檢查點。", resources: [], promptIds: [], checklist: ["確定人工最終審核者"] }
+          { title: "FAQ、Q&A 與下一步", minutes: 25, range: "12:20–12:45", mode: "review", speakerNotes: "用最後兩張投影片收束：先回答成果發布、海報資訊與最終責任的 FAQ；再以 Q&A 與問卷 QR Code 完成最後提問、課程回饋與下一步。", studentInstruction: "提出最後一個問題；掃碼回饋，並寫下下週想先用 AI 處理的一件非敏感工作與人工檢查點。", resources: [], promptIds: [], checklist: ["確定人工最終審核者"] }
         ]
       }
     ]
