@@ -183,12 +183,12 @@ const COURSES = [
     title: "老闆沒說但你一定要會：如何用 AI 實現準時下班的快樂研習",
     audience: "國立臺灣史前文化博物館場（人數/職務待確認；課堂練習情境為虛構企業「遠景科技」，與史前館本身業務無關）",
     date: "2026-08-20（四）",
-    time: "08:40 報到／09:00 開場／09:10–11:50 上午第 1–3 節（10:00 休息一次）／13:30 下午報到／13:40–16:20 下午第 5–7 節（14:30 休息一次；最後 5 分鐘回饋）",
+    time: "08:40 報到／09:00 開場／09:10–10:30 第 1 堂／10:30–10:40 休息／10:40–12:00 第 2 堂／13:30 下午報到／13:40–15:00 第 3 堂／15:00–15:10 休息／15:10–16:30 第 4 堂（最後 10 分鐘 Q&A 與回饋）",
     location: "國立臺灣史前文化博物館 2058 會議室",
     tags: ["AI工作坊", "職場實作", "通用版教案"],
     version: "V1",
     updatedAt: "2026-08-10",
-    summary: "以虛構的遠景科技「2026 員工家庭日」情境，練習把交辦、信件、會議與成果整理成可交付的工作流程；上午、下午各只休息一次 10 分鐘，下午第 7 節最後五分鐘完成回饋，16:20 準時結束。",
+    summary: "以虛構的遠景科技「2026 員工家庭日」情境，練習把交辦、信件、會議與成果整理成可交付的工作流程；上午、下午皆為 80 分鐘上課、休息 10 分鐘、再上 80 分鐘，16:30 結束。",
     resources: [
       { title: "講師入口｜投影片站", type: "site", description: "AM/PM 投影片、提示語全集、工具手冊的總入口", url: SLIDES_BASE + "index.html", openMode: "newtab", revealSession: 1 },
       { title: "學員課前網站", type: "site", description: "課前發給學員的頁面", url: "../lectures/20260820.html", openMode: "newtab", revealSession: 1 },
@@ -203,8 +203,8 @@ const COURSES = [
       {
         id: "s1",
         title: "第1堂．把模糊交辦，變成可執行的任務",
-        timeLabel: "09:10–10:00（第 1 節）",
-        durationMinutes: 50,
+        timeLabel: "09:10–10:30（第 1 堂）",
+        durationMinutes: 80,
         objective: "先建立正確 AI 工作觀：AI 負責依資料整理初稿，人負責核對與決定。能辨識交辦中的目標、受眾、交付物、期限、限制與未知問題，並完成任務地圖與主管確認信。",
         outputs: ["一頁式任務地圖", "工作優先順序（立即處理／等待確認／可後續處理）", "主管確認信"],
         resources: [
@@ -213,28 +213,28 @@ const COURSES = [
         ],
         segments: [
           {
-            title: "開場：發下任務包", minutes: 5, range: "0–5", mode: "intro",
+            title: "開場：發下任務包", minutes: 10, range: "0–10", mode: "intro",
             speakerNotes: "先說明四堂課會把一個專案做成可交付成果；發下第一堂原始資料，請每組用兩分鐘說出：遠景科技究竟要辦什麼、資料散在哪裡。提醒今天練的是虛構情境，不輸入真實敏感資料。",
             studentInstruction: "先讀任務包並回答：我們現在被交辦什麼？哪一句最不清楚？哪個資訊一旦錯了，後面會全部重做？",
             resources: [], promptIds: [],
             checklist: ["每組都拿到任務包（Drive 第一堂原始資料）"]
           },
           {
-            title: "方法：任務拆解六格", minutes: 10, range: "5–15", mode: "lecture",
+            title: "方法：任務拆解六格", minutes: 15, range: "10–25", mode: "lecture",
             speakerNotes: "連結投影片的四個觀念：AI 生成的是最可能的文字、不是自動查證的事實；搜尋是找來源、生成式 AI 是依資料做草稿；價值在可重複流程；工作習慣是會使用、會評估、會負責。再帶任務拆解六格：目標、對象、交付物、限制、時程、待確認。",
             studentInstruction: "先不要操作 AI。把今天的安全句型記下來：資料沒有寫，就標示「待確認」，不要請 AI 猜。",
             resources: [], promptIds: [],
             checklist: []
           },
           {
-            title: "示範：任務地圖＋確認信", minutes: 10, range: "15–25", mode: "demo",
+            title: "示範：任務地圖＋確認信", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "用主管信、去年紀錄與會議筆記示範四步：讀、分、問、核。先找 10/17、48 萬、人數約 200 等矛盾或暫定資訊；再用「角色／範圍／任務／格式」提示語輸出任務地圖；最後把過度武斷的句子改成「暫定」或「待確認」，再濃縮成主管確認信。",
             studentInstruction: "看四個畫面：原始資料、提示語、AI 初稿、人工核對。留意 AI 是否把暫定日期、預算與人數寫成定案。",
             resources: [], promptIds: ["prefix", "p1-task-map", "p2-confirm-letter"],
             checklist: []
           },
           {
-            title: "分組實作：任務地圖＋確認信", minutes: 20, range: "25–45", mode: "exercise",
+            title: "分組實作：任務地圖＋確認信", minutes: 35, range: "40–75", mode: "exercise",
             speakerNotes: "提醒每組輪流操作，並指定資料查核角色。巡組只問：資料出處在哪裡？這件事誰有權決定？這份成果下一位誰會用？",
             studentInstruction: "先讀資料 3 分鐘，每人找 3 個已知條件與 1 個矛盾或缺漏；再完成任務地圖、近期工作優先順序、至少 3 個待確認問題與主管確認信。",
             resources: [
@@ -244,7 +244,7 @@ const COURSES = [
             checklist: ["六格皆有內容，待確認項目不得被 AI 虛構答案取代", "工作優先順序至少三個層次", "確認信讓主管能快速回覆或裁示"]
           },
           {
-            title: "收束：資料查核員的 90 秒", minutes: 5, range: "45–50", mode: "review",
+            title: "收束：資料查核員的 90 秒", minutes: 5, range: "75–80", mode: "review",
             speakerNotes: "以投影片交件前 90 秒檢查收尾：數字日期能否回原文、不確定是否標待確認、優先順序是否清楚、主管是否知道要回覆什麼。先帶讀課前網站的萬用提示語骨架與 ChatGPT／Gemini／Claude 的適用位置；接著切到本堂固定的 FAQ 與 Q&A 兩頁，留 2 分鐘處理任務地圖、待確認與確認信的問題，再進下一堂。",
             studentInstruction: "請非主要操作的人當資料查核員，完成 90 秒檢查；一句話分享風險並存檔。",
             resources: [], promptIds: [],
@@ -255,8 +255,8 @@ const COURSES = [
       {
         id: "s2",
         title: "第2堂．讓不同對象，都收到清楚而合適的文字",
-        timeLabel: "10:10–11:50（第 2–3 節）",
-        durationMinutes: 100,
+        timeLabel: "10:40–12:00（第 2 堂）",
+        durationMinutes: 80,
         objective: "能依讀者選擇工具、界定可公開資料與調整訊息層級；能把同一份專案資料轉成合作信、主管摘要、公告與 FAQ，並在發送前完成事實、安全與責任檢查。",
         outputs: ["合作單位電子郵件", "公文／簽核說明初稿", "對外公告＋三題常見問答"],
         resources: [
@@ -270,20 +270,20 @@ const COURSES = [
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "方法：對象／目的／必要資訊／語氣／下一步", minutes: 20, range: "10–30", mode: "lecture",
+            title: "方法：對象／目的／必要資訊／語氣／下一步", minutes: 15, range: "10–25", mode: "lecture",
             speakerNotes: "帶三個寫前問題：寫給誰、要他做什麼、什麼能公開。補充可用的去識別化語氣範例、如何直接指出 AI 要修哪裡，以及資料分級：公開／去識別化後可用／不可貼。提醒對外內容、引用與承諾都仍由人負責。",
             studentInstruction: "先聽方法。準備用「對象／目的／已知條件／待確認／輸出格式」取代模糊的『幫我寫一封專業信』。",
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "示範：同一份資料轉三種文字", minutes: 20, range: "30–50", mode: "demo",
+            title: "示範：同一份資料轉三種文字", minutes: 15, range: "25–40", mode: "demo",
             speakerNotes: "以同一份家庭日資料示範三種讀者：主管要判斷與裁示、廠商要需求與回覆期限、同仁只要已確認的參加資訊。示範合作信的主旨、脈絡、條列問題與下一步；再請 AI 輸出寄出前必查 3 件事。示範把未核定資訊改成「後續公告」。",
             studentInstruction: "觀察同一份資料如何因讀者不同而取捨，也檢查 AI 是否自行補上場地、人數、預算或承諾。",
             resources: [], promptIds: ["prefix", "p3-formal-email", "p4-announcement-faq"],
             checklist: []
           },
           {
-            title: "分組實作：三份文字成果", minutes: 40, range: "50–90", mode: "exercise",
+            title: "分組實作：三份文字成果", minutes: 35, range: "40–75", mode: "exercise",
             speakerNotes: "要求每組先選對象與目的，再用補充資料完成文字包。巡組特別檢查資料是否去識別化、是否有未核定資訊對外流出。完成後互換，以『讀者知道下一步嗎』檢查。",
             studentInstruction: "完成合作單位正式信、主管摘要或簽核初稿、公告與三題 FAQ。每份都標出已知與待確認資訊；互換另一組檢查語氣、事實、承諾與下一步。",
             resources: [
@@ -293,7 +293,7 @@ const COURSES = [
             checklist: ["合作單位信有主旨、目的、具體問題與下一步", "主管摘要保留可調整的事實文字，不替主管做決定", "公告與 FAQ 只使用已確認資訊，未定內容標示後續公告", "未貼入個資、帳密、未公開合約、敏感人事或採購資料"]
           },
           {
-            title: "收束：AI寫太滿或太空的地方", minutes: 10, range: "90–100", mode: "review",
+            title: "收束：AI寫太滿或太空的地方", minutes: 5, range: "75–80", mode: "review",
             speakerNotes: "以五關檢查收束：來源、名稱日期數字規則、待確認、讀者適切性、最終責任。請各組分享一處 AI 寫得太滿或太空，以及精準怎麼修；帶讀課前網站的語氣改寫與多版本活動文案，再用本堂 FAQ／Q&A 兩頁收問題，最後轉入下午。",
             studentInstruction: "一句話分享：AI 哪裡寫錯或寫太空？你加了哪一項背景、限制或格式讓它變得可用？",
             resources: [], promptIds: [], checklist: []
@@ -303,8 +303,8 @@ const COURSES = [
       {
         id: "s3",
         title: "第3堂．會議結束後，讓事情真的往下走",
-        timeLabel: "13:40–14:30（第 5 節）",
-        durationMinutes: 50,
+        timeLabel: "13:40–15:00（第 3 堂）",
+        durationMinutes: 80,
         objective: "能判斷對話式、帶來源與代理型 AI 的適用邊界；能把會議筆記轉成可追溯的摘要、決議、待辦、負責人、期限與風險，並透過會後確認信讓工作真的接得下去。",
         outputs: ["一頁式會議摘要", "工作追蹤表", "會後確認信", "一項待主管決定的風險事項"],
         resources: [
@@ -312,26 +312,26 @@ const COURSES = [
         ],
         segments: [
           {
-            title: "引導：找出討論／定案／沒負責人", minutes: 5, range: "0–5", mode: "intro",
+            title: "引導：找出討論／定案／沒負責人", minutes: 8, range: "0–8", mode: "intro",
             speakerNotes: "先複習：對話式 AI 適合草稿、帶來源 AI 適合讀資料、代理型 AI 適合可撤回的多步驟公開／模擬任務。接著用混亂會議筆記問大家：哪些只是討論、哪些已定案、哪些沒有主責？",
             studentInstruction: "從筆記中找出一個討論、一個決議、一個待辦與一個缺少負責人的地方。",
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "方法：AI 工作系統＋會議整理五欄", minutes: 10, range: "5–15", mode: "lecture",
+            title: "方法：AI 工作系統＋會議整理五欄", minutes: 22, range: "8–30", mode: "lecture",
             speakerNotes: "先用新增的七張通用觀念投影片快速建立系統觀：單次 Prompt 與可重複模板、ChatGPT 自訂 GPT／Gemini Gem、Project、NotebookLM、連接器權限，以及模型的先快後深。核心講法是：先把資料和規則做對，再升模型；Project 不是檔案垃圾桶，外掛先看權限。時間不足時優先講 GPT／Gem、NotebookLM、模型兩輪工作法，其餘作為課後閱讀。接著帶回會前／會後流程與會議五欄：討論、決議、待辦、風險或待裁示；每一句都要找得到來源與狀態。",
             studentInstruction: "記下兩條原則：『有人提議』不等於『已決議』；模型更強也不能補足錯的資料。沒有主責、期限或權責，就寫待確認。",
             resources: [], promptIds: [], checklist: []
           },
           {
-            title: "示範：會議摘要＋追蹤表＋會後信", minutes: 10, range: "15–25", mode: "demo",
+            title: "示範：會議摘要＋追蹤表＋會後信", minutes: 12, range: "30–42", mode: "demo",
             speakerNotes: "以原始筆記示範陷阱：10/17 只是暫定、48 萬有條件、行政與人資未必已被指派。先要求 AI 只整理明確內容，再輸出 100 字摘要、決議、待確認、追蹤表與三項風險；逐列保留『依據』欄。最後草擬可讓與會者修正的確認信。",
             studentInstruction: "跟著看示範，檢查 AI 有沒有把『好像是行政跟人資』誤寫成主責；請記下正確寫法：負責人待確認，並寫清楚要問誰。",
             resources: [], promptIds: ["prefix", "p5-meeting-tracker", "p6-followup-letter"],
             checklist: []
           },
           {
-            title: "分組實作：整理會議＋處理變更卡", minutes: 20, range: "25–45", mode: "exercise",
+            title: "分組實作：整理會議＋處理變更卡", minutes: 33, range: "42–75", mode: "exercise",
             speakerNotes: "提醒錄音、逐字稿與會議資料不一定能上傳；本堂只用任務包。巡組時由資料查核角色問每列來源，避免任意補人名與期限。",
             studentInstruction: "完成一頁式會議摘要、工作追蹤表、會後確認信與至少一項待主管裁示的風險。追蹤表每列都要有工作、負責人、期限、狀態、依據與卡點／下一步。",
             resources: [
@@ -341,7 +341,7 @@ const COURSES = [
             checklist: ["討論與決議有分開", "每個待辦有負責人與期限，或清楚標示待確認", "列出至少一項可能影響預算、場地或時程的風險"]
           },
           {
-            title: "收束：最可能延誤專案的是什麼", minutes: 5, range: "45–50", mode: "review",
+            title: "收束：最可能延誤專案的是什麼", minutes: 5, range: "75–80", mode: "review",
             speakerNotes: "請各組用一句話說明最可能延誤專案的風險、它的依據，以及應由誰決定或協助。帶讀課前網站的 Perplexity、NotebookLM、Manus 與公開研究／待辦／事實核對提示語；接著切到本堂 FAQ／Q&A 兩頁，處理討論與決議、追蹤表與資料安全的問題，再進下一堂。",
             studentInstruction: "一句話分享：最可能延誤的是什麼？依據在哪裡？誰應決定？",
             resources: [], promptIds: [], checklist: []
@@ -351,8 +351,8 @@ const COURSES = [
       {
         id: "s4",
         title: "第4堂．把工作成果，整理成簡報與對外視覺",
-        timeLabel: "14:40–16:20（第 6–7 節）",
-        durationMinutes: 100,
+        timeLabel: "15:10–16:30（第 4 堂）",
+        durationMinutes: 80,
         objective: "能把前三堂成果與中途變更整理成支持決策的五頁簡報、對外海報與短文；能分清 AI 輔助與人的最終責任，並用事實、權利、讀者與行動指引檢查公開成果。",
         outputs: ["五頁主管簡報大綱", "海報初稿內容", "150 字以內對外說明"],
         resources: [
@@ -379,14 +379,14 @@ const COURSES = [
             checklist: []
           },
           {
-            title: "分組實作：簡報＋海報＋對外說明", minutes: 45, range: "40–85", mode: "exercise",
+            title: "分組實作：簡報＋海報＋對外說明", minutes: 30, range: "40–70", mode: "exercise",
             speakerNotes: "提供變更卡後，要求各組先更新任務地圖與追蹤表，再做成果呈現。不比美工，比內容是否能支持決策與下一步。",
             studentInstruction: "先更新取消場地與預算下修的影響；完成五頁主管簡報大綱、海報內容稿與 150 字內對外說明。每組準備一分鐘說明：主管現在需要決定什麼？",
             resources: [], promptIds: ["prefix", "p7-exec-deck", "p8-poster-summary"],
             checklist: ["五頁簡報清楚呈現規模／方案／成本／風險／需要主管決定的事", "海報只使用已確認資訊，並有對象、必要資訊與下一步", "對外說明 150 字內，讀者知道是什麼、與誰有關、下一步怎麼做", "圖片、引用、數據與權利已被標記為需確認或已確認"]
           },
           {
-            title: "成果分享與互評", minutes: 15, range: "85–100", mode: "review",
+            title: "成果分享與互評", minutes: 10, range: "70–80", mode: "review",
             speakerNotes: "每組一分鐘，依『資料正確、訊息清楚、下一步可執行』互評。最後回到三條工作紅線：安全、正確、負責；請學員選一件非敏感的真實工作，未來一週照今天流程跑一次。最後引導掃課後問卷 QR Code。",
             studentInstruction: "1 分鐘分享＋互評；寫下下週要試的一件真實工作，以及你會保留的提示語模板。最後完成課後問卷。",
             resources: [], promptIds: ["p14-fact-check", "p16-personal-template"], checklist: ["完成最終事實核對", "留下可重複使用的個人工作模板", "完成課後問卷"]
