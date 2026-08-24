@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課後手冊｜如何用 AI 實現準時下班的快樂研習 · 季祥 Simon</title>
+<meta name="description" content="國立臺灣史前文化博物館 2026 年 8 月 20 日 AI 工作流程實作工作坊課後手冊：把今天的方法帶回真實工作。">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--orange:#e8541e;--ink:#17191d;--muted:#64748b;--line:#e5e7eb;--paper:#f8fafc;--warm:#fff7f3;--blue:#2563eb;--green:#15803d;--sans:'Noto Sans TC','PingFang TC',sans-serif}
+html{scroll-behavior:smooth}body{font-family:var(--sans);background:#fff;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}.top{background:var(--orange);color:white;text-align:center;padding:10px 16px;font-size:.82rem;font-weight:800;letter-spacing:.4px}.hero{background:linear-gradient(128deg,#141518 0%,#25211f 62%,#71301c 145%);color:white;padding:clamp(48px,8vw,90px) 24px 58px}.inner{width:min(900px,100%);margin:auto}.eyebrow{display:inline-block;color:#ffb59b;font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.15;letter-spacing:-.045em;margin:14px 0 16px}.hero h1 em{color:#ff7548;font-style:normal}.hero p{max-width:690px;color:rgba(255,255,255,.74);font-size:clamp(.98rem,1.8vw,1.14rem)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chips span{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;font-size:.78rem;color:rgba(255,255,255,.82);font-weight:700}.nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav .inner{display:flex;gap:15px;padding:11px 20px;overflow:auto}.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.8rem;font-weight:800}.nav a:hover{color:var(--orange)}main{width:min(900px,100%);margin:auto;padding:20px 24px 80px}.section{padding-top:56px}.kicker{font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}.section h2{font-size:clamp(1.65rem,3.3vw,2.35rem);letter-spacing:-.035em;line-height:1.28;margin-bottom:12px}.lead{font-size:1rem;color:var(--muted);max-width:700px}.start{margin-top:22px;background:var(--warm);border:1px solid #fed7aa;border-radius:18px;padding:22px}.start strong{display:block;font-size:1.1rem;margin-bottom:4px;color:#7c2d12}.start p{font-size:.91rem;color:#92400e}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}.step{border:1px solid var(--line);border-radius:16px;padding:20px;background:white}.step .num{font-size:.76rem;color:var(--orange);font-weight:900;letter-spacing:.12em}.step h3{font-size:1.08rem;margin:6px 0}.step p{font-size:.89rem;color:var(--muted)}.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.flow{border-radius:15px;padding:18px;background:var(--paper);border:1px solid var(--line)}.flow b{display:block;color:var(--orange);font-size:1.3rem;line-height:1;margin-bottom:8px}.flow span{display:block;font-size:.88rem;font-weight:800;margin-bottom:3px}.flow p{font-size:.82rem;color:var(--muted);line-height:1.55}.lesson{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}.lesson:last-child{border-bottom:0}.lesson .label{font-size:.74rem;font-weight:900;letter-spacing:.1em;color:var(--orange)}.lesson h3{font-size:1.08rem;line-height:1.35;margin-bottom:4px}.lesson p{font-size:.9rem;color:var(--muted)}.prompt{background:#161719;color:#f8fafc;border-radius:18px;padding:24px;margin-top:22px}.prompt .kicker{color:#ffab8b}.prompt h3{font-size:1.2rem;margin-bottom:12px}.prompt pre{white-space:pre-wrap;font:inherit;font-size:.9rem;line-height:1.72;color:rgba(255,255,255,.84)}.prompt .note{font-size:.83rem;color:#ffb59b;margin-top:13px}.check{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.check>div{border-radius:16px;padding:20px}.yes{background:#f0fdf4;border:1px solid #bbf7d0}.no{background:#fff7ed;border:1px solid #fed7aa}.check h3{font-size:1rem;margin-bottom:6px}.check p,.check li{font-size:.89rem;color:var(--muted)}.check ul{padding-left:18px}.resources{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}.resource{display:block;padding:21px;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink);transition:.18s}.resource:hover{transform:translateY(-2px);border-color:#f2a082;box-shadow:0 10px 22px rgba(232,84,30,.09)}.resource i{color:var(--orange);font-size:1.25rem;margin-bottom:10px}.resource b{display:block;font-size:1.02rem;margin-bottom:5px}.resource span{font-size:.86rem;color:var(--muted);line-height:1.55}.speaker{margin-top:22px;background:var(--ink);color:white;border-radius:20px;padding:28px}.speaker .kicker{color:#ffab8b}.speaker h2{margin-bottom:8px}.speaker p{color:rgba(255,255,255,.7);font-size:.94rem;max-width:680px}.speaker a{display:inline-flex;margin-top:16px;color:#ffab8b;font-size:.86rem;font-weight:900;text-decoration:none}footer{margin-top:64px;background:#111317;color:rgba(255,255,255,.55);padding:28px 24px;text-align:center;font-size:.8rem}footer a{color:#ffab8b;text-decoration:none}@media(max-width:650px){.steps,.workflow{grid-template-columns:1fr}.check,.resources{grid-template-columns:1fr}.lesson{grid-template-columns:1fr;gap:4px}.hero{padding-bottom:46px}}
+</style>
+</head>
+<body>
+<div class="top">課後手冊 · 2026 年 8 月 20 日 · 國立臺灣史前文化博物館</div>
+<header class="hero"><div class="inner">
+  <span class="eyebrow">AI 工作流程實作工作坊 · After class</span>
+  <h1>課程結束後，<br>從一件<em>真實工作</em>開始</h1>
+  <p>今天不需要一次把所有工具都學會。先挑一件不含敏感資料、但常讓你花時間的工作，把課堂上的方法跑一次；做完再留下自己的版本。</p>
+  <div class="chips"><span><i class="fa-solid fa-check"></i> 先釐清</span><span><i class="fa-solid fa-pen"></i> 再起草</span><span><i class="fa-solid fa-magnifying-glass"></i> 最後核對</span><span><i class="fa-solid fa-repeat"></i> 留成模板</span></div>
+</div></header>
+<nav class="nav"><div class="inner"><a href="#start">先做什麼</a><a href="#method">今天的方法</a><a href="#prompt">萬用提示語</a><a href="#safety">安全與查核</a><a href="#resources">課後資源</a></div></nav>
+<main>
+  <section class="section" id="start"><div class="kicker">第一週行動建議</div><h2>先做一件小事，<br>比收藏十個工具更有用</h2><p class="lead">選一件「資料有點亂、需要整理、最後還要交給別人看」的工作。不要從最敏感、最複雜的任務開始。</p>
+    <div class="steps"><article class="step"><div class="num">STEP 01</div><h3>挑一件工作</h3><p>例如整理主管交辦、寫一封對外信、把會議筆記變成待辦，或把資料整理成簡報大綱。</p></article><article class="step"><div class="num">STEP 02</div><h3>先把資料整理好</h3><p>先自己列出已知、缺漏與待確認；把姓名、聯絡方式與未公開內容移除。</p></article><article class="step"><div class="num">STEP 03</div><h3>請 AI 做第一版</h3><p>指定對象、目的、可用資料與格式。最後回到原始資料，自己確認再送出。</p></article></div>
+    <div class="start"><strong>推薦起手題目：把一份零散會議筆記變成追蹤表。</strong><p>它很常見、成果容易看出好壞，也能讓你練習最重要的區分：哪些只是討論、哪些已決定、哪些還缺負責人或期限。</p></div>
+  </section>
+
+  <section class="section" id="method"><div class="kicker">今天帶走的方法</div><h2>四個步驟，<br>下次換資料也能照著走</h2><div class="workflow"><div class="flow"><b>01</b><span>先釐清</span><p>目的、對象、限制、時程與待確認事項先寫出來。</p></div><div class="flow"><b>02</b><span>請 AI 起草</span><p>指定資料範圍與輸出格式；沒有資料就要求它標待確認。</p></div><div class="flow"><b>03</b><span>人工核對</span><p>名稱、數字、日期、責任、規則與對外承諾都回到原始資料。</p></div><div class="flow"><b>04</b><span>留下模板</span><p>把好用的提示語、格式與檢查項目留下來，下次只換資料。</p></div></div>
+    <div style="margin-top:26px"><div class="lesson"><div class="label">第 1 堂</div><div><h3>把模糊交辦拆開</h3><p>先分出已知、矛盾、缺漏與下一步；不要讓 AI 替你猜人數、預算或日期。</p></div></div><div class="lesson"><div class="label">第 2 堂</div><div><h3>把內容寫得完整，也保留自己的口吻</h3><p>同一份資料要看讀者調整：主管要判斷，合作方要回覆，同仁要知道下一步。</p></div></div><div class="lesson"><div class="label">第 3 堂</div><div><h3>會議後，把事情接起來</h3><p>把討論、決議、待辦與風險分開；沒有主責或期限，就誠實標示待確認。</p></div></div><div class="lesson"><div class="label">第 4 堂</div><div><h3>把資訊整理成不同人能用的版本</h3><p>主管簡報留決策資訊；對外內容只放已確認、與讀者有關的資訊。</p></div></div></div>
+  </section>
+
+  <section class="section" id="prompt"><div class="kicker">先從這一組提示語開始</div><h2>好提示語，<br>就是把工作交代清楚</h2><p class="lead">把方括號換成自己的情境即可使用。貼資料前，先把個資、未公開內容和不該外流的資訊刪掉。</p>
+    <div class="prompt"><div class="kicker">萬用工作提示語</div><h3>整理、起草、核對都能先從這裡開始</h3><pre>我是【單位／職稱】，現在要處理【工作背景】。
+這份內容是要給【讀者】看的；希望對方看完後能【下一步】。
+
+請只根據我提供的資料，幫我完成【任務】。
+請用【信件／條列／表格／簡報大綱】格式呈現，語氣【正式／親切／簡潔】。
+
+限制：沒有資料的地方請標示【待確認】，不要自行補寫名稱、日期、數字、規則或承諾。
+
+資料如下：
+【貼上已整理、可使用的資料】</pre><p class="note">用完先問自己：它寫出的每一個關鍵資訊，我能不能回到原始資料找到依據？</p></div>
+  </section>
+
+  <section class="section" id="safety"><div class="kicker">安全與查核</div><h2>AI 幫你省時間，<br>責任還是在使用的人身上</h2><p class="lead">安全不等於完全不用 AI；是知道什麼能給、什麼先處理、什麼不能交出去。</p><div class="check"><div class="yes"><h3>可以先用來練習</h3><ul><li>公開資料、虛構案例與通用格式需求</li><li>去識別化後的摘要或文字片段</li><li>已確認、可回到來源核對的資訊</li></ul></div><div class="no"><h3>先不要貼進公開 AI</h3><ul><li>姓名、聯絡方式、病歷、帳密與可辨識個人的資料</li><li>未公開採購、合約、人事、預算與內部意見</li><li>需要立即對外承諾、直接寄送、下單或刪改的工作</li></ul></div></div>
+    <div class="start"><strong>送出前 30 秒，請再看五件事。</strong><p>名稱對嗎？日期和數字有來源嗎？誰負責、何時完成寫清楚了嗎？待確認的事有沒有被寫成定案？這份內容交給下一個人，他知道自己要做什麼嗎？</p></div>
+  </section>
+
+  <section class="section" id="resources"><div class="kicker">課後資源</div><h2>需要時再回來找，<br>不用一次看完</h2><p class="lead">以下資源都可直接開啟。建議先把「提示語全集」和「工具速查手冊」加入書籤。</p><div class="resources">
+    <a class="resource" href="https://simon-chi.com/w/20260820-exercises.html" target="_blank" rel="noopener"><i class="fa-regular fa-pen-to-square"></i><b>提示語全集</b><span>任務地圖、信件、公告、會議、簡報與通用工作模板；直接複製後換成自己的情境。</span></a>
+    <a class="resource" href="https://simon-chi.com/w/20260820-handout.html" target="_blank" rel="noopener"><i class="fa-regular fa-map"></i><b>AI 工具速查手冊</b><span>依任務找工具，包含 ChatGPT、Gemini、NotebookLM、Manus、簡報與創作工具的官方入口。</span></a>
+    <a class="resource" href="https://simon-chi.com/w/20260820-am.html" target="_blank" rel="noopener"><i class="fa-solid fa-sun"></i><b>上午投影片</b><span>回顧任務釐清、提示語、資料安全與不同對象的溝通方式。</span></a>
+    <a class="resource" href="https://simon-chi.com/w/20260820-pm.html" target="_blank" rel="noopener"><i class="fa-solid fa-cloud-sun"></i><b>下午投影片</b><span>回顧會議整理、AI Agent、Project、NotebookLM、資安與成果呈現。</span></a>
+  </div></section>
+
+  <section class="section speaker"><div class="kicker">Keep going · Simon Chi</div><h2>下一次，不必從零開始</h2><p>把今天真的有用的一次操作留下來：一段提示語、一張檢查表，或一個固定的輸出格式。下一次遇到同類工作時，你會更快知道該怎麼開始。</p><a href="https://simon-chi.com" target="_blank" rel="noopener">認識 Simon 與其他課程 →</a></section>
+</main>
+<footer>如何用 AI 實現「準時下班」的快樂研習 · 課後手冊　｜　<a href="https://simon-chi.com">simon-chi.com</a></footer>
+</body>
+</html>
