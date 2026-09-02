@@ -23,6 +23,7 @@ Object.assign(SLIDES[13],{title:'Demo 1-2｜建立案例工作區'});
 Object.assign(SLIDES[14],{title:'Demo 1-3｜資料摘要'});
 Object.assign(SLIDES[15],{title:'Demo 1-4｜資料除錯'});
 Object.assign(SLIDES[16],{title:'Demo 1-5｜同批資料，多角度分析'});
+Object.assign(SLIDES[10],{title:'Claude 的優勢：<br>記住完整背景',note:'Claude Project 的重點是讓同一個案例持續帶著已上傳的檔案與規則；第二堂不必重新交代選手、賽季、限制與安全邊界。'});
 Object.assign(SLIDES[19],{title:'AI 提供草稿；教練評估、判斷與審核',body:'<b>AI</b>：整理、比較、轉換、提出選項<br><b>教練</b>：評估現場、判斷取捨、審核成果、承擔決策',note:'省下的整理時間，應留給評估、判斷與審核；AI 的輸出永遠是可檢查的草稿。'});
 Object.assign(SLIDES[22],{title:'第一堂小結｜先申請 Manus',body:'工具差異先看工作入口　·　第一次回答先當草稿　·　先整理與提問　·　專項與安全判斷留在教練手上<div class="midway-qr"><a href="https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link" target="_blank" rel="noopener"><img src="assets/qr/manus-invitation.png" alt="Manus 邀請 QR Code"><span>現在掃碼申請 Manus<br><small>休息後一起進入第二堂 Demo</small></span></a></div>',note:'給 30–60 秒讓大家掃碼；提醒回來後會用同一個案例進行第二堂示範。',time:'2 分'});
 Object.assign(SLIDES[24],{title:'Demo 2｜P07：從摘要到決策'});
