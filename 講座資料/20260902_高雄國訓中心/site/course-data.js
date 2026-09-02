@@ -43,6 +43,7 @@ Object.assign(SLIDES[39],{section:'claude-demo',type:'demo',title:'情境 2｜�
 Object.assign(SLIDES[40],{section:'claude-demo',type:'demo',title:'情境 3｜新生家長說明會通知',body:'<div class="demo-panel"><b>完整提示語：</b><br>「請為國中籃球隊新生家長說明會寫一則通知。先列出尚需確認的資訊；確認後的版本請控制在 250 字內，依序包含日期時間、地點、說明會目的、家長需準備的問題、選拔與訓練的原則、聯絡方式欄位【待填】。語氣尊重、避免保證上場時間或成績，不公開任何學生個資。」</div>',note:'這頁示範同一個教練工作如何改成不同讀者聽得懂的語言。',time:'2 分'});
 Object.assign(SLIDES[41],{section:'claude-demo',type:'demo',title:'情境 4｜賽前四週訓練架構',body:'<div class="demo-panel"><b>完整提示語：</b><br>「我帶領一支國中籃球隊，四週後有目標賽事。請先提出供教練審查的四週架構：每週主要目的、技術／戰術重點、體能方向、恢復與監測、教練確認點。不要自行填入跑動量、重量、組數或醫療處置；資料不足請標【教練決定】。最後列出 5 個最需要我補充的問題。」</div>',note:'這頁回扣今天的核心：先有目的、限制與確認點，再由教練展開處方。',time:'3 分'});
 Object.assign(SLIDES[42],{section:'claude-demo',type:'demo',title:'情境 5｜動作影像觀察表',body:'<div class="demo-panel"><b>完整提示語：</b><br>「我會上傳一張或一段籃球動作影像。請只描述可見事件，整理成教練觀察表：動作時點、可見現象、可能需要追問的問題、建議補拍的視角。不要做傷害診斷、不要宣稱精準關節角度、不要直接給矯正處方。最後用一句話提醒：哪些判斷必須回到現場觀察與既有專業流程。」</div>',note:'可以接著上傳虛構投手圖，示範跨項目的觀察框架；始終強調影像不是診斷。',time:'3 分'});
+Object.assign(SLIDES[42],{body:'<div class="split-visual compact-motion"><div class="demo-panel"><b>完整提示語：</b><br>「我會上傳一張或一段籃球動作影像。請只描述可見事件，整理成教練觀察表：動作時點、可見現象、可能需要追問的問題、建議補拍的視角。不要做傷害診斷、不要宣稱精準關節角度、不要直接給矯正處方。最後用一句話提醒：哪些判斷必須回到現場觀察與既有專業流程。」</div><img src="assets/generated/basketball-landing-observation.png" alt="虛構籃球選手落地動作觀察圖"></div>',note:'上傳這張虛構籃球影像；要求 AI 先描述可見事件、列追問與補拍角度。始終強調影像不是診斷。'});
 };
 const S=(n,section,type,title,body,note,time,extra={})=>({n,section,type,title,body,note,time,...extra});
 const SLIDES=[
