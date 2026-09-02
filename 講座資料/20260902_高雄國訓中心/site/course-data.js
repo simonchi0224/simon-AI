@@ -13,6 +13,27 @@ const DEMOS=[
  {id:'d09',title:'成果紀錄｜設計 Google Sheets 欄位',tool:'Claude',prompt:'請依校方成果評估需求，設計可貼入 Google Sheets 的每次訓練紀錄表。一列代表一位選手一次訓練，使用代碼不使用姓名；列出日期、週次、代碼、出席、目標、分組、完成狀況、session RPE、速度／技術品質、疼痛回報、教練觀察、下次調整。標註欄位類型並提供虛構範例與 CSV 標題列；不建立診斷欄位。',signals:['一列一位選手一次訓練','代碼而非姓名','不要求醫療診斷'],backup:'欄位：日期、週次、選手代碼、出席、當日目標、分組、完成狀況、session RPE、速度／技術品質、疼痛回報、教練觀察、下次調整。下拉值可設 W1–W8、到／遲到／請假、100m／200m／調整組。'},
  {id:'d10',title:'現場案例｜先問再做',tool:'Claude',prompt:'我是一位【運動項目／角色】教練，需要在【期限】前完成【工作】。服務對象是【匿名化對象】，目前有【現況或資料】，限制包含【時間／場地／器材／單位格式】。最後要交出【成果形式】。請先判斷資訊是否足夠；若不足，先問最多 5 個會實際影響成果的問題，每題說明原因。現在先不要自行補資料。',signals:['先問期限、對象、限制與交付物','避免收真人資料','不急著產出'],backup:'備用情境：大專羽球隊教練兩週後帶 16 位選手移地訓練，明日下午前交行前計畫；AI 應先問每日流程、分工、交通住宿、器材、安全與單位格式，而不是自行產生電話、費用或保險資料。'}
 ];
+
+/* 2026-09-02 現場示範流程：以 P07 案例貫穿，標題採 Demo 1-1／2-1 編號。 */
+const applyLiveOverrides=()=>{
+Object.assign(SLIDES[1],{section:'opening',type:'workflow',title:'今天會帶走什麼？',body:'<div class="visual-grid"><div class="visual-card"><em>第一堂</em><b>AI 工作觀念</b>工具差異、Claude Project、資料摘要與資料除錯。</div><div class="visual-card"><em>第二堂</em><b>教練決策流程</b>週期化、選手排程、疲勞訊號與動作觀察。</div><div class="visual-card"><em>全程案例</em><b>P07 虛構投手</b>同一批資料，從整理一路到可簽核的選項。</div></div>',note:'先讓大家知道今天的地圖：先把資料看清楚，再用教練問題推進，而不是向 AI 索取萬用答案。',time:'2 分'});
+Object.assign(SLIDES[2],{section:'opening',type:'case',title:'講師介紹｜Simon 季祥',body:'<strong>跨域創新講師／顧問</strong><br>把 AI 工具轉成可實作的工作流程：資料整理、決策支援、內容溝通與現場教學。<br><br><strong>今天的角色：</strong>不是替教練做判斷，而是示範如何讓 AI 幫你減少整理時間，把時間留給評估、判斷與審核。',note:'以今天課程為主，不堆疊履歷。若現場要補充，說明你長期做跨域 AI 工作流程與實作課程。',time:'1.5 分'});
+Object.assign(SLIDES[12],{type:'photo-cover',title:'Demo 1-1｜P07 備賽情境'});
+Object.assign(SLIDES[13],{title:'Demo 1-2｜建立案例工作區'});
+Object.assign(SLIDES[14],{title:'Demo 1-3｜資料摘要'});
+Object.assign(SLIDES[15],{title:'Demo 1-4｜資料除錯'});
+Object.assign(SLIDES[16],{title:'Demo 1-5｜同批資料，多角度分析'});
+Object.assign(SLIDES[19],{title:'AI 提供草稿；教練評估、判斷與審核',body:'<b>AI</b>：整理、比較、轉換、提出選項<br><b>教練</b>：評估現場、判斷取捨、審核成果、承擔決策',note:'省下的整理時間，應留給評估、判斷與審核；AI 的輸出永遠是可檢查的草稿。'});
+Object.assign(SLIDES[22],{title:'第一堂小結｜先申請 Manus',body:'工具差異先看工作入口　·　第一次回答先當草稿　·　先整理與提問　·　專項與安全判斷留在教練手上<div class="midway-qr"><a href="https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link" target="_blank" rel="noopener"><img src="assets/qr/manus-invitation.png" alt="Manus 邀請 QR Code"><span>現在掃碼申請 Manus<br><small>休息後一起進入第二堂 Demo</small></span></a></div>',note:'給 30–60 秒讓大家掃碼；提醒回來後會用同一個案例進行第二堂示範。',time:'2 分'});
+Object.assign(SLIDES[24],{title:'Demo 2｜P07：從摘要到決策'});
+Object.assign(SLIDES[25],{title:'Demo 2-0｜這次的資料地圖',body:'① 賽季任務與限制 PDF　② 教練備忘 DOCX　③ 近期監測與排程 XLSX　④ 單一投球視角 PNG',note:'全是虛構資料。第二堂不是重做摘要，而是把第一堂已整理的背景轉成教練可以檢查的問題。'});
+Object.assign(SLIDES[26],{title:'Demo 2-1｜先列出要確認的問題',body:'<div class="demo-panel"><b>貼上提示語：</b><br>「根據這個 Project 已整理的資料，列出最多 6 個本週最需要教練確認的問題。每題要說明：它會影響哪個訓練安排；若暫時沒有答案，保守作法是什麼。不要自行補投球數或出賽結論。」</div><div class="file-strip"><div class="file-chip">熱身賽局數</div><div class="file-chip">本週總量上限</div><div class="file-chip">雨備與人力</div><div class="file-chip">影像補拍角度</div></div>',note:'這一步先把不確定性攤開。投影時只看問題是否真的會改變安排，而不是問題數量。'});
+Object.assign(SLIDES[28],{title:'Demo 2-2｜把問題分給對的人',body:'<div class="demo-panel"><b>貼上提示語：</b><br>「把剛才的問題分成：可由表格核對／需由投手回報／需由教練決定／需依單位流程確認。每題附上下一步，不要替任何角色做最後判定。」</div>',note:'請大家判斷：哪題一定由專項教練答？哪題可回頭查表？'});
+Object.assign(SLIDES[30],{title:'Demo 2-3｜6 週週期化架構'});
+Object.assign(SLIDES[32],{title:'Demo 2-4｜投手週排程'});
+Object.assign(SLIDES[36],{title:'Demo 2-5｜疲勞訊號與追問'});
+Object.assign(SLIDES[49],{body:'課後資源：提示詞、虛構案例、官方連結與安全提醒<br><strong>https://simon-chi.com/lectures/20260902.html</strong><div class="closing-qr"><a href="https://forms.gle/h3nQtdtmj3daYN2r5" target="_blank" rel="noopener"><img src="assets/qr/post-course-survey.png" alt="課後問卷 QR Code"><span>課後回饋問卷</span></a></div>',note:'Manus 已在第一堂結束前完成申請；結尾只保留課後回饋問卷與資源網址。'});
+};
 const S=(n,section,type,title,body,note,time,extra={})=>({n,section,type,title,body,note,time,...extra});
 const SLIDES=[
 S(1,'opening','title','AI 時代，教練的放大器','<strong>用 Claude 放大資料判讀、訓練設計與溝通效率</strong><br><small>2026.09.02（三）｜國家運動訓練中心<br>Simon 季祥 顧問｜跨域創新講師</small>','今天用一位虛構投手與一包真實工作格式的資料，從建立 AI 工作區一路做到教練決策。','1 分'),
