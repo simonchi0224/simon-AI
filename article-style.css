@@ -100,6 +100,13 @@ a { text-decoration: none; color: inherit; }
 }
 .article-cta a:hover { opacity: 0.85; }
 
+/* Related articles */
+.article-related { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.article-related-label { font-size: 11px; font-weight: 800; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+.article-related-list { display: flex; flex-direction: column; gap: 10px; }
+.article-related-list a { font-size: 14px; font-weight: 600; color: var(--ink); }
+.article-related-list a:hover { color: var(--orange); }
+
 /* Article footer */
 .article-footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 5%; }
 .article-footer .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
