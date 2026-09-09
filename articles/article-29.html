@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線——你的 AI 帳號，誰在管權限？｜季祥 Simon</title>
+<meta name="description" content="OpenAI 公開表示，即將推出的 Astra 是第一個跨過公司「Critical 資安能力」門檻的模型，能自行找出漏洞並發展利用方式。當 AI 開始能自主行動，企業的資安問題已經從內容外洩，轉成權限與治理。">
+<link rel="canonical" href="https://simon-chi.com/articles/article-29.html">
+<meta property="og:title" content="連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線——你的 AI 帳號，誰在管權限？｜季祥 Simon">
+<meta property="og:description" content="AI 開始能自己找漏洞、自己行動，企業的資安問題已經不只是內容外洩，是權限與治理設計。">
+<meta property="og:url" content="https://simon-chi.com/articles/article-29.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://simon-chi.com/images/simon-og-image.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="840">
+<meta name="twitter:image" content="https://simon-chi.com/images/simon-og-image.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線——你的 AI 帳號，誰在管權限？","description":"OpenAI 公開表示，即將推出的 Astra 是第一個跨過公司「Critical 資安能力」門檻的模型。當 AI 開始能自主行動，企業的資安問題已經從內容外洩，轉成權限與治理。","author":{"@type":"Person","@id":"https://simon-chi.com/#person","name":"季祥 Simon Chi","url":"https://simon-chi.com/"},"datePublished":"2026-09-09","publisher":{"@type":"Person","@id":"https://simon-chi.com/#person","name":"季祥 Simon Chi"},"isPartOf":{"@type":"WebSite","url":"https://simon-chi.com/","name":"季祥 Simon｜AI 實戰顧問"},"url":"https://simon-chi.com/articles/article-29.html","inLanguage":"zh-TW","keywords":["AI資安","AI Agent","權限管理","OpenAI","企業治理"]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article-style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEH2H2N5QG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EEH2H2N5QG');
+</script>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services">服務</a></li>
+      <li><a href="../index.html#topics">主題</a></li>
+      <li><a href="index.html" class="active">文章</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">預約諮詢 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-header">
+    <div class="article-tag">企業主 / IT 治理 / 資安</div>
+    <h1>連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線，<br>你的 AI 帳號，誰在管權限？</h1>
+    <div class="article-meta">
+      <span class="article-author">Simon Chi 季祥</span>
+      <span class="article-date">2026年9月9日</span>
+      <span class="article-read-time">6 分鐘閱讀</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p class="lead">九月初，OpenAI 公開表示，即將推出的模型 Astra，是公司第一個跨過自家「Preparedness Framework」裡「Critical 資安能力」門檻的模型——這是他們自己定義的最高風險等級。CNBC 同日報導證實了這項公告。換句話說，連開發者自己都承認，這個模型的能力已經強到需要限制存取範圍。</p>
+
+    <p>OpenAI 的說法是：在擁有適當工具與存取權限的情況下，Astra 能夠找出先前未知的安全漏洞，而且不需要人一步一步指導，就能自己發展出利用漏洞的方式。他們表示為此延後了部分開發與發布工作，加強防止網路濫用與模型未授權行動的防護，包括讓模型更可靠地拒絕有害請求、增加監控，以及先只讓有限的測試群組使用最進階的資安能力。</p>
+
+    <h2>安全問題的重點，正在從「說了什麼」變成「做了什麼」</h2>
+
+    <p>這件事真正該讓企業主警覺的地方，不是「AI 又變強了」這種老生常談，是背後那個轉折：過去談 AI 資安，重點是「員工會不會把機密資料貼進聊天視窗」；現在的重點，是「AI 本身能不能自己完成一整段多步驟的行動」。當 AI 開始能搭配工具、連上網路、自己判斷下一步該做什麼，它就不再只是一個回答問題的介面，而是一個需要被管理的行動者。</p>
+
+    <p>我得老實提醒一句：Astra 的具體能力、測試表現和防護是否真的足夠，目前主要是 OpenAI 自己說的，完整的安全報告要等模型正式發布時的 System Card 才會公開，還沒有經過外部獨立機構完整驗證。這不代表可以忽略這件事，但也不必把它當成已經蓋棺論定的技術神話——保持一點「這是廠商自己講的」的判斷距離，本身就是資安素養的一部分。</p>
+
+    <h2>對中小企業來說，真正該做的不是研究攻擊技術</h2>
+
+    <p>大部分中小企業不需要立刻去研究前沿的資安攻防技術，那不是你的戰場。真正實用的第一步，是回頭盤點自己公司裡任何一個「AI 帳號」——不管是客服機器人、內部自動化流程，還是接了 API 的 AI 工具——到底能看到什麼、能呼叫哪些系統、能不能修改資料，以及什麼動作必須先經過人工核准才能執行。</p>
+
+    <p>這跟員工帳號的管理邏輯其實一樣，只是很多公司還沒意識到 AI 帳號也需要同一套紀律：最低權限原則、操作紀錄、還有一個能立刻停用的開關。差別在於，AI 帳號可能一天執行幾百次動作，出錯的速度比人快得多，一旦權限設計有漏洞，代價也放大得更快。</p>
+
+    <div class="prompt-box">
+      <div class="prompt-label">實際怎麼做</div>
+      <p>設計一個「AI 客服機器人要不要有退款權限」的情境，找幾個同事一起討論：這個 AI 能讀取哪些客戶資料？能主動提出哪些建議？多少金額以上一定要人工核准？如果它做出異常動作，誰有權限立刻停用它、怎麼查紀錄？光是把這四個問題認真討論一遍，就會比看十篇資安新聞更有用。</p>
+    </div>
+
+    <h2>把 AI 資安從恐懼，變成一份權限設計清單</h2>
+
+    <p>很多企業主聽到「AI 資安」，第一反應是害怕，但恐懼解決不了問題，具體的權限設計才可以。下次要幫公司導入任何一個會自動執行動作的 AI 工具前，先問自己三件事：它能碰到的資料範圍夠不夠小、它做的每個動作有沒有留下紀錄、還有出問題的時候，人有沒有辦法在第一時間介入。這三個問題想清楚了，才有資格談下一步要不要用。</p>
+
+    <div class="article-cta">
+      <p>你的公司也在導入會自動執行任務的 AI 工具，想知道權限該怎麼設計？</p>
+      <a href="../index.html#contact">預約一次免費諮詢 →</a>
+    </div>
+
+    <div class="article-related">
+      <div class="article-related-label">延伸閱讀</div>
+      <div class="article-related-list">
+        <a href="article-26.html">你的同事已經會自己做 AI 工具了，公司知道嗎？ →</a>
+        <a href="article-27.html">我請三個 AI 排同一份訓練課表，答案都很有自信，也都在亂猜 →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="article-footer">
+  <div class="footer-inner">
+    <p>© 2026 Simon Chi · AI 實戰顧問</p>
+    <p><a href="index.html" style="color:rgba(255,255,255,0.5)">← 回到文章列表</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+<script src="../manus-banner.js"></script>
+</body>
+</html>

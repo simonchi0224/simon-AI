@@ -18,6 +18,9 @@ Simon 的方法論核心是「問題拆解 → AI Workflow → Prototype → 企
 - [為什麼你的 AI 能力，還是停在「會用」，而不是「會應用」？](https://simon-chi.com/articles/article-25.html): 拆解「會用工具」與「做得出成果」之間的落差，以及企業該怎麼往下一階段走
 - [你的同事已經會自己做 AI 工具了，公司知道嗎？](https://simon-chi.com/articles/article-26.html): Think Like IT 概念——非技術人員做出 AI 工具後，什麼時候該找 IT／資安團隊把關
 - [我請三個 AI 排同一份訓練課表，答案都很有自信，也都在亂猜](https://simon-chi.com/articles/article-27.html): 國家運動訓練中心教練工作坊案例，示範 AI 生成內容的隱藏假設，以及敏感資料的紅黃綠燈判斷法
+- [兩份聯準銀行報告：AI 沒有讓企業瘋狂裁員，但也沒有讓工作變輕鬆](https://simon-chi.com/articles/article-28.html): 引用聖路易/紐約聯準銀行研究，說明 AI 採用上升但裁員比例低，重點在任務重新設計與分層培訓
+- [連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線，你的 AI 帳號，誰在管權限？](https://simon-chi.com/articles/article-29.html): 從 OpenAI Astra 資安公告出發，談 AI Agent 權限管理與治理設計
+- [業務員的 AI 助理，下一步不是幫你寫更多話術，是幫你記住客戶脈絡](https://simon-chi.com/articles/article-30.html): 引用 OpenAI 企業案例，說明業務 AI 從內容生成進化到客戶脈絡管理，但商業判斷仍需人
 - [老闆說要導入 AI，但員工不買單：組織內推動 AI 落地的三個關鍵](https://simon-chi.com/articles/article-19.html): 員工不用 AI 通常不是懶，是沒有理由用；三個讓 AI 真正落地的關鍵
 - [你的員工要開始管理 AI 同事了——這不是比喻](https://simon-chi.com/articles/article-9.html): AI Agent 時代企業主該理解的組織轉型
 - [為什麼你的 AI 試驗一直上不了線？](https://simon-chi.com/articles/article-11.html): 診斷 AI 試驗遲遲沒有成果的三個常見原因
