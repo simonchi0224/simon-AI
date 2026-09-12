@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex 不是工程師的專利：一個真的會「動手做事」的 AI，你該怎麼看待它？｜季祥 Simon</title>
+<meta name="description" content="OpenAI 的 Codex 已經不只是寫程式的工具，而是能自己理解專案、動手修改、跑測試、生出一版成果讓人核准的 AI Agent。批次處理圖片、自動剪片，很多非工程背景的人也在用。導入前，你該先搞懂它怎麼運作、風險在哪裡。">
+<link rel="canonical" href="https://simon-chi.com/articles/article-31.html">
+<meta property="og:title" content="Codex 不是工程師的專利：一個真的會「動手做事」的 AI，你該怎麼看待它？｜季祥 Simon">
+<meta property="og:description" content="Codex 能自己動手改東西、跑測試、生出一版成果——但正式生效前，還是要有人按下核准。">
+<meta property="og:url" content="https://simon-chi.com/articles/article-31.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://simon-chi.com/images/og/article-31-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://simon-chi.com/images/og/article-31-og.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Codex 不是工程師的專利：一個真的會「動手做事」的 AI，你該怎麼看待它？","description":"Codex 已經不只是寫程式的工具，而是能自己理解專案、動手修改、跑測試、生出一版成果讓人核准的 AI Agent。導入前，你該先搞懂它怎麼運作、風險在哪裡。","author":{"@type":"Person","@id":"https://simon-chi.com/#person","name":"季祥 Simon Chi","url":"https://simon-chi.com/"},"datePublished":"2026-09-11","publisher":{"@type":"Person","@id":"https://simon-chi.com/#person","name":"季祥 Simon Chi"},"isPartOf":{"@type":"WebSite","url":"https://simon-chi.com/","name":"季祥 Simon｜AI 實戰顧問"},"url":"https://simon-chi.com/articles/article-31.html","inLanguage":"zh-TW","keywords":["Codex","AI Agent","自動化","OpenAI","企業導入AI"]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article-style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEH2H2N5QG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EEH2H2N5QG');
+</script>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">季祥 <span>Simon</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services">服務</a></li>
+      <li><a href="../index.html#topics">主題</a></li>
+      <li><a href="index.html" class="active">文章</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">預約諮詢 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-header">
+    <div class="article-tag">企業主 / AI Agent / 自動化</div>
+    <h1>Codex 不是工程師的專利：<br>一個真的會「動手做事」的 AI，你該怎麼看待它？</h1>
+    <div class="article-meta">
+      <span class="article-author">Simon Chi 季祥</span>
+      <span class="article-date">2026年9月11日</span>
+      <span class="article-read-time">6 分鐘閱讀</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p class="lead">最近常有學員問我「Codex 是什麼」。他們不是工程師，是在網路上看到有課程教「用 Codex 自動化 LINE 貼圖製作」「用 Codex 自動剪片」，聽起來很厲害，但搞不清楚這東西跟 ChatGPT 有什麼不一樣。簡單說：ChatGPT 主要是回答你的問題，Codex 是真的會動手把事情做完的那種 AI。</p>
+
+    <p>Codex 是 OpenAI 推出的 AI Agent，最早是給工程師寫程式用的，但它背後的能力——理解一個專案的結構、自己動手修改檔案、執行測試、把成果整理成一版讓人核准——早就不只限於「寫程式」這件事。批次處理一整批圖片、把一堆素材依規則重新命名、把影片依腳本剪成固定格式，本質上都是「照著規則重複執行一連串步驟」，剛好就是 Codex 這類 Agent 最擅長的事。這也是為什麼會有課程教非工程背景的人拿它來做 LINE 貼圖量產、影片自動化這類創作類工作。</p>
+
+    <h2>從「回答問題」到「動手做事」，中間隔著什麼？</h2>
+
+    <p>用 ChatGPT，你問一句、它答一句，做不做、怎麼做，還是你自己來。Codex 不一樣的地方，是它會先讀懂你交給它的整個專案或資料夾，理解裡面的檔案、規則和脈絡，然後自己規劃步驟、動手修改、跑一次驗證，最後把「這一版做完的成果」整理出來，等你核准。你不用一步一步教它怎麼做，但你要看得懂它交回來的成果，才能判斷能不能用。</p>
+
+    <p>這個差異聽起來抽象，但對企業主的意義很具體：以前你請一個工讀生幫你把一百張圖片改成同樣尺寸、統一命名，你要盯著他做；現在你可以把整組規則交代清楚，讓 Codex 這類 Agent 自己跑完一百張，你只要驗收最後的成果對不對。省下來的不是「做」的時間，是「盯著做」的時間。</p>
+
+    <h2>它在一個「隔離的環境」裡動手，不是直接改你的正式檔案</h2>
+
+    <p>這是最值得業主理解的一個設計：Codex 執行任務時，是在一個獨立的雲端沙盒環境裡進行，先把你的專案複製一份進去，在裡面動手修改、跑測試，過程不會直接碰到你正式在用的系統或檔案。等它跑完，會生出一版「建議的變更」，需要有人看過、按下核准，才會真正合併進正式版本。用工程師的說法，這個「等人核准」的動作叫做 pull request——聽起來技術，但概念很單純：AI 先把工做完，人再決定要不要讓它生效。</p>
+
+    <p>這個「先隔離、再核准」的設計，其實正是我在企業內訓裡一直強調的「Think Like IT」判斷力的具體示範：AI 能自己動手做事是好事，但動手的地方要先圈起來，成果要有人把關，才不會一個沒注意，AI 已經把不該動的東西動掉了。</p>
+
+    <div class="prompt-box">
+      <div class="prompt-label">實際怎麼做</div>
+      <p>如果你的團隊要開始用這類會自動執行任務的 AI Agent，先問清楚三件事：它動手的範圍圈在哪裡（是不是隔離環境，會不會直接碰到正式資料）、它做完的成果誰要看過才能生效、還有如果它做錯了，能不能整批復原，不會留下一半對一半錯的爛攤子。這三個問題想清楚，才有資格談要不要導入。</p>
+    </div>
+
+    <h2>不是每件事都適合交給它，但重複性高的事很適合</h2>
+
+    <p>Codex 這類 Agent 最適合的，是規則清楚、重複性高、產出格式固定的工作：批次修圖、格式轉檔、依樣板產出一系列素材、跑固定流程的資料整理。這些事的共同點是，「怎麼做」你講得清楚，只是重複次數多，人做會膩、會出錯。它比較不適合的，是需要臨場判斷、牽涉他人權益、或者一旦做錯很難挽回的事——比如直接發布對外的正式文件、涉及客戶個資的處理，這些還是需要人在關鍵節點上把關。</p>
+
+    <p>回到一開始學員的問題：Codex 是什麼？我的答案通常是——它不是比 ChatGPT 更聰明的聊天工具，是一個你可以放心把重複性工作交給它、但仍然要你在最後一關點頭的工作夥伴。搞懂這個分寸，你才知道自己該把它放進哪一段工作流程，而不是看到「AI 自動化」四個字就急著全部丟給它。</p>
+
+    <div class="article-cta">
+      <p>想知道你的團隊有哪些重複性工作適合交給 AI Agent，又該怎麼把關？</p>
+      <a href="../index.html#contact">預約一次免費諮詢 →</a>
+    </div>
+
+    <div class="article-related">
+      <div class="article-related-label">延伸閱讀</div>
+      <div class="article-related-list">
+        <a href="article-29.html">連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線，你的 AI 帳號，誰在管權限？ →</a>
+        <a href="article-26.html">你的同事已經會自己做 AI 工具了，公司知道嗎？ →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="article-footer">
+  <div class="footer-inner">
+    <p>© 2026 Simon Chi · AI 實戰顧問</p>
+    <p><a href="index.html" style="color:rgba(255,255,255,0.5)">← 回到文章列表</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+<script src="../manus-banner.js"></script>
+</body>
+</html>

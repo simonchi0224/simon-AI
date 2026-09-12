@@ -21,6 +21,7 @@ Simon 的方法論核心是「問題拆解 → AI Workflow → Prototype → 企
 - [兩份聯準銀行報告：AI 沒有讓企業瘋狂裁員，但也沒有讓工作變輕鬆](https://simon-chi.com/articles/article-28.html): 引用聖路易/紐約聯準銀行研究，說明 AI 採用上升但裁員比例低，重點在任務重新設計與分層培訓
 - [連 OpenAI 都說新模型的資安能力跨過了「高風險」那條線，你的 AI 帳號，誰在管權限？](https://simon-chi.com/articles/article-29.html): 從 OpenAI Astra 資安公告出發，談 AI Agent 權限管理與治理設計
 - [業務員的 AI 助理，下一步不是幫你寫更多話術，是幫你記住客戶脈絡](https://simon-chi.com/articles/article-30.html): 引用 OpenAI 企業案例，說明業務 AI 從內容生成進化到客戶脈絡管理，但商業判斷仍需人
+- [Codex 不是工程師的專利：一個真的會「動手做事」的 AI，你該怎麼看待它？](https://simon-chi.com/articles/article-31.html): 用非工程背景也能懂的方式解釋 OpenAI Codex（沙盒執行、人工核准機制），延伸出企業導入 AI Agent 該問的三個問題
 - [老闆說要導入 AI，但員工不買單：組織內推動 AI 落地的三個關鍵](https://simon-chi.com/articles/article-19.html): 員工不用 AI 通常不是懶，是沒有理由用；三個讓 AI 真正落地的關鍵
 - [你的員工要開始管理 AI 同事了——這不是比喻](https://simon-chi.com/articles/article-9.html): AI Agent 時代企業主該理解的組織轉型
 - [為什麼你的 AI 試驗一直上不了線？](https://simon-chi.com/articles/article-11.html): 診斷 AI 試驗遲遲沒有成果的三個常見原因
