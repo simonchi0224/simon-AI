@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>季祥 Simon｜BNI 一對一資料表</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --paper: #fbfaf7;
+    --ink: #1d1d1f;
+    --dim: #6e6e73;
+    --line: #e6e3dd;
+    --orange: #e8541e;
+    --card: #ffffff;
+    --sans: "Noto Sans TC", "PingFang TC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", system-ui, sans-serif;
+  }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--orange); }
+
+  /* ===== 密碼閘 ===== */
+  #gate {
+    position: fixed; inset: 0; z-index: 999;
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  #gate-box {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 40px 32px; max-width: 340px; width: 100%; text-align: center;
+  }
+  #gate-box h1 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  #gate-box p { font-size: 13px; color: var(--dim); margin-bottom: 20px; }
+  #gate-box input {
+    width: 100%; padding: 12px 14px; font-size: 15px;
+    border: 1px solid var(--line); border-radius: 10px;
+    text-align: center; letter-spacing: 0.06em;
+    font-family: var(--sans);
+  }
+  #gate-box input:focus { outline: none; border-color: var(--orange); }
+  #gate-box button {
+    margin-top: 14px; width: 100%; padding: 12px;
+    background: var(--ink); color: #fff; border: none; border-radius: 980px;
+    font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--sans);
+    transition: opacity 0.2s;
+  }
+  #gate-box button:hover { opacity: 0.85; }
+  #gate-error { color: var(--orange); font-size: 12px; margin-top: 10px; min-height: 16px; }
+
+  /* ===== 內文 ===== */
+  #content { display: none; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 100px; }
+
+  .page-head { margin-bottom: 40px; }
+  .page-kicker { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: 0.02em; margin-bottom: 10px; }
+  .page-head h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; }
+  .page-head .meta { font-size: 13px; color: var(--dim); margin-top: 8px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 28px; margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 700; color: var(--orange);
+    letter-spacing: 0.01em; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .field-row { display: grid; grid-template-columns: 110px 1fr; gap: 4px 16px; margin-bottom: 10px; font-size: 14.5px; }
+  .field-row:last-child { margin-bottom: 0; }
+  .field-row .k { color: var(--dim); }
+  .field-row .v { color: var(--ink); }
+
+  .card ul { list-style: none; }
+  .card ul li {
+    position: relative; padding-left: 18px; margin-bottom: 10px; font-size: 14.5px;
+  }
+  .card ul li:last-child { margin-bottom: 0; }
+  .card ul li::before {
+    content: "—"; position: absolute; left: 0; color: var(--dim);
+  }
+  .card ol { list-style: none; counter-reset: item; }
+  .card ol li {
+    counter-increment: item; position: relative; padding-left: 26px; margin-bottom: 12px; font-size: 14.5px;
+  }
+  .card ol li:last-child { margin-bottom: 0; }
+  .card ol li::before {
+    content: counter(item) ". "; position: absolute; left: 0; color: var(--orange); font-weight: 700;
+  }
+  .card ol li.struck { color: var(--dim); text-decoration: line-through; }
+  .card ol li.struck::before { color: var(--dim); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+  .note {
+    font-size: 13px; color: var(--dim); background: var(--paper);
+    border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 14px;
+  }
+  .note b { color: var(--ink); }
+
+  .footer-note { text-align: center; font-size: 12px; color: var(--dim); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div id="gate-box">
+    <h1>季祥 Simon｜BNI 一對一資料表</h1>
+    <p>請輸入密碼查看內容</p>
+    <input type="password" id="gate-input" placeholder="密碼" autocomplete="off">
+    <button id="gate-submit">進入</button>
+    <div id="gate-error"></div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="wrap">
+
+    <div class="page-head">
+      <div class="page-kicker">BNI GAINS 一對一資料表</div>
+      <h1>季祥 Simon</h1>
+      <div class="meta">混合健身股份有限公司（四季健身）｜資料建立於 2024/12/02，持續更新中</div>
+    </div>
+
+    <div class="card">
+      <h2>商業資訊</h2>
+      <div class="field-row"><div class="k">公司名稱</div><div class="v">混合健身股份有限公司（四季健身）</div></div>
+      <div class="field-row"><div class="k">職業</div><div class="v">四季健身創辦人，動智羽球聯合創辦人，新北市健身房同業公會理事，全真瑜伽策略顧問，健身教練</div></div>
+      <div class="field-row"><div class="k">地址</div><div class="v">新北市新店區北新路二段230-1號</div></div>
+      <div class="field-row"><div class="k">行業經驗</div><div class="v">5 年</div></div>
+      <div class="field-row"><div class="k">前一份工作</div><div class="v">軟體公司專案經理</div></div>
+    </div>
+
+    <div class="card">
+      <h2>個人資訊</h2>
+      <div class="field-row"><div class="k">家庭資訊</div><div class="v">配偶 Amy，三寶媽也是熱愛健身；老大男生金華國中七年級，老二女生八歲新生國小，老三六歲新生國小；沒有寵物</div></div>
+      <div class="field-row"><div class="k">業餘愛好</div><div class="v">運動健身，打羽球，看電影，打電動，學習（商戰 CXO，得到 app 每天聽本書）</div></div>
+      <div class="field-row"><div class="k">感興趣活動</div><div class="v">讀書會，商業交流活動，經營者交流</div></div>
+      <div class="field-row"><div class="k">居住地</div><div class="v">新北中和，居住四十年</div></div>
+    </div>
+
+    <div class="card">
+      <h2>綜合資訊</h2>
+      <div class="field-row"><div class="k">強烈的願望</div><div class="v">希望自己能成為有影響力的人，持續推廣 CrossFit 運動與健身訓練，幫助更多學員與教練</div></div>
+      <div class="field-row"><div class="k">不為人知的秘密</div><div class="v">曾經立志當空軍飛行員，後來轉入資訊軟體產業做了二十年後，因為對 CrossFit 與運動訓練的熱情全職投入</div></div>
+      <div class="field-row"><div class="k">成功的關鍵</div><div class="v">在健身運動教學的過程不斷地讓學員動到，練到，學到</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Goals｜一年內的目標</h2>
+      <ol>
+        <li><b>品牌影響力：</b>推廣四季健身 4SC CrossFit，成為北部最知名的 CrossFit 場館。</li>
+        <li><b>教育推廣：</b>開發兒童與青少年 CrossFit 課程，與台北教育大學等校園合作，推廣到學生族群。</li>
+        <li><b>運動教練聚落：</b>啟動「運動教練聚落」計劃，打造交流分享平台，吸引運動健身教練與新創團隊參與。</li>
+        <li><b>跨界合作：</b>結合過去在資訊科技產業的經驗，建立資訊科技與健身領域的合作關係。</li>
+        <li><b>健康推廣：</b>不只聚焦 CrossFit，更推廣整體健康與運動理念，養成長期運動的習慣。</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Accomplishments｜成就</h2>
+      <ul>
+        <li>資管碩士，正在攻讀第二個碩士學位，專攻運動科學，在學期間班上第一名。</li>
+        <li>轉行健身產業前，曾任資訊軟體業資深專案經理與 IT 採購。</li>
+        <li>創辦四季健身 4SC CrossFit 品牌。</li>
+        <li>深耕銀髮族與兒童青少年肌力體能訓練多年。</li>
+        <li>新店訓練場館是北部規模最大、最適合 CrossFit 訓練的場地之一。</li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h2>Interests｜興趣愛好</h2>
+        <ul>
+          <li>從事羽球運動近 30 年。</li>
+          <li>健身訓練已有 15 年。</li>
+          <li>熱衷於 CrossFit，已有四年多經驗。</li>
+          <li>是電影愛好者，特別鍾情於導演諾蘭的作品。</li>
+          <li>疫情期間經常於週末帶家人入住台灣各大飯店，特別是萬豪系列。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Skills｜技巧</h2>
+        <ul>
+          <li>專長於資訊安全。</li>
+          <li>專案管理。</li>
+          <li>健身房經營。</li>
+          <li>商業談判。</li>
+          <li>肌力體能訓練和 CrossFit 教學。</li>
+          <li>羽球教學。</li>
+          <li>三寶育兒經驗。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Networks｜人際關係</h2>
+      <ul>
+        <li>過去在 HP 和趨勢科技服務多年，有許多仍在資訊產業的同事，如微軟、AWS 和 Google。</li>
+        <li>目前在台北教育大學攻讀碩士學位，因此有與學校教授和校友的連結。</li>
+        <li>與大永和羽球隊及新竹合資的羽球場有合作，擁有相關的羽球人脈。</li>
+        <li>在新店區的裕隆集團和裕隆城有合作關係。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>業務人脈圈｜哪些職業能幫我完成人脈圈</h2>
+      <ol>
+        <li><b>運動協會：</b>官方組織，可以獲得最新的行業資訊、資源分享和培訓機會。</li>
+        <li><b>辦訓單位：</b>負責組織運動賽事或培訓課程，可能提供專業培訓或賽事合作機會（台灣體能、運動讀書會）。</li>
+        <li class="struck"><b>學校代表隊：</b>尤其是具決策權限的教練或老師，可以是合作夥伴或客戶來源。</li>
+        <li><b>運動健身網紅：</b>具有大量追踪者，合作可能增加品牌知名度。</li>
+        <li><b>媒體：</b>包括電視、電臺、報紙、網站等，透過他們進行宣傳，可以提升品牌知名度和形象。</li>
+        <li class="struck"><b>知名銀髮族：</b>在銀髮族中有影響力的人物，合作可能吸引更多銀髮族參與運動。</li>
+        <li class="struck"><b>小小專項運動員：</b>年輕的運動員或新興之星，合作可能提高品牌形象或受年輕人喜愛。</li>
+        <li><b>運動新創團隊：</b>新興的運動品牌或公司，可能是合作夥伴或客戶。</li>
+        <li><b>運動新創團隊加速器：</b>如 IAPS，可以提供資源、投資或其他支持。</li>
+        <li class="struck"><b>專業運動器材供應商：</b>提供高質量的運動器材或服務，合作可以為會員提供更好的體驗。</li>
+      </ol>
+      <div class="note">哪三種職業能讓你完成你的業務人脈圈？<br><b>1. 辦訓單位　2. 知名銀髮族，或是上市櫃公司老闆　3. 媒體</b>（賺錢、賺流量分開）</div>
+    </div>
+
+    <div class="card">
+      <h2>客戶備註</h2>
+      <ul>
+        <li><b>1–3：</b>這三組客戶在白天有較多空閒時間，且經濟狀況允許他們參加一對一的教練課程。</li>
+        <li><b>4–6：</b>這些主要是企業和政府部門，是團體課程的主要客戶。</li>
+        <li><b>7–10：</b>這部分的客戶在運動場產業，他們可能有需要場地租借、專業培訓或與運動中心進行合作的需求。</li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h2>好的引薦</h2>
+        <ul>
+          <li><b>高端客戶：</b>他們常尋找資深教練進行訓練，且每小時的費用較高。</li>
+          <li><b>企業福委會：</b>他們可能有企業包班的需求。</li>
+          <li><b>辦訓單位：</b>他們常有較高的預算用於包場。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>不好的引薦</h2>
+        <ul>
+          <li><b>無資源交換的免費體驗：</b>只追求免費而不想付費，占用資源而不產生收益。</li>
+          <li><b>只尋求低價優惠：</b>不願支付正常價，影響場館收益和品牌價值。</li>
+          <li><b>無意建立長期合作：</b>快速轉換場館，只為新鮮感或優惠，帶來不穩定收益。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-note">本頁僅供 BNI 一對一交流使用，內容持續更新。</div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var PASSWORD = "BNI016";
+  var gate = document.getElementById('gate');
+  var content = document.getElementById('content');
+  var input = document.getElementById('gate-input');
+  var submit = document.getElementById('gate-submit');
+  var error = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.style.display = 'none';
+    content.style.display = 'block';
+    try { sessionStorage.setItem('bni_unlocked', '1'); } catch (e) {}
+  }
+
+  function tryUnlock() {
+    if (input.value.trim().toUpperCase() === PASSWORD) {
+      unlock();
+    } else {
+      error.textContent = '密碼錯誤，請再試一次';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  try {
+    if (sessionStorage.getItem('bni_unlocked') === '1') { unlock(); }
+  } catch (e) {}
+
+  submit.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
+</script>
+
+</body>
+</html>

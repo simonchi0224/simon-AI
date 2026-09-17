@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /bni-simon.html
 
 # AI 助理與答案引擎爬蟲 — 明確開放，方便被引用/推薦
 User-agent: GPTBot
