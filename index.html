@@ -89,6 +89,30 @@
             "@type": "Answer",
             "text": "可以，提供繁體中文、簡體中文、English 三種語言的授課與顧問服務。"
           }
+        },
+        {
+          "@type": "Question",
+          "name": "內容會不會太入門，或是團隊程度落差太大？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "課前會先訪談了解團隊現有的 AI 使用程度，再調整案例難度。核心是讓學員用 AI 處理手上真實的工作任務，不是停在工具功能介紹，程度落差大的團隊也能一起參與。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要 IT / 資訊部門一起參加嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果內容會碰到系統串接、資料存取或工具權限設定，會建議 IT 或資訊窗口一起參與；如果只是先建立團隊對 AI 的共識與基本操作，不需要。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "工作坊結束後，還可以怎麼延伸？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多數團隊會先從一場內訓或演講建立共識，帶走第一批可用的工具與任務清單。如果需要更深入落地，可以接著談 AI 導入顧問的月顧問制，從一次性工作坊延伸成持續陪跑的導入計畫。"
+          }
         }
       ]
     }
@@ -403,6 +427,24 @@
           <li>月顧問制，持續陪跑</li>
         </ul>
         <a href="#contact" class="service-link">詢問顧問 →</a>
+      </div>
+    </div>
+    <div class="fit-check grid-mt-sm">
+      <div class="fit-check-col fit-check-yes">
+        <h4>✓ 適合你，如果</h4>
+        <ul>
+          <li>想讓團隊真的動手做，不只是聽一場演講</li>
+          <li>能配合課前訪談，讓內容針對你的產業與部門客製</li>
+          <li>想先從一個小範圍試點，再決定要不要擴大</li>
+        </ul>
+      </div>
+      <div class="fit-check-col fit-check-no">
+        <h4>✕ 大概不適合你，如果</h4>
+        <ul>
+          <li>只想買一套 AI 工具，不想花時間讓團隊學</li>
+          <li>希望一次全部導入，不留時間讓團隊消化</li>
+          <li>找不出願意配合、提供真實工作情境的部門</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -874,6 +916,18 @@
         <summary>可以用中文以外的語言授課嗎？</summary>
         <p>可以，提供繁體中文、簡體中文、English 三種語言的授課與顧問服務。</p>
       </details>
+      <details class="faq-item">
+        <summary>內容會不會太入門，或是團隊程度落差太大？</summary>
+        <p>課前會先訪談了解團隊現有的 AI 使用程度，再調整案例難度。核心是讓學員用 AI 處理手上真實的工作任務，不是停在工具功能介紹，程度落差大的團隊也能一起參與。</p>
+      </details>
+      <details class="faq-item">
+        <summary>需要 IT / 資訊部門一起參加嗎？</summary>
+        <p>如果內容會碰到系統串接、資料存取或工具權限設定，會建議 IT 或資訊窗口一起參與；如果只是先建立團隊對 AI 的共識與基本操作，不需要。詳見上方 <a href="#method">Think Like IT</a>。</p>
+      </details>
+      <details class="faq-item">
+        <summary>工作坊結束後，還可以怎麼延伸？</summary>
+        <p>多數團隊會先從一場內訓或演講建立共識，帶走第一批可用的工具與任務清單。如果需要更深入落地，可以接著談 <a href="#services">AI 導入顧問</a> 的月顧問制，從一次性工作坊延伸成持續陪跑的導入計畫。</p>
+      </details>
     </div>
   </div>
 </section>
@@ -915,7 +969,11 @@
           <option>AI 導入顧問</option>
           <option>其他合作</option>
         </select>
-        <textarea name="message" placeholder="活動說明、預計日期、人數等..." rows="4"></textarea>
+        <div class="form-row">
+          <input type="text" name="event_date" placeholder="預計日期（尚未確定可留空）">
+          <input type="text" name="headcount" placeholder="預計人數">
+        </div>
+        <textarea name="message" placeholder="活動說明、團隊背景、目前卡在哪裡..." rows="4"></textarea>
         <input type="hidden" name="_subject" value="【Simon AI 講師網站】新的諮詢詢問">
         <input type="hidden" name="_language" value="zh">
         <button type="submit" class="btn-primary">送出詢問 →</button>
