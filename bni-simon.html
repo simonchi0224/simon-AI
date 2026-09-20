@@ -107,6 +107,16 @@
 
   .footer-note { text-align: center; font-size: 12px; color: var(--dim); margin-top: 40px; }
 
+  .profile-row { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+  .profile-photo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--line); }
+
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  @media (max-width: 640px) { .proof-grid { grid-template-columns: 1fr; } }
+  .proof-item { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper); }
+  .proof-item img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+  .proof-caption { padding: 8px 10px; font-size: 12px; color: var(--dim); }
+  .proof-caption b { color: var(--ink); font-weight: 600; }
+
   .insight {
     background: #fff6f2; border: 1px solid #f3d9cb; border-radius: 12px;
     padding: 16px 18px; margin-bottom: 20px; font-size: 14px; line-height: 1.7;
@@ -132,20 +142,25 @@
 
     <div class="page-head">
       <div class="page-kicker">BNI GAINS 一對一資料表</div>
-      <h1>季祥 Simon</h1>
-      <div class="meta">混合健身股份有限公司（四季健身）｜資料建立於 2024/12/02，2026/09/17 依 simon-chi.com、4sc.simon-chi.com 最新資料更新</div>
+      <div class="profile-row">
+        <img class="profile-photo" src="images/simon-portrait-about.jpg" alt="季祥 Simon">
+        <div>
+          <h1>季祥 Simon</h1>
+          <div class="meta">混合健身股份有限公司（四季健身）｜資料建立於 2024/12/02，2026/09/17 依 simon-chi.com、4sc.simon-chi.com 最新資料更新</div>
+        </div>
+      </div>
     </div>
 
     <div class="insight">
       <div class="tag">定位洞察</div>
-      在健身教練這個身分之前，我在科技產業做了近 17 年系統架構與專案管理。多數健身教練懂訓練、不懂系統；我剛好兩邊都做過——這讓我在跟企業窗口談合作（ESG、員工福委會、團體訓練）時，聽得懂對方的採購邏輯和決策流程，也知道怎麼把課程做成可複製、能規模化的產品，而不只是賣時數。這是我在 BNI 裡最值得被引薦、也最容易被誤認的地方：外表是健身房老闆，骨子裡在跑專案管理的邏輯。
+      在健身教練這個身分之前，我在科技產業做了近 17 年系統架構與專案管理。多數健身教練懂訓練、不懂系統；我剛好兩邊都做過——這讓我在跟企業窗口談合作（ESG、員工福委會、團體訓練）時，聽得懂對方的採購邏輯和決策流程，也知道怎麼把課程做成可複製、能規模化的產品，而不只是賣時數。這套系統思維後來也長成一個實際產品：FitBiz，一套健身房營運系統，把我自己開四季健身踩過的坑，寫成同業能直接拿去用的工具。這是我在 BNI 裡最值得被引薦、也最容易被誤認的地方：外表是健身房老闆，骨子裡在跑專案管理的邏輯。
     </div>
 
     <div class="card">
       <h2>商業資訊</h2>
       <div class="field-row"><div class="k">公司名稱</div><div class="v">混合健身股份有限公司（四季健身）</div></div>
       <div class="field-row"><div class="k">職業</div><div class="v">四季健身創辦人，AI 實戰顧問，動智羽球聯合創辦人，新北市健身房同業公會理事，全真瑜伽策略顧問，健身教練</div></div>
-      <div class="field-row"><div class="k">地址</div><div class="v">新店旗艦館：新北市新店區北新路二段230-1號；另設永和館</div></div>
+      <div class="field-row"><div class="k">地址</div><div class="v">新店旗艦館－新北市新店區北新路二段230-1號<br>永和館－詳細地址請洽詢</div></div>
       <div class="field-row"><div class="k">行業經驗</div><div class="v">5 年以上（CrossFit 官方認可年資）</div></div>
       <div class="field-row"><div class="k">前一份工作</div><div class="v">軟體公司專案經理</div></div>
     </div>
@@ -178,14 +193,29 @@
 
     <div class="card">
       <h2>Accomplishments｜成就</h2>
+      <div class="card-lead">兩條線都在跑：科技產業的資歷還沒斷，同時把四季健身做成賽事等級的品牌。</div>
       <ul>
         <li>文化大學資訊管理碩士，目前在國立台北教育大學攻讀第二個碩士學位，專攻運動科學，在學期間班上第一名。</li>
         <li>科技產業資歷近 17 年：HP 系統工程師（2006–2009）→ 趨勢科技全球資訊中心系統架構專案經理，含 13 年資安顧問經歷（2009–2019）→ 外商科技公司資深 AI 應用專案經理（2019–2023）。</li>
         <li>持有 PMP、PMI-ACP、AWS、Google Cloud、Microsoft Azure、ISO 27001 共 6 項專業認證。</li>
         <li>創辦四季健身 4SC CrossFit 品牌，深耕銀髮族與兒童青少年肌力體能訓練多年，現有新店旗艦館與永和館 2 個場館。</li>
         <li>台灣第一個官方 CrossFit 授權賽事舉辦者：主辦 2025 AROAK DREAM CUP（台北世貿一館）、2024 凜冬精英（台灣首場授權賽）、六角槓大師賽等賽事。</li>
-        <li>同時是 AI 實戰顧問，累積 40+ 場企業與公部門教育訓練／導入顧問合作，另有 9 件自有 SaaS／平台作品。</li>
+        <li>同時是 AI 實戰顧問，累積 40+ 場企業與公部門教育訓練／導入顧問合作，並自行開發 9 件 SaaS／平台作品，其中健身房營運系統 FitBiz、賽事計分平台 WOD Index、4SC 功能性動作篩檢平台都是把健身現場的問題寫成軟體。</li>
       </ul>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <img src="images/portfolio/fitbiz.jpg" alt="FitBiz 健身房營運系統">
+          <div class="proof-caption"><b>FitBiz</b>｜健身房營運系統</div>
+        </div>
+        <div class="proof-item">
+          <img src="images/portfolio/wodindex.jpg" alt="WOD Index 賽事計分平台">
+          <div class="proof-caption"><b>WOD Index</b>｜賽事計分平台</div>
+        </div>
+        <div class="proof-item">
+          <img src="images/portfolio/4sc-fms.jpg" alt="4SC 功能性動作篩檢平台">
+          <div class="proof-caption"><b>4SC FMS</b>｜功能性動作篩檢平台</div>
+        </div>
+      </div>
     </div>
 
     <div class="two-col">
@@ -222,7 +252,8 @@
         <li>目前在台北教育大學攻讀碩士學位，因此有與學校教授和校友的連結。</li>
         <li>與大永和羽球隊及新竹合資的羽球場有合作，擁有相關的羽球人脈。</li>
         <li>在新店區的裕隆集團和裕隆城有合作關係。</li>
-        <li>主辦國際規格 CrossFit 授權賽事，與贊助商、場地方（如台北世貿）、裁判系統有合作網絡。Instagram：@4sc.simon／@4sc.crossfit。</li>
+        <li>主辦國際規格 CrossFit 授權賽事，與贊助商、場地方（如台北世貿）、裁判系統建立起合作網絡。</li>
+        <li>四季健身官方 Instagram：@4sc.simon／@4sc.crossfit。</li>
       </ul>
     </div>
 
@@ -242,6 +273,16 @@
         <li class="struck"><b>專業運動器材供應商：</b>提供高質量的運動器材或服務，合作可以為會員提供更好的體驗。</li>
       </ol>
       <div class="note">哪三種職業能讓你完成你的業務人脈圈？<br><b>1. 辦訓單位　2. 知名銀髮族，或是上市櫃公司老闆　3. 媒體</b>（賺錢、賺流量分開）</div>
+    </div>
+
+    <div class="card">
+      <h2>2026 新增｜隨事業擴張新出現的人脈圈</h2>
+      <div class="card-lead">這份清單是 2024 年寫的，但這兩年多了兩條新業務線，人脈圈也該跟著長：</div>
+      <ol>
+        <li><b>賽事贊助商／大型場地方：</b>主辦國際規格授權賽事後，需要更多贊助資源與台北世貿等級的場地合作對象。</li>
+        <li><b>健身房／運動空間經營者：</b>FitBiz 是做給同業用的營運系統，這群人本身就是目標客戶，不只是引薦來源。</li>
+        <li><b>企業教育訓練窗口（HR／L&amp;D）：</b>AI 實戰顧問身分的主力客群，跟四季健身的企業福委會客群不同，但一樣要能對到企業窗口。</li>
+      </ol>
     </div>
 
     <div class="card">
