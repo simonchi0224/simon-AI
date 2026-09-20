@@ -285,6 +285,20 @@ button { font-family: var(--sans); cursor: pointer; border: none; }
 .maturity-btn:hover { opacity: 0.85; }
 
 /* ===== MANUS BAND ===== */
+/* ===== CREDENTIAL BAND ===== */
+.cred-band { background: var(--card-white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 34px 80px; }
+.cred-band-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: flex-start; gap: 56px; flex-wrap: wrap; }
+.cred-col { min-width: 280px; }
+.cred-col-track { flex: 1; }
+.cred-label { font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.cred-track { display: flex; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.cred-item { display: inline-flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+.cred-co { font-size: 23px; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; line-height: 1.25; }
+.cred-arrow { font-size: 17px; font-weight: 700; color: var(--orange); }
+.cred-sub { font-size: 13px; color: var(--dim); line-height: 1.65; margin-top: 10px; }
+.cred-certs { display: flex; flex-wrap: wrap; gap: 8px; }
+.cred-cert { font-size: 15px; font-weight: 700; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; }
+
 .manus-band { background: var(--card-dark); padding: 56px 80px; }
 .manus-band-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
 .manus-band-text { flex: 1; min-width: 280px; }
@@ -347,6 +361,7 @@ a.contact-value:hover { color: var(--orange); }
   .hero-cards { padding: 56px 24px 0; }
   .section { padding: 72px 48px; }
   .resource-band, .maturity-band, .manus-band { padding: 56px 48px; }
+  .cred-band { padding: 30px 48px; }
   .footer { padding: 48px 48px 32px; }
 }
 @media (max-width: 1024px) {
@@ -356,6 +371,9 @@ a.contact-value:hover { color: var(--orange); }
   .hero-cards { padding: 40px 20px 0; }
   .section { padding: 64px 36px; }
   .resource-band, .maturity-band, .manus-band { padding: 48px 36px; }
+  .cred-band { padding: 28px 36px; }
+  .cred-band-inner { gap: 32px; }
+  .cred-co { font-size: 20px; }
   .footer { padding: 40px 36px 28px; }
   .topics-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-grid { grid-template-columns: 1fr; }
@@ -379,6 +397,11 @@ a.contact-value:hover { color: var(--orange); }
   .hero-card-dark, .hero-card-stats { height: auto; min-height: 260px; }
   .section { padding: 56px 24px; }
   .resource-band, .maturity-band, .manus-band { padding: 40px 24px; }
+  .cred-band { padding: 26px 24px; }
+  .cred-band-inner { gap: 26px; }
+  .cred-col { min-width: 0; width: 100%; }
+  .cred-co { font-size: 18px; }
+  .cred-cert { font-size: 14px; padding: 7px 12px; }
   .footer { padding: 36px 24px 24px; }
   .topics-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
