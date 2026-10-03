@@ -283,9 +283,42 @@
   }
   .resource-cta a:hover { opacity: .85; }
 
+  /* Email gate */
+  .resource-gate {
+    background: #fff7f2; border: 1px solid rgba(249,115,22,0.25); border-radius: 16px;
+    padding: 36px 32px; text-align: center; margin: 32px 0 40px;
+  }
+  .gate-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .resource-gate h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; }
+  .resource-gate p { font-size: 0.9rem; color: #6b6b6b; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .gate-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+  .gate-form input {
+    flex: 1 1 220px; padding: 12px 16px; border-radius: 10px;
+    border: 1px solid #ddd; font-size: 0.92rem; font-family: inherit;
+  }
+  .gate-form input:focus { outline: none; border-color: var(--orange, #F97316); }
+  .gate-form button {
+    background: var(--orange, #F97316); color: #fff; font-weight: 700; font-size: 0.92rem;
+    padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; white-space: nowrap;
+    transition: opacity .15s;
+  }
+  .gate-form button:hover { opacity: .85; }
+  .gate-form button:disabled { opacity: .6; cursor: not-allowed; }
+  .gate-note { font-size: 0.82rem; margin-top: 12px; min-height: 1em; }
+  .gate-note.error { color: #d92d20; }
+  .gate-note.success { color: #15803d; font-weight: 700; }
+  .resource-gate.unlocked { display: none; }
+
+  .prompt-item.prompt-locked .prompt-header { cursor: pointer; }
+  .prompt-item.prompt-locked .prompt-header::after {
+    content: '🔒'; font-size: 0.85rem; margin-left: 8px; flex-shrink: 0;
+  }
+  .prompt-item.prompt-locked .prompt-body { display: none; }
+
   @media (max-width: 600px) {
     .prompt-tag { display: none; }
     .resource-cta { padding: 36px 24px; }
+    .gate-form { flex-direction: column; }
   }
 </style>
 </head>
@@ -406,6 +439,18 @@ T（威脅）：哪些外部因素可能傷害我們
 5. 如果我要搶他們的客戶，最有效的切入點是什麼<button class="copy-btn" onclick="copyPrompt('p3', this)">複製</button></div>
       <div class="prompt-tip">把競爭對手的官網「關於我們」頁面整段貼進去，分析會更準確。</div>
     </div>
+  </div>
+
+  <!-- ══ EMAIL GATE ══ -->
+  <div class="resource-gate" id="resourceGate">
+    <div class="gate-icon">🔒</div>
+    <h3>再 13 個 Prompt，留下 email 立即解鎖</h3>
+    <p>涵蓋會議溝通、業務銷售、人資管理、行銷社群、財務法務、客戶服務——留信箱後整頁直接解鎖，不用等信。</p>
+    <form id="gateForm" class="gate-form">
+      <input type="email" name="email" placeholder="你的 Email" required>
+      <button type="submit">解鎖剩下 13 個 →</button>
+    </form>
+    <p class="gate-note" id="gateNote"></p>
   </div>
 
   <!-- ══ 會議溝通 ══ -->
@@ -867,10 +912,69 @@ T（威脅）：哪些外部因素可能傷害我們
 
 <script src="main.js"></script>
 <script>
+const FR_UNLOCK_KEY = 'fr_unlocked';
+const FREE_NUMS = [1, 4, 7, 11, 14, 17, 20];
+
+function frIsUnlocked() {
+  try { return localStorage.getItem(FR_UNLOCK_KEY) === '1'; } catch (e) { return false; }
+}
+
+function frApplyLock() {
+  if (frIsUnlocked()) {
+    document.getElementById('resourceGate').classList.add('unlocked');
+    return;
+  }
+  document.querySelectorAll('.prompt-item[data-category]').forEach(item => {
+    const n = parseInt(item.querySelector('.prompt-num').textContent, 10);
+    if (!FREE_NUMS.includes(n)) item.classList.add('prompt-locked');
+  });
+}
+frApplyLock();
+
 function togglePrompt(header) {
   const item = header.closest('.prompt-item');
+  if (item.classList.contains('prompt-locked')) {
+    document.getElementById('resourceGate').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
   item.classList.toggle('open');
 }
+
+document.getElementById('gateForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const note = document.getElementById('gateNote');
+  btn.disabled = true;
+  btn.textContent = '處理中…';
+  note.className = 'gate-note';
+  note.textContent = '';
+
+  const fd = new FormData(form);
+  fd.append('_subject', '免費資源名單 - 20個AI Prompt');
+  fd.append('來源', 'free-resource.html');
+
+  fetch('https://formspree.io/f/mvzdrnvk', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).then(res => {
+    if (res.ok) {
+      try { localStorage.setItem(FR_UNLOCK_KEY, '1'); } catch (e) {}
+      document.querySelectorAll('.prompt-item.prompt-locked').forEach(item => item.classList.remove('prompt-locked'));
+      note.className = 'gate-note success';
+      note.textContent = '解鎖完成，往下滑就能看到全部 20 個 →';
+      setTimeout(() => { document.getElementById('resourceGate').classList.add('unlocked'); }, 1500);
+    } else {
+      throw new Error('submit failed');
+    }
+  }).catch(() => {
+    btn.disabled = false;
+    btn.textContent = '解鎖剩下 13 個 →';
+    note.className = 'gate-note error';
+    note.textContent = '送出失敗，請確認網路連線後再試一次。';
+  });
+});
 
 function copyPrompt(id, btn) {
   const box = document.getElementById(id);
