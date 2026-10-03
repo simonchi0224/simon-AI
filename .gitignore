@@ -4,3 +4,6 @@ Thumbs.db
 
 # Contains real student names/emails from pre-course surveys — never publish
 講座資料/課前問卷調查/
+
+# Contains bank account / payment details — never publish
+講座資料/*勞務報酬單*.pdf
