@@ -16,6 +16,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EEH2H2N5QG');</script>
 <style>
 /* ── Page-specific styles ── */
+:root { --cyan: #22d3ee; --cyan-dark: #0891b2; }
 body { background: #f8fafc; }
 
 .maturity-hero {
@@ -135,6 +136,39 @@ body { background: #f8fafc; }
 .rec-text { flex: 1; }
 .rec-text strong { font-size: 0.9rem; font-weight: 800; color: #0f172a; display: block; margin-bottom: 4px; }
 .rec-text p { font-size: 0.82rem; color: #64748b; line-height: 1.6; }
+
+/* Gated detail block */
+.gated-block { position: relative; margin-bottom: 28px; }
+.gated-block.locked .gated-inner { filter: blur(7px); pointer-events: none; user-select: none; }
+.gated-block:not(.locked) .gate-overlay { display: none; }
+.gate-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.gate-card {
+  background: white; border: 1px solid #e2e8f0; border-radius: 16px;
+  padding: 32px; text-align: center; max-width: 420px; width: 100%;
+  box-shadow: 0 12px 40px rgba(15,23,42,0.15);
+}
+.gate-card .gate-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.gate-card h3 { font-size: 1.05rem; font-weight: 900; color: #0f172a; margin-bottom: 8px; }
+.gate-card p { font-size: 0.85rem; color: #64748b; margin-bottom: 18px; line-height: 1.6; }
+.gate-form { display: flex; flex-direction: column; gap: 10px; }
+.gate-form input {
+  padding: 12px 14px; border-radius: 10px; border: 1px solid #d0d7de;
+  font-size: 0.92rem; font-family: inherit;
+}
+.gate-form input:focus { outline: none; border-color: var(--cyan); }
+.gate-form button {
+  background: var(--cyan); color: #0a0f1e; font-weight: 800; font-size: 0.92rem;
+  padding: 12px 18px; border: none; border-radius: 10px; cursor: pointer;
+  transition: opacity .15s;
+}
+.gate-form button:hover { opacity: .85; }
+.gate-form button:disabled { opacity: .6; cursor: not-allowed; }
+.gate-note { font-size: 0.8rem; margin-top: 10px; min-height: 1em; }
+.gate-note.error { color: #d92d20; }
+.gate-note.success { color: #15803d; font-weight: 700; }
 
 /* CTA */
 .results-cta { background: linear-gradient(135deg, #0891b2, #818cf8); border-radius: 16px; padding: 40px; text-align: center; }
@@ -563,19 +597,37 @@ body { background: #f8fafc; }
       </div>
     </div>
 
-    <!-- Radar chart -->
-    <div class="radar-wrap">
-      <h3>六大維度分析</h3>
-      <canvas id="radarChart" width="360" height="320"></canvas>
-    </div>
+    <!-- Gated detail: radar + dimension scores + recommendations -->
+    <div class="gated-block locked" id="gatedResults">
+      <div class="gated-inner">
+        <!-- Radar chart -->
+        <div class="radar-wrap">
+          <h3>六大維度分析</h3>
+          <canvas id="radarChart" width="360" height="320"></canvas>
+        </div>
 
-    <!-- Dimension scores -->
-    <div class="dim-scores" id="dimScores"></div>
+        <!-- Dimension scores -->
+        <div class="dim-scores" id="dimScores"></div>
 
-    <!-- Recommendations -->
-    <div class="recs-card">
-      <h3>🎯 優先改善建議</h3>
-      <div id="recsList"></div>
+        <!-- Recommendations -->
+        <div class="recs-card">
+          <h3>🎯 優先改善建議</h3>
+          <div id="recsList"></div>
+        </div>
+      </div>
+
+      <div class="gate-overlay" id="gateOverlay">
+        <div class="gate-card">
+          <div class="gate-icon">🔓</div>
+          <h3>留下 email，解鎖六大維度完整分析</h3>
+          <p>包含雷達圖、每個維度的百分比，以及針對你最弱 3 個維度的優先改善建議。</p>
+          <form id="maturityGateForm" class="gate-form">
+            <input type="email" name="email" placeholder="你的 Email" required>
+            <button type="submit">解鎖完整分析 →</button>
+          </form>
+          <p class="gate-note" id="maturityGateNote"></p>
+        </div>
+      </div>
     </div>
 
     <!-- CTA -->
@@ -782,7 +834,60 @@ function showResults(total, dimScores, level) {
 
   // Draw radar chart
   setTimeout(() => drawRadar(dimScores), 300);
+
+  // Apply / skip the email gate on the detail block
+  lastResultSummary = { total, level: level.name };
+  const gated = document.getElementById('gatedResults');
+  if (aimIsUnlocked()) {
+    gated.classList.remove('locked');
+  } else {
+    gated.classList.add('locked');
+  }
 }
+
+const AIM_UNLOCK_KEY = 'aim_unlocked';
+let lastResultSummary = null;
+
+function aimIsUnlocked() {
+  try { return localStorage.getItem(AIM_UNLOCK_KEY) === '1'; } catch (e) { return false; }
+}
+
+document.getElementById('maturityGateForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const note = document.getElementById('maturityGateNote');
+  btn.disabled = true;
+  btn.textContent = '處理中…';
+  note.className = 'gate-note';
+  note.textContent = '';
+
+  const fd = new FormData(form);
+  fd.append('_subject', 'AI成熟度測驗名單');
+  fd.append('來源', 'ai-maturity.html');
+  if (lastResultSummary) {
+    fd.append('總分', `${lastResultSummary.total} / 80`);
+    fd.append('等級', lastResultSummary.level);
+  }
+
+  fetch('https://formspree.io/f/mvzdrnvk', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).then(res => {
+    if (res.ok) {
+      try { localStorage.setItem(AIM_UNLOCK_KEY, '1'); } catch (e) {}
+      document.getElementById('gatedResults').classList.remove('locked');
+    } else {
+      throw new Error('submit failed');
+    }
+  }).catch(() => {
+    btn.disabled = false;
+    btn.textContent = '解鎖完整分析 →';
+    note.className = 'gate-note error';
+    note.textContent = '送出失敗，請確認網路連線後再試一次。';
+  });
+});
 
 function drawRadar(dimScores) {
   const canvas = document.getElementById('radarChart');
