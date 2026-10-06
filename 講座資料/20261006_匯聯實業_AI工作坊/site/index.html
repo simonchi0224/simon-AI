@@ -8,7 +8,7 @@
   <title>匯聯實業｜AI 工作坊學員入口</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site.css?v=20261006-1">
+  <link rel="stylesheet" href="site.css?v=20261006-2">
 </head>
 <body class="portal">
   <header class="topbar"><a class="brand" href="#top"><span class="brand-mark">G</span><span>GATX <i>AI WORKSHOP</i></span></a><a class="top-link" href="#agenda">今日流程 <b>↘</b></a></header>
@@ -30,7 +30,7 @@
     <section class="portal-note"><div><span class="note-mark">!</span></div><div><h2>課堂資料請照公司規範使用</h2><p>請使用講師提供的去識別練習素材。未確認前，不要把客戶、供應商、個人或未公開業務資料貼入 AI。型號、規格、數量、單位與金額，都要回到原始文件核對。</p></div></section>
   </main>
   <footer class="portal-footer"><span>匯聯實業 · AI 工作坊</span><span>講師：季祥 Simon</span><a href="https://simon-chi.com/">Simon AI ↗</a></footer>
-  <script src="course-data.js?v=20261006-1"></script><script>
+  <script src="course-data.js?v=20261006-2"></script><script>
     document.getElementById('agenda-list').innerHTML=COURSE.agenda.map((x,i)=>`<article class="agenda-row ${x.title==='休息'?'is-break':''}"><time>${x.time}<small>— ${x.end}</small></time><div><b>${x.title}</b>${x.track?`<small>${x.track}</small>`:''}</div><span>${x.tag}</span></article>`).join('');
   </script>
 </body></html>
