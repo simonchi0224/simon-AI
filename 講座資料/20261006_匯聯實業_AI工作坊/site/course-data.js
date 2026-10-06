@@ -19,6 +19,7 @@ const COURSE = {
   ],
   slides: [
     { type:'cover', section:'AI WORKSHOP · HUILIAN', title:'匯聯實業 AI 工作坊\n工作流程實作', subtitle:'練習以 Gemini 協助郵件、文件與表格整理，並核對來源及輸出內容。', chips:['2026.10.06（二）','13:30–17:30','業務助理 × QC','季祥 Simon'] , notes:'開場：今天以工作流程為主軸，不需要先有 AI 經驗。操作以個人公司電腦為主；請提醒大家用課堂提供的去識別素材。' },
+    { type:'profile', section:'講師簡介', title:'季祥 Simon', subtitle:'企業 AI 導入顧問｜培訓講師', image:'simon-portrait.jpg', qr:'simon-intro-qr.png', profileUrl:'https://ai.autolab.cloud/teachers/simon-chi', bio:'課程以企業工作流程與實際任務為主，透過操作練習協助團隊整理工作步驟、設定資料界線並檢核結果。', facts:['曾任職 HP、趨勢科技，參與企業 IT、雲端與資安專案','曾負責外商科技公司的 AI 與健康應用專案','授課單位包括台南市文化局、民生醫院、磊山保經與東吳大學'], notes:'用約 1 分鐘自我介紹：說明工作經驗與授課方式，接著請學員依自己的職務選練習案例。QR code 連至阿峰老師提供的講師介紹頁。' },
     { type:'split', section:'課程範圍', title:'依工作情境練習 AI 輔助整理與核對。', lead:'課程涵蓋提示語、Workspace、NotebookLM、資料查證與職務案例。各項任務由講師說明與示範，再由學員依職務實作。', bullets:['業務／助理：詢價整理、產品資料、出貨文件','QC：檢驗紀錄、規格比對、異常與 SOP','輸出內容須回到原始資料核對'], notes:'先詢問現場約 10 位同仁的職務組成。不要把 QC 帶入詢價任務；說明今天會有共同練習與職務分流。' },
     { type:'questions', section:'任務界定', title:'先確認這項工作要完成什麼。', questions:['時間主要花在找資料、整理，還是反覆核對？','成果要交給誰？對方需要哪些欄位或資訊？','哪些錯誤會影響後續作業？'], notes:'讓 2–3 位同仁各用一句話分享；講師記下常見任務，後續實作時可替換案例。' },
     { type:'flow', section:'課程流程', title:'依序界定成果、準備資料並檢查輸出。', steps:[['01','定義成果','確認交付內容'],['02','整理資料','確認可用來源'],['03','操作練習','產出初稿'],['04','核對修正','回查來源與限制']], notes:'介紹每個任務的課堂節奏：講師說明約 10–15 分鐘，其餘時間由學員操作，講師走動協助。' },
@@ -55,6 +56,6 @@ const COURSE = {
     { type:'prompt', section:'Perplexity 查證範例', title:'查找公開公司資訊並列出支持來源。', prompt:'請查找「[公司名稱]」的官方網站、公司所在地及公開聯絡方式。\n\n請提供：\n- 每項資訊的原始來源連結\n- 網頁發布或更新日期（若有）\n- 來源中直接支持該資訊的內容摘要\n- 找不到或來源不一致的項目\n\n不要推測公司真偽。搜尋結果僅供人工查證，請不要使用詢價信中的連結作為唯一來源。', notes:'展示查找官方來源、點開來源頁、交叉比對日期與網址。不要把 Perplexity 結果當成交易核准依據。' },
     { type:'guard', section:'輸出檢查', title:'正式交付前核對以下項目。', bullets:['資料來源與版本是否正確','型號、數量、單位、金額是否一致','缺漏欄位是否被自行補入','結論是否超出來源資料範圍','輸出是否包含未授權資訊'], notes:'結尾前整合檢查原則。遇到不足資料時應停在「待補」或「無法確認」。' },
     { type:'questions', section:'帶回工作', title:'下次遇到這項任務，\n你會從哪一步開始？', questions:['你選的任務，第一個可交給 AI 的步驟是什麼？','結果要回到哪份文件或規範核對？','哪些資料要先遮蔽或不能上傳？','誰需要覆核，才可以對外或正式交件？'], notes:'請每人寫下一個一週內願意試用的小任務。提醒依公司 AI、資訊安全及品質規範操作。' },
-    { type:'end', section:'課程結束', title:'整理、核對與交接，\n依公司流程完成。', subtitle:'AI 輸出供工作整理參考；資料判斷、正式核准與對外交付由承辦人負責。', notes:'感謝參與。課後素材以承辦人提供的連結和公司允許使用的方式保存；提醒勿另行上傳真實機敏文件。' }
+    { type:'resources', section:'課程結束', title:'課後問卷與工具連結', subtitle:'請掃描 QR code 開啟問卷、Manus 推薦頁或講師介紹。', links:[['課後回饋問卷','請於課程結束後填寫。','https://forms.gle/h3nQtdtmj3daYN2r5','post-course-survey-qr.png'],['Manus 推薦連結','開啟 Simon 的 Manus 邀請頁。實際使用依公司資訊安全規範。','https://manus.im/invitation/WU2SLUUQLD2DJ?utm_source=invitation&utm_medium=social&utm_campaign=copy_link','manus-invitation-qr.png'],['講師介紹','阿峰老師提供的 Simon 講師介紹頁。','https://ai.autolab.cloud/teachers/simon-chi','simon-intro-qr.png']], notes:'結尾保留 2–3 分鐘掃描課後問卷。請提醒同仁先依公司資訊安全規範評估 Manus 註冊及資料使用。' }
   ]
 };
