@@ -51,10 +51,15 @@ a { color: inherit; text-decoration: none; }
 .intro-copy p,.topic-heading>p,.experience-heading>p,.flow-heading>p { color: var(--muted); font-size: 15px; line-height: 1.9; }
 .intro-copy p:last-child { margin-bottom: 0; }
 .role-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 46px; }
-.role-grid article { min-height: 190px; padding: 23px 24px; border: 1px solid var(--line); border-radius: 15px; background: white; }
-.role-no { color: var(--orange); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
-.role-grid h3 { margin: 24px 0 7px; font-size: 17px; }
-.role-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.role-grid article { position: relative; isolation: isolate; overflow: hidden; min-height: 220px; padding: 23px 24px; border: 1px solid rgba(255,255,255,.18); border-radius: 15px; color: white; background-color: #26282a; background-position: center; background-size: cover; }
+.role-grid article::before { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(90deg, rgba(14,16,18,.86), rgba(14,16,18,.46)); }
+.role-grid article:nth-child(1) { background-image: url("assets/workshop-sales.jpg"); }
+.role-grid article:nth-child(2) { background-image: url("assets/workshop-qc.jpg"); }
+.role-grid article:nth-child(3) { background-image: url("assets/workshop-knowledge.jpg"); }
+.role-no { color: #ffb18f; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.role-grid h3 { margin: 39px 0 7px; color: white; font-size: 17px; }
+.role-grid p { max-width: 290px; margin: 0; color: rgba(255,255,255,.82); font-size: 13px; line-height: 1.75; }
+.role-footnote { margin: 13px 0 0; color: var(--muted); font-size: 11px; }
 .thinking-section { position: relative; isolation: isolate; overflow: hidden; padding: 92px 36px; color: white; background: #171719; }
 .thinking-photo,.thinking-overlay { position: absolute; z-index: -1; inset: 0; }
 .thinking-photo { background: url("assets/workshop-thinking.jpg") center 50% / cover no-repeat; }
@@ -176,8 +181,9 @@ a { color: inherit; text-decoration: none; }
   .intro-grid h2,.topic-heading h2,.experience-heading h2,.flow-heading h2,.about-copy h2 { font-size: 34px; }
   .intro-copy p,.topic-heading>p,.experience-heading>p,.flow-heading>p { margin: 0; font-size: 13px; }
   .role-grid { grid-template-columns: 1fr; gap: 9px; margin-top: 28px; }
-  .role-grid article { min-height: 0; padding: 17px 18px; }
-  .role-grid h3 { margin: 13px 0 4px; font-size: 15px; }
+  .role-grid article { min-height: 165px; padding: 16px 18px; }
+  .role-grid article::before { background: linear-gradient(90deg, rgba(14,16,18,.88), rgba(14,16,18,.48)); }
+  .role-grid h3 { margin: 23px 0 4px; font-size: 15px; }
   .role-grid p { font-size: 12px; }
   .thinking-section { padding: 58px 20px; }
   .thinking-photo { background-position: 58% center; }
