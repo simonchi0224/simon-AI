@@ -1,0 +1,17 @@
+From: Evan Miller <evan.miller@example.test>
+Company: Northstar Coating Tools LLC
+Date: 2026-09-28
+Subject: Inquiry: air spray tools
+
+Hello,
+
+We are reviewing suppliers for a maintenance project. Please quote your air spray tools shown below:
+- 12 pcs of spray gun with cap
+- 8 pcs air mix spray gun
+
+Delivery to Long Beach by Nov 20 if available. Please send your best price and a product catalogue. We found your contact through an online directory.
+
+Regards,
+Evan
+
+Training note: This is fictional practice content. The .test email domain is reserved for examples. It is not a real inquiry and is not evidence of fraud or legitimacy.

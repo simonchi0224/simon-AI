@@ -14,9 +14,10 @@
 - `site/course-data.js`：投影片、講師備註、時程與課堂題目。
 - `site/site.css`：入口、投影片與控制台視覺。
 - `site/index.html`：學員入口。
-- `site/slides.html`：全螢幕投影片；方向鍵／空白鍵切頁，F 全螢幕、O 總覽、B 暫時隱藏畫面。
+- `site/slides.html`：全螢幕投影片；←／→、PageUp／PageDown、空白鍵切頁，Home／End 跳到首頁／末頁，F 全螢幕、O 總覽、B 暫時隱藏畫面。外層投影片頁也會接收翻頁按鍵。
 - `site/presenter.html`：講師備註、計時器、投影片導覽；與投影片頁透過 BroadcastChannel 同步。
-- `site/resources.html`：業務／QC 練習情境與交付前檢查表。
+- `site/resources.html`：業務／QC 練習情境、交付前檢查表與課堂虛構素材下載。
+- `outputs/20261006-huilian-ai-demo/`：三份課堂虛構活頁簿、詢價信樣本、NotebookLM Markdown 來源及使用說明。
 
 ## 課程安排
 
