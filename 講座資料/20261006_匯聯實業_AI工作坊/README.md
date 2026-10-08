@@ -1,4 +1,4 @@
-# 匯聯實業 AI 工作坊｜2026-10-06
+# GATX AI 工作坊｜2026-10-06
 
 四小時課程網站。來源檔集中在 `site/`，Simon AI 公開入口和投影片使用 `lectures/`、`w/` 的輕量 iframe wrapper。
 
@@ -17,7 +17,8 @@
 - `site/slides.html`：全螢幕投影片；←／→、PageUp／PageDown、空白鍵切頁，Home／End 跳到首頁／末頁，F 全螢幕、O 總覽、B 暫時隱藏畫面。外層投影片頁也會接收翻頁按鍵。
 - `site/presenter.html`：講師備註、計時器、投影片導覽；與投影片頁透過 BroadcastChannel 同步。
 - `site/resources.html`：業務／QC 練習情境、交付前檢查表與課堂虛構素材下載。
-- `outputs/20261006-huilian-ai-demo/`：三份課堂虛構活頁簿、詢價信樣本、NotebookLM Markdown 來源及使用說明。
+- `outputs/20261006-GATX-ai-demo/`：三份課堂虛構活頁簿、詢價信樣本、NotebookLM Markdown 來源及使用說明。
+- 上述素材的公開下載副本放在 `site/assets/demo/`，供課堂投影片與資源頁使用。
 
 ## 課程安排
 
