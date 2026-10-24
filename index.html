@@ -147,8 +147,12 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260921d">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Manrope:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261024a">
+<link rel="icon" href="images/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#13294B">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEH2H2N5QG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EEH2H2N5QG');</script>
 </head>
@@ -157,7 +161,10 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">季祥 <span>Simon</span></a>
+    <a href="#" class="nav-logo" aria-label="季祥 Simon 首頁">
+      <img class="mark" src="images/brand/simon-mark.svg" alt="" width="34" height="34">
+      <span><span class="nl-name">季祥<b>Simon</b></span><span class="nl-tag">AI 實戰顧問・企業講師</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">服務</a></li>
       <li><a href="#topics">主題</a></li>
@@ -165,7 +172,7 @@
       <li><a href="#about">關於</a></li>
       <li><a href="articles/index.html">文章</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">預約諮詢</a>
+    <a href="#contact" class="nav-cta">預約講座</a>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -182,37 +189,41 @@
 
 <!-- HERO -->
 <section class="hero-section" id="hero">
-  <div class="hero-content">
-    <h1>把 AI<span class="comma">，</span>用進真正的工作現場。</h1>
-    <p class="hero-sub">
-      我在 HP、趨勢科技做了十三年企業 IT、雲端和大數據專案，之後在外商科技公司負責 AI 與健康應用。現在到大企業、新創和中小企業講 AI，<span class="dim-text">分享的都是這些現場學到的事：工具怎麼選、流程怎麼改、風險怎麼控。</span>
-    </p>
-    <div class="hero-cta-row">
-      <a href="#contact" class="btn-primary">預約合作</a>
-      <a href="#topics" class="btn-ghost">查看主題與案例  ›</a>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-kicker">給企業主、主管與 HR 的 AI 實戰培訓</div>
+      <h1>把 AI<span class="comma">，</span><br>用進真正的<br>工作現場。</h1>
+      <p class="hero-sub">在 HP、趨勢科技做了十三年企業 IT，之後在外商負責 AI 專案。不教工具清單，帶你的團隊當天做出第一個能用的 AI 工作流程，再帶回部門落地。</p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">預約講座 →</a>
+        <a href="#topics" class="btn-ghost">看演講主題</a>
+      </div>
+      <div class="hero-proof">
+        <div><b>13<small>年</small></b>企業 IT 經驗</div>
+        <div><b>6<small>張</small></b>國際專業認證</div>
+        <div><b>4<small>步</small></b>AI 工作現場方法</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-label">AI AT WORK · FIELD LAB<span>AI 工作現場</span></div>
+      <div class="hero-arch">
+        <img src="images/simon-portrait-studio.jpg" alt="季祥 Simon 形象照" width="760" height="900" loading="eager" fetchpriority="high">
+      </div>
+      <div class="hero-quote">「讓科技更貼近人，讓服務更有溫度。」</div>
     </div>
   </div>
-
-  <!-- Hero Cards -->
-  <div class="hero-cards">
-    <div class="hero-cards-grid">
-      <!-- Dark keynote card -->
-      <div class="hero-card-dark">
-        <div class="card-quote">「讓科技更貼近人，<br>讓服務更有溫度。」</div>
-        <div class="hero-photo-wrap">
-          <img src="images/simon-portrait-hero.jpg" alt="季祥 Simon" loading="eager">
-        </div>
-      </div>
-      <!-- Career card -->
-      <div class="hero-card-career">
-        <div class="career-title">一路做過的事</div>
-        <ol class="career-list">
-          <li><span class="cy">2006</span><div><b>HP 惠普</b><span>企業 IT 系統與流程</span></div></li>
-          <li><span class="cy">2009</span><div><b>趨勢科技</b><span>全球資訊中心，雲端與大數據開發專案</span></div></li>
-          <li><span class="cy">2019</span><div><b>外商科技公司</b><span>AI 與健康應用專案</span></div></li>
-          <li><span class="cy">2023</span><div><b>四季健身創辦人</b><span>動智 AI 羽球訓練中心、FitBiz 聯合創辦人；帶 AI 進企業、新創、中小企業</span></div></li>
-        </ol>
-      </div>
+  <div class="hero-trust">
+    <div class="hero-trust-inner">
+      <strong>合作過的單位</strong>
+      <ul class="trust-logos">
+        <li><img src="images/clients/tccc.svg" alt="台中市議會" height="44" loading="lazy"></li>
+        <li class="trust-word">民生醫院</li>
+        <li><img src="images/clients/nstc.png" alt="國家運動訓練中心" height="54" loading="lazy"></li>
+        <li><img src="images/clients/leishan.png" alt="磊山保經" height="52" loading="lazy"></li>
+        <li><img src="images/clients/boyo.png" alt="博幼基金會" height="32" loading="lazy"></li>
+        <li><img src="images/clients/tainan-culture.png" alt="台南市文化局" height="30" loading="lazy"></li>
+        <li class="trust-scu"><img src="images/clients/scu-seal.png" alt="" height="40" loading="lazy"><img src="images/clients/scu-text.png" alt="東吳大學" height="20" loading="lazy" class="invert"></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -361,9 +372,11 @@
 <!-- CLIENTS -->
 <section class="section clients-section">
   <div class="section-inner">
-    <h2 class="section-h2">合作足跡</h2>
-    <p class="section-sub">這些是產業真實的應用需求。</p>
-    <div class="clients-grid grid-mt-sm">
+    <div class="clients-head">
+      <h2 class="section-h2">合作足跡</h2>
+      <p class="section-sub">這些是產業真實的應用需求。</p>
+    </div>
+    <div class="clients-grid">
       <div class="client-card">
         <div class="client-ind">中小企業主</div>
         <div class="client-orgs"><span>鞋墊品牌</span><span>東南亞食品進口</span><span>南洋料理連鎖</span><span>行李箱電商</span><span>整脊工作室</span><span>線上課程平台</span></div>
