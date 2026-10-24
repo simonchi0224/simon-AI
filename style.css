@@ -394,6 +394,89 @@ a.contact-value:hover { color: var(--orange); }
 .footer-contact a:hover { color: #fff; }
 .footer-bottom { max-width: 1320px; margin: 24px auto 0; text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); }
 
+/* ===== LOWER SECTIONS — 2026-10-24 redesign ===== */
+/* 自己做的產品：3x3 平鋪，截圖 + 細線標題，不再用浮起卡片 */
+#portfolio { background: var(--paper) !important; border-top: 1px solid var(--line); }
+.portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 48px 32px; }
+.portfolio-card { background: none; border: 0; border-radius: 0; overflow: visible; }
+.portfolio-card:hover { transform: none; }
+.pc-cover { aspect-ratio: 16/10; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--line); }
+.pc-cover::after { background: linear-gradient(180deg, rgba(11,26,51,0.45) 0%, rgba(11,26,51,0) 40%); transition: opacity 0.2s; }
+.pc-shot { transition: transform 0.4s ease; }
+.portfolio-card:hover .pc-shot { transform: scale(1.03); }
+.pc-year { font-family: var(--num); color: #fff; letter-spacing: 0.08em; }
+.pc-body { padding: 18px 0 0; }
+.pc-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.pc-sub { font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 10px; }
+.pc-body p { font-size: 14px; color: var(--dim); }
+.pc-link { margin-top: 14px; font-weight: 700; color: var(--navy); display: inline-block; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+
+/* 關於我：證照改成純文字列、經歷改細線表格、引言改成大字 */
+.about-section { background: #fff; }
+.about-photo { border-radius: 6px; }
+.certs-title { color: var(--orange); }
+.certs-grid { gap: 0; }
+.cert { background: none; border: 0; border-radius: 0; padding: 0; font-size: 13px; color: var(--navy); }
+.cert + .cert::before { content: "・"; color: var(--gold); padding: 0 4px; }
+.timeline { border-left: 0; padding-left: 0; border-top: 2px solid var(--navy); }
+.tl-item { gap: 28px; margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.tl-year { font-family: var(--num); font-size: 15px; color: var(--navy); min-width: 48px; }
+.tl-item.highlight .tl-year { color: var(--orange); }
+.tl-co { font-size: 15px; }
+.about-quote { background: none; border: 0; border-left: 3px solid var(--gold); border-radius: 0; padding: 4px 0 4px 24px; font-size: 18px; line-height: 1.7; color: var(--navy); font-weight: 500; }
+
+/* 免費資源：深藍＋白底兩條，不再兩條米色 */
+.resource-band { background: var(--navy); border: 0; }
+.resource-band h2 { color: #fff; }
+.resource-band p { color: rgba(255,255,255,0.72); }
+.resource-btn { background: var(--gold); color: var(--navy-deep); border-radius: 4px; }
+.resource-note { color: rgba(255,255,255,0.55); }
+.maturity-band { background: var(--gold-soft); border: 0; }
+.maturity-btn { background: var(--navy); color: #fff; border-radius: 4px; }
+
+/* 最新文章：去框，改 2px 深藍頂線 */
+.articles-section { border-top: 1px solid var(--line); }
+.articles-preview-grid { gap: 40px; }
+.article-preview { background: none; border: 0; border-top: 2px solid var(--navy); border-radius: 0; padding: 22px 0 0; }
+.article-preview:hover { transform: none; }
+.article-preview:hover h3 { color: var(--orange); }
+.article-preview h3 { font-size: 18px; transition: color 0.2s; }
+.ap-tag { text-transform: none; letter-spacing: 0.02em; }
+.ap-link { font-weight: 700; color: var(--navy); }
+.articles-more { text-align: left; margin-top: 40px; }
+.btn-outline { border-radius: 4px; border-color: var(--navy); color: var(--navy); font-weight: 700; }
+.btn-outline:hover { background: var(--navy); color: #fff; }
+
+/* 常見問題：左標題右清單，細線分隔 */
+.faq-section { background: #fff; border-top: 1px solid var(--line); }
+.faq-section .section-inner { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: start; }
+.faq-head { position: sticky; top: 96px; }
+.faq-head .section-sub { font-size: 16px; }
+.faq-list { gap: 0; border-top: 2px solid var(--navy); }
+.faq-item { background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 22px 0; }
+.faq-item summary { font-size: 16px; }
+.faq-item summary::after { color: var(--gold); font-size: 24px; }
+.faq-item[open] summary { color: var(--navy); }
+.faq-item p { font-size: 15px; max-width: 680px; }
+.faq-item p a { color: var(--navy); border-bottom: 1px solid var(--gold); }
+
+/* 聯絡：深藍底 */
+.contact-section { background: var(--navy-deep); color: #fff; }
+.contact-section .section-h2 { color: #fff; }
+.contact-section .section-sub { color: rgba(255,255,255,0.7); }
+.contact-label { color: var(--gold); }
+.contact-value { color: #fff; }
+a.contact-value { border-bottom: 1px solid var(--gold); align-self: flex-start; }
+a.contact-value:hover { color: var(--gold); }
+.contact-info { gap: 0; border-top: 1px solid rgba(255,255,255,0.18); }
+.contact-item { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.contact-note { background: none; border: 0; border-radius: 0; padding: 18px 0 0; color: rgba(255,255,255,0.6); }
+.contact-note strong { color: #fff; }
+.contact-form input, .contact-form select, .contact-form textarea { border-radius: 4px; border-color: transparent; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form .btn-primary { background: var(--gold); color: var(--navy-deep); border-radius: 4px; }
+.footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.08); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1280px) {
   .hero-content h1 { font-size: 54px; }
@@ -434,6 +517,9 @@ a.contact-value:hover { color: var(--orange); }
   .method-step { border-top: 2px solid var(--navy); padding-top: 26px; }
   .method-step::before { top: -8px; }
   .method-itcard-body { grid-template-columns: 1fr; gap: 14px; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .faq-section .section-inner { grid-template-columns: 1fr; gap: 32px; }
+  .faq-head { position: static; }
 }
 @media (max-width: 768px) {
   .hero-content h1 { font-size: 40px; line-height: 1.2; }
@@ -477,4 +563,8 @@ a.contact-value:hover { color: var(--orange); }
   .method-flow { grid-template-columns: 1fr; }
   .method-itcard { padding: 28px 24px; }
   .method-itcard-body h3 { font-size: 24px; }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 40px; }
+  .articles-preview-grid { gap: 32px; }
+  .tl-item { gap: 16px; }
+  .about-quote { font-size: 16px; }
 }
