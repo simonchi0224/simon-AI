@@ -147,7 +147,8 @@ button { font-family: var(--sans); cursor: pointer; border: none; }
 .trust-logos img.invert { filter: grayscale(1) invert(1); }
 .trust-logos li:hover img { filter: none; opacity: 1; }
 .trust-logos li:hover img.invert { filter: invert(1); }
-.trust-word { font-size: 19px; font-weight: 900; letter-spacing: 0.12em; color: var(--dim); }
+.trust-logos li.trust-word { flex-direction: column; justify-content: center; align-items: flex-start; gap: 2px; font-size: 19px; font-weight: 900; letter-spacing: 0.12em; color: var(--dim); line-height: 1.1; }
+.trust-word span { font-size: 11px; font-weight: 700; letter-spacing: 0.32em; }
 
 /* ===== SECTION BASE ===== */
 .section { padding: 80px 80px; }
@@ -449,7 +450,7 @@ a.contact-value:hover { color: var(--orange); }
   .trust-logos { justify-content: flex-start; gap: 14px 26px; }
   .trust-logos li { height: 40px; }
   .trust-logos img { max-height: 34px; }
-  .trust-word { font-size: 16px; }
+  .trust-logos li.trust-word { font-size: 16px; }
   .nav-inner { padding: 0 20px; }
   .section { padding: 56px 24px; }
   .resource-band, .maturity-band, .manus-band { padding: 40px 24px; }
