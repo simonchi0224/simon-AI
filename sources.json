@@ -1,0 +1,25 @@
+{
+  "subject": "https://simon-chi.com/#person",
+  "checked": "2026-10-29",
+  "note": "逐項來源索引；無存檔或雜湊驗證時不宣稱具備，來源內容也不等同成效證明。",
+  "sources": [
+    {
+      "id": "nstc-20260902",
+      "url": "https://www.nstc.org.tw/Edu/News/Detail/5b95329a-9a7b-48a1-b62e-28d17b6ae2b4?ModuelID=EduN1",
+      "publisher": "國家運動訓練中心",
+      "title": "運動教練回娘家 回流教育培養多元軟實力",
+      "checked": "2026-10-29",
+      "supports": "2026 年 9 月 2 日活動中，季祥以 AI 教練工作術為題授課，示範 Claude 輔助訓練規劃與行政工作，提醒保留教練判斷及保護敏感資料。",
+      "limits": "主辦單位活動報導；沒有提供本堂課的效率、採用率或營收成效。"
+    },
+    {
+      "id": "hualien-20260612",
+      "url": "https://ydc.org.tw/zh-hant/activity/course/form/251/",
+      "publisher": "花蓮縣政府青年發展中心",
+      "title": "行銷進化中：AI 時代的新玩法",
+      "checked": "2026-10-29",
+      "supports": "2026 年 6 月 12 日 13:30–16:30 於花蓮新創基地開課，公告講師為季祥 Simon，主題涵蓋 AI 行銷工具、內容與流程。",
+      "limits": "課程公告可佐證講師、課程安排；無法單憑公告確認實際出席人數或課後成效。"
+    }
+  ]
+}

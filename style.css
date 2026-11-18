@@ -254,17 +254,7 @@ button { font-family: var(--sans); cursor: pointer; border: none; }
 .topic-card:first-child h3 { color: #fff; font-size: 28px; }
 .topic-card:first-child p { color: rgba(255,255,255,0.85); font-size: 15px; max-width: 520px; }
 .topic-link { margin-top: auto; padding-top: 20px; font-size: 13px; color: var(--blue); font-weight: 500; }
-.topic-toggle { margin-top: auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; font-size: 13px; color: var(--blue); font-weight: 500; cursor: pointer; padding-left: 0; padding-right: 0; }
-.topic-toggle:hover { opacity: 0.7; }
-.toggle-icon { font-size: 18px; font-weight: 400; line-height: 1; transition: transform 0.2s; }
-.topic-toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }
-.topic-outline { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.topic-outline.open { max-height: 400px; }
-.topic-outline ul { margin: 12px 0 0; padding-left: 18px; }
-.topic-outline li { font-size: 13px; color: var(--dim); line-height: 1.8; }
-/* 課綱尚未公開，先隱藏展開按鈕；補上課綱後移除這行 */
-.topic-toggle, .topic-outline { display: none; }
-.outline-placeholder { font-size: 13px; color: var(--dim); margin: 12px 0 0; font-style: italic; }
+
 
 /* ===== PORTFOLIO ===== */
 .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -568,3 +558,34 @@ a.contact-value:hover { color: var(--gold); }
   .tl-item { gap: 16px; }
   .about-quote { font-size: 16px; }
 }
+
+/* 2026-11-07: course directions and inquiry accessibility */
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 200; padding: 12px 18px; background: #13294b; color: white; }
+.skip-link:focus { top: 10px; }
+:focus-visible { outline: 3px solid #a66b00; outline-offset: 4px; }
+section[id] { scroll-margin-top: 84px; }
+.hamburger { border: 0; background: transparent; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+.topic-details { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; }
+.topic-details summary { cursor: pointer; font-size: 14px; font-weight: 700; padding: 8px 0; }
+.topic-details ul { margin: 12px 0; padding-left: 20px; list-style: disc; }
+.topic-details li { font-size: 14px; line-height: 1.8; color: var(--dim); margin: 8px 0; }
+.topic-details a { text-decoration: underline; text-underline-offset: 4px; font-size: 14px; }
+.topic-details .outline-note { font-size: 12px; margin: 12px 0; }
+.contact-form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; min-width: 0; }
+.contact-form .form-help { font-size: 13px; line-height: 1.8; margin: 0; }
+.contact-form .form-help a, .service-guide-link a { text-decoration: underline; text-underline-offset: 4px; }
+.service-guide-link { margin-top: 24px; line-height: 2; }
+@media (max-width: 600px) { .contact-form input, .contact-form select, .contact-form textarea { font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* Keep multi-client names from imposing the grid's min-content width on mobile. */
+.clients-grid, .client-card, .client-orgs, .client-desc { min-width: 0; }
+.clients-section .section-inner { grid-template-columns: 300px minmax(0, 1fr); }
+.client-orgs { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.client-orgs span + span::before { content: none; }
+@media (max-width: 1024px) { .clients-section .section-inner { grid-template-columns: minmax(0, 1fr); } }
+
+.topic-card:first-child { background-image: linear-gradient(rgba(11,26,51,.72), rgba(11,26,51,.96)), url("images/20260514_台中六小時Google AI工作坊2.jpg"); }
+.topic-card:first-child .topic-details { padding: 14px; border: 1px solid rgba(255,255,255,.35); border-radius: 8px; background: #0b1a33; }
+.topic-card:first-child .topic-details li { color: #f4f0e8; }
+.topic-card:first-child .topic-details p, .topic-card:first-child .topic-details a { color: #f4f0e8; }

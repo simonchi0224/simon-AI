@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://simon-chi.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -158,19 +158,19 @@
   </url>
   <url>
     <loc>https://simon-chi.com/articles/article-25.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simon-chi.com/articles/article-26.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simon-chi.com/articles/article-27.html</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -228,4 +228,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://simon-chi.com/about.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://simon-chi.com/services.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://simon-chi.com/cases.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://simon-chi.com/ai-training-guide.html</loc><lastmod>2026-11-09</lastmod></url>
 </urlset>
