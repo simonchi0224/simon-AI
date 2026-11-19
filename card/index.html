@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>季祥 Simon Chi｜電子名片</title>
+<!-- 名片 QR 專用頁：不進導覽、不進 sitemap、不被搜尋 -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#13294B">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #13294B;
+    --cream: #F4F2EC;
+    --ink: #1B2230;
+    --slate: #4A5468;
+    --line: #DDD8CC;
+    --green: #7CC25A;
+    --line-green: #06C755;
+  }
+  html { background: var(--cream); }
+  body {
+    font-family: "Noto Sans TC", "PingFang TC", -apple-system, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    max-width: 480px; margin: 0 auto; min-height: 100vh;
+    background: var(--cream);
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .top {
+    background: var(--navy); color: #FFFFFF; text-align: center;
+    padding: calc(28px + env(safe-area-inset-top)) 24px 30px;
+    position: relative;
+  }
+  .top::after { /* 名片底部的綠藍色條 */
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+    background: linear-gradient(90deg, #3B8A33 0 50%, #0B8FCB 50% 100%);
+  }
+  .mark { width: 92px; height: 53px; display: block; margin: 0 auto; }
+  .photo {
+    width: 104px; height: 104px; border-radius: 50%; display: block; margin: 20px auto 0;
+    object-fit: cover; border: 3px solid rgba(255,255,255,0.9);
+  }
+  .name { margin-top: 14px; font-size: 32px; font-weight: 900; letter-spacing: 0.1em; padding-left: 0.1em; }
+  .en { margin-top: 4px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.34em; padding-left: 0.34em; color: #C9D3E3; }
+  .pos { margin-top: 14px; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+  .pos span { color: var(--green); margin: 0 6px; }
+
+  .btns { padding: 22px 20px 6px; display: flex; flex-direction: column; gap: 12px; }
+  .btn {
+    height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 16.5px; font-weight: 700; letter-spacing: 0.04em;
+    transition: transform 0.08s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn.line { background: var(--line-green); color: #FFFFFF; }
+  .btn.save { background: var(--navy); color: #FFFFFF; }
+  .btn.web { background: #FFFFFF; color: var(--navy); border: 1.5px solid var(--line); }
+
+  .sec { padding: 18px 24px 0; }
+  .label { font-family: Montserrat, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; color: #8A93A3; margin-bottom: 10px; }
+  .roles { display: flex; flex-direction: column; gap: 12px; }
+  .role b { display: block; font-size: 15px; font-weight: 700; color: var(--navy); }
+  .role span { font-size: 13.5px; color: var(--slate); }
+  .contacts { background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .contacts a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; }
+  .contacts a + a { border-top: 1px solid var(--line); }
+  .contacts .k { font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: #8A93A3; }
+  .contacts .v { font-family: Montserrat, "Noto Sans TC", sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .brands { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 26px 24px 0; }
+  .brands img { display: block; height: 26px; width: auto; filter: brightness(0); opacity: 0.6; }
+  .brands img.fitbiz { height: 18px; }
+  .brands img.noset { height: 12px; }
+  footer { padding: 26px 24px calc(30px + env(safe-area-inset-bottom)); text-align: center; font-size: 12px; color: #8A93A3; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <mask id="brainCut" maskUnits="userSpaceOnUse" x="280" y="30" width="160" height="300">
+      <g fill="#fff">
+        <rect x="290" y="40" width="64" height="284" rx="28"/>
+        <polygon points="330,80 360,80 392,130 398,184 385,238 352,284 330,284"/>
+        <circle cx="360" cy="80" r="36"/><circle cx="392" cy="130" r="31"/><circle cx="398" cy="184" r="28"/>
+        <circle cx="385" cy="238" r="31"/><circle cx="352" cy="284" r="38"/>
+      </g>
+      <path d="M350,52 C320,74 354,102 334,130 C316,156 354,174 336,200 C320,224 352,250 324,292" fill="none" stroke="#000" stroke-width="13" stroke-linecap="round"/>
+    </mask>
+  </defs>
+</svg>
+
+<header class="top">
+  <!-- SIMON 標誌深色底版 -->
+  <svg class="mark" viewBox="0 0 586 336" role="img" aria-label="SIMON">
+    <g fill="#6DB24F">
+      <rect x="20" y="125" width="28" height="86" rx="6"/><rect x="60" y="108" width="28" height="120" rx="6"/><rect x="100" y="88" width="28" height="160" rx="6"/>
+      <rect x="458" y="88" width="28" height="160" rx="6"/><rect x="498" y="108" width="28" height="120" rx="6"/><rect x="538" y="125" width="28" height="86" rx="6"/>
+      <rect x="158" y="12" width="56" height="312" rx="28"/>
+    </g>
+    <g fill="#FFFFFF">
+      <rect x="228" y="24" width="48" height="112" rx="24"/><rect x="228" y="150" width="48" height="174" rx="24"/>
+      <rect x="280" y="30" width="160" height="300" mask="url(#brainCut)"/>
+    </g>
+  </svg>
+  <img class="photo" src="simon.jpg" alt="季祥 Simon Chi" width="104" height="104">
+  <h1 class="name">季祥</h1>
+  <div class="en">SIMON CHI</div>
+  <div class="pos">AI 應用講師<span>×</span>混合健身教練</div>
+</header>
+
+<nav class="btns">
+  <a class="btn line" href="https://line.me/ti/p/~simon99666">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8.1-6C21.5 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+    加 LINE 好友
+  </a>
+  <a class="btn save" href="simon-chi.vcf" download="季祥_Simon_Chi.vcf">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg>
+    存入通訊錄
+  </a>
+  <a class="btn web" href="https://simon-chi.com/">講座與課程・個人網站</a>
+</nav>
+
+<section class="sec">
+  <div class="label">ROLES</div>
+  <div class="roles">
+    <div class="role"><b>四季健身 4SC CrossFit</b><span>創辦人</span></div>
+    <div class="role"><b>FitBiz・NOSET・動智羽球</b><span>聯合創辦人</span></div>
+    <div class="role"><b>新北市健身房同業公會</b><span>理事</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="label">CONTACT</div>
+  <div class="contacts">
+    <a href="tel:+886922599666"><span class="k">MOBILE</span><span class="v">0922 599 666</span></a>
+    <a href="mailto:simonchi0224@gmail.com"><span class="k">EMAIL</span><span class="v">simonchi0224@gmail.com</span></a>
+    <a href="https://line.me/ti/p/~simon99666"><span class="k">LINE</span><span class="v">simon99666</span></a>
+  </div>
+</section>
+
+<div class="brands">
+  <img src="brand/4sc-brush.png" alt="四季健身">
+  <img class="fitbiz" src="brand/fitbiz.png" alt="FitBiz">
+  <img class="noset" src="brand/noset.png" alt="NOSET">
+</div>
+
+<footer>© 季祥 Simon Chi</footer>
+</body>
+</html>
